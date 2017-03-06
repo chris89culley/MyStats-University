@@ -13,6 +13,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Iterator;
 
+import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 
 
@@ -25,6 +26,10 @@ public class HomePage extends AppCompatActivity {
         //This creates the database querier with the database, this will need to be passed to other activities that require
         // access to the database information
         DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(FirebaseDatabase.getInstance().getReference());
+
+        //This is an example of how to get all courses by course name and course type
+        databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
+
 
 
     }
