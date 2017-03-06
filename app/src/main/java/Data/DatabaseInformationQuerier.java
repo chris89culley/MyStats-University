@@ -8,6 +8,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -17,6 +19,7 @@ import java.util.Iterator;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database;
+    ArrayList<Course> courses = new ArrayList<>();
     public DatabaseInformationQuerier(DatabaseReference database){
         this.database = database;
     }
@@ -36,8 +39,9 @@ public class DatabaseInformationQuerier {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Iterator<DataSnapshot> data = dataSnapshot.getChildren().iterator();
                         while(data.hasNext()){
-
-                            Log.d("data " , data.next().toString());
+                            DataSnapshot next = data.next();
+                           // courses.add(new Course(next.hasChild("TITLE"), next.get)))
+                            Log.d("out " , next.toString());
                         }
                     }
 
