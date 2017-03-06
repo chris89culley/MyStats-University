@@ -15,12 +15,15 @@ import java.util.Map;
 
 /**
  * Created by chris on 06/03/17.
+ * This class handles all the extraction of data from the Firebase database with an aim of providing
+ * that information to the view
  */
 
 public class DatabaseInformationQuerier {
 
-    DatabaseReference database;
-    static ArrayList<CourseDetail> courseList = new ArrayList<>();
+    DatabaseReference database; // The firebase database
+    static ArrayList<CourseDetail> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
     }
@@ -30,7 +33,8 @@ public class DatabaseInformationQuerier {
     }
 
     /**
-     * This method retrieves the university name from the database using the passed university code
+     * This method retrieves the university name from the database using the passed university code - we need
+     * to update the front end from within either here or the collect courses method do the async nature of Firebase
      * @param course - The course that we are trying to get the information for
      * @param uniCode - The code relating to the university
      */
@@ -61,8 +65,8 @@ public class DatabaseInformationQuerier {
      * course object creating a courseDetail object which can then be updated with the relevant details
      * since the course location is held in a different database (at the moment) this is retrieved elsewhere
      *
-     * @param courses
-     * @param coursetype
+     * @param courses - The datasnapshot containing all the information about the courses
+     * @param coursetype - The type of courses that are being searched
      */
     private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
@@ -74,8 +78,6 @@ public class DatabaseInformationQuerier {
                     coursetype.toString());
             addUniNameToCourse(course, next.child("UKPRN").getValue().toString());
             courseList.add(course);
-
-
         }
     }
 

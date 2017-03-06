@@ -1,7 +1,7 @@
 package Data;
 
 /**
- * Created by chris on 06/03/17.
+ *  This is an enum depicting the different course types and their database reference point
  */
 
 public enum CourseTypes {

@@ -3,7 +3,8 @@ package Data;
 import android.util.Log;
 
 /**
- * Created by chris on 06/03/17.
+ * Createdby chris on 06/03/17.
+ * This class creates the basic details in an object that can passed to the view for extraction
  */
 
 public class CourseDetail {
@@ -19,9 +20,17 @@ public class CourseDetail {
 
     }
 
+    /**
+     * prints to the monitor the object details
+     */
     public void showDetails(){
         Log.d("courseDetailAdding ", name + "    " + id + "   " + universityname + "    " + courseType);
     }
+
+    /**
+     * Updates the university name of the object to the passed value
+     * @param uniname
+     */
     public void setUniversityName(String uniname){
         universityname = uniname;
 
