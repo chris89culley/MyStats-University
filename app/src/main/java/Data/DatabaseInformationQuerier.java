@@ -43,6 +43,7 @@ public class DatabaseInformationQuerier {
                     Iterator<DataSnapshot> children = dataSnapshot.getChildren().iterator();
                     DataSnapshot next = children.next();
                      course.setUniversityName(next.getKey().toString());
+                    course.showDetails();
                 }
             }
             @Override
@@ -74,7 +75,6 @@ public class DatabaseInformationQuerier {
             addUniNameToCourse(course, next.child("UKPRN").getValue().toString());
             courseList.add(course);
 
-            //This is where the method is called to update the fields on the page Dan
 
         }
     }
