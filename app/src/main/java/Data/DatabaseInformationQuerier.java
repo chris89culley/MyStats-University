@@ -19,7 +19,6 @@ import java.util.Iterator;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database;
-    ArrayList<Course> courses = new ArrayList<>();
     public DatabaseInformationQuerier(DatabaseReference database){
         this.database = database;
     }

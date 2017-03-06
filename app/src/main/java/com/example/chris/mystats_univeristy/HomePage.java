@@ -16,7 +16,7 @@ import java.util.Iterator;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 
-
+///i am a commetn
 public class HomePage extends AppCompatActivity {
 
     @Override
