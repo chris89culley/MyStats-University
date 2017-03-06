@@ -72,6 +72,9 @@ public class DatabaseInformationQuerier {
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
         while(data.hasNext()){
             DataSnapshot next = data.next();
+            Course test = next.getValue(Course.class);
+            Log.d("fingers crossed " , test.LTURL);
+            Log.d("all the data " , next.toString());
             CourseDetail course = new CourseDetail(next.child("TITLE").getValue().toString(),
                     next.child("KISCOURSEID").getValue().toString(),
                     "null",
@@ -95,6 +98,7 @@ public class DatabaseInformationQuerier {
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
                         collectCourses(dataSnapshot, coursetype);
                         }
 
