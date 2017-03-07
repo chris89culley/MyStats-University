@@ -28,9 +28,7 @@ public class DatabaseInformationQuerier {
         this.database = database;
     }
 
-    public ArrayList<CourseDetail> getCourses(){
-        return courseList;
-    }
+
 
     /**
      * This method retrieves the university name from the database using the passed university code - we need
@@ -46,8 +44,7 @@ public class DatabaseInformationQuerier {
                 if(dataSnapshot.exists()){
                     Iterator<DataSnapshot> children = dataSnapshot.getChildren().iterator();
                     DataSnapshot next = children.next();
-                     course.setUniversityName(next.getKey().toString());
-                    course.showDetails();
+
                 }
             }
             @Override
@@ -62,8 +59,7 @@ public class DatabaseInformationQuerier {
 
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
-     * course object creating a courseDetail object which can then be updated with the relevant details
-     * since the course location is held in a different database (at the moment) this is retrieved elsewhere
+     * course object creating a course object which can then be updated with the relevant details
      *
      * @param courses - The datasnapshot containing all the information about the courses
      * @param coursetype - The type of courses that are being searched

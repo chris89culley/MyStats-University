@@ -32,7 +32,6 @@ public class HomePage extends AppCompatActivity {
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
 
-        Log.d("test", databaseInfomationQuerier.getCourses().toString());
 
 
 
