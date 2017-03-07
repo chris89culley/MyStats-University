@@ -27,6 +27,10 @@ public class Charts{
 
             BarDataSet barDataSet = new BarDataSet(entries,DataTitle); //Creating a dataSet for the chart
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
+
+            XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
+            xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
+            xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
             return theData;
         }
