@@ -28,7 +28,7 @@ public class HomePage extends MenuViewActivity  {
 
  private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,8 @@ public class HomePage extends MenuViewActivity  {
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
         // access to the database information
-        DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(FirebaseDatabase.getInstance().getReference());
+
+         DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
 
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
