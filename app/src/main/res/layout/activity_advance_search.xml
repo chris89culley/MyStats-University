@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chris.mystats_univeristy.AdvanceSearch">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advanced Search Page"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="425dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginBottom="27dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Field of Study"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="188dp"
+        android:layout_above="@+id/subjectSpinner"
+        android:layout_alignLeft="@+id/subjectSpinner"
+        android:layout_alignStart="@+id/subjectSpinner"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="University"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="99dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/uniSpinner"
+        android:layout_alignLeft="@+id/uniSpinner"
+        android:layout_alignStart="@+id/uniSpinner" />
+
+    <EditText
+        android:id="@+id/postcodeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="auto generate"
+        android:inputType="textPostalAddress"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="322dp"
+        android:layout_marginBottom="54dp"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Location"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="336dp"
+        android:layout_alignBaseline="@+id/postcodeField"
+        android:layout_alignBottom="@+id/postcodeField"
+        android:layout_alignLeft="@+id/subjectSpinner"
+        android:layout_alignStart="@+id/subjectSpinner" />
+
+    <Spinner
+        android:id="@+id/uniSpinner"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="130dp"
+        android:layout_marginBottom="29dp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:id="@+id/subjectSpinner"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="220dp"
+        android:layout_marginBottom="51dp"
+        android:layout_above="@+id/postcodeField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
