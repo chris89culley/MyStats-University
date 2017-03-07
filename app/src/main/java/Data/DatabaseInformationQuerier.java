@@ -22,7 +22,7 @@ import java.util.Map;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database; // The firebase database
-    static ArrayList<CourseDetail> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+    static ArrayList<Course> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
 
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
@@ -38,7 +38,7 @@ public class DatabaseInformationQuerier {
      * @param course - The course that we are trying to get the information for
      * @param uniCode - The code relating to the university
      */
-    public void addUniNameToCourse(final CourseDetail course, String uniCode){
+    public void addUniNameToCourse(final Course course, String uniCode){
         Query query = database.child("universities").orderByChild("UKPRN").equalTo(Integer.valueOf(uniCode));
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -56,8 +56,8 @@ public class DatabaseInformationQuerier {
             }
         });
 
-        //This is where the method goes to update on the screen the course name Dan
     }
+
 
 
     /**
@@ -69,15 +69,13 @@ public class DatabaseInformationQuerier {
      * @param coursetype - The type of courses that are being searched
      */
     private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
+        courseList.clear();
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
         while(data.hasNext()){
             DataSnapshot next = data.next();
-            CourseDetail course = new CourseDetail(next.child("TITLE").getValue().toString(),
-                    next.child("KISCOURSEID").getValue().toString(),
-                    "null",
-                    coursetype.toString());
-            addUniNameToCourse(course, next.child("UKPRN").getValue().toString());
+            Course course = next.getValue(Course.class);
             courseList.add(course);
+            //This is where the method is needed to pass the course data to the view
         }
     }
 
@@ -91,13 +89,11 @@ public class DatabaseInformationQuerier {
      */
     public void getAllCoursesByCourseName(String name, final CourseTypes coursetype){
                 Query query =  database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").equalTo(name);
-                ArrayList<CourseDetail> test = new ArrayList<>();
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         collectCourses(dataSnapshot, coursetype);
                         }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
@@ -106,6 +102,25 @@ public class DatabaseInformationQuerier {
     }
 
 
+    /**
+     * This method gets a course from the database by looking up the key passed in (id)
+     * @param id - The key where the course is held in the database
+     * @param coursetype - The type of course (ie part time/full time)
+     */
+    public void getAParticularCourseByID(String id, final CourseTypes coursetype){
+        Query query =  database.child(coursetype.getDatabaseRef()).child(id);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                collectCourses(dataSnapshot, coursetype);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
 
     }
