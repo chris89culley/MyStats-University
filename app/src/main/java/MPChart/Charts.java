@@ -22,6 +22,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import java.util.Arrays;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,13 @@ import java.util.List;
 public class Charts{
 
     /*Takes in Data for the chart, the labels for each bar, a chart object from the view and title of the chart */
-        public static BarData constructBarChart(String[] tags,float[] data, BarChart chart, String DataTitle){
+        public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
+            //Convert the array of strings into an array of floats
+            float [] data = new float[values.length];
+            for (int i = 0; i < data.length; i++) {
+                data[i] = Float.parseFloat(values[i]);
+            }
+
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
@@ -53,52 +60,57 @@ public class Charts{
             BarData theData = new BarData(barDataSet);
             return theData;
         }
-    /*Overrloading for optional arguements - Chart is labelled Data by default*/
-    public static BarData constructBarChart(String[] tags, float[] data, BarChart chart){
-           return constructBarChart(tags,data, chart ,"Data");
-    }
-
-    public static PieData constructPieChart(String[] tags,float[] data, PieChart chart, String DataTitle){
-
-        ArrayList<PieEntry> yentries = new ArrayList<>();
-
-        //populates the arraylist with pie entries from the data array
-        for (int i = 0; i < data.length; i++) {
-            yentries.add(new PieEntry((data[i]), tags[i]));
+        /*Overrloading for optional arguements - Chart is labelled Data by default*/
+        public static BarData constructBarChart(String[] tags, String[] data, BarChart chart){
+               return constructBarChart(tags,data, chart ,"Data");
         }
-        //Ensures two elements in thst array so that if one stat is supplied it can be clearly identified on the pie chart
-        if (yentries.size() == 1 ) {
-            if (yentries.get(0).getValue() <= 10f) {
-                yentries.add(new PieEntry(10f - yentries.get(0).getValue(),"Other"));
-            } else{
-                yentries.add(new PieEntry(100f - yentries.get(0).getValue(),"Other"));
+
+        public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String DataTitle){
+            //Convert the array of strings into an array of floats
+            float [] data = new float[values.length];
+            for (int i = 0; i < data.length; i++) {
+                data[i] = Float.parseFloat(values[i]);
             }
+
+            ArrayList<PieEntry> yentries = new ArrayList<>();
+
+            //populates the arraylist with pie entries from the data array
+            for (int i = 0; i < data.length; i++) {
+                yentries.add(new PieEntry((data[i]), tags[i]));
+            }
+            //Ensures two elements in thst array so that if one stat is supplied it can be clearly identified on the pie chart
+            if (yentries.size() == 1 ) {
+                if (yentries.get(0).getValue() <= 10f) {
+                    yentries.add(new PieEntry(10f - yentries.get(0).getValue(),"Other"));
+                } else{
+                    yentries.add(new PieEntry(100f - yentries.get(0).getValue(),"Other"));
+                }
+            }
+
+            //piechart display settings
+            chart.setHoleRadius(25f);
+            chart.setTransparentCircleAlpha(0);
+            chart.setCenterText(DataTitle);
+            chart.setCenterTextSize(10);
+            chart.setTouchEnabled(true);
+            chart.setHighlightPerTapEnabled(true);
+
+            //Creating a dataSet for the chart
+            PieDataSet pieDataSet = new PieDataSet(yentries,DataTitle);
+            pieDataSet.setSliceSpace(2);
+            pieDataSet.setValueTextSize(12);
+            pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+            chart.setDrawEntryLabels(true);
+            PieData theData = new PieData(pieDataSet);
+            theData.setValueFormatter(new PercentFormatter());
+
+            return theData;
         }
-
-        //piechart display settings
-        chart.setHoleRadius(25f);
-        chart.setTransparentCircleAlpha(0);
-        chart.setCenterText(DataTitle);
-        chart.setCenterTextSize(10);
-        chart.setTouchEnabled(true);
-        chart.setHighlightPerTapEnabled(true);
-
-        //Creating a dataSet for the chart
-        PieDataSet pieDataSet = new PieDataSet(yentries,DataTitle);
-        pieDataSet.setSliceSpace(2);
-        pieDataSet.setValueTextSize(12);
-        pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        chart.setDrawEntryLabels(true);
-        PieData theData = new PieData(pieDataSet);
-        theData.setValueFormatter(new PercentFormatter());
-
-        return theData;
-    }
-    /*Overrloading for optional arguements - Chart is labelled Data by default*/
-    public static PieData constructPieChart(String[] tags, float[] data, PieChart chart){
-        return constructPieChart(tags,data, chart ,"Data");
-    }
+        /*Overrloading for optional arguements - Chart is labelled Data by default*/
+        public static PieData constructPieChart(String[] tags, String[] data, PieChart chart){
+            return constructPieChart(tags,data, chart ,"Data");
+        }
 
 
 

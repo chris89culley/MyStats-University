@@ -10,10 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.chris.mystats_univeristy.HomePage">
 
-    <com.github.mikephil.charting.charts.PieChart
+    <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
   android:layout_height="match_parent"
         android:layout_width="match_parent"
-        ></com.github.mikephil.charting.charts.PieChart>
+        ></com.github.mikephil.charting.charts.BarChart>
 
 </RelativeLayout>
