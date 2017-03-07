@@ -4,11 +4,14 @@ import android.util.Log;
 
 /**
  * Created by chris on 06/03/17.
+ *
+ * This class contains all the information of a course, to find details of the variables please look at
+ * Details.pdf stored in the MyStats-University folder
  */
 
 public class Course {
 
-    String KISCOURSEID,PUBUKPRN,UKPRN,ASSURL,ASSURLW,CRSEURL
+    public String KISCOURSEID,PUBUKPRN,UKPRN,ASSURL,ASSURLW,CRSEURL
     ,CRSEURLW,DISTANCE,EMPLOYURL,EMPLOYURLW,ENGFEE,
     FEETBC,FOUNDATION,HONOURS,JACS,KISMODE,
     KISTYPE,LDCS,LEVEL, LOCCHNGE,LTURL,LTURLW,
@@ -28,31 +31,6 @@ public class Course {
     INSTUQ,SBJ,TARPOP,TARAGG,TARSBJ,T001,T048,T064,T080,T096,T112,T128,T144,
     T160,T176,T192,T208,T224,T240,UCASCOURSEID,COMPOP,COMRESP_RATE,COMAGG,
     COMSBJ,ENTPOP,ENTAGG,ENTSBJ,ACCESS,ALEVEL,BACC,DEGREE,FOUNDTN,NOQUALS,OTHER,OTHERHE;
-    public  Course(){};
-    public Course(String KISCOURSEID,String PUBUKPRN, String UKPRN,String ASSURL,String ASSURLW,String CRSEURL
-            ,String CRSEURLW,String DISTANCE,String EMPLOYURL,String EMPLOYURLW,String ENGFEE,
-           String FEETBC,String FOUNDATION,String HONOURS,String JACS,String KISMODE,
-           String KISTYPE,String LDCS,String LEVEL,String  LOCCHNGE,String LTURL,String LTURLW,String
-           MEANSSUP,String NHS,String NIFEE,String NONCREDITASSESS,String NUMSTAGE,String OTHSUP,String
-           RELATEDKIS,String SANDWICH,String SCOTFEE,String SUPPORTURL,String SUPPORTURLW,String
-           TITLE,String TITLEW,String UCASPROGID,String UKPRNAPPLY,String VARFEE,String WAFEE,String WAIVER,String WELSH,String
-           YEARABROAD,String KISAIMCODE,String AVGWRITTEN,String AVGCOURSEWORK,String AVGSCHEDULED,String ASSACT,String COURSEWORK,String
-           INDEPENDENT,String LTACT,String PLACEMENT,String PRACTICAL,String SCHEDULED,String STAGE,String WRITTEN,String ACCTYPE,String
-           ACCDEPEND,String ACCDEPENDURL,String ACCDEPENDURLW,String CONTPOP,String CONTAGG,String CONTSBJ,String UCONT,String
-           UDORMANT,String UGAINED,String ULEFT,String DEGPOP,String DEGAGG,String DEGSBJ,String UFIRST,String UUPPER,String
-           ULOWER,String UOTHER,String UORDINARY,String UDISTINCTION,String UMERIT,String UPASS,String UNA,String EMPPOP,String EMPRESP_RATE,String
-           EMPAGG,String EMPSBJ,String WORKSTUDY,String STUDY,String ASSUNEMP,String BOTH,String NOAVAIL,String WORK,String JOBPOP,String JOBRESPAF8RATE,String
-           JOBAGG,String JOBSBJ,String PROFMAN,String OTHERJOB,String UNKWN,String NSSPOP,String NSSRESPAF8RATE,String NSSAGG,String NSSSBJ,String
-           Q1,String Q2,String Q3,String Q4,String Q5,String Q6,String Q7,String Q8,String Q9,String Q10,String Q11,String Q12,String Q13,String Q14,String Q15,String Q16,String Q17,String Q18,String Q19,String Q20,String Q21,String Q22,String
-           NHSPOP,String NHSRESPAF8RATE,String NHSAGG,String NHSSBJ,String NHSQ1,String NHSQ2,String NHSQ3,String NHSQ4,String NHSQ5,String NHSQ6,String
-           SALPOP,String SALRESPAF8RATE,String SALAGG,String SALSBJ,String LDLQ,String LDMED,String LDUQ,String LQ,String MED,String UQ,String INSTLQ,String INSTMED,String
-           INSTUQ,String SBJ,String TARPOP,String TARAGG,String TARSBJ,String T001,String T048,String T064,String T080,String T096,String T112,String T128,String T144,String
-           T160,String T176,String T192,String T208,String T224,String T240,String LOCID,String UCASCOURSEID,String COMPOP,String COMRESP_RATE,String COMAGG,String
-           COMSBJ,String ENTPOP,String ENTAGG,String ENTSBJ,String ACCESS,String ALEVEL,String BACC,String DEGREE,String FOUNDTN,String NOQUALS,String OTHER,String OTHERHE){
 
-        Log.d("print some stuff kis ", KISCOURSEID);
-        Log.d("print some stuff ulef", ULEFT);
-        Log.d("print some stuff foundation", FOUNDATION);
-        return;
-    }
+
 }
