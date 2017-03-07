@@ -15,7 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".About"></activity>
+        <activity android:name=".About" />
+        <activity android:name=".MenuViewActivity" />
+        <activity android:name=".Account" />
+        <activity android:name=".AdvanceSearch" />
+        <activity android:name=".SearchResults" />
+        <activity android:name=".CourseStats"></activity>
     </application>
 
 </manifest>

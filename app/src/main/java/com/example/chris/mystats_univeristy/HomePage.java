@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends MenuViewActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -54,22 +54,6 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 //        dummyMethod();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_home_page);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.closed);
-
-        mDrawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }
