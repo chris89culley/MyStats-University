@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.chris.mystats_univeristy.SearchResults">
 
+    <Button
+        android:id="@+id/simSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sim-Selecting Course"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="143dp" />
 </android.support.constraint.ConstraintLayout>
