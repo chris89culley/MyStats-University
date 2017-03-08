@@ -11,6 +11,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sim-Selecting Course"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="143dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="37dp" />
+
+    <TextView
+        android:id="@+id/test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below = "@id/simSelection" ></TextView>
+
+    <TextView
+        android:id="@+id/test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below = "@id/test1" />
+
+    <TextView
+        android:id="@+id/test3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below = "@id/test2" />
+
+    <TextView
+        android:id="@+id/test4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+
+        android:layout_below = "@id/test3" />
+        />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below = "@id/test4" />
+
 </android.support.constraint.ConstraintLayout>
