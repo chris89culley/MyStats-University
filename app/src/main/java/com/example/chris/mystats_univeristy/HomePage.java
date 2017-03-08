@@ -26,7 +26,6 @@ import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import MPChart.Charts;
 
-///i am a commetn
 public class HomePage extends AppCompatActivity {
 
     @Override
@@ -40,12 +39,16 @@ public class HomePage extends AppCompatActivity {
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
 
+
+
+
+
         //New chart object being linked  to the view
         BarChart chart = (BarChart) findViewById(R.id.chart);
 
 
         //Data to be used by the chart this is just an example
-       String[] data = new String[2];
+        String[] data = new String[2];
         data[0] = "3.0f";
         data[1] = "3.0f";
 
