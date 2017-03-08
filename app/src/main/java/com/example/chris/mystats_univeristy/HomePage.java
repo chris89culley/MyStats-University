@@ -26,7 +26,6 @@ import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import MPChart.Charts;
 
-///i am a commetn
 public class HomePage extends AppCompatActivity {
 
     @Override
@@ -39,27 +38,6 @@ public class HomePage extends AppCompatActivity {
 
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
-
-        //New chart object being linked too the view
-        PieChart chart = (PieChart) findViewById(R.id.chart);
-
-
-        //Data to be used by the chart this is just an example
-       String[] data = new String[2];
-        data[0] = "3.0f";
-        data[1] = "3.0f";
-
-
-        String[] labels = new String[2];
-        labels[0] = "One";
-        labels[1] = "Two";
-
-
-        //Using the returned values from the generic function to fill the chart
-        //chart.setData(Charts.constructBarChart(labels,data,chart));
-        chart.setData(Charts.constructPieChart(labels,data,chart));
-        chart.invalidate();
-        chart.setTouchEnabled(true);
 
 
 
