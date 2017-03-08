@@ -8,6 +8,7 @@ import android.util.Log;
 
 import java.lang.reflect.Field;
 
+/*
  * Created by chris on 06/03/17.
  *
  * This class contains all the information of a course, to find details of the variables please look at
@@ -162,7 +163,6 @@ public class Course  implements Parcelable{
 
 
 
-}
 
     @Override
     public int describeContents() {

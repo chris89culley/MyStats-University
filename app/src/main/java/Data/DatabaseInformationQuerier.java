@@ -39,26 +39,6 @@ public class DatabaseInformationQuerier {
 
 
 
-
-    /**
-     * This method is used because firebase is Async, this method extracts the information needed from the
-     * course object creating a course object which can then be updated with the relevant details
-     *
-     * @param courses - The datasnapshot containing all the information about the courses
-     * @param coursetype - The type of courses that are being searched
-     */
-    private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
-        courseList.clear();
-        Iterator<DataSnapshot> data = courses.getChildren().iterator();
-        while(data.hasNext()){
-            DataSnapshot next = data.next();
-            Course course = next.getValue(Course.class);
-            Log.d("showing url as a test" , next.toString());
-            courseList.add(course);
-            //This is where the method is needed to pass the course data to the view
-        }
-    }
-
     /**
      * Sets the intent for the activity to be moved to on a successful search
      * @param t
@@ -93,7 +73,7 @@ public class DatabaseInformationQuerier {
             courseList.add(course);
             //This is where the method is needed to pass the course data to the view
         }
-        intent.putParcelableArrayListExtra("searchResults" , getSearchResults());
+        intent.putParcelableArrayListExtra("searchResults" , courseList);
         this.current.startActivity(intent);
     }
 
@@ -175,7 +155,7 @@ public class DatabaseInformationQuerier {
      */
     public String[] getStartAndFinishSearchIndexes(String current, int importantCharacters){
         int lengthOfString = current.length();
-
+        String starthere = Character.toUpperCase(current.charAt(0)) + current.substring(1);
         //if(lengthOfString > importantCharacters){
          //   starthere = current.substring(0,importantCharacters);
        // }
