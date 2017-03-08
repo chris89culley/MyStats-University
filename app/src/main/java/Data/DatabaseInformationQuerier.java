@@ -70,7 +70,7 @@ public class DatabaseInformationQuerier {
         while(data.hasNext()){
             DataSnapshot next = data.next();
             Course course = next.getValue(Course.class);
-            Log.d("showing the course url as a test" , course.CRSEURL);
+            Log.d("showing the course url as a test" , next.toString());
             courseList.add(course);
             //This is where the method is needed to pass the course data to the view
         }
