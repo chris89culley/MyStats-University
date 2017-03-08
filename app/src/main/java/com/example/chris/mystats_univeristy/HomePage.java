@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,8 @@ import Data.DatabaseInformationQuerier;
 
 public class HomePage extends MenuViewActivity  {
 
+    private Button sim;
+
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     @Override
@@ -42,7 +46,17 @@ public class HomePage extends MenuViewActivity  {
         databaseInfomationQuerier.getAllCoursesByCourseName("Computing" , CourseTypes.FULL_TIME);
        // databaseInfomationQuerier.getACourseByCoursenameAndUniversityName("History", "Teesside University", CourseTypes.FULL_TIME);
 
+        sim = (Button) findViewById(R.id.simSearch);
 
+        sim.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //Create the intent to start another activity
+                Intent intent = new Intent(view.getContext(), SearchResults.class);
+                startActivity(intent);
+            }
+        });
 
 
 
