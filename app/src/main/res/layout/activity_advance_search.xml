@@ -20,7 +20,7 @@
         android:layout_toEndOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/searchAdv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
@@ -67,7 +67,7 @@
         tools:layout_editor_absoluteX="167dp"
         tools:layout_editor_absoluteY="322dp"
         android:layout_marginBottom="54dp"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/searchAdv"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

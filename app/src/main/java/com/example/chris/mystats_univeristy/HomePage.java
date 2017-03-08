@@ -26,8 +26,7 @@ import Data.DatabaseInformationQuerier;
 
 public class HomePage extends MenuViewActivity  {
 
- private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mToggle;
+
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
