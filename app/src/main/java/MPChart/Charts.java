@@ -34,8 +34,17 @@ import java.util.List;
 
 public class Charts{
 
-    /*Takes in Data for the chart, the labels for each bar, a chart object from the view and title of the chart */
-        public static BarData constructBarChart(String[] tags, String[] values, BarChart chart, String DataTitle){
+
+    /**
+     *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
+     * @param tags - an Array labels for the data provided
+     * @param values - an Array of values for each of the labelled fields
+     * @param chart - reference to the chart from the view
+     * @param DataTitle - Title of the chart
+     * @return The BarData object for the data provided to be used for bar chart construction
+     */
+        public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
+
             //Convert the array of strings into an array of floats
             float [] data = new float[values.length];
             for (int i = 0; i < data.length; i++) {
@@ -61,12 +70,27 @@ public class Charts{
             BarData theData = new BarData(barDataSet);
             return theData;
         }
-        /*Overrloading for optional arguements - Chart is labelled Data by default*/
-        public static BarData constructBarChart(String[] tags, String[] data, BarChart chart){
-               return constructBarChart(tags,data, chart ,"Data");
+    /**
+     *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
+     * @param tags - an Array labels for the data provided
+     * @param values - an Array of values for each of the labelled fields
+     * @param chart - reference to the chart from the view
+     * @return The BarData object for the data provided to be used for bar chart construction
+     */
+        public static BarData constructBarChart(String[] tags, String[] values, BarChart chart){
+               return constructBarChart(tags,values, chart ,"Data");
         }
 
-        public static PieData constructPieChart(String[] tags, String [] values, PieChart chart, String DataTitle){
+    /**
+     *  A functions which take two strings arrays and refernce to the chart and returns it as a pie data to construct a pie chart
+     * @param tags - an Array labels for the data provided
+     * @param values - an Array of values for each of the labelled fields
+     * @param chart - reference to the chart from the view
+     * @param DataTitle - Title of the chart
+     * @return The PieData object for the data provided to be used for pie chart construction
+     */
+        public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String DataTitle){
+
             //Convert the array of strings into an array of floats
             float [] data = new float[values.length];
             for (int i = 0; i < data.length; i++) {
@@ -108,9 +132,15 @@ public class Charts{
 
             return theData;
         }
-        /*Overrloading for optional arguements - Chart is labelled Data by default*/
-        public static PieData constructPieChart(String[] tags, String[] data, PieChart chart){
-            return constructPieChart(tags,data, chart ,"Data");
+    /**
+     *  Overloaded form of constructPieChart to be used when no data title parameter has been provided
+     * @param tags - an Array labels for the data provided
+     * @param values - an Array of values for each of the labelled fields
+     * @param chart - reference to the chart from the view
+     * @return The PieData object for the data provided to be used for pie chart construction
+     */
+        public static PieData constructPieChart(String[] tags, String[] values, PieChart chart){
+            return constructPieChart(tags,values, chart ,"Data");
         }
 
 

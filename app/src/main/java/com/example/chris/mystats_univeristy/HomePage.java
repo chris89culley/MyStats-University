@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Data.CourseDetail;
+import Data.Course;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 
@@ -40,7 +40,7 @@ public class HomePage extends MenuViewActivity  {
         setContentView(R.layout.activity_home_page);
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
-        // access to the database information
+
 
 
          final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
@@ -61,6 +61,7 @@ public class HomePage extends MenuViewActivity  {
 
             }
         });
+
 
 
 

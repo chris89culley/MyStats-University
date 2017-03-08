@@ -27,12 +27,36 @@ import java.util.Map;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database; // The firebase database
+
     static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
     Intent intent;
     MenuViewActivity current;
 
+
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
+    }
+
+
+
+
+    /**
+     * This method is used because firebase is Async, this method extracts the information needed from the
+     * course object creating a course object which can then be updated with the relevant details
+     *
+     * @param courses - The datasnapshot containing all the information about the courses
+     * @param coursetype - The type of courses that are being searched
+     */
+    private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
+        courseList.clear();
+        Iterator<DataSnapshot> data = courses.getChildren().iterator();
+        while(data.hasNext()){
+            DataSnapshot next = data.next();
+            Course course = next.getValue(Course.class);
+            Log.d("showing url as a test" , next.toString());
+            courseList.add(course);
+            //This is where the method is needed to pass the course data to the view
+        }
     }
 
     /**
@@ -112,6 +136,7 @@ public class DatabaseInformationQuerier {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+
             }
         });
 
@@ -150,10 +175,11 @@ public class DatabaseInformationQuerier {
      */
     public String[] getStartAndFinishSearchIndexes(String current, int importantCharacters){
         int lengthOfString = current.length();
-        String starthere = current;
+
         //if(lengthOfString > importantCharacters){
          //   starthere = current.substring(0,importantCharacters);
        // }
+
         String end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
         String [] startend = {starthere, end};
         return startend;
@@ -168,7 +194,9 @@ public class DatabaseInformationQuerier {
      */
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
+
         return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(100);
+
     }
 
     /**
@@ -184,6 +212,7 @@ public class DatabaseInformationQuerier {
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
                         collectFilteredCourses(dataSnapshot,coursetype, "NAME", universityName);
                         }
                     @Override

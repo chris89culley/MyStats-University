@@ -3,6 +3,9 @@ package com.example.chris.mystats_univeristy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.view.View;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,10 +19,13 @@ import java.util.Iterator;
 
 import Data.Course;
 
+
 public class SearchResults extends MenuViewActivity {
 
     private Button sim;
+
     private TextView one, two, three, four;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class SearchResults extends MenuViewActivity {
         setContentView(R.layout.activity_search_results);
 
         sim = (Button) findViewById(R.id.simSelection);
+
 
         //Please delete all this rubbish - I was just playing with things
         one = (TextView) findViewById(R.id.test1);
