@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Data.CourseDetail;
+import Data.Course;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 
@@ -29,7 +30,8 @@ import Data.DatabaseInformationQuerier;
 public class HomePage extends MenuViewActivity  {
 
     private Button sim;
-
+    private EditText searchedCourse;
+    private MenuViewActivity current = this;
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     @Override
@@ -38,15 +40,14 @@ public class HomePage extends MenuViewActivity  {
         setContentView(R.layout.activity_home_page);
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
-        // access to the database information
 
-         DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
 
-        //This is an example of how to get all courses by course name and course type
-        databaseInfomationQuerier.getAllCoursesByCourseName("Computing" , CourseTypes.FULL_TIME);
-       // databaseInfomationQuerier.getACourseByCoursenameAndUniversityName("History", "Teesside University", CourseTypes.FULL_TIME);
+
+         final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
+
 
         sim = (Button) findViewById(R.id.simSearch);
+        searchedCourse = (EditText) findViewById(R.id.editText);
 
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -54,9 +55,13 @@ public class HomePage extends MenuViewActivity  {
             public void onClick(View view) {
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
-                startActivity(intent);
+                databaseInfomationQuerier.setIntent(intent);
+                databaseInfomationQuerier.setCurrent(current);
+                databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
+
             }
         });
+
 
 
 
