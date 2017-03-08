@@ -40,7 +40,7 @@ public class HomePage extends AppCompatActivity {
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
 
-        //New chart object being linked too the view
+        //New chart object being linked  to the view
         BarChart chart = (BarChart) findViewById(R.id.chart);
 
 
