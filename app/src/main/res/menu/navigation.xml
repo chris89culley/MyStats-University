@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@id/activity_home_page"
+        android:title="Home"
+        android:orderInCategory="1"
+        android:onClick="homeClick"
+        />
+    <item android:id="@id/activity_home_page"
+        android:title="Advance Search"
+        android:orderInCategory="2"
+        android:onClick="advClick"
+        />
+    <item android:id="@id/activity_home_page"
+        android:title="Account"
+        android:orderInCategory="3"
+        android:onClick="accClick"
+        />
+    <item android:id="@id/about_page"
+        android:orderInCategory="4"
+        android:title="About"
+        android:onClick="aboutClick"
+        />
+
+</menu>

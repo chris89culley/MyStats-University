@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chris.mystats_univeristy.CourseStats">
+
+<android.support.design.widget.TabLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tabLayout"
+    android:background="#f94"
+    >
+</android.support.design.widget.TabLayout>
+
+        <TextView style="?android:textAppearanceMedium"
+            android:id="@+id/viewStat"
+            android:padding="16dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="course stats will allow you to swipe through multi fragments"
+            android:layout_below="@+id/tabLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="28dp" />
+
+</RelativeLayout>
+
