@@ -40,7 +40,8 @@ public class HomePage extends MenuViewActivity  {
          DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
 
         //This is an example of how to get all courses by course name and course type
-        databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
+        databaseInfomationQuerier.getAllCoursesByCourseName("Computing" , CourseTypes.FULL_TIME);
+       // databaseInfomationQuerier.getACourseByCoursenameAndUniversityName("History", "Teesside University", CourseTypes.FULL_TIME);
 
 
 
