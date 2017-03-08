@@ -41,7 +41,7 @@ public class HomePage extends AppCompatActivity {
         databaseInfomationQuerier.getAllCoursesByCourseName("Computer Science", CourseTypes.FULL_TIME);
 
         //New chart object being linked too the view
-        BarChart chart = (BarChart) findViewById(R.id.chart);
+        PieChart chart = (PieChart) findViewById(R.id.chart);
 
 
         //Data to be used by the chart this is just an example
@@ -55,16 +55,11 @@ public class HomePage extends AppCompatActivity {
         labels[1] = "Two";
 
 
-
-
         //Using the returned values from the generic function to fill the chart
-        chart.setData(Charts.constructBarChart(labels,data,chart));
-        //chart.setData(Charts.constructPieChart(labels,data,chart));
-        //chart.invalidate();
-        //Altering chart settings - not necessary
-        //chart.setTouchEnabled(true);
-        //chart.setDragEnabled(true);
-        //chart.setScaleEnabled(true);
+        //chart.setData(Charts.constructBarChart(labels,data,chart));
+        chart.setData(Charts.constructPieChart(labels,data,chart));
+        chart.invalidate();
+        chart.setTouchEnabled(true);
 
 
 
