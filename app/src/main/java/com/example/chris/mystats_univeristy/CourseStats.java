@@ -1,65 +1,27 @@
 package com.example.chris.mystats_univeristy;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-public class CourseStats extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+public class CourseStats extends AppCompatActivity  {
 
-    private TabLayout tabLay;
-    private TextView content;
+    TabLayout tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_stats);
 
-        content = (TextView) findViewById(R.id.viewStat);
-        tabLay = (TabLayout) findViewById(R.id.tabLayout);
+        ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
+        vp.setAdapter(new Adapter(getSupportFragmentManager(), this));
 
-        tabLay.addTab(
-                tabLay.newTab().setText("Study Info")
-        );
-
-        tabLay.addTab(
-                tabLay.newTab().setText("Entry Info")
-        );
-
-        tabLay.addTab(
-                tabLay.newTab().setText("Employment Stats")
-        );
-
-        tabLay.addTab(
-                tabLay.newTab().setText("Costs Stats")
-        );
-
-        tabLay.addTab(
-                tabLay.newTab().setText("Statifaction Stats")
-        );
-
-        tabLay.addTab(
-                tabLay.newTab().setText("User Ratings")
-        );
-
-
-        tabLay.addOnTabSelectedListener(this);
-
-    }
-
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        content.setText(tab.getText());
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
+        tb = (TabLayout) findViewById(R.id.tabLayout);
+        tb.setupWithViewPager(vp);
 
     }
 }
