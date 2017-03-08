@@ -6,8 +6,6 @@ import com.example.chris.mystats_univeristy.HomePage;
 import com.example.chris.mystats_univeristy.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -29,9 +27,13 @@ import java.util.List;
 
 /**
  * Created by Jack on 06/03/2017.
+ *
+ * This class handles the generic building of charts
+ *
  */
 
 public class Charts{
+
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
@@ -42,6 +44,7 @@ public class Charts{
      * @return The BarData object for the data provided to be used for bar chart construction
      */
         public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
+
             //Convert the array of strings into an array of floats
             float [] data = new float[values.length];
             for (int i = 0; i < data.length; i++) {
@@ -87,6 +90,7 @@ public class Charts{
      * @return The PieData object for the data provided to be used for pie chart construction
      */
         public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String DataTitle){
+
             //Convert the array of strings into an array of floats
             float [] data = new float[values.length];
             for (int i = 0; i < data.length; i++) {

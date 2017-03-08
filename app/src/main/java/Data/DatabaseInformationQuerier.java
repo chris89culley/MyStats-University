@@ -1,14 +1,19 @@
 package Data;
 
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 
+import com.example.chris.mystats_univeristy.MenuViewActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -22,7 +27,11 @@ import java.util.Map;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database; // The firebase database
-    static ArrayList<Course> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+
+    static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+    Intent intent;
+    MenuViewActivity current;
+
 
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
@@ -51,6 +60,44 @@ public class DatabaseInformationQuerier {
     }
 
     /**
+     * Sets the intent for the activity to be moved to on a successful search
+     * @param t
+     */
+    public void setIntent(Intent t){
+        intent = t;
+    }
+
+    /**
+     * Sets the current activity which is needed to move on from successful searches
+     * @param cu
+     */
+    public void setCurrent(MenuViewActivity cu){
+        current = cu;
+    }
+
+
+    /**
+     * This method is used because firebase is Async, this method extracts the information needed from the
+     * course object creating a course object which can then be updated with the relevant details
+     *
+     * @param courses - The datasnapshot containing all the information about the courses
+     * @param coursetype - The type of courses that are being searched
+     */
+    private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
+        courseList.clear();
+        Iterator<DataSnapshot> data = courses.getChildren().iterator();
+        while(data.hasNext()){
+            DataSnapshot next = data.next();
+            Course course = next.getValue(Course.class);
+            Log.d("showing url as a test" , next.toString());
+            courseList.add(course);
+            //This is where the method is needed to pass the course data to the view
+        }
+        intent.putParcelableArrayListExtra("searchResults" , getSearchResults());
+        this.current.startActivity(intent);
+    }
+
+    /**
      * This method gets all the courses in the database that match the passed in name and coursetype
      *
      * @param name  - The name of the course that is being searched for
@@ -59,6 +106,7 @@ public class DatabaseInformationQuerier {
      *
      */
     public void getAllCoursesByCourseName(String name, final CourseTypes coursetype){
+
                 Query query =  courseNameQuery(name, coursetype);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -87,6 +135,7 @@ public class DatabaseInformationQuerier {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
 
             }
         });
@@ -126,10 +175,11 @@ public class DatabaseInformationQuerier {
      */
     public String[] getStartAndFinishSearchIndexes(String current, int importantCharacters){
         int lengthOfString = current.length();
-        String starthere = current;
-        if(lengthOfString > importantCharacters){
-            starthere = current.substring(0,importantCharacters);
-        }
+
+        //if(lengthOfString > importantCharacters){
+         //   starthere = current.substring(0,importantCharacters);
+       // }
+
         String end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
         String [] startend = {starthere, end};
         return startend;
@@ -144,7 +194,9 @@ public class DatabaseInformationQuerier {
      */
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
-        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]);
+
+        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(100);
+
     }
 
     /**
