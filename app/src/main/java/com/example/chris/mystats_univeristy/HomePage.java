@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +30,7 @@ import Data.DatabaseInformationQuerier;
 public class HomePage extends MenuViewActivity  {
 
     private Button sim;
+    private EditText searchedCourse;
 
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -40,13 +42,14 @@ public class HomePage extends MenuViewActivity  {
         //This creates the database querier with the database, this will need to be passed to other activities that require
         // access to the database information
 
-         DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
+         final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
 
         //This is an example of how to get all courses by course name and course type
         databaseInfomationQuerier.getAllCoursesByCourseName("Computing" , CourseTypes.FULL_TIME);
        // databaseInfomationQuerier.getACourseByCoursenameAndUniversityName("History", "Teesside University", CourseTypes.FULL_TIME);
 
         sim = (Button) findViewById(R.id.simSearch);
+        searchedCourse = (EditText) findViewById(R.id.editText);
 
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -54,6 +57,11 @@ public class HomePage extends MenuViewActivity  {
             public void onClick(View view) {
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
+                databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText(), CourseTypes.FULL_TIME); //need to add an option to select the course type
+                Bundle b = new Bundle();
+                b.writeToParcel();
+                b.putParcelableArrayList("searchResults", databaseInfomationQuerier.getSearchResults());
+                intent.putExtra("search results", b);
                 startActivity(intent);
             }
         });

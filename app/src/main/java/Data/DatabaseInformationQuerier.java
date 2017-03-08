@@ -1,6 +1,7 @@
 package Data;
 
 
+import android.os.Parcelable;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +23,7 @@ import java.util.Map;
 public class DatabaseInformationQuerier {
 
     DatabaseReference database; // The firebase database
-    static ArrayList<Course> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+    static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
 
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
@@ -30,6 +31,9 @@ public class DatabaseInformationQuerier {
 
 
 
+    public ArrayList<Parcelable> getSearchResults(){
+        return courseList;
+    }
 
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
