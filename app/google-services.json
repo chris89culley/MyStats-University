@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "538642856162",
+    "firebase_url": "https://mystats-university.firebaseio.com",
+    "project_id": "mystats-university",
+    "storage_bucket": "mystats-university.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538642856162:android:0c1f03c184608030",
+        "android_client_info": {
+          "package_name": "com.example.chris.mystats_univeristy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538642856162-8o4emqjhogdi5gt4nqfjiv4mbc3u0v8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "b6cbdd8f888be12849bcf33cf97eacb6931f728a"
+          }
+        },
+        {
+          "client_id": "538642856162-lhj1p9bed144s6sct49f0qv6t8cv1jkc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "5c23c8b5b0f2789f5cc3d6ae8a8c8cdf8fbb0ac4"
+          }
+        },
+        {
+          "client_id": "538642856162-mekl4ohejip0dak39da42mvt40qufmjm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "3d109e9f0822513102f50dbbbe6386c577d3ad47"
+          }
+        },
+        {
+          "client_id": "538642856162-54mg0d17k2meg9f9u0ovk92noh7q21ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTR5qeIB3v6TgD-n58MWq9QUc7KvK2kt0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538642856162-54mg0d17k2meg9f9u0ovk92noh7q21ek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
