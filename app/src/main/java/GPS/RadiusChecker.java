@@ -1,57 +1,66 @@
 package GPS;
 
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryEventListener;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by Terence Lawson on 09/03/2017.
  */
 
-public class RadiusChecker {
+public class RadiusChecker{
     double lang;
     double lat;
     MyLocationListener loclis;
+    GeoFire geoFire;
 
-    RadiusChecker(){
+    public RadiusChecker(){
         loclis = new MyLocationListener();
         lang = loclis.getLongat();
         lat = loclis.getLat();
     }
 
-    geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
-        @Override
-        public void onKeyEntered(String key, GeoLocation location) {
-            System.out.println(String.format("Key %s entered the search area at [%f,%f]", key, location.latitude, location.longitude));
-            mDatabase.child("restaurants").child(key).addValueEventListener(new ValueEventListener() {
+
+        public void getUniAtLocation(double radious) {
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+            geoFire = new GeoFire(database.child("university_locations"));
+
+            GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(lang, lat), radious);
+
+            geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot snapshot) {
-                    Restaurant res= snapshot.getValue(Restaurant.class);
-                }
-                @Override
-                public void onCancelled(DatabaseError firebaseError) {
-                    System.out.println("The read failed: " + firebaseError.getMessage());
+                public void onKeyEntered(String keyref, GeoLocation location) {
+                //use the result to get the data we want to send to the view
+
+
+
+
                 }
 
-                // ...
+                @Override
+                public void onKeyExited(String key) {
+
+                }
+
+                @Override
+                public void onKeyMoved(String key, GeoLocation location) {
+
+                }
+
+                @Override
+                public void onGeoQueryReady() {
+
+                }
+
+                @Override
+                public void onGeoQueryError(DatabaseError error) {
+
+                }
             });
         }
-
-        @Override
-        public void onKeyExited(String key) {
-            System.out.println(String.format("Key %s is no longer in the search area", key));
-        }
-
-        @Override
-        public void onKeyMoved(String key, GeoLocation location) {
-            System.out.println(String.format("Key %s moved within the search area to [%f,%f]", key, location.latitude, location.longitude));
-        }
-
-        @Override
-        public void onGeoQueryReady() {
-            System.out.println("All initial data has been loaded and events have been fired!");
-        }
-
-        @Override
-        public void onGeoQueryError(DatabaseError error) {
-            System.err.println("There was an error with this query: " + error);
-        }
-    });
 
 }
