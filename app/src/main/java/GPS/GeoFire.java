@@ -10,7 +10,8 @@ public class GeoFire {
 
     GeoFire(DatabaseReference database){
       Final  geoFire = new GeoFire(this.database);
-
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("path/to/geofire");
+        GeoFire geoFire = new GeoFire(ref);
     }
 
 
