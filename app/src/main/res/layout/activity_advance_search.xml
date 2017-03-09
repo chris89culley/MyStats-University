@@ -14,7 +14,7 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="25dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView5"
         android:layout_toEndOf="@+id/textView5" />
@@ -39,10 +39,9 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="188dp"
-        android:layout_above="@+id/subjectSpinner"
-        android:layout_alignLeft="@+id/subjectSpinner"
-        android:layout_alignStart="@+id/subjectSpinner"
-        android:layout_marginBottom="14dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/uniSpinner"
+        android:layout_alignStart="@+id/uniSpinner" />
 
     <TextView
         android:id="@+id/textView5"
@@ -52,10 +51,10 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="99dp"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/uniSpinner"
+        android:layout_below="@+id/radioGroup"
         android:layout_alignLeft="@+id/uniSpinner"
-        android:layout_alignStart="@+id/uniSpinner" />
+        android:layout_alignStart="@+id/uniSpinner"
+        android:layout_marginTop="32dp" />
 
     <EditText
         android:id="@+id/postcodeField"
@@ -66,10 +65,10 @@
         android:inputType="textPostalAddress"
         tools:layout_editor_absoluteX="167dp"
         tools:layout_editor_absoluteY="322dp"
-        android:layout_marginBottom="54dp"
-        android:layout_above="@+id/searchAdv"
+        android:layout_below="@+id/subjectSpinner"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -90,10 +89,10 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="130dp"
-        android:layout_marginBottom="29dp"
-        android:layout_above="@+id/textView3"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp" />
 
     <Spinner
         android:id="@+id/subjectSpinner"
@@ -101,9 +100,55 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="220dp"
-        android:layout_marginBottom="51dp"
-        android:layout_above="@+id/postcodeField"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="37dp"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/ftSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Full Time" />
+
+        <RadioButton
+            android:id="@+id/ptSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Part Time" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/radiusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/spinner"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_toEndOf="@+id/searchAdv"
+        android:text="Radius:" />
 
 </RelativeLayout>
