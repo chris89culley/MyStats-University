@@ -8,6 +8,7 @@ import android.view.View;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -16,15 +17,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import Data.Course;
+import Utilities.CourseListAdapter;
 
 
 public class SearchResults extends MenuViewActivity {
 
-    private Button sim;
+    ListView listView;
 
-    private TextView one, two, three, four;
+    ArrayAdapter adapter;
 
 
     @Override
@@ -32,14 +35,8 @@ public class SearchResults extends MenuViewActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-        sim = (Button) findViewById(R.id.simSelection);
+        listView = (ListView) findViewById(R.id.listing);
 
-
-        //Please delete all this rubbish - I was just playing with things
-        one = (TextView) findViewById(R.id.test1);
-        two = (TextView) findViewById(R.id.test2);
-        three = (TextView) findViewById(R.id.test3);
-        four = (TextView) findViewById(R.id.test4);
 
         //This is array list of matches resulting from a search, you'll need to iterate them, displaying the relevant
         //bits. Because at the moment I haven't set a limit on successful results you might have to do so ; ie only displaying 10
@@ -48,14 +45,20 @@ public class SearchResults extends MenuViewActivity {
 
 
         if(!courses.isEmpty()){
-
-            one.setText(courses.get(0).TITLE);
-            two.setText(courses.get(0).NAME);
-            three.setText(courses.get(1).TITLE);
-            four.setText(courses.get(1).NAME);
+            adapter = new CourseListAdapter( this, R.layout.activity_search_results, courses);
+            listView.setAdapter(adapter);
         }
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), CourseStats.class);
+                intent.putExtra("chosenCourse", parent.getAdapter().getItemId(position));
+                startActivity(intent);
+            }
+        });
+        /**
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
@@ -64,6 +67,6 @@ public class SearchResults extends MenuViewActivity {
                 Intent intent = new Intent(view.getContext(), CourseStats.class);
                 startActivity(intent);
             }
-        });
+        });**/
     }
 }
