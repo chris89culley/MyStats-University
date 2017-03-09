@@ -69,7 +69,6 @@ public class DatabaseInformationQuerier {
         while(data.hasNext()){
             DataSnapshot next = data.next();
             Course course = next.getValue(Course.class);
-            Log.d("showing url as a test" , next.toString());
             courseList.add(course);
             //This is where the method is needed to pass the course data to the view
         }
@@ -137,8 +136,6 @@ public class DatabaseInformationQuerier {
             if(next.child(keyname).getValue().toString().startsWith(getStartAndFinishSearchIndexes(valuetobematched, 5)[0])){
                 Course course = next.getValue(Course.class);
                 courseList.add(course);
-                Log.d("course name " , course.TITLE);
-                Log.d("match found ", " we have found a match!");
             }
             //This is where the method is needed to pass the course data to the view
         }
@@ -175,7 +172,7 @@ public class DatabaseInformationQuerier {
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
 
-        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(100);
+        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(150);
 
     }
 
