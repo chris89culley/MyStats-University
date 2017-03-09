@@ -207,6 +207,43 @@ public class Course  implements Parcelable{
     }
 
     /**
+     * This method gets the course type and gives returns additional information about whether the
+     * course involves a foundation or sandwich year
+     * @return - A string with the full course type and additions
+     */
+    public String getCourseTypeText(){
+        boolean hasSomething = false;
+        String out = getDegreeType();
+        if(hasFoundationYear()){
+            out += (hasSomething) ? (" and foundation year") : " with foundation year";
+            hasSomething = true;
+        }
+
+        if(hasSandwichYear()){
+            out += (hasSomething) ? (" and sandwich year") : " with sandwich year";
+        }
+
+        if(hasPlacementYear()){
+            out += (hasSomething) ? (" and placement year") : " with placement year";
+        }
+        return out ;
+    }
+        public boolean hasSandwichYear(){
+            return  SANDWICH.equals("1");
+        }
+
+        public  boolean hasFoundationYear(){
+            return FOUNDATION.equals("1");
+        }
+
+       public boolean hasPlacementYear(){
+           return PLACEMENT.equals("1");
+       }
+        public String getDegreeType(){
+            return courseLevelCode;
+        }
+
+    /**
      * This method is called when we want to convert back from a parcel in the object
      */
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator(){
@@ -214,7 +251,7 @@ public class Course  implements Parcelable{
             return new Course(in);
         }
 
-        @Override
+       @Override
         public Object[] newArray(int size) {
             return new Object[size];
         }

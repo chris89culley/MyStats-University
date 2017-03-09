@@ -172,7 +172,7 @@ public class DatabaseInformationQuerier {
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
 
-        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(150);
+        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(300);
 
     }
 
