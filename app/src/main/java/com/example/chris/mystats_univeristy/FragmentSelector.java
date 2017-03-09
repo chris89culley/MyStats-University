@@ -25,6 +25,7 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         switch(pos) {
             case 0:
+
                 return inflater.inflate(R.layout.fragment_overview, container, false);
             case 1:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);

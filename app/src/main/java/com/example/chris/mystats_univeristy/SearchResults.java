@@ -48,6 +48,7 @@ public class SearchResults extends MenuViewActivity {
             adapter = new CourseListAdapter( this, R.layout.activity_search_results, courses);
             listView.setAdapter(adapter);
         }
+        //Else we need to show no search results found.
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,15 +59,5 @@ public class SearchResults extends MenuViewActivity {
                 startActivity(intent);
             }
         });
-        /**
-        sim.setOnClickListener(new View.OnClickListener(){
-            @Override
-            //On click function
-            public void onClick(View view) {
-                //Create the intent to start another activity
-                Intent intent = new Intent(view.getContext(), CourseStats.class);
-                startActivity(intent);
-            }
-        });**/
     }
 }

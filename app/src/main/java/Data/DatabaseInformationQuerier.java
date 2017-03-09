@@ -153,11 +153,16 @@ public class DatabaseInformationQuerier {
     public String[] getStartAndFinishSearchIndexes(String current, int importantCharacters){
         int lengthOfString = current.length();
         String starthere = Character.toUpperCase(current.charAt(0)) + current.substring(1);
+        String end = current;
         //if(lengthOfString > importantCharacters){
          //   starthere = current.substring(0,importantCharacters);
        // }
 
-        String end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
+        if(lengthOfString > 1){
+
+          end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
+        }
+
         String [] startend = {starthere, end};
         return startend;
     }
