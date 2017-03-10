@@ -1,52 +1,70 @@
 package com.example.chris.mystats_univeristy;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.StringTokenizer;
 
-public class HomePage extends AppCompatActivity {
+import Data.Course;
+import Data.CourseTypes;
+import Data.DatabaseInformationQuerier;
+
+
+
+public class HomePage extends MenuViewActivity  {
+
+    private Button sim;
+    private EditText searchedCourse;
+    private MenuViewActivity current = this;
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-// I am a dummy method to demonstrate a basic grabbing of information from the database :)
-    private void dummyMethod(){
-
-        Log.d("dummy method ", "I am a dummy method and I grab information about a course");
-        database.child("fulltimecourses").child("VV43").addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Iterator<DataSnapshot> obs = dataSnapshot.getChildren().iterator();
-                        while(obs.hasNext()){
-                            Log.d("From the datbase" , obs.next().toString());
-                        }
-                        Log.d("Dummy method ", "I am now leaving the dummy method");
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                }
-        );
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        dummyMethod();
+
+        //This creates the database querier with the database, this will need to be passed to other activities that require
+
+
+
+         final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
+
+
+        sim = (Button) findViewById(R.id.simSearch);
+        searchedCourse = (EditText) findViewById(R.id.editText);
+
+        sim.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //Create the intent to start another activity
+                Intent intent = new Intent(view.getContext(), SearchResults.class);
+                databaseInfomationQuerier.setIntent(intent);
+                databaseInfomationQuerier.setCurrent(current);
+                databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
+
+            }
+        });
+
 
 
 
     }
+
 }
