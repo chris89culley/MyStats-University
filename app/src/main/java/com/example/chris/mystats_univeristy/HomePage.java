@@ -24,7 +24,8 @@ import java.util.Iterator;
 import Data.Course;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
-
+import GPS.RadiusChecker;
+import GPS.settingUp;
 
 
 public class HomePage extends MenuViewActivity  {
@@ -41,11 +42,10 @@ public class HomePage extends MenuViewActivity  {
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
 
-
-
          final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
+        RadiusChecker.getHitsAroundLocation(100,51.0, -1, "Computer Science" , databaseInfomationQuerier, CourseTypes.FULL_TIME);
 
-
+        Log.d("ending", "3n");
         sim = (Button) findViewById(R.id.simSearch);
         searchedCourse = (EditText) findViewById(R.id.editText);
 

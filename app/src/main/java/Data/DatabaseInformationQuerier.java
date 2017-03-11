@@ -17,6 +17,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by chris on 06/03/17.
@@ -179,6 +180,42 @@ public class DatabaseInformationQuerier {
 
     }
 
+    private void collectAndCheckLocation(DataSnapshot dataSnapshot, Set<String> keys){
+        courseList.clear();
+        Iterator<DataSnapshot> courses = dataSnapshot.getChildren().iterator();
+        while(courses.hasNext()){
+            DataSnapshot course = courses.next();
+            if(keys.contains(course.child("UKPRN").getValue())){
+                courseList.add(course.getValue(Course.class));
+                Log.d("i am adding a course ", "adddddddding");
+            }else{
+                Log.d("not located close enough", "not located");
+            }
+        }
+    }
+
+    /**
+     * This querey allows the user to search for courses by name around a set of ukprn keys which relate to
+     * specific universities
+     * @param coursename - the name of the course being searched
+     * @param keys - the set of university ukprn keys
+     * @param type - the type of course being searched
+     */
+    public void searchByCourseLocation(String coursename , final Set<String> keys, CourseTypes type){
+
+        Query query = database.child(type.getDatabaseRef()).orderByChild("TITLE").equalTo(coursename);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                collectAndCheckLocation(dataSnapshot, keys);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
     /**
      * This method retrieves from the database all close match courses to the passed in course and university name
      * these are the packaged as course objects and sent to the view in the collect filtered courses method
