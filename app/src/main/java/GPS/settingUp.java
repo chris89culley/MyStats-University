@@ -28,13 +28,14 @@ public  class settingUp {
     static GeoFire geo = new GeoFire(ref);
 
 
+    /**
+     * This method uses the data currently in the database to set up the geolocation table
+     * @param dataSnapshot
+     */
     private static void collectLocations(DataSnapshot dataSnapshot){
         Iterator<DataSnapshot> data = dataSnapshot.getChildren().iterator();
-        Log.d("pushing data ", "pushing");
         while(data.hasNext()){
             DataSnapshot next = data.next();
-            Log.d("pushing data ", "pushing");
-            //geo.removeLocation(next.getKey());
             geo.setLocation(next.getKey(), new GeoLocation(Double.valueOf((String) next.child("LATITUDE").getValue()), Double.valueOf((String) next.child("LONGITUDE").getValue())));
         }
     }
@@ -48,7 +49,6 @@ public  class settingUp {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 collectLocations(dataSnapshot);
-                Log.d("iam " , "in hereeee");
             }
 
             @Override
