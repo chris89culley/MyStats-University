@@ -1,6 +1,7 @@
 package com.example.chris.mystats_univeristy;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -55,7 +56,7 @@ public class SearchResults extends MenuViewActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), CourseStats.class);
-                intent.putExtra("chosenCourse", parent.getAdapter().getItemId(position));
+                intent.putExtra("chosenCourse", (Parcelable) parent.getAdapter().getItem(position));
                 startActivity(intent);
             }
         });
