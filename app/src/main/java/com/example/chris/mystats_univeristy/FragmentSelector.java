@@ -35,7 +35,7 @@ public class FragmentSelector extends Fragment {
         switch(pos) {
             case 0:
 
-                //Obviously this is not meant to be hear, this is just demonstrating that it works
+                //Obviously this is not meant to be here, this is just demonstrating that it works
                 View view =  inflater.inflate(R.layout.fragment_overview, container, false);
                 BarChart chart = (BarChart) view.findViewById(R.id.bar1);
                 chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
