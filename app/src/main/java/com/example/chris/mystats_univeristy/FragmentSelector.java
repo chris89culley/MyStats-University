@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
@@ -34,23 +35,21 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         switch(pos) {
             case 0:
-
                 //Obviously this is not meant to be hear, this is just demonstrating that it works
-                View view =  inflater.inflate(R.layout.fragment_overview, container, false);
-                BarChart chart = (BarChart) view.findViewById(R.id.bar1);
-                chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
-                chart.animate();
-                return  view;
+                 return inflater.inflate(R.layout.fragment_overview, container, false);
             case 1:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
             case 2:
                 return inflater.inflate(R.layout.fragment_entry_info, container, false);
             case 3:
-                return inflater.inflate(R.layout.fragment_employ_stats, container, false);
+               return  inflater.inflate(R.layout.fragment_employ_stats, container, false);
             case 4:
                 return inflater.inflate(R.layout.fragment_cost_stats, container, false);
             case 5:
-                return inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                View view = inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                BarChart chart1 = (BarChart) view.findViewById(R.id.bar1);
+                chart1.setData(UniversityStatsChartMaker.getChartAvgSalarySixMonths(course,chart1));
+                return view;
             case 6:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);
             default:

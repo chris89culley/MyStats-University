@@ -45,32 +45,36 @@ public class GenericChartMaker {
      * @return The BarData object for the data provided to be used for bar chart construction
      */
         public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
+            try {
+                //Convert the array of strings into an array of floats
+                float[] data = new float[values.length];
+                for (int i = 0; i < data.length; i++) {
+                    data[i] = Float.parseFloat(values[i]);
+                }
 
-            //Convert the array of strings into an array of floats
-            float [] data = new float[values.length];
-            for (int i = 0; i < data.length; i++) {
-                data[i] = Float.parseFloat(values[i]);
+                ArrayList<BarEntry> entries = new ArrayList<>();
+                ArrayList<String> labels = new ArrayList<>();
+
+                for (int i = 0; i < data.length; i++) {
+                    entries.add(new BarEntry(i, data[i]));
+                    labels.add(tags[i]);
+                }
+
+                BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+                barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+                chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
+
+                XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
+                xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
+                xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
+                BarData theData = new BarData(barDataSet);
+
+                return theData;
+            } catch (Exception e){
+                return new BarData();
+
             }
-
-            ArrayList<BarEntry> entries = new ArrayList<>();
-            ArrayList<String> labels = new ArrayList<>();
-
-            for (int i = 0; i < data.length; i++){
-                entries.add(new BarEntry(i,data[i]));
-                labels.add(tags[i]);
-            }
-
-            BarDataSet barDataSet = new BarDataSet(entries,DataTitle); //Creating a dataSet for the chart
-            barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
-
-            XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
-            xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
-            xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
-            BarData theData = new BarData(barDataSet);
-
-            return theData;
         }
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided

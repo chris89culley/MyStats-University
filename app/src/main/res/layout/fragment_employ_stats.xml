@@ -14,5 +14,12 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="236dp" />
 
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/bar1"
+        android:layout_below="@+id/tabLayout"></com.github.mikephil.charting.charts.BarChart>
+
+
 
 </RelativeLayout>
