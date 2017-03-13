@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import Data.Course;
+
 /**
  * Created by c077ing on 08/03/2017.
  */
@@ -15,17 +17,20 @@ public class Adapter extends FragmentPagerAdapter {
             "Cost Stats","Satisfaction Stats","User Ratings/Comments"};
     Context context;
     private int pageCount = 6;
+    private Course course;
 
-    public Adapter(FragmentManager fm, Context context) {
+    public Adapter(FragmentManager fm, Context context, Course course) {
         super(fm);
         this.context = context;
+        this.course = course;
     }
 
     @Override
     public Fragment getItem(int position) {
-        FragmentSelector frag = new FragmentSelector(position);
+        FragmentSelector frag = new FragmentSelector(position, course);
         return frag;
     }
+
 
     @Override
     public int getCount() {
