@@ -60,10 +60,10 @@ public class HomePage extends MenuViewActivity  {
         sim = (Button) findViewById(R.id.simSearch);
         searchedCourse = (EditText) findViewById(R.id.courseNameEntered);
         searchedLocation = (EditText) findViewById(R.id.locationNameEntered);
-        Geocoder loc = new Geocoder(this);
+        final Geocoder loc = new Geocoder(this);
 
 
-        Log.d("i should be true " , loc.isPresent());
+        Log.d("i should be true " , String.valueOf(loc.isPresent()));
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
@@ -74,12 +74,12 @@ public class HomePage extends MenuViewActivity  {
                 databaseInfomationQuerier.setCurrent(current);
                 List<Address> addresses = new ArrayList<>();
                 try {
-                    addresses = loc.getFromLocationName(searchedLocation, 1);
+                    addresses = loc.getFromLocationName(searchedLocation.getText().toString(), 1);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 if(addresses.size() >0){
-                    Log.d("here we want to search for full courses");
+                    Log.d("here we want to search for full courses", " tjkslf");
                 }
                 else {
                     databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
