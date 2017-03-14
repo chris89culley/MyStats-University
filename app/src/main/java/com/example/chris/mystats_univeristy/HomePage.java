@@ -85,8 +85,6 @@ public class HomePage extends MenuViewActivity  {
         final RadioGroup courseTypeButton = (RadioGroup) findViewById(R.id.coursetype);
         final Geocoder loc = new Geocoder(this);
 
-
-        Log.d("i should be true " , String.valueOf(loc.isPresent()));
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
@@ -99,14 +97,17 @@ public class HomePage extends MenuViewActivity  {
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 databaseInfomationQuerier.setIntent(intent);
                 databaseInfomationQuerier.setCurrent(current);
-                if(!searchedLocation.getText().equals("My location")){
+
                 try {
                     List<Address> addresses = loc.getFromLocationName(searchedLocation.getText().toString(), 1);
+                    if(addresses.size() > 0){
                     longitude = addresses.get(0).getLongitude();
                     latitude = addresses.get(0).getLatitude();
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
-                }}
+                }
                 if(longitude != 0.0 && latitude != 0.0){
                     Log.d(String.valueOf(longitude) , String.valueOf(latitude));
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius, longitude
