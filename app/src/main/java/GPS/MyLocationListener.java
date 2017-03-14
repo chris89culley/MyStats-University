@@ -14,11 +14,7 @@ public class MyLocationListener implements LocationListener {
 
         @Override
         public void onLocationChanged(Location location) {
-            if(location != null)
-            {
-                lat = location.getLatitude();
-                longat = location.getLongitude();
-            }
+
         }
 
         @Override
@@ -35,6 +31,8 @@ public class MyLocationListener implements LocationListener {
         public void onProviderDisabled(String provider) {
 
         }
+
+
 
     public double getLongat() {
         return longat;
