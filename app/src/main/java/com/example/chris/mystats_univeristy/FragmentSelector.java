@@ -34,13 +34,7 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         switch(pos) {
             case 0:
-
-                //Obviously this is not meant to be here, this is just demonstrating that it works
-                View view =  inflater.inflate(R.layout.fragment_overview, container, false);
-                BarChart chart = (BarChart) view.findViewById(R.id.bar1);
-                chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
-                chart.animate();
-                return  view;
+                return  inflater.inflate(R.layout.fragment_overview, container, false);
             case 1:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
             case 2:

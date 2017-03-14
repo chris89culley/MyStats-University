@@ -45,15 +45,38 @@
             android:textSize="18sp" />
 
 
+
+
         <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/radiusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/courseNameEntered"
+            android:layout_alignRight="@+id/courseNameEntered"
+            android:text="0 km"
+            android:layout_below="@+id/locationNameEntered"
+            android:layout_weight="1" />
+
+        <SeekBar
+            android:id="@+id/radiusBar"
+            android:layout_below="@+id/locationNameEntered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/courseNameEntered"
+            android:layout_alignRight="@+id/courseNameEntered"
+            />
+
+
         <RadioGroup
             android:id="@+id/coursetype"
-            android:layout_below="@+id/locationNameEntered"
+            android:layout_below="@+id/radiusBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
@@ -71,6 +94,8 @@
                 android:text="part time courses" />
 
         </RadioGroup>
+
+
         <Button
             android:id="@+id/simSearch"
             android:layout_width="wrap_content"
@@ -78,7 +103,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="77dp"
-            android:text="Sim-Search" />
+            android:text="Search" />
 
     </RelativeLayout>
 

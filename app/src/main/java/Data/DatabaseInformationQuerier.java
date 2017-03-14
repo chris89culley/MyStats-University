@@ -32,6 +32,8 @@ public class DatabaseInformationQuerier {
     static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
     Intent intent;
     MenuViewActivity current;
+    int currentPos = 0;
+    private Iterator<DataSnapshot> coursesIterator;
 
 
     public DatabaseInformationQuerier(DatabaseReference database) {
@@ -64,15 +66,20 @@ public class DatabaseInformationQuerier {
      * @param courses - The datasnapshot containing all the information about the courses
      * @param coursetype - The type of courses that are being searched
      */
+
+
     private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
         courseList.clear();
+        int count = 0;
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
-        while(data.hasNext()){
+        while(data.hasNext() && count < 300){
             DataSnapshot next = data.next();
+            count++;
             Course course = next.getValue(Course.class);
             courseList.add(course);
             //This is where the method is needed to pass the course data to the view
         }
+        coursesIterator = data;
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         this.current.startActivity(intent);
     }
@@ -131,9 +138,11 @@ public class DatabaseInformationQuerier {
      */
     public void collectFilteredCourses(DataSnapshot datain, CourseTypes coursetype, String keyname, String valuetobematched){
         courseList.clear();
+        int count = 0;
         Iterator<DataSnapshot> data = datain.getChildren().iterator();
-        while(data.hasNext()){
+        while(data.hasNext() && count < 300){
             DataSnapshot next = data.next();
+            count++;
             if(next.child(keyname).getValue().toString().startsWith(getStartAndFinishSearchIndexes(valuetobematched, 5)[0])){
                 Course course = next.getValue(Course.class);
                 courseList.add(course);
@@ -178,17 +187,22 @@ public class DatabaseInformationQuerier {
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
 
-        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(300);
+        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(500);
 
     }
 
     private void collectAndCheckLocation(DataSnapshot dataSnapshot, Set<String> keys){
         courseList.clear();
         Iterator<DataSnapshot> courses = dataSnapshot.getChildren().iterator();
-        while(courses.hasNext()){
+        Log.d("number of close unis " , String.valueOf(keys.size()));
+        int count = 0;
+        while(courses.hasNext() && count < 300){
+            count++;
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
                 courseList.add(course.getValue(Course.class));
+            }else{
+                Log.d("not relevant" , (String) course.child("NAME").getValue());
             }
 
         }
@@ -205,7 +219,7 @@ public class DatabaseInformationQuerier {
      */
     public void searchByCourseLocation(String coursename , final Set<String> keys, CourseTypes type){
 
-        Query query = database.child(type.getDatabaseRef()).orderByChild("TITLE").equalTo(coursename);
+        Query query = courseNameQuery(coursename, type);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
