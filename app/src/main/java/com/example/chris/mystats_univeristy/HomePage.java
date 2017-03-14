@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -47,27 +55,15 @@ public class HomePage extends MenuViewActivity  {
         setContentView(R.layout.activity_home_page);
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
-
-
-
          final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
 
         sim = (Button) findViewById(R.id.simSearch);
         searchedCourse = (EditText) findViewById(R.id.courseNameEntered);
-        Geocoder test = new Geocoder(this, Locale.ENGLISH);
-        Log.d("working " , String.valueOf(Geocoder.isPresent()));
-        Log.d("tseting " , String.valueOf(test.isPresent()));
-        List<Address> addresses = new ArrayList<>();
-        try {
-            while(addresses.size() == 0){
-                addresses = test.getFromLocation(54.569771 , -1.235611 , 1);
-            }
-            Log.d("i am a test", addresses.get(0).toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        searchedLocation = (EditText) findViewById(R.id.locationNameEntered);
+        Geocoder loc = new Geocoder(this);
 
 
+        Log.d("size of find " , String.valueOf(addresses.size()));
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
@@ -76,8 +72,19 @@ public class HomePage extends MenuViewActivity  {
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 databaseInfomationQuerier.setIntent(intent);
                 databaseInfomationQuerier.setCurrent(current);
-                databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
+                List<Address> addresses = new ArrayList<>();
+                try {
+                    addresses = loc.getFromLocationName(searchedLocation, 1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(addresses.size() >0){
+                    Log.d("here we want to search for full courses");
+                }
+                else {
+                    databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
 
+                }
             }
         });
 
