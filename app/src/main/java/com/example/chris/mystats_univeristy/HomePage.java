@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
@@ -38,6 +41,7 @@ public class HomePage extends MenuViewActivity  {
         sim = (Button) findViewById(R.id.simSearch);
         searchedCourse = (EditText) findViewById(R.id.courseNameEntered);
         searchedLocation = (EditText) findViewById(R.id.locationNameEntered);
+        final RadioGroup courseTypeButton = (RadioGroup) findViewById(R.id.coursetype);
         final Geocoder loc = new Geocoder(this);
 
 
@@ -46,6 +50,11 @@ public class HomePage extends MenuViewActivity  {
             @Override
             //On click function
             public void onClick(View view) {
+                int selectedid = courseTypeButton.getCheckedRadioButtonId();
+                RadioButton button = (RadioButton) (findViewById(selectedid));
+
+                CourseTypes courseType = button.getText().equals("full time courses") ? CourseTypes.FULL_TIME : CourseTypes.PART_TIME;
+                Log.d("cours type ", String.valueOf(courseTypeButton.getCheckedRadioButtonId()));
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 databaseInfomationQuerier.setIntent(intent);
@@ -60,10 +69,10 @@ public class HomePage extends MenuViewActivity  {
                     RadiusChecker.getHitsAroundLocation(50, addresses.get(0).getLongitude()
                                                             , addresses.get(0).getLatitude()
                                                             , searchedCourse.getText().toString(),
-                                                            databaseInfomationQuerier, CourseTypes.FULL_TIME);
+                                                            databaseInfomationQuerier,courseType);
                 }
                 else {
-                    databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
+                    databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), courseType); //need to add an option to select the course type
 
                 }
             }

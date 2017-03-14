@@ -51,7 +51,26 @@
             android:layout_weight="1">
 
         </android.support.design.widget.TextInputLayout>
+        <RadioGroup
+            android:id="@+id/coursetype"
+            android:layout_below="@+id/locationNameEntered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
+            <RadioButton
+                android:id="@+id/fulltime"
+                android:layout_alignLeft="@+id/courseNameEntered"
+                android:layout_alignRight="@+id/courseNameEntered"
+                android:text="full time courses"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/parttime"
+                android:layout_alignLeft="@+id/courseNameEntered"
+                android:layout_alignRight="@+id/courseNameEntered"
+                android:text="part time courses" />
+
+        </RadioGroup>
         <Button
             android:id="@+id/simSearch"
             android:layout_width="wrap_content"
