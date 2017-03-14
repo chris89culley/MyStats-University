@@ -1,5 +1,6 @@
 package MPChart;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.chris.mystats_univeristy.HomePage;
@@ -32,7 +33,7 @@ import java.util.List;
  *
  */
 
-public class Charts{
+public class GenericChartMaker {
 
 
     /**
@@ -68,6 +69,7 @@ public class Charts{
             xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
+
             return theData;
         }
     /**
