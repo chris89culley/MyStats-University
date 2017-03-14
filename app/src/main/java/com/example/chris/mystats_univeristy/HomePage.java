@@ -63,7 +63,7 @@ public class HomePage extends MenuViewActivity  {
         Geocoder loc = new Geocoder(this);
 
 
-        Log.d("size of find " , String.valueOf(addresses.size()));
+        Log.d("i should be true " , loc.isPresent());
         sim.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
