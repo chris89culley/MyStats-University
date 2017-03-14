@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
@@ -21,7 +22,9 @@ import MPChart.UniversityStatsChartMaker;
 public class FragmentSelector extends Fragment {
 
     private int pos;
-
+    private View view;
+    private BarChart chart;
+    private PieChart pChart;
     private Course course;
 
     public FragmentSelector(int position, Course course) {
@@ -34,17 +37,43 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         switch(pos) {
             case 0:
-                return  inflater.inflate(R.layout.fragment_overview, container, false);
+
+                view =  inflater.inflate(R.layout.fragment_overview, container, false);
+                pChart = (PieChart) view.findViewById(R.id.bar0);
+                pChart.setData(UniversityStatsChartMaker.getChartPercentageAssesedByCourseWork(course, pChart));
+                pChart.animate();
+                return  view;
+
             case 1:
-                return inflater.inflate(R.layout.fragment_study_info, container, false);
+                view =  inflater.inflate(R.layout.fragment_study_info, container, false);
+                chart = (BarChart) view.findViewById(R.id.bar1);
+                chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
+                chart.animate();
+                return  view;
             case 2:
-                return inflater.inflate(R.layout.fragment_entry_info, container, false);
+                view =  inflater.inflate(R.layout.fragment_entry_info, container, false);
+                chart = (BarChart) view.findViewById(R.id.bar2);
+                chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
+                chart.animate();
+                return view;
             case 3:
-                return inflater.inflate(R.layout.fragment_employ_stats, container, false);
+                view =  inflater.inflate(R.layout.fragment_cost_stats, container, false);
+                pChart = (PieChart) view.findViewById(R.id.bar3);
+                pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
+                pChart.animate();
+                return  view;
             case 4:
-                return inflater.inflate(R.layout.fragment_cost_stats, container, false);
+                view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
+                chart = (BarChart) view.findViewById(R.id.bar4);
+                chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
+                chart.animate();
+                return  view;
             case 5:
-                return inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                chart = (BarChart) view.findViewById(R.id.bar5);
+                chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
+                chart.animate();
+                return  view;
             case 6:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);
             default:
