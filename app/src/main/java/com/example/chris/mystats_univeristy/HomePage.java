@@ -5,40 +5,17 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.content.Context;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
-
-import Data.Course;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
-
+import GPS.RadiusChecker;
 
 
 public class HomePage extends MenuViewActivity  {
@@ -79,7 +56,10 @@ public class HomePage extends MenuViewActivity  {
                     e.printStackTrace();
                 }
                 if(addresses.size() >0){
-                    Log.d("here we want to search for full courses", " tjkslf");
+                    RadiusChecker.getHitsAroundLocation(50, addresses.get(0).getLongitude()
+                                                            , addresses.get(0).getLatitude()
+                                                            , searchedCourse.getText().toString(),
+                                                            databaseInfomationQuerier, CourseTypes.FULL_TIME);
                 }
                 else {
                     databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourse.getText().toString(), CourseTypes.FULL_TIME); //need to add an option to select the course type
