@@ -189,11 +189,11 @@ public class DatabaseInformationQuerier {
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
                 courseList.add(course.getValue(Course.class));
-                Log.d("i am adding a course ", "adddddddding");
-            }else{
-                Log.d("not located close enough", "not located");
             }
+
         }
+        intent.putParcelableArrayListExtra("searchResults" , courseList);
+        this.current.startActivity(intent);
     }
 
     /**
