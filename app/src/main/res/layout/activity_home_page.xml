@@ -26,20 +26,19 @@
             android:id="@+id/courseNameEntered"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:hint="Subject or Course"
             android:inputType="text"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_below="@+id/textView6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="53dp" />
         <EditText
             android:id="@+id/locationNameEntered"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/courseNameEntered"
             android:layout_alignRight="@+id/courseNameEntered"
-            android:layout_below="@+id/courseNameEntered"
+            android:layout_below="@+id/radiusBar"
             android:hint="Location or institution"
 
             android:inputType="text"
@@ -60,17 +59,20 @@
 
         <TextView
             android:id="@+id/radiusText"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/courseNameEntered"
             android:layout_alignRight="@+id/courseNameEntered"
-            android:text="0 km"
-            android:layout_below="@+id/locationNameEntered"
+            android:text="within 0 km of "
+            android:gravity="center"
+            android:layout_centerHorizontal="@id/courseNameEntered"
+            android:layout_below="@id/courseNameEntered"
             android:layout_weight="1" />
 
         <SeekBar
             android:id="@+id/radiusBar"
-            android:layout_below="@+id/locationNameEntered"
+            android:layout_below="@+id/radiusText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/courseNameEntered"
@@ -80,21 +82,19 @@
 
         <RadioGroup
             android:id="@+id/coursetype"
-            android:layout_below="@+id/radiusBar"
+            android:layout_below="@+id/locationNameEntered"
             android:layout_width="wrap_content"
+            android:layout_alignLeft="@+id/courseNameEntered"
+            android:layout_alignRight="@+id/courseNameEntered"
             android:layout_height="wrap_content" >
 
             <RadioButton
                 android:id="@+id/fulltime"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
                 android:text="full time courses"
                 android:checked="true" />
 
             <RadioButton
                 android:id="@+id/parttime"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
                 android:text="part time courses" />
 
         </RadioGroup>

@@ -48,7 +48,7 @@ public class HomePage extends MenuViewActivity  {
 
     private void updateRadius(int progress){
         sizeOfRadius = progress*5;
-        radiusDisplay.setText(String.valueOf(sizeOfRadius) + " km");
+        radiusDisplay.setText("within " +  String.valueOf(sizeOfRadius) + " km of");
 
     }
     @Override
