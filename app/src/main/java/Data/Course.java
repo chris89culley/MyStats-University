@@ -211,7 +211,7 @@ public class Course  implements Parcelable{
      * @return - The accommodation costs
      */
     public String[] getPrivateAccomodationDetails(){
-        String vals = {PRIVATELOWER , PRIVATEUPPER };
+        String[] vals = new String[]{PRIVATELOWER, PRIVATEUPPER};
         return vals;
     }
 
@@ -220,7 +220,7 @@ public class Course  implements Parcelable{
      * @return - The accommodation costs
      */
     public String[] getInstitutionalAccomDetails(){
-        String vals = {INSTLOWER, INSTMED, INSTUPPER};
+        String[] vals = new String[]{INSTLOWER, INSTMED, INSTUPPER};
         return vals;
     }
 
@@ -228,8 +228,8 @@ public class Course  implements Parcelable{
      * Gets the % that will continue the course after the first year
      * @return - The % of students that will continue after the first year
      */
-    public String getThePercentageOfStudentsTheContinueAfterFirstYear(){
-        String vals = {UCONT};
+    public String[] getThePercentageOfStudentsTheContinueAfterFirstYear(){
+        String[] vals = new String[]{UCONT};
         return vals;
     }
 
