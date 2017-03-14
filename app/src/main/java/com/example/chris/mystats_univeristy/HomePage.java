@@ -11,14 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.RadiusChecker;
@@ -30,8 +33,16 @@ public class HomePage extends MenuViewActivity  {
     private EditText searchedCourse;
     private EditText searchedLocation;
     private MenuViewActivity current = this;
-
+    private SeekBar radiusBar;
+    private TextView radiusDisplay;
+    int sizeOfRadius = 0;
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+    private void updateRadius(int progress){
+        sizeOfRadius = progress*10;
+        radiusDisplay.setText(String.valueOf(sizeOfRadius) + " km");
+        Log.d("The current size of the rad is " , String.valueOf(sizeOfRadius));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,26 @@ public class HomePage extends MenuViewActivity  {
 
         //This creates the database querier with the database, this will need to be passed to other activities that require
          final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
+
+        radiusBar = (SeekBar) findViewById(R.id.radiusBar);
+        sizeOfRadius = radiusBar.getProgress();
+        radiusDisplay = (TextView) findViewById(R.id.radiusText);
+        radiusBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateRadius(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         sim = (Button) findViewById(R.id.simSearch);
         searchedCourse = (EditText) findViewById(R.id.courseNameEntered);
@@ -68,7 +99,7 @@ public class HomePage extends MenuViewActivity  {
                     e.printStackTrace();
                 }
                 if(addresses.size() >0){
-                    RadiusChecker.getHitsAroundLocation(50, addresses.get(0).getLongitude()
+                    RadiusChecker.getHitsAroundLocation(100, addresses.get(0).getLongitude()
                                                             , addresses.get(0).getLatitude()
                                                             , searchedCourse.getText().toString(),
                                                             databaseInfomationQuerier,courseType);
