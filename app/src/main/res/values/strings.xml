@@ -2,4 +2,6 @@
     <string name="app_name">MyStats - University</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
+    <string name="fulltime">Full time courses</string>
+    <string name="parttime">Part time courses</string>
 </resources>
