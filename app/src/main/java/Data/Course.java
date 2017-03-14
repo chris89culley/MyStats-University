@@ -207,6 +207,33 @@ public class Course  implements Parcelable{
     }
 
     /**
+     * Gets the accommodation costs for private rents near the uni, lower quartile , average and upper
+     * @return - The accommodation costs
+     */
+    public String[] getPrivateAccomodationDetails(){
+        String vals = {PRIVATELOWER , PRIVATEUPPER };
+        return vals;
+    }
+
+    /**
+     * Get the institutional accommodation costs, lower quartile , average and upper
+     * @return - The accommodation costs
+     */
+    public String[] getInstitutionalAccomDetails(){
+        String vals = {INSTLOWER, INSTMED, INSTUPPER};
+        return vals;
+    }
+
+    /**
+     * Gets the % that will continue the course after the first year
+     * @return - The % of students that will continue after the first year
+     */
+    public String getThePercentageOfStudentsTheContinueAfterFirstYear(){
+        String vals = {UCONT};
+        return vals;
+    }
+
+    /**
      * This method gets the course type and gives returns additional information about whether the
      * course involves a foundation or sandwich year
      * @return - A string with the full course type and additions
