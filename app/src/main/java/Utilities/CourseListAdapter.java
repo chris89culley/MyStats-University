@@ -44,13 +44,19 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         super(activity, textViewResourceId, courses);
         this.activity = activity;
         this.courses = courses;
+        added.clear();
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
 
     public View getView(int position, View convertView, ViewGroup parent){
-        Course course = courses.get(position);
         View rowView = inflater.inflate(R.layout.activity_search_results , parent ,false);
+
+        if(position > courses.size()-1){
+            return rowView;
+        }
+        Course course = courses.get(position);
+
         TextView universityname = (TextView) rowView.findViewById(R.id.universityname);
         TextView courseName = (TextView) rowView.findViewById(R.id.coursename);
         TextView courseType = (TextView) rowView.findViewById(R.id.degreetype);
@@ -61,11 +67,15 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         courseType.setText(course.getCourseTypeText());
         String all = course.getCourseName() + course.getCourseTypeText() + course.getUniversityWhereCourseIsTaught();
 
+        /**
         //This is because the database contains duplicates and is being used as a quick fix
         if(added.contains(all)){
+            if(position-1 == courses.size()){
+                return  rowView;
+            }
             return getView(position+1, convertView, parent);
         }
-        added.add(all);
+        added.add(all); */
 
         return rowView;
     }

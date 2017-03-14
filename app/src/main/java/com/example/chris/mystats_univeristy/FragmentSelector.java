@@ -37,11 +37,13 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         switch(pos) {
             case 0:
+
                 view =  inflater.inflate(R.layout.fragment_overview, container, false);
                 pChart = (PieChart) view.findViewById(R.id.bar0);
                 pChart.setData(UniversityStatsChartMaker.getChartPercentageAssesedByCourseWork(course, pChart));
                 pChart.animate();
                 return  view;
+
             case 1:
                 view =  inflater.inflate(R.layout.fragment_study_info, container, false);
                 chart = (BarChart) view.findViewById(R.id.bar1);

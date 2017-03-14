@@ -15,6 +15,38 @@
       },
       "oauth_client": [
         {
+          "client_id": "538642856162-velmq8jinhg4n52ifgs97l070lretmt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "a20fdcb2c14c2afdeb3170a7e1e30b960d246763"
+          }
+        },
+        {
+          "client_id": "538642856162-p78vb4g9kf55lnh38pbtq1v0b93s194c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "a53a812fff592e36f6d27021411dccae187f2274"
+          }
+        },
+        {
+          "client_id": "538642856162-3uk2k4a8mmgiqil1pojj1lg9pbf5tqel.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "848df47140f8a5386b237163c90d1f9825b0adde"
+          }
+        },
+        {
+          "client_id": "538642856162-c1s5v96dfv8tsd714ak8t86pini6jl32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chris.mystats_univeristy",
+            "certificate_hash": "405f04fb4ddf39b8b2b282271c0b5fbc937c0949"
+          }
+        },
+        {
           "client_id": "538642856162-8o4emqjhogdi5gt4nqfjiv4mbc3u0v8r.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
