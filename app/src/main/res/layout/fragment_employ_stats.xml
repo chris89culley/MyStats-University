@@ -1,22 +1,29 @@
-<ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent">
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bar4"
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/espie1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        ></com.github.mikephil.charting.charts.BarChart>
+        ></com.github.mikephil.charting.charts.PieChart>
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:id="@+id/bar1"
-        android:layout_below="@+id/bar4"></com.github.mikephil.charting.charts.BarChart>
+        android:id="@+id/esbar1"
+        android:layout_below="@+id/espie1"></com.github.mikephil.charting.charts.BarChart>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Employment Stats Page"
+        android:layout_marginTop="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
-</ScrollView>

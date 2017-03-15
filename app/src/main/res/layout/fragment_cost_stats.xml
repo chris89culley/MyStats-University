@@ -7,15 +7,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cost Stats Page"
+        android:id="@+id/t11"
         android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/bar3"
+        android:id="@+id/cspie1"
         android:layout_width="match_parent"
         android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
+    <Space
+        android:id="@+id/csspace1"
+        android:layout_below="@id/cspie1"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/csbar1"
+        android:layout_below="@id/csspace1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"></com.github.mikephil.charting.charts.BarChart>
+    <Space
+        android:id="@+id/csspace2"
+        android:layout_below="@id/csbar1"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/csbar2"
+        android:layout_below="@id/csspace2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"></com.github.mikephil.charting.charts.BarChart>
+
 
 
 </RelativeLayout>

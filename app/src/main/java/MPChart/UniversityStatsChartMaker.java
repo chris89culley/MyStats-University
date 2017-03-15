@@ -145,7 +145,7 @@ public class UniversityStatsChartMaker {
      * @return BarData for bar chart - PersonalDevelopment
      */
     public static BarData getChartPersonalDevelopment(Course course, BarChart chart){
-        String[] tags = {"The course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"};
+        String[] tags = {"he course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"};
         return GenericChartMaker.constructBarChart(tags,course.getPersonalDevelopmentStats(), chart, "Personal development (% agree)");
     }
 
@@ -159,6 +159,28 @@ public class UniversityStatsChartMaker {
     public static BarData getChartStudentUnion(Course course, BarChart chart){
         String[] tags = {"I am satisfied with the Students' Union at my institution"};
         return GenericChartMaker.constructBarChart(tags,course.getStudentUnionStats(), chart, "Students' Union (Association or Guild) (% agree)");
+    }
+
+    /**
+     * A method which gets the institutions accomodation costs
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return BarData for bar chart - InstitutionAccomodationCosts
+     */
+    public static BarData getChartInstitutionalAccomodation(Course course, BarChart chart){
+        String[] tags = {"Lower Quartile","Median", "Upper Quartile"};
+        return GenericChartMaker.constructBarChart(tags,course.getPrivateAccomodationDetails(), chart, "Insititutional accomodation prices");
+    }
+
+    /**
+     * A method which gets private accomodation costs
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return BarData for bar chart - PrivatenAccomodationCosts
+     */
+    public static BarData getChartPrivateAccomodation(Course course, BarChart chart){
+        String[] tags = {"Lower Quartile","Upper Quartile"};
+        return GenericChartMaker.constructBarChart(tags,course.getPrivateAccomodationDetails(), chart, "Private accomodation prices");
     }
 
 
