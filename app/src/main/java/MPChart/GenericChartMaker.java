@@ -87,7 +87,9 @@ public class GenericChartMaker {
             chart.getAxisLeft().setDrawGridLines(false);
             chart.getXAxis().setDrawGridLines(false);
             chart.getAxisLeft().setStartAtZero(true);
-
+            Description emptyDescription = new Description();
+            emptyDescription.setText("");
+            chart.setDescription(emptyDescription);
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
             return theData;
@@ -164,7 +166,9 @@ public class GenericChartMaker {
             pieDataSet.setSliceSpace(2);
             pieDataSet.setValueTextSize(12);
             pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
+            Description emptyDescription = new Description();
+            emptyDescription.setText("");
+            chart.setDescription(emptyDescription);
             chart.setDrawEntryLabels(true);
             PieData theData = new PieData(pieDataSet);
             theData.setValueFormatter(new PercentFormatter());
