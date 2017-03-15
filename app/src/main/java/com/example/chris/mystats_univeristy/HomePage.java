@@ -64,6 +64,9 @@ public class HomePage extends MenuViewActivity  {
     }
 
 
+    /**
+     * This method sets up the radius bar and initialised the radius the user searches around a location
+     */
     private void setUpRadiusBar(){
         radiusBar = (SeekBar) findViewById(R.id.radiusBar);
         sizeOfRadius = radiusBar.getProgress();
@@ -79,10 +82,18 @@ public class HomePage extends MenuViewActivity  {
         });
     }
 
+    /**
+     * Sets up the text displaying the current search radius to the user
+     */
     private void setUpRadiusTextDisplay(){
         radiusDisplay = (TextView) findViewById(R.id.radiusText);
     }
 
+    /**
+     * This method sets up a listener to watch the location field (where the user will enter a location)
+     * if the user starts to enter a location then it will mean they do not want to search around their
+     * current location and  instead want to search around the entered location
+     */
     private void watchForLocationTextToChange() {
         searchedLocationEditTextField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -96,28 +107,49 @@ public class HomePage extends MenuViewActivity  {
             public void afterTextChanged(Editable s) {}
         });
     }
+
+    /**
+     * Sets up the text fields allowing the user to enter a course and location name
+     */
     private void setUpSearchOptions(){
         searchedLocationEditTextField = (EditText) findViewById(R.id.locationNameEntered);
-
         searchedCourseEditTextField = (EditText) findViewById(R.id.courseNameEntered);
     }
 
+    /**
+     * Sets up a button which when pressed starts a search
+     */
     private void setUpSearchButton(){
         searchButton = (Button) findViewById(R.id.simSearch);
     }
 
+    /**
+     * Sets up the button group allowing the user to select a type of course ie fulltime
+     */
     private void setUpCourseTypeRadioButtons(){
         typeOfCourseSelector = (RadioGroup) findViewById(R.id.coursetype);
     }
 
+    /**
+     * Gets the type of  course the user has selected from the radio button
+     * @return - The text from the selected radio button
+     */
     private String getTheCurrentSelectedRadioButtonCourseTypeText(){
         return ((RadioButton) findViewById(typeOfCourseSelector.getCheckedRadioButtonId())).getText().toString();
     }
 
+    /**
+     * Gets the course type based on the text extracted from the radio button
+     * @return - The type of course the user wishes to search
+     */
     private CourseTypes getTheTypeOfCourseSelected(){
         return getTheCurrentSelectedRadioButtonCourseTypeText().equals("full time courses") ? CourseTypes.FULL_TIME : CourseTypes.PART_TIME;
 
     }
+
+    /**
+     * Sets up the widgets on home page
+     */
     private void setUpWidgetsOnHomePage(){
         setUpRadiusBar();
         setUpRadiusTextDisplay();
@@ -127,14 +159,26 @@ public class HomePage extends MenuViewActivity  {
 
     }
 
+    /**
+     * Gets the location the user wishes to search around
+     * @return - The location the user wants to search
+     */
     private String getTheLocationFieldText(){
         return searchedLocationEditTextField.getText().toString();
     }
 
+    /**
+     * Finds out if the location field is not empty
+     * @return true if the location field is not empty
+     */
     private boolean theLocationFieldIsntEmpty(){
         return getTheLocationFieldText().length()>0;
     }
 
+    /**
+     * Updates the longitude and latitude to be searched with the long and lat of the passed location name
+     * @param location  - The location where the long and lat is to be updated from
+     */
     private void updateLongAndLatWithLocationGiven(String location){
         try{
             List<Address> addresses = longLatGrabber.getFromLocationName(location, 1);
@@ -151,16 +195,38 @@ public class HomePage extends MenuViewActivity  {
 
     }
 
+    /**
+     * Updates the database querier with the intent and current activity so that it can create
+     * the search result page
+     * @param intent
+     */
     private void updateInfoQuerierWithIntentIntentions(Intent intent){
         databaseInfomationQuerier.setIntent(intent);
         databaseInfomationQuerier.setCurrent(currentActivity);
 
     }
 
+    /**
+     * Gets the course name that the user wishes to search for
+     * @return - The course name
+     */
+    private String getTheCourseToBeSearched(){
+        return searchedCourseEditTextField.getText().toString();
+    }
+
+    /**
+     * Get the users locational data
+     */
     private void getUsersLocationalData() {
          Log.d("not yet implemented" , "not implemented");
     }
 
+    /**
+     * This method deals with the event that the search button is pressed. It determines whether the
+     * user wishes to search around their current location, an entered location or neither and makes a request
+     * to the database either through radius checker or directly to the database querier
+     *
+     */
     private void handleSearchButtonPressed(){
 
         searchButton.setOnClickListener(new View.OnClickListener(){
@@ -173,31 +239,37 @@ public class HomePage extends MenuViewActivity  {
                 } else if (shouldGetLocationFromUserData) {
                     getUsersLocationalData();
                 }
-
                 if(shouldGetLocationFromUserData || shouldGetLocationFromUserData) {
                    RadiusChecker.getHitsAroundLocation(sizeOfRadius,
-                            longitude,
-                            latitude,
-                            searchedCourseEditTextField.getText().toString(),
-                            databaseInfomationQuerier
-                            ,getTheTypeOfCourseSelected());
+                                                        longitude,
+                                                        latitude,
+                                                        getTheCourseToBeSearched(),
+                                                        databaseInfomationQuerier,
+                                                        getTheTypeOfCourseSelected());
                 }
                 else {
-                    databaseInfomationQuerier.getAllCoursesByCourseName(searchedCourseEditTextField.getText().toString(),
-                            getTheTypeOfCourseSelected()); //need to add an option to select the course type
+                    databaseInfomationQuerier.getAllCoursesByCourseName(getTheCourseToBeSearched(),
+                                              getTheTypeOfCourseSelected());
                 }
     }});}
 
+
+    /**
+     * Creates the home page and initialises the listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         setUpWidgetsOnHomePage();
-       longLatGrabber = new Geocoder(this);
+        longLatGrabber = new Geocoder(this);
         watchForLocationTextToChange();
         handleSearchButtonPressed();
     }
 
+
+    //The below has not yet been refactored since it is being changed by terry in another branch
 
     public void areaSearch(){
 // Or, use GPS location data:
