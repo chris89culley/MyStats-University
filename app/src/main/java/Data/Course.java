@@ -215,10 +215,6 @@ public class Course  implements Parcelable{
         return vals;
     }
 
-
-
-
-
     /**
      * Get the institutional accommodation costs, lower quartile , average and upper
      * @return - The accommodation costs

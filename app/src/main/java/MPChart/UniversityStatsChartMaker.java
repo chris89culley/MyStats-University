@@ -161,6 +161,28 @@ public class UniversityStatsChartMaker {
         return GenericChartMaker.constructBarChart(tags,course.getStudentUnionStats(), chart, "Students' Union (Association or Guild) (% agree)");
     }
 
+    /**
+     * A method which gets the institutions accomodation costs
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return BarData for bar chart - InstitutionAccomodationCosts
+     */
+    public static BarData getChartInstitutionalAccomodation(Course course, BarChart chart){
+        String[] tags = {"Lower Quartile","Median", "Upper Quartile"};
+        return GenericChartMaker.constructBarChart(tags,course.getPrivateAccomodationDetails(), chart, "Insititutional accomodation prices");
+    }
+
+    /**
+     * A method which gets private accomodation costs
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return BarData for bar chart - PrivatenAccomodationCosts
+     */
+    public static BarData getChartPrivateAccomodation(Course course, BarChart chart){
+        String[] tags = {"Lower Quartile","Upper Quartile"};
+        return GenericChartMaker.constructBarChart(tags,course.getPrivateAccomodationDetails(), chart, "Private accomodation prices");
+    }
+
 
 
 

@@ -63,13 +63,22 @@ public class FragmentSelector extends Fragment {
                 return view;
             case 3:
                 view =  inflater.inflate(R.layout.fragment_cost_stats, container, false);
-                pChart = (PieChart) view.findViewById(R.id.bar3);
+                pChart = (PieChart) view.findViewById(R.id.cspie1);
                 pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
                 pChart.animateXY(2000,2000);
+                chart = (BarChart) view.findViewById(R.id.csbar1);
+                chart.setData(UniversityStatsChartMaker.getChartPrivateAccomodation(course, chart));
+                chart.animateXY(2000,2000);
+                chart = (BarChart) view.findViewById(R.id.csbar2);
+                chart.setData(UniversityStatsChartMaker.getChartInstitutionalAccomodation(course, chart));
+                chart.animateXY(2000,2000);
                 return  view;
             case 4:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-                chart = (BarChart) view.findViewById(R.id.bar4);
+                pChart = (PieChart) view.findViewById(R.id.espie1);
+                pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
+                pChart.animateXY(2000,2000);
+                chart = (BarChart) view.findViewById(R.id.esbar1);
                 chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
                 chart.animateY(2000);
                 return  view;
