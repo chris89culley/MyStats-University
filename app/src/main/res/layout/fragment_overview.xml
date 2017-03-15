@@ -16,7 +16,6 @@ android:layout_height="fill_parent">
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp"
-        android:layout_below="@+id/textView8"
         android:layout_toRightOf="@+id/cType"
         android:layout_toEndOf="@+id/cType" />
 
@@ -61,7 +60,9 @@ android:layout_height="fill_parent">
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/fopie1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
+        android:layout_height="300dp"
+        android:layout_below="@+id/hasPlacement"
+        ></com.github.mikephil.charting.charts.PieChart>
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/fopie2"
         android:layout_width="match_parent"

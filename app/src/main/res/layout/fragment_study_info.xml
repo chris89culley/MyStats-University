@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/siTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Study Info Page"
@@ -13,8 +14,10 @@
         android:layout_alignParentEnd="true" />
 
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bar1"
+        android:id="@+id/sibar1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.github.mikephil.charting.charts.BarChart>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/siTitle"
+        ></com.github.mikephil.charting.charts.BarChart>
 
 </RelativeLayout>

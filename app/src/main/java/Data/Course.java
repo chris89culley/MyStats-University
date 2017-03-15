@@ -234,6 +234,15 @@ public class Course  implements Parcelable{
     }
 
     /**
+     * Gets the number of entrants that where accepted with each amount of UCAS points
+     * @return - Successfull aplicants in each UCAS points bracket
+     */
+    public String[] getPreviousEntry(){
+        String[] vals = {T001,T048,T064,T080,T096,T112,T144,T160,T176,T192,T208,T224};
+        return vals;
+    }
+
+    /**
      * This method gets the course type and gives returns additional information about whether the
      * course involves a foundation or sandwich year
      * @return - A string with the full course type and additions

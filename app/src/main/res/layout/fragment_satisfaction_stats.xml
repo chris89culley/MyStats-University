@@ -93,12 +93,6 @@ android:layout_height="fill_parent">
         android:layout_below="@id/ssbar7"
         android:layout_width="1dp"
         android:layout_height="50dp"/>
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/ssbar8"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@+id/ssspace7"
-        ></com.github.mikephil.charting.charts.HorizontalBarChart>
 
 
 </RelativeLayout>

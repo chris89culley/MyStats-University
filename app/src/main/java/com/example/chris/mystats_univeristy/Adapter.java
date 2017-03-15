@@ -13,12 +13,10 @@ import Data.Course;
 
 public class Adapter extends FragmentPagerAdapter {
 
-    private String[] title = new String[]{"Course Overview","Study Info Stats","Entry Info","Employment Stats",
-            "Cost Stats","Satisfaction Stats","Assessed Coursework","Assessment Feedback","Academic Support",
-            "Learning Resources","In Scheduled","Student Union","Work & Study","Personal Development",
-            "User Ratings/Comments"};
+    private String[] title = new String[]{"Course Overview","Cost Stats","Employment Stats","Satisfaction Stats","Study Info",
+            "Entry Info","User Ratings/Comments"};
     Context context;
-    private int pageCount = 14;
+    private int pageCount = 7;
     private Course course;
 
     public Adapter(FragmentManager fm, Context context, Course course) {
