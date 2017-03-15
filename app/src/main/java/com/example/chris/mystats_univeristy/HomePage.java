@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.util.List;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
+import GPS.MyLocationListener;
 import GPS.RadiusChecker;
 
 
