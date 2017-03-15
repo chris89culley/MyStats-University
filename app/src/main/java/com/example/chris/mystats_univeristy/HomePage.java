@@ -275,8 +275,6 @@ public class HomePage extends MenuViewActivity  {
                }
             });}
 
-
-
     /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
@@ -291,9 +289,6 @@ public class HomePage extends MenuViewActivity  {
         handleSearchButtonPressed();
         handlelocationButtonClick();
     }
-
-
-    //The below has not yet been refactored since it is being changed by terry in another branch
 
     /**
      * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
