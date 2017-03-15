@@ -145,7 +145,7 @@ public class UniversityStatsChartMaker {
      * @return BarData for bar chart - PersonalDevelopment
      */
     public static BarData getChartPersonalDevelopment(Course course, BarChart chart){
-        String[] tags = {"he course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"};
+        String[] tags = {"The course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"};
         return GenericChartMaker.constructBarChart(tags,course.getPersonalDevelopmentStats(), chart, "Personal development (% agree)");
     }
 
