@@ -90,11 +90,15 @@
 
             <RadioButton
                 android:id="@+id/fulltime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="full time courses"
                 android:checked="true" />
 
             <RadioButton
                 android:id="@+id/parttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="part time courses" />
 
         </RadioGroup>
@@ -109,13 +113,24 @@
             android:layout_marginBottom="77dp"
             android:text="Search" />
 
+
+        <ImageButton
+            android:id="@+id/getLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            app:srcCompat="@android:drawable/ic_menu_mylocation"
+            android:layout_toLeftOf="@+id/locationNameEntered"
+            android:layout_toStartOf="@+id/locationNameEntered"
+            android:layout_below="@+id/radiusBar" />
+
+
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-
         app:menu="@menu/navigation"
         android:layout_gravity="start" />
 
-    </android.support.v4.widget.DrawerLayout>
+</android.support.v4.widget.DrawerLayout>
