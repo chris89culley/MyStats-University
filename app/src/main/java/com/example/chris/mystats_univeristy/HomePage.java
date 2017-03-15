@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -42,7 +43,7 @@ import android.support.annotation.NonNull;
 public class HomePage extends MenuViewActivity  {
 
 
-    private Button getLocation; //Button that sets the longitude and latitude to the users current location.
+    private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
     private Button searchButton; //The button pressed to conduct a search
     private final int MAX_KM_RADIUS_SEARCH = 500; //The max radius a user is allowed to search
     private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/100; //The modifier to the radius value (since the normal value only goes up to 100)
@@ -174,7 +175,7 @@ public class HomePage extends MenuViewActivity  {
      * Sets the button up that sets the longitude and latitude to the current location.
      */
     private void setUpgetLocationButton() {
-        getLocation = (Button) findViewById(R.id.getLocation);
+        getLocation = (ImageButton) findViewById(R.id.getLocation);
     }
 
     /**
@@ -277,18 +278,6 @@ public class HomePage extends MenuViewActivity  {
         });}
 
     /**
-     * Handles the action listener for the location button, calls the setter to get permissions and set the lang and lat to the users current location.
-     * Then places the text "My Location" in the text field to allow the user to know that we are using there own location
-     */
-    public void handlelocationButtonClick(){
-        getLocation.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                searchedLocationEditTextField.setText("My Location");
-               }
-
-
-    /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
      */
@@ -316,23 +305,7 @@ public class HomePage extends MenuViewActivity  {
             longitude = location.getLongitude();
         }
 
-
-    /**
-     * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
-     */
-    public void getUsersLocationalData() {
-        Log.d("In current ", "locationSetter line 306");
-        locationManagerInitialiser(0,0);
-            //Assigns the last location got by the location listener and adds it into the location manager
-            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (location != null) {
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
-            }
-
-        }
-
-
+    }
 
     /**
      * /**
@@ -350,9 +323,12 @@ public class HomePage extends MenuViewActivity  {
             //Starts the lcoation listener to start listening to the where the location is updating every 0 miliseconds or 0 distance moved
             //Then assigns the the location listener to the location manager
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, mili, distance, new MyLocationListener());
+            return;
+        }else{
 
+        }
 
-
+    }
 
     /**
      * Use to check if the device has allowed the app to use the locaiton software inbuilt to it
