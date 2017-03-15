@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/cName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Course Overview Page"
-        android:layout_marginTop="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="53dp"
+        android:text="TextView"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_below="@+id/textView8"
+        android:layout_toRightOf="@+id/cType"
+        android:layout_toEndOf="@+id/cType" />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/bar0"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>
+    <TextView
+        android:id="@+id/cType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_alignBaseline="@+id/cName"
+        android:layout_alignBottom="@+id/cName"
+        android:layout_alignLeft="@+id/hasFoundation"
+        android:layout_alignStart="@+id/hasFoundation"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/hasPlacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/hasFoundation"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="22dp"
+        android:text="Sandwich Year: "
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/hasFoundation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foundation Year: "
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/cName"
+        android:layout_alignLeft="@+id/hasPlacement"
+        android:layout_alignStart="@+id/hasPlacement"
+        tools:targetApi="lollipop" />
 
 </RelativeLayout>

@@ -7,15 +7,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cost Stats Page"
+        android:id="@+id/t11"
         android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/bar3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>
+    <!--<com.github.mikephil.charting.charts.PieChart-->
+        <!--android:id="@+id/bar3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>-->
 
 
 </RelativeLayout>
