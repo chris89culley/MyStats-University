@@ -255,6 +255,18 @@ public class HomePage extends MenuViewActivity  {
 
 
     /**
+     * Handles the action listener for the location button, calls the setter to get permissions and set the lang and lat to the users current location.
+     * Then places the text "My Location" in the text field to allow the user to know that we are using there own location
+     */
+    public void handlelocationButtonClick(){
+        getLocation.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                searchedLocationEditTextField.setText("My Location");
+               }
+
+
+    /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
      */
@@ -269,24 +281,46 @@ public class HomePage extends MenuViewActivity  {
     }
 
 
+    /**
+     * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
+     */
+    public void getUsersLocationalData() {
+        Log.d("In current ", "locationSetter line 306");
+        locationManagerInitialiser(0,0);
+            //Assigns the last location got by the location listener and adds it into the location manager
+            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (location != null) {
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+            }
+
+        }
+
+    /**
+     * /**
+     * This method initilalisers the Location Manager and starts the Location listener and begins updating the current
+     * location in conjunction to however many seconds or hte distance changed is.
+     * @param mili
+     * @param distance
+     */
+    public void locationManagerInitialiser(int mili, int distance) {
+        //Checks if the
+        if (locationPermissionCheck() == true){
+            //Initialisees the Location manager witht he Location services.
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+            //Starts the lcoation listener to start listening to the where the location is updating every 0 miliseconds or 0 distance moved
+            //Then assigns the the location listener to the location manager
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, mili, distance, new MyLocationListener());
+
+
     //The below has not yet been refactored since it is being changed by terry in another branch
 
     public void areaSearch(){
 // Or, use GPS location data:
 // String locationProvider = LocationManager.GPS_PROVIDER;
         String locationProvider = LocationManager.NETWORK_PROVIDER;
-
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
+        
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if (location != null) {
             double latitude=location.getLatitude();
