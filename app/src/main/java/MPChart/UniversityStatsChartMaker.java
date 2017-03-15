@@ -183,6 +183,17 @@ public class UniversityStatsChartMaker {
         return GenericChartMaker.constructBarChart(tags,course.getPrivateAccomodationDetails(), chart, "Private accomodation prices");
     }
 
+    /**
+     * A method which gets previous number of successful applicants as a  chart
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return BarData for bar chart - PreviousEntries
+     */
+    public static BarData getChartPreviousEntries(Course course, BarChart chart){
+        String[] tags = {"< 48","48 < 63","63 < 79","79 < 96","96 < 112","112 < 127", "127 < 143", "143 < 159", "159 < 175 ","175 < 191","191 < 207", " 207 < 223 ", "224 < 240 ", "240 +"};
+        return GenericChartMaker.constructBarChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+    }
+
 
 
 

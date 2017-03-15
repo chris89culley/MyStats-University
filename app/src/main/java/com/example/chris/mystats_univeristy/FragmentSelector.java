@@ -66,10 +66,9 @@ public class FragmentSelector extends Fragment {
                 pChart.setData(UniversityStatsChartMaker.getChartPercentageWorkAndStudy(course, pChart));
                 pChart.animateXY(2000,2000);
                 return  view;
-
             case 1:
-                view =  inflater.inflate(R.layout.fragment_study_info, container, false);
-                chart = (BarChart) view.findViewById(R.id.bar1);
+
+                view =  inflater.inflate(R.layout.fragment_study_info, container, false);                chart = (BarChart) view.findViewById(R.id.bar1);
                 chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
                 chart.animate();
 //                if(chart == null){
@@ -87,10 +86,8 @@ public class FragmentSelector extends Fragment {
                 return view;
             case 3:
 
+
                 view =  inflater.inflate(R.layout.fragment_cost_stats, container, false);
-                pChart = (PieChart) view.findViewById(R.id.cspie1);
-                pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
-                pChart.animateXY(2000,2000);
                 chart = (BarChart) view.findViewById(R.id.csbar1);
                 chart.setData(UniversityStatsChartMaker.getChartPrivateAccomodation(course, chart));
                 chart.animateXY(2000,2000);
@@ -98,20 +95,59 @@ public class FragmentSelector extends Fragment {
                 chart.setData(UniversityStatsChartMaker.getChartInstitutionalAccomodation(course, chart));
                 chart.animateXY(2000,2000);
                 return  view;
-            case 4:
+            case 2:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
                 pChart = (PieChart) view.findViewById(R.id.espie1);
                 pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
                 pChart.animateXY(2000,2000);
                 chart = (BarChart) view.findViewById(R.id.esbar1);
-                chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
+
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.esbar2);
+                chart.setData(UniversityStatsChartMaker.getChartAvgSalarySixMonths(course, chart));
+                chart.animateY(2000);
+
                 chart.animate();
 //                if(chart == null){
 //                    return inflater.inflate(R.layout.fragment_error, container, false);
 //                }
+
                 return  view;
-            case 5:
+            case 3:
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+
+                chart = (BarChart) view.findViewById(R.id.ssbar1);
+                chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar2);
+                chart.setData(UniversityStatsChartMaker.getChartAssesmentAndFeedback(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar3);
+                chart.setData(UniversityStatsChartMaker.getChartAccademicSupport(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar4);
+                chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar5);
+                chart.setData(UniversityStatsChartMaker.getChartLearningResources(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar6);
+                chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
+                chart.animateY(2000);
+                chart = (BarChart) view.findViewById(R.id.ssbar7);
+                chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
+                chart.animateY(2000);
+                return  view;
+            case 4:
+                return inflater.inflate(R.layout.fragment_study_info, container, false);
+            case 5:
+                View view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                chart = (BarChart) view.findViewById(R.id.eibar1);
+                chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
+                chart.animateY(2000);
+                return view;
+            case 6:
+
                 chart = (BarChart) view.findViewById(R.id.bar5);
                 chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
                 chart.animate();
@@ -195,6 +231,7 @@ public class FragmentSelector extends Fragment {
                 return  view;
             case 14:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);
+
             default:
                 return inflater.inflate(R.layout.fragment_error, container, false);
         }

@@ -14,6 +14,83 @@
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/bar5"
         android:layout_width="match_parent"
+
+        android:layout_height="300dp"
+        android:layout_below="@id/ssTextView"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace1"
+        android:layout_below="@id/ssbar1"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace1"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace2"
+        android:layout_below="@id/ssbar2"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar3"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace2"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace3"
+        android:layout_below="@id/ssbar3"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar4"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace3"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace4"
+        android:layout_below="@id/ssbar4"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar5"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace4"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace5"
+        android:layout_below="@id/ssbar5"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar6"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace5"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace6"
+        android:layout_below="@id/ssbar6"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/ssbar7"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/ssspace6"
+        ></com.github.mikephil.charting.charts.HorizontalBarChart>
+    <Space
+        android:id="@+id/ssspace7"
+        android:layout_below="@id/ssbar7"
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+
         android:layout_height="match_parent"></com.github.mikephil.charting.charts.BarChart>
+
 
 </RelativeLayout>

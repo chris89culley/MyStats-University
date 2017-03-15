@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/eititle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Entry Info Page"
@@ -11,9 +12,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bar2"
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/eibar1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.github.mikephil.charting.charts.BarChart>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/eititle"></com.github.mikephil.charting.charts.HorizontalBarChart>
 
 </RelativeLayout>
