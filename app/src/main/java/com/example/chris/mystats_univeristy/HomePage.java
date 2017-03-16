@@ -113,6 +113,7 @@ public class HomePage extends MenuViewActivity  {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 shouldGetLocationFromUserData = false;
                 shouldGetLocationFromLocationEditText = true;
+                Log.d("we are gettiedit text ", " sldjfdsl");
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -234,7 +235,7 @@ public class HomePage extends MenuViewActivity  {
     }
 
     private boolean locationEditTextIsntEmpty(){
-        return getTheLocationFieldText().length() > 0;
+        return getTheLocationFieldText().length() > 0 && getTheLocationFieldText() != "My Location";
     }
 
     /**
@@ -255,7 +256,7 @@ public class HomePage extends MenuViewActivity  {
                 } else if (shouldGetLocationFromUserData) {
                     getUsersLocationalData();
                 }
-                if(shouldGetLocationFromUserData || shouldGetLocationFromUserData) {
+                if(shouldGetLocationFromLocationEditText || shouldGetLocationFromUserData) {
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius,
                             longitude,
                             latitude,
@@ -278,8 +279,8 @@ public class HomePage extends MenuViewActivity  {
             @Override
             public void onClick(View view) {
                 searchedLocationEditTextField.setText("My Location");
-                shouldGetLocationFromLocationEditText = true;
-                shouldGetLocationFromUserData = false;
+                shouldGetLocationFromLocationEditText = false;
+                shouldGetLocationFromUserData = true;
             }
         });}
 
@@ -344,7 +345,7 @@ public class HomePage extends MenuViewActivity  {
         //Checks if the User already has the permissions granted
         //Asks the user to give the app permission to use locaitonal services
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
+        Log.d("line 349", "In the permissions authorisation");
 
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
