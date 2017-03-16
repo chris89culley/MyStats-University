@@ -233,6 +233,10 @@ public class HomePage extends MenuViewActivity  {
         return searchedCourseEditTextField.getText().toString();
     }
 
+    private boolean locationEditTextIsntEmpty(){
+        return getTheLocationFieldText().length() > 0;
+    }
+
     /**
      * This method deals with the event that the search button is pressed. It determines whether the
      * user wishes to search around their current location, an entered location or neither and makes a request
@@ -246,7 +250,7 @@ public class HomePage extends MenuViewActivity  {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 updateInfoQuerierWithIntentIntentions(intent);
-                if(shouldGetLocationFromLocationEditText && theLocationFieldIsntMyLocation ()) {
+                if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
                     updateLongAndLatWithLocationGiven(getTheLocationFieldText());
                 } else if (shouldGetLocationFromUserData) {
                     getUsersLocationalData();
@@ -274,6 +278,8 @@ public class HomePage extends MenuViewActivity  {
             @Override
             public void onClick(View view) {
                 searchedLocationEditTextField.setText("My Location");
+                shouldGetLocationFromLocationEditText = true;
+                shouldGetLocationFromUserData = false;
             }
         });}
 
@@ -288,15 +294,15 @@ public class HomePage extends MenuViewActivity  {
         setUpWidgetsOnHomePage();
         longLatGrabber = new Geocoder(this);
         watchForLocationTextToChange();
-        handleSearchButtonPressed();
         handlelocationButtonClick();
+        handleSearchButtonPressed();
+
     }
 
     /**
      * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
      */
     public void getUsersLocationalData() {
-        Log.d("In current ", "locationSetter line 306");
         locationManagerInitialiser(0,0);
         //Assigns the last location got by the location listener and adds it into the location manager
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
