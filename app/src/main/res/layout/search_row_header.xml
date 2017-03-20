@@ -13,7 +13,7 @@
         android:text="COURSE SEARCH RESULTS"
         android:fontFamily="casual"
         android:textSize="20dp"
-        android:textColor="#976225"
+        android:textColor="#103649"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
@@ -22,7 +22,7 @@
         android:id="@+id/universityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#976225"
+        android:textColor="#103649"
         android:fontFamily="casual"
         android:text="ExpandableLayout Header!"
         android:gravity="center"
