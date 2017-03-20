@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c0392b"
+    >
+
+    <TextView
+        android:id="@+id/mode"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#103649"
+        android:background="#c0392b"/>
+
+    <TextView
+        android:id="@+id/salaryAfter6"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mode"
+        android:gravity="center"
+        android:textColor="#103649"
+        android:text="bla bla bla"
+        android:background="#c0392b"/>
+
+
+    <TextView
+        android:id="@+id/percentThatGoToWork"
+        android:layout_below="@+id/salaryAfter6"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#103649"
+        android:text="bla bla bla"
+        android:background="#c0392b"/>
+
+    <TextView
+        android:id="@+id/overallSatisafaction"
+        android:layout_below="@+id/percentThatGoToWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#103649"
+        android:text="bla bla bla"
+        android:background="#c0392b"/>
+
+    <Button
+        android:layout_below="@+id/overallSatisafaction"
+        android:id="@+id/testButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#c0392b"
+        android:text="More stats"/>
+
+</RelativeLayout>

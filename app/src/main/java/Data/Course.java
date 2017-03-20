@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.BaseAdapter;
 
 import java.lang.reflect.Field;
+import java.util.Currency;
 
 /*
  * Created by chris on 06/03/17.
@@ -167,12 +168,46 @@ public class Course  implements Parcelable{
         return values;
     }
 
+    /**
+     * Gets a text version on the course name with title and course type
+     * @return - A user friendly version of the course name
+     */
+    public String getFullCourseName(){
+        return getDegreeType() + " " + getCourseName() + " " +  getCourseTypeText();
+    }
 
 
+    /**
+     * Gets the mode of study (either full time of part time) as text
+     * @return - Either full time or part time
+     */
+    public String getModeText(){
+        return (Integer.valueOf(KISMODE) == 1) ? "full time" : "part time";
+    }
 
+    /**
+     * Gets the average salary after 6 months or returns no stats if there isn't any information
+     * @return - The average salary after 6 months as text or no current stats if there isn't any info
+     */
+    public String getAverageSalaryAfter6MonthsText(){
+        return (!INSTMED.isEmpty() && INSTMED.length() > 1 ) ? "£" + INSTMED   : " no current stats";
+    }
 
-    public String toString(){
-        return getCourseName() + " " + getUniversityWhereCourseIsTaught();
+    /**
+     * Gets a percentage of those that go on to work or study or no current stats if there isn't any info
+     * @return - A text version of the percentage that go on to work or study
+     */
+    public String getPercentageTheWorkOrStudyText(){
+        return (!WORKSTUDY.isEmpty() ) ? WORKSTUDY + "% " : "no current stats";
+    }
+
+    /**
+     * Gets the percentage of students that are satisfied with the course if there is info otherwise returns a
+     * string informing so
+     * @return - A displayable version of the results of the satisfaction question
+     */
+    public String getPercentageThatAreSatisfiedText(){
+        return (!Q22.isEmpty() ) ? Q22 + "%" : "no current stats";
     }
 
 
@@ -248,8 +283,9 @@ public class Course  implements Parcelable{
      * @return - A string with the full course type and additions
      */
     public String getCourseTypeText(){
+
         boolean hasSomething = false;
-        String out = getDegreeType();
+        String out =  "";
         String foundation = getFoundationType();
         String placement = getPlacementType();
         String sandwich = getSandwichType();
