@@ -7,14 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chris.mystats_univeristy.SearchResults"
-    android:background="@color/colorPrimary">
+    android:background="#8DA6B3">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Results"
-        android:textColor="@color/colorAccent"
+        android:textColor="#103649"
         android:textSize="35dp"
         android:fontFamily="casual"
         android:shadowColor="@color/colorPrimaryDark"

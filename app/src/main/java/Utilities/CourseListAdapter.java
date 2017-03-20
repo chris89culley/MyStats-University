@@ -31,7 +31,7 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
     private ArrayList<Course> courses;
     private static LayoutInflater inflater = null;
     private static Set<String> added = new HashSet<>();
-    private static String[] colours = {"#093145", "#021F2D" , "#1B495F" };
+    private static String[] colours = {"#8DA6B3", "#5E8091" , "#254F63" };
 
     public CourseListAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
         super(activity, textViewResourceId, header_id, courses);

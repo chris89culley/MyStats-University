@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.BaseAdapter;
 
 import java.lang.reflect.Field;
+import java.util.Currency;
 
 /*
  * Created by chris on 06/03/17.
@@ -189,7 +190,7 @@ public class Course  implements Parcelable{
      * @return - The average salary after 6 months as text or no current stats if there isn't any info
      */
     public String getAverageSalaryAfter6MonthsText(){
-        return (!INSTMED.isEmpty() && INSTMED.length() > 1 ) ? INSTMED + "k " : " no current stats";
+        return (!INSTMED.isEmpty() && INSTMED.length() > 1 ) ? "£" + INSTMED   : " no current stats";
     }
 
     /**
