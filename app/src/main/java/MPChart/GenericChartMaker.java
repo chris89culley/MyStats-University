@@ -81,6 +81,7 @@ public class GenericChartMaker {
 
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
 
+
             xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
 
             chart.setDrawGridBackground(false);

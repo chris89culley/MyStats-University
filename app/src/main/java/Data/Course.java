@@ -250,20 +250,68 @@ public class Course  implements Parcelable{
     public String getCourseTypeText(){
         boolean hasSomething = false;
         String out = getDegreeType();
-        if(hasFoundationYear()){
-            out += (hasSomething) ? (" and foundation year") : " with foundation year";
+        String foundation = getFoundationType();
+        String placement = getPlacementType();
+        String sandwich = getSandwichType();
+        if(!foundation.isEmpty()){
+            out += " with " + foundation;
             hasSomething = true;
         }
-
-        if(hasSandwichYear()){
-            out += (hasSomething) ? (" and sandwich year") : " with sandwich year";
+        if(!placement.isEmpty()){
+            out += (hasSomething) ? " and " + placement : " with " + placement;
+            hasSomething = true;
         }
-
-        if(hasPlacementYear()){
-            out += (hasSomething) ? (" and placement year") : " with placement year";
+        if(!sandwich.isEmpty()){
+            out += (hasSomething) ? " and " + sandwich : " with " + sandwich;
         }
         return out ;
     }
+
+
+    /**
+     * Extracts information from the passed type of study option as to whether it is  an option
+     * @param nameOfType - The name of the option ie placement
+     * @param option - The value of that option ie 2 = optional
+     * @return - A string description of that option
+     */
+        private  String getStudyType(String nameOfType, String option){
+            switch (option){
+
+                case "0" :
+                    return  "";
+                case "1" :
+                    return String.format(" %s year", nameOfType);
+                case "2" :
+                    return String.format(" %s year (optional) ", nameOfType);
+                default:
+                    return  "";
+            }
+        }
+
+    /**
+     * Gets the type of course as text the sandwich field implies
+     * @return - The type of course with respect to its sandwich status
+     */
+    public String getSandwichType(){
+            return getStudyType("sandwich" , SANDWICH);
+        }
+
+    /**
+     * Gets a string indicating if the course has a foundation element option
+     * @return - Whether the course has a foundation option
+     */
+    public String getFoundationType(){
+            return getStudyType("foundation" , FOUNDATION);
+        }
+
+    /**
+     * Gets a string indicating if the course has a placement option
+     * @return - Text giving information about placement option
+     */
+    public String getPlacementType(){
+            return getStudyType("placement" , PLACEMENT);
+        }
+
         public boolean hasSandwichYear(){
             return  SANDWICH.equals("1");
         }
