@@ -167,6 +167,10 @@ public class Course  implements Parcelable{
         return values;
     }
 
+    public String getFullCourseName(){
+        return getDegreeType() + " " + getCourseName() + " " +  getCourseTypeText();
+    }
+
 
 
 
@@ -248,8 +252,9 @@ public class Course  implements Parcelable{
      * @return - A string with the full course type and additions
      */
     public String getCourseTypeText(){
+
         boolean hasSomething = false;
-        String out = getDegreeType();
+        String out =  "";
         String foundation = getFoundationType();
         String placement = getPlacementType();
         String sandwich = getSandwichType();

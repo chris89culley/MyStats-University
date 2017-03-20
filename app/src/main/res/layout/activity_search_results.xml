@@ -1,48 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:expandable="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chris.mystats_univeristy.SearchResults">
-        <TextView
-            android:id="@+id/universityname"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:textColor="@color/colorPrimary"
-            android:shadowColor="@color/colorAccent"
-            android:layout_alignParentStart="true" />
 
-        <TextView
-            android:id="@+id/coursename"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/universityname"></TextView>
+    <com.andexert.expandablelayout.library.ExpandableLayout
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        expandable:el_headerLayout="@layout/search_header"
+        expandable:el_contentLayout="@layout/search_content"
+        android:background= "#e74c3c"/>
 
-        <TextView
-            android:id="@+id/degreetype"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/coursename"></TextView>
-            android:textColor="@color/colorPrimary"
-            />
-
-        <ListView
-            android:id="@+id/listing"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:animateLayoutChanges="true"
-            android:animationCache="true"
-            android:clickable="true"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="1.0sp"
-            android:footerDividersEnabled="false"
-            android:headerDividersEnabled="false"
-            android:touchscreenBlocksFocus="false" />
+    <com.andexert.expandablelayout.library.ExpandableLayoutListView
+        android:id="@+id/listing"
+        android:layout_below="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
+
