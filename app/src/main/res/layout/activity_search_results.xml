@@ -6,21 +6,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chris.mystats_univeristy.SearchResults">
+    tools:context="com.example.chris.mystats_univeristy.SearchResults"
+    android:background="@color/colorPrimary">
 
-    <com.andexert.expandablelayout.library.ExpandableLayout
-        android:id="@+id/first"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        expandable:el_headerLayout="@layout/search_header"
-        expandable:el_contentLayout="@layout/search_content"
-        android:background= "#e74c3c"/>
+        android:text="Search Results"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp"
+        android:fontFamily="casual"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+       />
 
     <com.andexert.expandablelayout.library.ExpandableLayoutListView
         android:id="@+id/listing"
-        android:layout_below="@+id/first"
+        android:background="#472600"
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="60dp"
         android:layout_height="match_parent"/>
+
 </RelativeLayout>
 

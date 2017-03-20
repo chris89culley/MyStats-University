@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         expandable:el_headerLayout="@layout/search_row_header"
         expandable:el_contentLayout="@layout/search_content"
-        android:background="#3C6478"/>
+        android:background="#0C374D"/>
 
 </RelativeLayout>

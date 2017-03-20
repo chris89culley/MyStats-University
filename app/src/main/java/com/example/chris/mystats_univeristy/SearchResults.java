@@ -52,18 +52,6 @@ public class SearchResults extends AppCompatActivity {
             adapter = new CourseListAdapter( this, R.layout.search_row, R.layout.search_header, courses);
             listView.setAdapter(adapter);
         }
-        //Else we need to show no search results found.
-
-
-
-       // listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-       //     @Override
-       //     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-       //         Intent intent = new Intent(view.getContext(), CourseStats.class);
-       //         intent.putExtra("chosenCourse", (Parcelable) parent.getAdapter().getItem(position));
-       //         startActivity(intent);
-       //     }
-        //});
 
     }
 

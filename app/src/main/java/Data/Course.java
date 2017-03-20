@@ -173,6 +173,22 @@ public class Course  implements Parcelable{
 
 
 
+    public String getModeText(){
+        return (Integer.valueOf(KISMODE) == 1) ? "full time" : "part time";
+    }
+
+    public String getAverageSalaryAfter6MonthsText(){
+        return (INSTMED != "" && INSTMED != null && INSTMED.length() > 1 ) ? INSTMED + "k " : " no current stats";
+    }
+
+    public String getPercentageTheWorkOrStudyText(){
+        return (!WORKSTUDY.isEmpty() ) ? WORKSTUDY + "% " : "no current stats";
+    }
+
+    public String getPercentageThatAreSatisfiedText(){
+        return (!Q22.isEmpty() ) ? Q22 + "%" : "no current stats";
+    }
+
 
 
     public String toString(){
