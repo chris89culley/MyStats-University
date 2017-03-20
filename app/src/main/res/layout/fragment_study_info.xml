@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/siTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Study Info Page"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/sibar1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/siTitle"
+        ></com.github.mikephil.charting.charts.BarChart>
+
+</RelativeLayout>

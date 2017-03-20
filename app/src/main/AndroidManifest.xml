@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chris.mystats_univeristy">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature android:name="android.hardware.location.gps" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HomePage">
-            <intent-filter>
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".About" />
+        <activity android:name=".MenuViewActivity" />
+        <activity android:name=".Account" />
+        <activity android:name=".AdvanceSearch" />
+        <activity android:name=".SearchResults" />
+        <activity android:name=".CourseStats"></activity>
+
+
     </application>
+
+
 
 </manifest>
