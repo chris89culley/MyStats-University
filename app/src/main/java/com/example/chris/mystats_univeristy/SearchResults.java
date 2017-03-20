@@ -24,7 +24,7 @@ import Data.Course;
 import Utilities.CourseListAdapter;
 
 
-public class SearchResults extends MenuViewActivity {
+public class SearchResults extends AppCompatActivity {
 
     ListView listView;
 

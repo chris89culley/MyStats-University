@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chris.mystats_univeristy.About"
-    android:id="@+id/about_page">
+    android:id="@+id/drawerLayout">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -16,7 +16,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
 
-public class CourseStats extends AppCompatActivity  {
+public class CourseStats extends MenuViewActivity  {
 
     TabLayout tb;
 
