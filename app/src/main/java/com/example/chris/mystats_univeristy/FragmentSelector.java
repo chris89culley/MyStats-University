@@ -78,6 +78,8 @@ public class FragmentSelector extends Fragment {
                 return  view;
             case 2:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
+                TextView chartTitle1 = (TextView) view.findViewById(R.id.chartTitle1);
+                chartTitle1 .setText("Employment six months after completeing the course");
                 pChart = (PieChart) view.findViewById(R.id.espie1);
                 pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
                 pChart.animateXY(2000,2000);
