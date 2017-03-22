@@ -40,6 +40,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 
 
+//A
 public class HomePage extends MenuViewActivity  {
 
 
