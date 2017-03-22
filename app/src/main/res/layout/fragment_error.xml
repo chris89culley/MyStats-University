@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView7"
@@ -13,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="26dp"
-        android:text="Oops! - Chart Doesn't Exist!"
+        android:text="Oops! - No Stats Found!"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         tools:targetApi="lollipop" />
@@ -22,7 +23,7 @@
         android:id="@+id/imageView"
         android:layout_width="108dp"
         android:layout_height="90dp"
-        app:srcCompat="@android:drawable/presence_busy"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        app:srcCompat="@android:drawable/presence_busy" />
 </RelativeLayout>
