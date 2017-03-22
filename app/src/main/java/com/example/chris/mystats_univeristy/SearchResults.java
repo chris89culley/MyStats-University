@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.Menu;
 import android.view.View;
 
 import android.util.Log;
@@ -15,6 +16,8 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -36,7 +39,7 @@ public class SearchResults extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-        listView = (ListView) findViewById(R.id.listing);
+       ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
 
 
         //This is array list of matches resulting from a search, you'll need to iterate them, displaying the relevant
@@ -46,19 +49,10 @@ public class SearchResults extends AppCompatActivity {
 
 
         if(!courses.isEmpty()){
-            adapter = new CourseListAdapter( this, R.layout.activity_search_results, courses);
+            adapter = new CourseListAdapter( this, R.layout.search_row, R.layout.search_header, courses);
             listView.setAdapter(adapter);
         }
-        //Else we need to show no search results found.
 
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(), CourseStats.class);
-                intent.putExtra("chosenCourse", (Parcelable) parent.getAdapter().getItem(position));
-                startActivity(intent);
-            }
-        });
     }
+
 }
