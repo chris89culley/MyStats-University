@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,8 +51,9 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         }
         final Course course = courses.get(position);
 
+        String colour = (colours[position % colours.length]);
 
-        rowView.findViewById(R.id.row).setBackgroundColor(Color.parseColor(colours[position % colours.length]));
+        rowView.findViewById(R.id.row).setBackgroundColor(Color.parseColor(colour));
 
         TextView universityname = (TextView) rowView.findViewById(R.id.universityName);
         TextView courseName = (TextView) rowView.findViewById(R.id.courseName);
@@ -59,7 +61,24 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         TextView averageSalaryAfter6 = (TextView) rowView.findViewById(R.id.salaryAfter6);
         TextView percentThatGoOnToWork = (TextView) rowView.findViewById(R.id.percentThatGoToWork);
         TextView averageSatisfaction = (TextView) rowView.findViewById(R.id.overallSatisafaction);
+        TextView poundSign = (TextView) rowView.findViewById(R.id.poundSign);
 
+        if(colour.equals("#254F63")){
+            universityname.setTextColor(Color.WHITE);
+            courseName.setTextColor(Color.WHITE);
+        }
+
+        Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Market_Deco.ttf");
+        Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
+
+        poundSign.setTypeface(vintage);
+        mode.setTypeface(retroFont);
+        averageSalaryAfter6.setTypeface(retroFont);
+        percentThatGoOnToWork.setTypeface(retroFont);
+        averageSatisfaction.setTypeface(retroFont);
+
+        courseName.setTypeface(retroFont);
+        universityname.setTypeface(vintage);
         mode.setText("Study mode : " + course.getModeText());
         averageSalaryAfter6.setText("Average salary after 6 months : " + course.getAverageSalaryAfter6MonthsText());
         percentThatGoOnToWork.setText("Percent that go on to work or study : " + course.getPercentageTheWorkOrStudyText());

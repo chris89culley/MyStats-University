@@ -16,7 +16,6 @@
         android:text="Search Results"
         android:textColor="#103649"
         android:textSize="35dp"
-        android:fontFamily="casual"
         android:shadowColor="@color/colorPrimaryDark"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
