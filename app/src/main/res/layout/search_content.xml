@@ -6,100 +6,143 @@
     android:drawableTop="@android:color/black"
     android:drawableBottom="@android:color/black" >
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/table"
+        >
 
-    <ImageView
-        android:id="@+id/pencil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:src="@drawable/pencil"
-        />
-    <TextView
-        android:id="@+id/mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:text="i rep the mode"
-        android:layout_marginBottom="25dp"
-        android:textColor="#103649"
-        />
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/poundSign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pencil"
-        android:layout_marginLeft="55dp"
-        android:textColor="@android:color/black"
-        android:text="£"
-        android:layout_marginBottom="5dp"
-        android:textSize="40dp"
-        />
+            <ImageView
+                android:id="@+id/pencil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pencil"
+                android:layout_marginLeft="10sp"
+                android:padding="15sp"
+                />
 
+            <TextView
+                android:id="@+id/mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Study mode :"
+                android:textSize="15sp"
+                android:layout_marginLeft="20sp"
+                android:gravity="center"
+                android:layout_marginTop="20sp"
+                android:layout_alignRight="@id/pencil"
+                android:textColor="#103649"
+                android:padding="10dip"
+                />
 
+        </TableRow>
 
-    <TextView
-        android:id="@+id/salaryAfter6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_below="@+id/mode"
-        android:textColor="#103649"
-        android:text="salary after 6 months"
-        />
-    <TextView
-        android:id="@+id/overallSatisafaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/salaryAfter6"
-        android:layout_centerHorizontal="true"
-        android:text="overall sat bla bla"
-        android:textColor="#103649"
-        android:layout_marginBottom="30dp"
-        />
-
-    <ImageView
-        android:id="@+id/satisfied"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/poundSign"
-        android:layout_alignLeft="@id/overallSatisafaction"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/satisfied"
-        />
+        <TableRow
+            android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/poundSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:layout_below="@id/row1"
+            android:layout_marginLeft="10sp"
+            android:textColor="@android:color/black"
+            android:text="£"
+            android:layout_marginTop="10sp"
+            android:textSize="40dp"
+            />
 
 
+        <TextView
+            android:id="@+id/salaryAfter6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@+id/mode"
+            android:textColor="#103649"
+            android:layout_alignRight="@id/poundSign"
+            android:layout_marginLeft="20sp"
+            android:text="salary after 6 months"
+            android:textSize="15dp"
+            />
 
-    <ImageView
-        android:id="@+id/studyimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/satisfied"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="25dp"
-        android:src="@drawable/study"
-        />
-    <TextView
-        android:id="@+id/percentThatGoToWork"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text= "percent that go to work"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/overallSatisafaction"
-        android:layout_marginBottom="25dp"
-        android:textColor="#103649"
+        </TableRow>
+        <TableRow>
+            <ImageView
+                android:id="@+id/satisfied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/salaryAfter6"
+                android:padding="15sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/satisfied"
+                />
 
-        />
+            <TextView
+                android:id="@+id/overallSatisafaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/salaryAfter6"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:text="overall sat bla bla"
+                android:gravity="center"
+                android:textColor="#103649"
+                android:layout_alignRight="@id/satisfied"
+                android:padding="10dip"
+                android:textSize="15sp"
+                android:layout_marginLeft="20sp"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/studyimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/overallSatisafaction"
+                android:layout_marginLeft="10sp"
+                android:padding="15dip"
+                android:src="@drawable/study"
+                />
+            <TextView
+                android:id="@+id/percentThatGoToWork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:text= "percent that go to work"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:layout_alignRight="@id/studyimage"
+                android:gravity="center"
+                android:layout_below="@+id/overallSatisafaction"
+                android:padding="10dip"
+                android:textSize="15dp"
+                android:textColor="#103649"
+                />
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
     <Button
         android:id="@+id/testButton"
         android:layout_width="match_parent"
+        android:layout_below="@id/table"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/percentThatGoToWork"
         android:background="@android:color/transparent"
         android:text="More stats"
         />

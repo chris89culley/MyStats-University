@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.chris.mystats_univeristy.CourseStats;
@@ -68,7 +69,13 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
             courseName.setTextColor(Color.WHITE);
         }
 
+        TableLayout tl = (TableLayout) rowView.findViewById(R.id.table);
+        tl.setColumnShrinkable(1, true);
         Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Market_Deco.ttf");
+
+
+
+
         Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
 
         poundSign.setTypeface(vintage);
