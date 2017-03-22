@@ -1,6 +1,7 @@
 package com.example.chris.mystats_univeristy;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,7 +9,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
@@ -28,16 +31,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
+
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.MyLocationListener;
 import GPS.RadiusChecker;
-
-
-
-import android.Manifest;
-import android.os.Build;
-import android.support.annotation.NonNull;
 
 
 public class HomePage extends MenuViewActivity  {
@@ -113,7 +111,6 @@ public class HomePage extends MenuViewActivity  {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 shouldGetLocationFromUserData = false;
                 shouldGetLocationFromLocationEditText = true;
-                Log.d("we are gettiedit text ", " sldjfdsl");
             }
             @Override
             public void afterTextChanged(Editable s) {}

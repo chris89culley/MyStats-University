@@ -1,14 +1,7 @@
 package Data;
 
-import android.util.Log;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-import android.widget.BaseAdapter;
-
-import java.lang.reflect.Field;
-import java.util.Currency;
 
 /*
  * Created by chris on 06/03/17.
@@ -246,6 +239,7 @@ public class Course  implements Parcelable{
      * @return - The accommodation costs
      */
     public String[] getPrivateAccomodationDetails(){
+
         String[] vals = new String[]{PRIVATELOWER, PRIVATEUPPER};
         return vals;
     }
@@ -255,7 +249,11 @@ public class Course  implements Parcelable{
      * @return - The accommodation costs
      */
     public String[] getInstitutionalAccomDetails(){
-        String[] vals = new String[]{INSTLOWER, INSTMED, INSTUPPER};
+        String upper = INSTUPPER;
+        String lower = INSTLOWER;
+        double med = ((Double.parseDouble(upper)) / (Double.parseDouble(lower)));
+        String Med = Double.toString(med);
+        String[] vals = new String[]{upper, Med, lower};
         return vals;
     }
 
