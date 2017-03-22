@@ -157,7 +157,7 @@ public class Course  implements Parcelable{
      * @return Q22- Student union stats
      */
     public String[] getStudentUnionStats(){
-        String[] values = {Q22};
+        String[] values = {Q24};
         return values;
     }
 
