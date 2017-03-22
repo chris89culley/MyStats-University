@@ -11,7 +11,7 @@
         android:id="@+id/pencil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
         android:src="@drawable/pencil"
         />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:text="i rep the mode"
         android:layout_marginBottom="25dp"
         android:textColor="#103649"
