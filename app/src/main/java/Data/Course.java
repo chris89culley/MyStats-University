@@ -190,7 +190,7 @@ public class Course  implements Parcelable{
      * @return - The average salary after 6 months as text or no current stats if there isn't any info
      */
     public String getAverageSalaryAfter6MonthsText(){
-        return (!INSTMED.isEmpty() && INSTMED.length() > 1 ) ? "£" + INSTMED   : " no current stats";
+        return (!INSTMED.isEmpty() && INSTMED.length() > 1 ) ? "£" + INSTMED   : " N/A";
     }
 
     /**
@@ -198,7 +198,7 @@ public class Course  implements Parcelable{
      * @return - A text version of the percentage that go on to work or study
      */
     public String getPercentageTheWorkOrStudyText(){
-        return (!WORKSTUDY.isEmpty() ) ? WORKSTUDY + "% " : "no current stats";
+        return (!WORKSTUDY.isEmpty() ) ? WORKSTUDY + "% " : " N/A";
     }
 
     /**
@@ -207,7 +207,7 @@ public class Course  implements Parcelable{
      * @return - A displayable version of the results of the satisfaction question
      */
     public String getPercentageThatAreSatisfiedText(){
-        return (!Q22.isEmpty() ) ? Q22 + "%" : "no current stats";
+        return (!Q22.isEmpty() ) ? Q22 + "%" : " N/A";
     }
 
 

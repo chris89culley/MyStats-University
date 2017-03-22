@@ -33,6 +33,7 @@ public class DatabaseInformationQuerier {
     Intent intent;
     MenuViewActivity current;
     int currentPos = 0;
+    private String searchedWord = "";
     private Iterator<DataSnapshot> coursesIterator;
 
 
@@ -81,6 +82,7 @@ public class DatabaseInformationQuerier {
         }
         coursesIterator = data;
         intent.putParcelableArrayListExtra("searchResults" , courseList);
+        intent.putExtra("searchedName" , searchedWord);
         this.current.startActivity(intent);
     }
 
@@ -94,6 +96,7 @@ public class DatabaseInformationQuerier {
      */
     public void getAllCoursesByCourseName(String name, final CourseTypes coursetype){
 
+                searchedWord = name;
                 Query query =  courseNameQuery(name, coursetype);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -219,6 +222,7 @@ public class DatabaseInformationQuerier {
      */
     public void searchByCourseLocation(String coursename , final Set<String> keys, CourseTypes type){
 
+        searchedWord = coursename;
         Query query = courseNameQuery(coursename, type);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -240,6 +244,7 @@ public class DatabaseInformationQuerier {
      * @param coursetype - The type of course searched
      */
     public void getACourseByCoursenameAndUniversityName(String courseName, final String universityName, final CourseTypes coursetype){
+
 
                 Query query =  courseNameQuery(courseName, coursetype);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
