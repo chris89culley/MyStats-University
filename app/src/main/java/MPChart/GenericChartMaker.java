@@ -83,7 +83,88 @@ public class GenericChartMaker {
             }
 
             BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
-            barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+            //barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
+            //Setting the colours of the data set
+            barDataSet.setColors(Colors);
+
+            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
+
+            XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
+
+
+            xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
+
+            chart.setDrawGridBackground(false);
+            chart.getAxisLeft().setDrawGridLines(false);
+            chart.getXAxis().setDrawGridLines(false);
+            chart.getAxisLeft().setStartAtZero(true);
+            Description emptyDescription = new Description();
+            emptyDescription.setText("");
+            chart.setDescription(emptyDescription);
+            xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
+            BarData theData = new BarData(barDataSet);
+            return theData;
+        } catch (Exception e){
+
+            return new BarData();
+
+        }
+    }
+
+    /**
+     *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
+     * @param tags - an Array labels for the data provided
+     * @param values - an Array of values for each of the labelled fields
+     * @param chart - reference to the chart from the view
+     * @param DataTitle - Title of the chart
+     * @param Colour - colour preset selction
+     * @return The BarData object for the data provided to be used for bar chart construction
+     */
+    public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle,String Colour){
+        try {
+
+            float[] data;
+            //Convert the array of strings into an array of floats
+            if (values.length > 0){
+                data = new float[values.length];
+            }  else{
+                return new BarData();
+            }
+            for (int i = 0; i < data.length; i++) {
+                data[i] = Float.parseFloat(values[i]);
+            }
+
+            ArrayList<BarEntry> entries = new ArrayList<>();
+            ArrayList<String> labels = new ArrayList<>();
+
+            for (int i = 0; i < data.length; i++) {
+                try {
+                    entries.add(new BarEntry(i, data[i]));
+                    labels.add(tags[i]);
+                } catch (Exception e){
+                    ArrayList<BarEntry> yentries = new ArrayList<>();
+                    yentries.add(new BarEntry(10f,10f));
+                    return new BarData(new BarDataSet(yentries,""));
+                }
+            }
+
+            BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+            //Setting the colour of the chart too each preset
+            Colour = Colour.toLowerCase();
+            int[] Colors;
+            switch (Colour){
+                case "orange":
+                    Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
+                case "indigo":
+                    Colors = new int[] {ColorTemplate.rgb("093145"),ColorTemplate.rgb("0D3D56"),ColorTemplate.rgb("3C6478"),ColorTemplate.rgb("0C374D")};
+                case "blue":
+                    Colors = new int[] {ColorTemplate.rgb("107896"),ColorTemplate.rgb("1496BB"),ColorTemplate.rgb("43ABC9"),ColorTemplate.rgb("1287A8")};
+                    break;
+                default: Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
+                    break;
+            }
+            barDataSet.setColors(Colors);
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
 
@@ -178,8 +259,6 @@ public class GenericChartMaker {
             //Setting the colours of the data set
             pieDataSet.setColors(Colors);
 
-
-
             Description description = new Description();
             description.setText(dataTitle);
             description.setPosition(0f,0f);
@@ -187,6 +266,7 @@ public class GenericChartMaker {
             chart.setDrawEntryLabels(true);
 
             Legend l = chart.getLegend();
+            l.setTextColor(Color.WHITE);
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
             l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
             l.setOrientation(Legend.LegendOrientation.VERTICAL);
@@ -194,9 +274,6 @@ public class GenericChartMaker {
             l.setXEntrySpace(7f);
             l.setYEntrySpace(0f);
             l.setYOffset(0f);
-
-
-
 
             chart.setDrawSliceText(false);
 

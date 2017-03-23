@@ -1,13 +1,23 @@
 package com.example.chris.mystats_univeristy;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.transition.*;
 import android.support.v4.app.Fragment;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -78,17 +88,46 @@ public class FragmentSelector extends Fragment {
                 return  view;
             case 2:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-                TextView chartTitle1 = (TextView) view.findViewById(R.id.chartTitle1);
+
+
+                TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
                 chartTitle1 .setText("Employment six months after completeing the course");
                 pChart = (PieChart) view.findViewById(R.id.espie1);
                 pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
                 pChart.animateXY(2000,2000);
-                chart = (BarChart) view.findViewById(R.id.esbar1);
-                chart.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.esbar2);
-                chart.setData(UniversityStatsChartMaker.getChartAvgSalarySixMonths(course, chart));
-                chart.animateY(2000);
+
+                final TextView salarySixmonthSymbol = (TextView) view.findViewById(R.id.esStat1);
+                final TextView salarySixmonthText = (TextView) view.findViewById(R.id.esStat1Text);
+                final TextView salaryFourtymonthSymbol = (TextView) view.findViewById(R.id.esStat2);
+                final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.esStat2Text);
+
+                final Animation animright = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
+                salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
+                    Boolean animFlag = true;
+                    @Override
+                    public void onClick(View v) {
+                        if (animFlag == true ) {
+                            salaryFourtymonthText.setTextSize(13f);
+                            salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
+                            salaryFourtymonthText.setText("The average salary 40 months after was " + course.getAverageSalaryAfter40MonthsText().trim());
+                            salaryFourtymonthText.startAnimation(animright);
+                        animFlag = false;
+                        }
+                    }
+                });
+                salarySixmonthSymbol.setOnClickListener(new View.OnClickListener() {
+                    Boolean animFlag = true;
+                    @Override
+                    public void onClick(View v) {
+                        if (animFlag == true ) {
+                        salarySixmonthText.setTextSize(13f);
+                        salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
+                        salarySixmonthText.setText("The average salary 6 months after was " + course.getAverageSalaryAfter6MonthsText().trim());
+                        salarySixmonthText.startAnimation(animright);
+                            animFlag = false;
+                        }
+                    }
+                });
                 return  view;
             case 3:
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
