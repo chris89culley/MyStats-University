@@ -62,9 +62,9 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         TextView averageSalaryAfter6 = (TextView) rowView.findViewById(R.id.salaryAfter6);
         TextView percentThatGoOnToWork = (TextView) rowView.findViewById(R.id.percentThatGoToWork);
         TextView averageSatisfaction = (TextView) rowView.findViewById(R.id.overallSatisafaction);
-        TextView poundSign = (TextView) rowView.findViewById(R.id.poundSign);
         Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
+        Button moreStatsButton = (Button) rowView.findViewById(R.id.moreStatsButton);
 
 
         //Stops an error being thrown when we get to the bottom of the list view
@@ -84,19 +84,16 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
             courseName.setTextColor(Color.WHITE);
         }
 
-        //Allows the table to be able to shrink depending on the resolution
-        TableLayout tl = (TableLayout) rowView.findViewById(R.id.table);
-        tl.setColumnShrinkable(1, true);
 
 
         //Sets the fonts of the content
-        poundSign.setTypeface(vintage);
         mode.setTypeface(retroFont);
         averageSalaryAfter6.setTypeface(retroFont);
         percentThatGoOnToWork.setTypeface(retroFont);
         averageSatisfaction.setTypeface(retroFont);
         courseName.setTypeface(retroFont);
         universityname.setTypeface(vintage);
+        moreStatsButton.setTypeface(vintage);
 
 
 
@@ -111,8 +108,7 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
 
 
         //If the search course button is pressed then we move to the more stats page
-        Button searchCourseButton = (Button) rowView.findViewById(R.id.testButton);
-        searchCourseButton.setOnClickListener(new View.OnClickListener() {
+        moreStatsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(rowView.getContext(), CourseStats.class);
