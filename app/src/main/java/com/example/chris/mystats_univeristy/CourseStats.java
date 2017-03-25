@@ -15,6 +15,7 @@ import com.github.mikephil.charting.charts.BarChart;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
+import Utilities.CourseListAdapter;
 
 public class CourseStats extends MenuViewActivity  {
 
@@ -44,6 +45,7 @@ public class CourseStats extends MenuViewActivity  {
 
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);
+
 
     }
 }
