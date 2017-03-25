@@ -2,6 +2,7 @@ package com.example.chris.mystats_univeristy;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,39 +70,18 @@ public class FragmentSelector extends Fragment {
             case 1:
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
                 try {
-                    int low, high, avg;
+                    int low, high;
                     String[] pte = course.getPrivateAccomodationDetails();
                     low = Integer.parseInt(pte[0]);
                     high = Integer.parseInt(pte[1]);
-                    avg = ((low + high) / 2);
-
                     TextView x = (TextView) view.findViewById(R.id.costPvt);
                     x.setText("Private: £" + low + " - £" + high);
-
-                    ImageView img = (ImageView) view.findViewById(R.id.imageView2);
-                    if (avg < 4000) {
-                        img.setImageResource(R.drawable.ic_cost_low);
-                    } else if (avg > 7000) {
-                        img.setImageResource(R.drawable.ic_cost_high);
-                    } else {
-                        img.setImageResource(R.drawable.ic_cost_med);
-                    }
 
                     String[] inst = course.getInstitutionalAccomDetails();
                     low = Integer.parseInt(inst[0]);
                     high = Integer.parseInt(inst[1]);
-                    avg = ((low + high) / 2);
                     x = (TextView) view.findViewById(R.id.costInst);
                     x.setText("Student Halls: £" + low + " - £" + high);
-
-                    img = (ImageView) view.findViewById(R.id.imageView3);
-                    if (avg < 4000) {
-                        img.setImageResource(R.drawable.ic_cost_low);
-                    } else if (avg > 7000) {
-                        img.setImageResource(R.drawable.ic_cost_high);
-                    } else {
-                        img.setImageResource(R.drawable.ic_cost_med);
-                    }
                 }
                 catch(Exception IO) {
                     view = inflater.inflate(R.layout.fragment_error, container, false);

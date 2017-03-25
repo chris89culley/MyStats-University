@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView10"
+        android:fontFamily="casual"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -19,13 +20,14 @@
 
     <TextView
         android:id="@+id/costPvt"
+        android:fontFamily="casual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="90dp"
+        android:height="98dp"
         android:background="#3C6478"
         android:gravity="center_vertical"
         android:padding="6dp"
-        android:drawableLeft="@drawable/house"
+        android:drawableLeft="@drawable/house2"
         android:text="No Private Accomadation Stats Found."
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
@@ -36,52 +38,34 @@
 
     <TextView
         android:id="@+id/costInst"
+        android:fontFamily="casual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="90dp"
+        android:height="98dp"
         android:background="#43ABC9"
         android:gravity="center_vertical"
         android:padding="6dp"
-        android:drawableRight="@drawable/halls"
+        android:drawableLeft="@drawable/halls"
         android:text="No University Accomadation Stats Found."
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textColor="#fff"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/satisfied"
         android:layout_below="@+id/costPvt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/satisfied"
+        android:fontFamily="casual"
+        android:padding="12dp"
+        android:text="UK Average: £12,056 for living costs, which breaks down into £4,834 for rent, £1,956 for food, £316 for household goods, £42 for insurance, £2,074 for personal items, £1,524 for travel and £1,310 for leisure."
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textStyle="bold"
+        android:layout_marginTop="11dp"
         android:layout_below="@+id/costInst"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/infoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="28dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
 
 </RelativeLayout>
