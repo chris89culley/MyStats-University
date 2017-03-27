@@ -28,43 +28,60 @@
                     >
 
                     <Button
-                        android:text="A button"
-                        app:arc_angle="-80"
+                        android:text="ucas tips"
+                        app:arc_angle="40"
                         android:layout_height="90dp"
                         android:layout_width="90dp"
-                        android:background="@drawable/study"
+                        android:background="@drawable/ucastips"
+                        android:gravity="bottom|center"
+                        android:textSize="10dp"
+                        android:paddingBottom="25dp"
                         />
 
                     <Button
-                        android:text="B button "
+                        android:text="account"
                         android:layout_height="90dp"
-                        android:background="@drawable/study"
+                        android:background="@drawable/accountbutton"
                         android:layout_width="90dp"
+                        android:gravity="bottom|center"
+                        android:textSize="10dp"
+                        android:paddingBottom="25dp"
                         app:arc_angle="-40"
                         />
 
                     <Button
-                        android:text="C button"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:background="@drawable/study"
-                        app:arc_angle="40"
-                        />
-
-                    <Button
-                        android:text="D button"
-                        android:layout_height="90dp"
-                        android:layout_width="90dp"
-                        app:arc_angle="80"
-                        android:background="@drawable/study"
-                        />
-
-                    <Button
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:text="E button"
-                        android:background="@drawable/study"
+                        android:background="@drawable/searchbutton"
                         app:arc_angle="0"
+                        android:textSize="10dp"
+                        android:text="advanced search"
+                        android:gravity="bottom|center"
+                        android:paddingBottom="15dp"
+                        />
+
+                    <Button
+                        android:id="@+id/quicksearchbutton"
+                        android:text="quick search"
+                        android:layout_height="90dp"
+                        android:layout_width="90dp"
+                        app:arc_angle="-80"
+                        android:textSize="10dp"
+                        android:gravity="bottom|center"
+                        android:paddingBottom="25dp"
+                        android:background="@drawable/quicksearchbutton"
+                        />
+
+                    <Button
+                        android:id="@+id/aboutbutton"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:textSize="10dp"
+                        android:text="about"
+                        android:gravity="bottom|center"
+                        android:paddingBottom="20dp"
+                        android:background="@drawable/aboutbutton"
+                        app:arc_angle="80"
                         />
 
                 </com.ogaclejapan.arclayout.ArcLayout>
