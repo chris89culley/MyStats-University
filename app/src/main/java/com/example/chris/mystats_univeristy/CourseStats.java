@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import Data.Course;
 import Utilities.PagerAdapter;
@@ -26,7 +27,7 @@ public class CourseStats extends MenuViewActivity  {
 
 
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
-        vp.setAdapter(new Adapter(getSupportFragmentManager(), this, course));
+        vp.setAdapter(new PagerAdapter(getSupportFragmentManager(), this, course));
 
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);
