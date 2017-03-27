@@ -23,18 +23,22 @@ public class Home extends AppCompatActivity {
         for (int i = 0; i<= 360; i+=10){
             layout.animate().rotation(i).withLayer();
         }
+
+        //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
         Button accountButton = (Button) findViewById(R.id.accountbutton);
         Button advancedSearchButton = (Button) findViewById(R.id.advancedsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
 
+        //Sets the fonts of all the buttons
         quickSearchButton.setTypeface(retroFont);
         accountButton.setTypeface(retroFont);
         advancedSearchButton.setTypeface(retroFont);
         ucasTipsButton.setTypeface(retroFont);
         aboutButton.setTypeface(retroFont);
 
+        //Sets the listeners to navigate to the correct pages
         quickSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +46,6 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         accountButton.setOnClickListener(new View.OnClickListener() {
             @Override
