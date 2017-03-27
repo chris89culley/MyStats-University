@@ -1,39 +1,98 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#3C6478">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/espie1"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            ></com.github.mikephil.charting.charts.PieChart>
+
+        <TextView android:id="@+id/esChartTitle1"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Title"
+            android:fontFamily=""
+            android:textSize="20dp"
+
+            />
         <Space
             android:id="@+id/esspace1"
-            android:layout_below="@id/espie1"
+            android:layout_below="@id/esChartTitle1"
             android:layout_width="1dp"
-            android:layout_height="50dp"/>
+            android:layout_height="30dp"/>
 
-        <com.github.mikephil.charting.charts.BarChart
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/espie1"
+            android:layout_below="@id/esspace1"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/esbar1"
-            android:layout_below="@+id/esspace1"></com.github.mikephil.charting.charts.BarChart>
-
+            android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
         <Space
             android:id="@+id/esspace2"
-            android:layout_below="@id/esbar1"
+            android:layout_below="@id/espie1"
             android:layout_width="1dp"
-            android:layout_height="50dp"/>
+            android:layout_height="30dp" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/esbar2"
-            android:layout_below="@+id/esspace2"></com.github.mikephil.charting.charts.BarChart>
+        <TextView
+            android:id="@+id/esStat1"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/esspace2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£"
+            android:textSize="30dp"
+            android:layout_toRightOf="@+id/esspace2"
+            android:layout_toEndOf="@+id/esspace2" />
+
+        <TextView
+            android:id="@+id/esStat1Text"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/esspace2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£"
+            android:textSize="30dp"
+            android:layout_toRightOf="@+id/esspace2"
+            android:layout_toEndOf="@+id/esspace2" />
+
+        <Space
+            android:id="@+id/esspace3"
+            android:layout_below="@id/esStat1"
+            android:layout_width="1dp"
+            android:layout_height="30dp" />
+
+
+        <TextView
+            android:id="@+id/esStat2"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/esspace3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£"
+            android:textSize="30dp"
+            android:layout_toRightOf="@+id/esspace3"
+            android:layout_toEndOf="@+id/esspace3" />
+
+        <Space
+            android:id="@+id/esspace4"
+            android:layout_below="@id/esStat2"
+            android:layout_width="1dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/esStat2Text"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/esspace3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£"
+            android:textSize="30dp"
+            android:layout_toRightOf="@+id/esspace3"
+            android:layout_toEndOf="@+id/esspace3" />
+
 
     </RelativeLayout>
 </ScrollView>

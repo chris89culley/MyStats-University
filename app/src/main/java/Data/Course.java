@@ -194,6 +194,14 @@ public class Course  implements Parcelable{
     }
 
     /**
+     * Gets the average salary after 40 months or returns no stats if there isn't any information
+     * @return - The average salary after 40 months as text or no current stats if there isn't any info
+     */
+    public String getAverageSalaryAfter40MonthsText(){
+        return (!LDMED.isEmpty() && LDMED.length() > 1 ) ? "£" + LDMED   : " no current stats";
+    }
+
+    /**
      * Gets a percentage of those that go on to work or study or no current stats if there isn't any info
      * @return - A text version of the percentage that go on to work or study
      */

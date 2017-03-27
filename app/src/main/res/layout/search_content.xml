@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/background"
+    android:background="#BECED5"
     android:drawableTop="@android:color/black"
     android:drawableBottom="@android:color/black"
     >
@@ -26,12 +26,25 @@
         android:textColor="#103649"
         android:padding="10dip"
         />
-
+        <TextView
+            android:id="@+id/overallSatisafaction"
+            android:layout_width="wrap_content"
+            android:layout_alignLeft="@+id/mode"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mode"
+            android:text="overall sat bla bla"
+            android:textColor="#103649"
+            android:drawablePadding="10sp"
+            android:drawableLeft="@drawable/percent"
+            android:gravity="center_vertical"
+            android:padding="10dip"
+            android:textSize="12sp"
+            />
     <TextView
         android:id="@+id/salaryAfter6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mode"
+        android:layout_below="@+id/overallSatisafaction"
         android:textColor="#103649"
         android:gravity="center_vertical"
         android:padding="10dip"
@@ -42,27 +55,14 @@
         android:textSize="12dp"
         />
 
-    <TextView
-        android:id="@+id/overallSatisafaction"
-        android:layout_width="wrap_content"
-        android:layout_alignLeft="@+id/mode"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/salaryAfter6"
-        android:text="overall sat bla bla"
-        android:textColor="#103649"
-        android:drawablePadding="10sp"
-        android:drawableLeft="@drawable/percent"
-        android:gravity="center_vertical"
-        android:padding="10dip"
-        android:textSize="12sp"
-        />
+
     <TextView
         android:id="@+id/percentThatGoToWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text= "percent that go to work"
         android:drawableLeft="@drawable/workorstudy"
-        android:layout_below="@+id/overallSatisafaction"
+        android:layout_below="@+id/salaryAfter6"
         android:padding="10dip"
         android:layout_alignLeft="@+id/mode"
         android:drawablePadding="10sp"
