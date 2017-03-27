@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,8 +16,11 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
 
+import org.w3c.dom.Text;
+
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
+import Utilities.ExpandableSatisfactionAdapter;
 
 /**
  * Created by c077ing on 08/03/2017.
@@ -84,28 +88,11 @@ public class FragmentSelector extends Fragment {
                 chart.animateY(2000);
                 return  view;
             case 2:
-                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                chart = (BarChart) view.findViewById(R.id.ssbar1);
-                chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar2);
-                chart.setData(UniversityStatsChartMaker.getChartAssesmentAndFeedback(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar3);
-                chart.setData(UniversityStatsChartMaker.getChartAccademicSupport(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar4);
-                chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar5);
-                chart.setData(UniversityStatsChartMaker.getChartLearningResources(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar6);
-                chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
-                chart.animateY(2000);
-                chart = (BarChart) view.findViewById(R.id.ssbar7);
-                chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
-                chart.animateY(2000);
+                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
+                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+                ExpandableSatisfactionAdapter x = new ExpandableSatisfactionAdapter(getContext(), course);
+                expandableListView.setAdapter(x);
+
                 return  view;
             case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
