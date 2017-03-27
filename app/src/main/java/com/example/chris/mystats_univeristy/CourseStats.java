@@ -1,5 +1,6 @@
 package com.example.chris.mystats_univeristy;
 
+import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -19,22 +20,24 @@ public class CourseStats extends MenuViewActivity  {
         //This is the course object
         Course course = getIntent().getParcelableExtra("chosenCourse");
 
-        //setContentView(R.layout.fragment_employ_stats);
-        //BarChart chart1 = (BarChart) findViewById(R.id.bar1);
-        //This is what we should be able to do but can't as I said last week these charts need to be able to deal with
-        //null values for some statistics and haven't been tested properly as yet
-        //chart1.setData(UniversityStatsChartMaker.getAvgSalaryFourtyMonths(course, chart1));
-        //chart1.notifyDataSetChanged();
-        //chart1.invalidate();
+        //Sets up the fonts, needs to be refactored out
+        Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
+        Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
 
 
-        //Log.d("etst" , String.valueOf(chart1.getYMax()));
-        setContentView(R.layout.activity_course_stats);
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
-        vp.setAdapter(new PagerAdapter(getSupportFragmentManager(), this, course));
+        vp.setAdapter(new Adapter(getSupportFragmentManager(), this, course));
 
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);
+
+        //Sets up the pervasive bar to the top of the page across all fragments
+        TextView courseNamePervasive = (TextView) findViewById(R.id.courseNamePervasive);
+        TextView uniNamePervasive = (TextView) findViewById(R.id.universityNamePervasive);
+        courseNamePervasive.setText(course.getFullCourseName());
+        courseNamePervasive.setTypeface(retroFont);
+        uniNamePervasive.setText(course.getUniversityWhereCourseIsTaught());
+        uniNamePervasive.setTypeface(vintage);
 
 
     }
