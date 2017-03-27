@@ -30,6 +30,7 @@ public class CourseStats extends MenuViewActivity  {
         //This is the course object
         Course course = getIntent().getParcelableExtra("chosenCourse");
 
+        //Sets up the fonts, needs to be refactored out
         Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
 
@@ -39,6 +40,7 @@ public class CourseStats extends MenuViewActivity  {
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);
 
+        //Sets up the pervasive bar to the top of the page across all fragments
         TextView courseNamePervasive = (TextView) findViewById(R.id.courseNamePervasive);
         TextView uniNamePervasive = (TextView) findViewById(R.id.universityNamePervasive);
         courseNamePervasive.setText(course.getFullCourseName());
