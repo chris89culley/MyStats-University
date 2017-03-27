@@ -44,34 +44,6 @@ public class FragmentSelector extends Fragment {
 
         switch(pos) {
             case 0:
-                view =  inflater.inflate(R.layout.fragment_overview, container, false);
-                TextView txt = (TextView) view.findViewById(R.id.cName);
-                TextView txt1 = (TextView) view.findViewById(R.id.cType);
-                TextView txt2 = (TextView) view.findViewById(R.id.hasFoundation);
-                TextView txt3 = (TextView) view.findViewById(R.id.hasPlacement);
-
-                txt.setText(course.getCourseName());
-                txt1.setText(course.getCourseTypeText());
-                if(course.hasFoundationYear() || course.hasSandwichYear() == false){
-                    txt2.append("No");
-                }
-                else{
-                    txt2.append("Yes");
-                }
-                if(course.hasPlacementYear() || course.hasSandwichYear() == false){
-                    txt3.append("No");
-                }
-                else{
-                    txt3.append("Yes");
-                }
-                pChart = (PieChart) view.findViewById(R.id.fopie1);
-                pChart.setData(UniversityStatsChartMaker.getChartPercentageAssesedByCourseWork(course, pChart));
-                pChart.animateXY(2000,2000);
-                pChart = (PieChart) view.findViewById(R.id.fopie2);
-                pChart.setData(UniversityStatsChartMaker.getChartPercentageWorkAndStudy(course, pChart));
-                pChart.animateXY(2000,2000);
-                return  view;
-            case 1:
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
                 try {
                     TextView text = (TextView) view.findViewById(R.id.textView10);
@@ -99,7 +71,7 @@ public class FragmentSelector extends Fragment {
                     view = inflater.inflate(R.layout.fragment_error, container, false);
                 }
                 return view;
-            case 2:
+            case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
                 pChart = (PieChart) view.findViewById(R.id.espie1);
                 pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
@@ -111,7 +83,7 @@ public class FragmentSelector extends Fragment {
                 chart.setData(UniversityStatsChartMaker.getChartAvgSalarySixMonths(course, chart));
                 chart.animateY(2000);
                 return  view;
-            case 3:
+            case 2:
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
                 chart = (BarChart) view.findViewById(R.id.ssbar1);
                 chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
@@ -135,15 +107,15 @@ public class FragmentSelector extends Fragment {
                 chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
                 chart.animateY(2000);
                 return  view;
-            case 4:
+            case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
-            case 5:
+            case 4:
                 View view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 chart = (BarChart) view.findViewById(R.id.eibar1);
                 chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
                 chart.animateY(2000);
                 return view;
-            case 6:
+            case 5:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);
 
             default:
