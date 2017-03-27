@@ -7,8 +7,7 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:fontFamily="casual"
-        android:textStyle="bold"
+        android:lineSpacingExtra="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -16,11 +15,11 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/costPvt"
-        android:fontFamily="casual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="98dp"
@@ -34,11 +33,11 @@
         android:textColor="#fff"
         android:layout_below="@+id/textView10"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
 
     <TextView
         android:id="@+id/costInst"
-        android:fontFamily="casual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="98dp"
@@ -56,14 +55,13 @@
 
     <TextView
         android:id="@+id/textView11"
+        android:lineSpacingExtra="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
         android:padding="12dp"
         android:text="UK Average: £12,056 for living costs, which breaks down into £4,834 for rent, £1,956 for food, £316 for household goods, £42 for insurance, £2,074 for personal items, £1,524 for travel and £1,310 for leisure."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textStyle="bold"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/costInst"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
