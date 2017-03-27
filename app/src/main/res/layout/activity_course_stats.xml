@@ -15,6 +15,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 >
+
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,12 +23,44 @@
         app:tabMode="scrollable"
         android:background="#fff"
         app:tabGravity="center"/>
+    <RelativeLayout
+        android:id="@+id/pervasiveCourseInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border">
+    <TextView
+        android:id="@+id/courseNamePervasive"
+        android:layout_below="@id/tabLayout"
+        android:layout_width="match_parent"
+        android:background="#5E8091"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:padding="3dp"
+        android:textColor="#254F63"
+        android:layout_height="wrap_content"
+        android:text="course name :"
 
+        />
+    <TextView
+        android:id="@+id/universityNamePervasive"
+        android:layout_below="@id/courseNamePervasive"
+        android:layout_width="match_parent"
+        android:background="#5E8091"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:textSize="15dp"
+        android:textColor="#254F63"
+        android:gravity="center"
+        android:text="university name : "
+
+        />
+
+    </RelativeLayout>
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/viewPager"
-        android:layout_below="@+id/tabLayout"
+        android:layout_below="@+id/pervasiveCourseInfo"
         />
 
 </RelativeLayout>

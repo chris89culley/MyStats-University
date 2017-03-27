@@ -15,6 +15,7 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:textSize="17dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
 
@@ -59,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
+        android:textSize="17dp"
         android:text="The UK student average according to NUS: £12,056 for living costs, which breaks down into £4,834 for rent, £1,956 for food, £316 for household goods, £42 for insurance, £2,074 for personal items, £1,524 for travel and £1,310 for leisure."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:layout_marginTop="12dp"

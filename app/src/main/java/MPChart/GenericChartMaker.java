@@ -67,13 +67,11 @@ public class GenericChartMaker {
             }
 
             BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
-            //barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
-            //Setting the colours of the data set
             barDataSet.setColors(Colors);
 
-            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
 
+            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
 
 
