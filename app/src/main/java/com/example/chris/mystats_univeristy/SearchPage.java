@@ -41,7 +41,7 @@ import android.support.annotation.NonNull;
 
 
 //A
-public class HomePage extends MenuViewActivity  {
+public class SearchPage extends MenuViewActivity  {
 
 
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
@@ -292,7 +292,7 @@ public class HomePage extends MenuViewActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_search_page);
         setUpWidgetsOnHomePage();
         longLatGrabber = new Geocoder(this);
         watchForLocationTextToChange();

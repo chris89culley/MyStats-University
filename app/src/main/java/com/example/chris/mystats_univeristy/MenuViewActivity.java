@@ -1,16 +1,11 @@
 package com.example.chris.mystats_univeristy;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class MenuViewActivity extends AppCompatActivity {
     int i = 0;
@@ -48,7 +43,7 @@ public class MenuViewActivity extends AppCompatActivity {
     }
 
     public void homeClick(MenuItem item) {
-        Intent intent = new Intent(this, HomePage.class);
+        Intent intent = new Intent(this, SearchPage.class);
         startActivity(intent);
     }
 
