@@ -1,21 +1,11 @@
 package com.example.chris.mystats_univeristy;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TextView;
-
-import com.github.mikephil.charting.charts.BarChart;
 
 import Data.Course;
-import MPChart.UniversityStatsChartMaker;
-import Utilities.CourseListAdapter;
+import Utilities.PagerAdapter;
 
 public class CourseStats extends MenuViewActivity  {
 
@@ -41,7 +31,7 @@ public class CourseStats extends MenuViewActivity  {
         //Log.d("etst" , String.valueOf(chart1.getYMax()));
         setContentView(R.layout.activity_course_stats);
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
-        vp.setAdapter(new Adapter(getSupportFragmentManager(), this, course));
+        vp.setAdapter(new PagerAdapter(getSupportFragmentManager(), this, course));
 
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);

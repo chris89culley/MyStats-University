@@ -1,9 +1,11 @@
-package com.example.chris.mystats_univeristy;
+package Utilities;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.chris.mystats_univeristy.FragmentSelector;
 
 import Data.Course;
 
@@ -11,7 +13,7 @@ import Data.Course;
  * Created by c077ing on 08/03/2017.
  */
 
-public class Adapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter {
 
     private String[] title = new String[]{"Cost Statistics","Employment Stats","Satisfaction Stats","Study Info",
             "Entry Info","User Ratings/Comments"};
@@ -19,7 +21,7 @@ public class Adapter extends FragmentPagerAdapter {
     private int pageCount = 6;
     private Course course;
 
-    public Adapter(FragmentManager fm, Context context, Course course) {
+    public PagerAdapter(FragmentManager fm, Context context, Course course) {
         super(fm);
         this.context = context;
         this.course = course;
