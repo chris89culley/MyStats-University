@@ -18,6 +18,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
+=======
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -48,45 +58,39 @@ public class FragmentSelector extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Typeface retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Market_Deco.ttf");
+        Typeface vintage = Typeface.createFromAsset(getActivity().getAssets(), "fonts/octin vintage b rg.ttf");
+
         switch(pos) {
             case 0:
-                view =  inflater.inflate(R.layout.fragment_overview, container, false);
-                TextView txt = (TextView) view.findViewById(R.id.cName);
-                TextView txt1 = (TextView) view.findViewById(R.id.cType);
-                TextView txt2 = (TextView) view.findViewById(R.id.hasFoundation);
-                TextView txt3 = (TextView) view.findViewById(R.id.hasPlacement);
+                view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
+                try {
+                    TextView text = (TextView) view.findViewById(R.id.textView10);
+                    TextView text1 = (TextView) view.findViewById(R.id.textView11);
+                    text.setTypeface(retroFont);
+                    text1.setTypeface(retroFont);
 
-                txt.setText(course.getCourseName());
-                txt1.setText(course.getCourseTypeText());
-                if(course.hasFoundationYear() || course.hasSandwichYear() == false){
-                    txt2.append("No");
+                    int low, high;
+                    String[] pte = course.getPrivateAccomodationDetails();
+                    low = Integer.parseInt(pte[0]);
+                    high = Integer.parseInt(pte[1]);
+                    TextView x = (TextView) view.findViewById(R.id.costPvt);
+                    x.setText("Private: £" + low + " - £" + high);
+                    x.setTypeface(retroFont);
+
+
+                    String[] inst = course.getInstitutionalAccomDetails();
+                    low = Integer.parseInt(inst[0]);
+                    high = Integer.parseInt(inst[1]);
+                    x = (TextView) view.findViewById(R.id.costInst);
+                    x.setText("Student Halls: £" + low + " - £" + high);
+                    x.setTypeface(retroFont);
                 }
-                else{
-                    txt2.append("Yes");
+                catch(Exception IO) {
+                    view = inflater.inflate(R.layout.fragment_error, container, false);
                 }
-                if(course.hasPlacementYear() || course.hasSandwichYear() == false){
-                    txt3.append("No");
-                }
-                else{
-                    txt3.append("Yes");
-                }
-                pChart = (PieChart) view.findViewById(R.id.fopie1);
-                pChart.setData(UniversityStatsChartMaker.getChartPercentageAssesedByCourseWork(course, pChart));
-                pChart.animateXY(2000,2000);
-                pChart = (PieChart) view.findViewById(R.id.fopie2);
-                pChart.setData(UniversityStatsChartMaker.getChartPercentageWorkAndStudy(course, pChart));
-                pChart.animateXY(2000,2000);
-                return  view;
+                return view;
             case 1:
-                view =  inflater.inflate(R.layout.fragment_cost_stats, container, false);
-                chart = (BarChart) view.findViewById(R.id.csbar1);
-                chart.setData(UniversityStatsChartMaker.getChartPrivateAccomodation(course, chart));
-                chart.animateXY(2000,2000);
-                chart = (BarChart) view.findViewById(R.id.csbar2);
-                chart.setData(UniversityStatsChartMaker.getChartInstitutionalAccomodation(course, chart));
-                chart.animateXY(2000,2000);
-                return  view;
-            case 2:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
 
 
@@ -129,7 +133,7 @@ public class FragmentSelector extends Fragment {
                     }
                 });
                 return  view;
-            case 3:
+            case 2:
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
                 chart = (BarChart) view.findViewById(R.id.ssbar1);
                 chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
@@ -153,15 +157,15 @@ public class FragmentSelector extends Fragment {
                 chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
                 chart.animateY(2000);
                 return  view;
-            case 4:
+            case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
-            case 5:
+            case 4:
                 View view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 chart = (BarChart) view.findViewById(R.id.eibar1);
                 chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
                 chart.animateY(2000);
                 return view;
-            case 6:
+            case 5:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);
 
             default:

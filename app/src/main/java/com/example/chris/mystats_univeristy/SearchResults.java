@@ -38,6 +38,8 @@ public class SearchResults extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
+        TextView searchHeader = (TextView) findViewById(R.id.searchResultsHeader);
+        searchHeader.setText("Search Results - " + this.getIntent().getStringExtra("searchedName"));
 
        ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
 

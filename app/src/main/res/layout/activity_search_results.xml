@@ -10,12 +10,13 @@
     android:background="#8DA6B3">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/searchResultsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Results"
         android:textColor="#103649"
-        android:textSize="35dp"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
         android:shadowColor="@color/colorPrimaryDark"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"

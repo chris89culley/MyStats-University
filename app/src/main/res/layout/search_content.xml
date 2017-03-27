@@ -4,105 +4,88 @@
     android:layout_height="100dp"
     android:background="@drawable/background"
     android:drawableTop="@android:color/black"
-    android:drawableBottom="@android:color/black" >
+    android:drawableBottom="@android:color/black"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border">
 
 
-    <ImageView
-        android:id="@+id/pencil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:src="@drawable/pencil"
-        />
     <TextView
         android:id="@+id/mode"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:text="i rep the mode"
-        android:layout_marginBottom="25dp"
+        android:text="Study mode :"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20sp"
+        android:drawableLeft="@drawable/study"
+        android:layout_marginTop="30sp"
+        android:drawablePadding="10sp"
         android:textColor="#103649"
+        android:padding="10dip"
         />
-
-    <TextView
-        android:id="@+id/poundSign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pencil"
-        android:layout_marginLeft="55dp"
-        android:textColor="@android:color/black"
-        android:text="£"
-        android:layout_marginBottom="5dp"
-        android:textSize="40dp"
-        />
-
-
 
     <TextView
         android:id="@+id/salaryAfter6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
         android:layout_below="@+id/mode"
         android:textColor="#103649"
+        android:gravity="center_vertical"
+        android:padding="10dip"
+        android:drawableLeft="@drawable/creditcard"
+        android:layout_alignLeft="@+id/mode"
+        android:drawablePadding="10sp"
         android:text="salary after 6 months"
+        android:textSize="12dp"
         />
+
     <TextView
         android:id="@+id/overallSatisafaction"
         android:layout_width="wrap_content"
+        android:layout_alignLeft="@+id/mode"
         android:layout_height="wrap_content"
         android:layout_below="@+id/salaryAfter6"
-        android:layout_centerHorizontal="true"
         android:text="overall sat bla bla"
         android:textColor="#103649"
-        android:layout_marginBottom="30dp"
-        />
-
-    <ImageView
-        android:id="@+id/satisfied"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/poundSign"
-        android:layout_alignLeft="@id/overallSatisafaction"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/satisfied"
-        />
-
-
-
-    <ImageView
-        android:id="@+id/studyimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/satisfied"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="25dp"
-        android:src="@drawable/study"
+        android:drawablePadding="10sp"
+        android:drawableLeft="@drawable/percent"
+        android:gravity="center_vertical"
+        android:padding="10dip"
+        android:textSize="12sp"
         />
     <TextView
         android:id="@+id/percentThatGoToWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text= "percent that go to work"
-        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/workorstudy"
         android:layout_below="@+id/overallSatisafaction"
-        android:layout_marginBottom="25dp"
+        android:padding="10dip"
+        android:layout_alignLeft="@+id/mode"
+        android:drawablePadding="10sp"
+        android:textSize="12dp"
+        android:gravity="center_vertical"
         android:textColor="#103649"
-
         />
+
+
     <Button
-        android:id="@+id/testButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/moreStatsButton"
         android:layout_below="@+id/percentThatGoToWork"
-        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonshape"
         android:text="More stats"
         />
 
 
+    </RelativeLayout>
 </RelativeLayout>
