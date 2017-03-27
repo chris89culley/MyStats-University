@@ -18,7 +18,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
-=======
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -105,7 +104,7 @@ public class FragmentSelector extends Fragment {
                 final TextView salaryFourtymonthSymbol = (TextView) view.findViewById(R.id.esStat2);
                 final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.esStat2Text);
 
-                final Animation animright = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
+                final Animation animright = AnimationUtils.loadAnimation(this.getContext(), android.R.anim.slide_out_right);
                 salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
                     Boolean animFlag = true;
                     @Override
