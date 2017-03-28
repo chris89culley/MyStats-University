@@ -62,67 +62,40 @@ public class FragmentSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Typeface retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(getActivity().getAssets(), "fonts/octin vintage b rg.ttf");
-
+        try {
         switch(pos) {
             case 0:
-                view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
-                try {
-                    createCostStatsPage(view,retroFont);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                view = inflater.inflate(R.layout.fragment_cost_stats, container, false);createCostStatsPage(view,retroFont);
                 return view;
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-                try {
-                    createEmploymentStatsPage(view, retroFont);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                try {
-                    createSatisfactionStats(view);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                createSatisfactionStats(view);
                 return view;
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
-                try {
-                    createStudyInfo(view);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                createStudyInfo(view);
                 return view;
             case 4:
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                try {
-                    createEntryInfo(view);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                createEntryInfo(view);
                 return view;
             case 5:
                 view = inflater.inflate(R.layout.fragment_user_rating, container, false);
-                try {
-                    createUserRating(view);
-                }
-                catch(Exception IO) {
-                    view = inflater.inflate(R.layout.fragment_error, container, false);
-                }
+                createUserRating(view);
                 return view;
 
             default:
                 return inflater.inflate(R.layout.fragment_error, container, false);
+        }}
+        catch(Exception IO) {
+            return view = inflater.inflate(R.layout.fragment_error, container, false);
         }
     }
+
 
     /**
      * used to create the costs stats fragments

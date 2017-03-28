@@ -135,6 +135,12 @@
             android:layout_below="@+id/esStatText2"
              />
 
+        <Space
+            android:id="@+id/esspace3"
+            android:layout_below="@+id/esWageAfterRepayments"
+            android:layout_width="1dp"
+            android:layout_height="30dp" />
+
 
     </RelativeLayout>
 </ScrollView>
