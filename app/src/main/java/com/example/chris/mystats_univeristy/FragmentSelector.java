@@ -55,6 +55,8 @@ public class FragmentSelector extends Fragment {
     public FragmentSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
+
+
     }
 
     @Nullable

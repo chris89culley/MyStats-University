@@ -57,7 +57,7 @@ public class Course  implements Parcelable{
      */
     public String[] getPercentageAssesedByCourseWork(){
         String[] values = {COURSEWORK};
-        return  values;
+        return values;
     }
 
     /**
@@ -65,7 +65,7 @@ public class Course  implements Parcelable{
      * @return SCHEDULED - Percentage of time spent in lectures
      */
     public String[] getPercentageInScheduled(){
-        String[] values = {SCHEDULED};
+       String[] values = {SCHEDULED};
         return  values;
     }
 
