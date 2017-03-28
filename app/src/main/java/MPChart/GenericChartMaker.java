@@ -293,7 +293,7 @@ public class GenericChartMaker {
      * @param Colour - colour preset selction
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String dataTitle,String Colour){
+    public static PieData constructPieChart(String[] tags,String[] values, PieChart chart, String dataTitle,String Colour){
         try {
             float[] data;
             //Convert the array of strings into an array of floats
@@ -368,10 +368,10 @@ public class GenericChartMaker {
     }
 
 
-    public LineData constructLineChart(String[] key, String[] values, LineChart chart, String title) {
+    public static LineData constructLineChart(String[] key, String[] values, LineChart chart, String title) {
 
-        float[] xAxis = stringToFloatConvertor(values);
-        float[] yAxis = stringToFloatConvertor(key);
+        float[] xAxis = stringToFloatConvertor(key);
+        float[] yAxis = stringToFloatConvertor(values);
         //Creates an arrayList to store the x and y axis
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
@@ -396,7 +396,7 @@ public class GenericChartMaker {
      * @param info - An array of Strings
      * @return A list of floats
      */
-    private float[] stringToFloatConvertor(String[] info){
+    private static float[] stringToFloatConvertor(String[] info){
         float[] data;
         //Convert the array of strings into an array of floats
         if (info.length > 0 ){

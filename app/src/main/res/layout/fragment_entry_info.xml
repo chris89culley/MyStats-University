@@ -12,10 +12,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/eibar1"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/linechart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/eititle"></com.github.mikephil.charting.charts.HorizontalBarChart>
+    android:layout_below="@+id/eititle"></com.github.mikephil.charting.charts.LineChart>
 
 </RelativeLayout>

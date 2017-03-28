@@ -1,7 +1,9 @@
 package MPChart;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.PieData;
 
 import Data.Course;
@@ -189,9 +191,9 @@ public class UniversityStatsChartMaker {
      * @param chart - The chart it will be applied to
      * @return BarData for bar chart - PreviousEntries
      */
-    public static BarData getChartPreviousEntries(Course course, BarChart chart){
+    public static LineData getChartPreviousEntries(Course course, LineChart chart){
         String[] tags = {"< 48","48 - 63","64 - 79","80 - 95","96 - 111","112 - 127", "128 - 143", "144 - 159", "160 - 175 ","176 - 191","192 - 207", "208 - 223", "224 - 239", "240+"};
-        return GenericChartMaker.constructBarChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+        return GenericChartMaker.constructLineChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
     }
 
 
