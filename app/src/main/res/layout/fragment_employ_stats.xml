@@ -12,6 +12,7 @@
         <TextView android:id="@+id/esPageOverView"
             android:textColor="#FFFFFF"
             android:background="#3C6478"
+            android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="On this page you'll find the amount that makes it to your pocket each month!"
@@ -26,6 +27,7 @@
             android:textColor="#FFFFFF"
             android:background="#43ABC9"
             android:layout_width="wrap_content"
+            android:paddingTop="10dp"
             android:layout_centerHorizontal="true"
             android:text="Employment six months after completeing the course"
             android:fontFamily=""
@@ -83,6 +85,7 @@
             android:id="@+id/esStatIcon1"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:paddingLeft="10dp"
             app:srcCompat="@drawable/poundsign"
             android:adjustViewBounds="false"
             android:layout_below="@+id/esspace2"
@@ -119,6 +122,7 @@
             android:id="@+id/esStatIcon2"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:paddingLeft="10dp"
             app:srcCompat="@drawable/poundsign"
             android:layout_below="@+id/esStatText1"
             android:layout_toRightOf="@+id/esspace2"
@@ -130,6 +134,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/esWageAfterRepayments"
             android:textSize="15dp"
+            android:paddingTop="30dp"
+            android:layout_centerHorizontal="true"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:textColor="#666666"
             android:layout_below="@+id/esStatText2"
@@ -139,7 +145,8 @@
             android:id="@+id/esspace3"
             android:layout_below="@+id/esWageAfterRepayments"
             android:layout_width="1dp"
-            android:layout_height="30dp" />
+            android:paddingTop="30dp"
+            android:layout_height="20dp" />
 
 
     </RelativeLayout>

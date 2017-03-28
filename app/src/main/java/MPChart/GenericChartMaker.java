@@ -7,6 +7,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.chris.mystats_univeristy.CourseStats;
 import com.example.chris.mystats_univeristy.HomePage;
 import com.example.chris.mystats_univeristy.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -34,6 +35,8 @@ import java.util.Arrays;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Data.ChartStats;
 
 
 /**
@@ -202,31 +205,18 @@ public class GenericChartMaker {
 
     /**
      *  A functions which take two strings arrays and refernce to the chart and returns it as a pie data to construct a pie chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs - Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param dataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String dataTitle){
-        try {
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0 ){
-                data = new float[values.length];
-            }  else{
-                return new PieData();
+    public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle){
+            if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+                return new PieData(null);
             }
 
-            for (int i = 0; i < data.length; i++) {
-                try {
-                    data[i] = Float.parseFloat(values[i]);
-                } catch (Exception e){
-                    ArrayList<PieEntry> yentries = new ArrayList<>();
-                    yentries.add(new PieEntry(100f,"Data"));
-                    return new PieData(new PieDataSet(yentries,"tag"));
-                }
-            }
+            int[] data = cs.getDataInt();
+            String[] tags = cs.getTags();
 
             ArrayList<PieEntry> yentries = new ArrayList<>();
 
@@ -234,15 +224,6 @@ public class GenericChartMaker {
             for (int i = 0; i < data.length; i++) {
                 yentries.add(new PieEntry((data[i]), tags[i]));
             }
-            //Ensures two elements in thst array so that if one stat is supplied it can be clearly identified on the pie chart
-            if (yentries.size() == 1) {
-                if (yentries.get(0).getValue() <= 10f) {
-                    yentries.add(new PieEntry(10f - yentries.get(0).getValue(), "Other"));
-                } else {
-                    yentries.add(new PieEntry(100f - yentries.get(0).getValue(), "Other"));
-                }
-            }
-
 
             //piechart display settings
             chart.setHoleRadius(40f);
@@ -260,7 +241,7 @@ public class GenericChartMaker {
             pieDataSet.setColors(Colors);
 
             Description description = new Description();
-            description.setText(dataTitle);
+            description.setText(chartTitle);
             description.setPosition(0f,0f);
             chart.setDescription(description);
             chart.setDrawEntryLabels(true);
@@ -283,48 +264,32 @@ public class GenericChartMaker {
             theData.setValueFormatter(new PercentFormatter());
 
             return theData;
-        } catch (Exception e) {
-            return new PieData();
-        }
     }
     /**
      *  Overloaded form of constructPieChart to be used when no data title parameter has been provided
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs - Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(String[] tags, String[] values, PieChart chart){
-        return constructPieChart(tags,values, chart);
+    public static PieData constructPieChart(ChartStats cs, PieChart chart){
+        return constructPieChart(cs, chart,"");
     }
     /**
      *  A functions which take two strings arrays and refernce to the chart and returns it as a pie data to construct a pie chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs - Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param dataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @param Colour - colour preset selction
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String dataTitle,String Colour){
-        try {
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0 ){
-                data = new float[values.length];
-            }  else{
-                return new PieData();
+    public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle,String Colour){
+             if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+                return new PieData(null);
             }
 
-            for (int i = 0; i < data.length; i++) {
-                try {
-                    data[i] = Float.parseFloat(values[i]);
-                } catch (Exception e){
-                    ArrayList<PieEntry> yentries = new ArrayList<>();
-                    yentries.add(new PieEntry(100f,"Data"));
-                    return new PieData(new PieDataSet(yentries,"tag"));
-                }
-            }
+            int[] data =  cs.getDataInt();
+            String[] tags = cs.getTags();
+
 
             ArrayList<PieEntry> yentries = new ArrayList<>();
 
@@ -332,15 +297,6 @@ public class GenericChartMaker {
             for (int i = 0; i < data.length; i++) {
                 yentries.add(new PieEntry((data[i]), tags[i]));
             }
-            //Ensures two elements in thst array so that if one stat is supplied it can be clearly identified on the pie chart
-            if (yentries.size() == 1) {
-                if (yentries.get(0).getValue() <= 10f) {
-                    yentries.add(new PieEntry(10f - yentries.get(0).getValue(), "Other"));
-                } else {
-                    yentries.add(new PieEntry(100f - yentries.get(0).getValue(), "Other"));
-                }
-            }
-
 
             //piechart display settings
             chart.setHoleRadius(40f);
@@ -375,9 +331,7 @@ public class GenericChartMaker {
             theData.setValueFormatter(new PercentFormatter());
 
             return theData;
-        } catch (Exception e) {
-            return new PieData();
-        }
+
     }
 
 

@@ -20,8 +20,7 @@ public class UniversityStatsChartMaker {
      * @return PieData for pie chart - AssesedByCourseWork
      */
     public static PieData getChartPercentageAssesedByCourseWork(Course course, PieChart chart){
-        String[] tags = {"Assesed by CourseWork"};
-        return GenericChartMaker.constructPieChart(tags,course.getPercentageAssesedByCourseWork(), chart, "Percentage of course assesed by coursework");
+        return GenericChartMaker.constructPieChart(course.getPercentageAssesedByCourseWork(), chart, "Percentage of course assesed by coursework");
     }
 
     /**
@@ -64,8 +63,7 @@ public class UniversityStatsChartMaker {
      * @return PieData for pie chart - PercentageWorkAndStudy
      */
     public static PieData getChartPercentageWorkAndStudy(Course course, PieChart chart){
-        String[] tags = {"Doing further study","Now working","Unemployed","Studying and working","Other"};
-        return GenericChartMaker.constructPieChart(tags,course.getPercentageWorkAndStudy(), chart, "Percentages of those that go on to work and study");
+        return GenericChartMaker.constructPieChart(course.getPercentageWorkAndStudy(), chart, "Percentages of those that go on to work and study");
     }
 
     /**
@@ -75,8 +73,7 @@ public class UniversityStatsChartMaker {
      * @return PieData for pie chart - EploymentSixMonths
      */
     public static PieData getChartEploymentSixMonths(Course course, PieChart chart){
-        String[] tags = {"In professional or managerial job","Not in professional or managerial job","In unknown job type"};
-        return GenericChartMaker.constructPieChart(tags,course.getEmploymentSixMonths(), chart, "Employment 6 months after completing the course");
+        return GenericChartMaker.constructPieChart(course.getEmploymentSixMonths(), chart, "Employment 6 months after completing the course");
     }
 
     //Below are the NSS question sets
