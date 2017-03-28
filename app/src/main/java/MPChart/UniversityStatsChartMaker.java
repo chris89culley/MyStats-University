@@ -1,10 +1,10 @@
 package MPChart;
-import android.util.Log;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.PieData;
 
-import com.github.mikephil.charting.charts.*;
-import com.github.mikephil.charting.data.*;
-
-import Data.*;
+import Data.Course;
 
 /**
  * Created by Jack on 08/03/2017.
@@ -190,7 +190,7 @@ public class UniversityStatsChartMaker {
      * @return BarData for bar chart - PreviousEntries
      */
     public static BarData getChartPreviousEntries(Course course, BarChart chart){
-        String[] tags = {"< 48","48 < 63","63 < 79","79 < 96","96 < 112","112 < 127", "127 < 143", "143 < 159", "159 < 175 ","175 < 191","191 < 207", " 207 < 223 ", "224 < 240 ", "240 +"};
+        String[] tags = {"< 48","48 - 63","64 - 79","80 - 95","96 - 111","112 - 127", "128 - 143", "144 - 159", "160 - 175 ","176 - 191","192 - 207", "208 - 223", "224 - 239", "240+"};
         return GenericChartMaker.constructBarChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
     }
 

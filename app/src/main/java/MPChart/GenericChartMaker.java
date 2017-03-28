@@ -2,20 +2,25 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
+
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.components.Legend;
 
 import java.util.ArrayList;
 
@@ -361,6 +366,50 @@ public class GenericChartMaker {
             return new PieData();
         }
     }
+
+
+    public LineData constructLineChart(String[] key, String[] values, LineChart chart, String title) {
+
+        float[] xAxis = stringToFloatConvertor(values);
+        float[] yAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
+        ArrayList<Entry> entries = new ArrayList<Entry>();
+        for (int i = 0; i < key.length; i++){
+            entries.add(new Entry(xAxis[i], yAxis[i]));
+        }
+        //create a set of data to add to the Lines to create the lines
+        LineDataSet dataSet = new LineDataSet(entries, title);
+        dataSet.setColor(Color.BLUE);
+        dataSet.setValueTextColor(Color.BLACK);
+        //Add the informaiton about the lines to the chart
+        LineData lineData = new LineData(dataSet);
+        chart.setData(lineData);
+        chart.invalidate();
+
+
+
+        return new LineData();
+    }
+
+    /**
+     * Method to convert a list of strings into a list of floats
+     * @param info - An array of Strings
+     * @return A list of floats
+     */
+    private float[] stringToFloatConvertor(String[] info){
+        float[] data;
+        //Convert the array of strings into an array of floats
+        if (info.length > 0 ){
+            data = new float[info.length];
+        }  else{
+            return null;
+        }
+        for (int i = 0; i < info.length; i++){
+            data[i] = Float.parseFloat(info[i]);
+        }
+        return data;
+    }
+
 
 
 
