@@ -368,7 +368,15 @@ public class GenericChartMaker {
         }
     }
 
-
+    /**
+     * Generic LineChart creater
+     * @param key Current X axis values
+     * @param labels //redundant atm to be implemented as a custom x Axis
+     * @param values Y axis values that are actually plotted against the X axis
+     * @param chart The LineChart that is being added
+     * @param title The title of the Chart
+     * @return
+     */
     public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
 
         //float[] xAxis = stringToFloatConvertor(key);
@@ -381,9 +389,14 @@ public class GenericChartMaker {
         }
         //create a set of data to add to the Lines to create the lines
         LineDataSet dataSet = new LineDataSet(entries, title);
+        //Format the dataSet with cleaner lines and add different colours
         dataSet.setColor(Color.BLUE);
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setDrawFilled(true);
+        dataSet.setCubicIntensity(0.2f);
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+
+        //Format the Axis changing positions and
         XAxis xAxis1 = chart.getXAxis();
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
         YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
