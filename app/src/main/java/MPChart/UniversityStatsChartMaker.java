@@ -6,6 +6,8 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.PieData;
 
+import java.util.ArrayList;
+
 import Data.Course;
 
 /**
@@ -191,13 +193,28 @@ public class UniversityStatsChartMaker {
      * @param chart - The chart it will be applied to
      * @return BarData for bar chart - PreviousEntries
      */
-    public static LineData getChartPreviousEntries(Course course, LineChart chart){
-        String[] tags = {"< 48","48 - 63","64 - 79","80 - 95","96 - 111","112 - 127", "128 - 143", "144 - 159", "160 - 175 ","176 - 191","192 - 207", "208 - 223", "224 - 239", "240+"};
-        return GenericChartMaker.constructLineChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+    public static LineData getChartPreviousEntries(Course course, LineChart chart) {
+        String[] keys = {"48", "63", "79", "95", "111", "127", "143", "159", "175 ", "191", "207", "223", "239", "240"};
+        ArrayList<String> tags = new ArrayList<>();
+        {
+            tags.add("< 48");
+            tags.add("48 - 63");
+            tags.add("80 - 95");
+            tags.add("96 - 111");
+            tags.add("112 - 127");
+            tags.add("128 - 143");
+            tags.add("144 - 159");
+            tags.add("160 - 175");
+            tags.add("176 - 191");
+            tags.add("192 - 207");
+            tags.add("208 - 223");
+            tags.add("224 - 239");
+            tags.add("240+");
+            return GenericChartMaker.constructLineChart(keys, tags, course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+        }
+
+
     }
-
-
-
 
 
 

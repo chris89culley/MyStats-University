@@ -148,9 +148,10 @@ public class FragmentSelector extends Fragment {
             case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
             case 4:
-                View view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 lineChart = (LineChart) view.findViewById(R.id.linechart);
-//                lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
+
+                lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
 //                lineChart.animateY(2000);
 
 

@@ -9,6 +9,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -368,10 +369,11 @@ public class GenericChartMaker {
     }
 
 
-    public static LineData constructLineChart(String[] key, String[] values, LineChart chart, String title) {
+    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
 
-        float[] xAxis = stringToFloatConvertor(key);
+        //float[] xAxis = stringToFloatConvertor(key);
         float[] yAxis = stringToFloatConvertor(values);
+        float[] xAxis = stringToFloatConvertor(key);
         //Creates an arrayList to store the x and y axis
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
@@ -381,18 +383,21 @@ public class GenericChartMaker {
         LineDataSet dataSet = new LineDataSet(entries, title);
         dataSet.setColor(Color.BLUE);
         dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setDrawFilled(true);
+        XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+        YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        yAxis1.setEnabled(false);
+
         //Add the informaiton about the lines to the chart
         LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-        chart.invalidate();
-
-
-
-        return new LineData();
+       // chart.setData(lineData);
+       // chart.invalidate();
+        return lineData;
     }
 
     /**
-     * Method to convert a list of strings into a list of floats
+     * Converts a list of strings into a list of floats
      * @param info - An array of Strings
      * @return A list of floats
      */
