@@ -211,11 +211,12 @@ public class UniversityStatsChartMaker {
      * @return BarData for bar chart - PreviousEntries
      */
     public static LineData getChartPreviousEntries(Course course, LineChart chart) {
-        String[] keys = {"48", "63", "79", "95", "111", "127", "143", "159", "175 ", "191", "207", "223", "239", "240"};
+        String[] keys = {"48", "55", "71", "87", "103", "119", "135", "151", "167", "183", "199", "215", "231", "240"};
         ArrayList<String> tags = new ArrayList<>();
         {
             tags.add("< 48");
             tags.add("48 - 63");
+            tags.add("64 - 79");
             tags.add("80 - 95");
             tags.add("96 - 111");
             tags.add("112 - 127");
@@ -227,7 +228,7 @@ public class UniversityStatsChartMaker {
             tags.add("208 - 223");
             tags.add("224 - 239");
             tags.add("240+");
-            return GenericChartMaker.constructLineChart(keys, tags, course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+            return GenericChartMaker.constructLineChart(keys, course.getPreviousEntry(), chart);
         }
 
 

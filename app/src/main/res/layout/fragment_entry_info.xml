@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/eititle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entry Info Page"
-        android:layout_marginTop="14dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+<LinearLayout
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/linechart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    android:layout_below="@+id/eititle"></com.github.mikephil.charting.charts.LineChart>
+    android:layout_height="match_parent"
+     android:layout_width="match_parent"
+   >
 
-</RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BECED5"
+            android:fillViewport="true"
+            >
+
+
+            <TextView android:id="@+id/esChartTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="15dp" />
+
+            <Space
+                android:id="@+id/esspace2"
+                android:layout_below="@id/esChartTitle1"
+                android:layout_width="1dp"
+                android:layout_height="30dp" />
+
+
+            <TextView android:id="@+id/esYAxis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Percentage of students"
+            android:layout_below="@id/esspace2"/>
+
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/linechart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/esYAxis"></com.github.mikephil.charting.charts.LineChart>
+
+
+            <TextView android:id="@+id/esXAxis"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/linechart"
+                android:gravity="right"/>
+
+            <Space
+                android:id="@+id/esspace4"
+                android:layout_below="@id/esXAxis"
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                />
+
+        </RelativeLayout>
+</LinearLayout>
+        </ScrollView>
+

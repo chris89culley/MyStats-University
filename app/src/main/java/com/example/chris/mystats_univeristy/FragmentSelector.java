@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,6 +72,28 @@ public class FragmentSelector extends Fragment {
                 createStudyInfo(view,retroFont);
                 return view;
             case 4:
+                //Entry_information fragment
+                    //set the view as the fragment_Entry_info view
+                    view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                    lineChart = (LineChart) view.findViewById(R.id.linechart);
+
+                    //Set the description
+                    TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
+                    entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
+                    entryChartTitle.setTypeface(retroFont);
+
+
+                    //Sets the Y Axis title
+                    TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
+                    yAxislabel.setText("Percentage of people");
+                    yAxislabel.setTypeface(retroFont);
+
+                    //Sets the X Axis title
+                    TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
+                    xAxislabel.setText("Amount of UCAS Points");
+                    xAxislabel.setTypeface(retroFont);
+
+                    lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart))
 
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 createEntryInfo(view);

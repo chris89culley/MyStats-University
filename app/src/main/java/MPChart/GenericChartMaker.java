@@ -297,42 +297,71 @@ public class GenericChartMaker {
     /**
      * Generic LineChart creater
      * @param key Current X axis values
-     * @param labels //redundant atm to be implemented as a custom x Axis
      * @param values Y axis values that are actually plotted against the X axis
      * @param chart The LineChart that is being added
-     * @param title The title of the Chart
      * @return
      */
-    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
+    public static LineData constructLineChart(String[] key, String[] values, LineChart chart) {
 
-        //float[] xAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
         float[] yAxis = stringToFloatConvertor(values);
         float[] xAxis = stringToFloatConvertor(key);
-        //Creates an arrayList to store the x and y axis
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
+
         //create a set of data to add to the Lines to create the lines
-        LineDataSet dataSet = new LineDataSet(entries, title);
+        LineDataSet dataSet = new LineDataSet(entries, null);
+
         //Format the dataSet with cleaner lines and add different colours
-        dataSet.setColor(Color.BLUE);
-        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setColor(ColorTemplate.rgb("C2571A"));
         dataSet.setDrawFilled(true);
+        dataSet.setFillAlpha(180);
+        dataSet.setFillColor(ColorTemplate.rgb("F58B4C"));
+        dataSet.setValueTextSize(18);
+
+        //Creates the curved effect on the line graph
         dataSet.setCubicIntensity(0.2f);
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-        //Format the Axis changing positions and
+        //Chart formatting
+        chart.setDescription(null);
+
+        dataSet.setDrawCircles(false); //Takes the points off th graph
+        dataSet.setDrawValues(false); //Takes the Values off the graph
+        chart.invalidate();
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setPinchZoom(false);
+        chart.setScaleEnabled(false);
+
+
+        //Format the X Axis
         XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setDrawAxisLine(true);
+        xAxis1.setDrawGridLines(false);
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis1.setAxisMinimum(48);
+        xAxis1.setAxisMaximum(240);
+
+        //Format the Y Axis from the right side of the graph
         YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
         yAxis1.setEnabled(false);
+        yAxis1.setDrawGridLines(false);
+
+
+        //Format the Y Axis from the right side of the graph
+        YAxis yAxis2 = chart.getAxis(YAxis.AxisDependency.LEFT);
+        yAxis2.setDrawGridLines(false);
+        yAxis2.setGranularityEnabled(true);
+        yAxis2.setGranularity(5);
+        yAxis2.setAxisMinimum(0);
+
+
+
 
         //Add the informaiton about the lines to the chart
-        LineData lineData = new LineData(dataSet);
-       // chart.setData(lineData);
-       // chart.invalidate();
-        return lineData;
+        return new LineData(dataSet);
     }
 
     /**
