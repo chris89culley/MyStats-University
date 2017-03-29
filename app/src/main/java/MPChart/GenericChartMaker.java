@@ -390,9 +390,14 @@ public class GenericChartMaker {
         //create a set of data to add to the Lines to create the lines
         LineDataSet dataSet = new LineDataSet(entries, title);
         //Format the dataSet with cleaner lines and add different colours
-        dataSet.setColor(Color.BLUE);
+        dataSet.setColor(ColorTemplate.rgb("0D3D56"));
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setDrawFilled(true);
+        dataSet.setFillAlpha(255);
+        dataSet.setFillColor(ColorTemplate.rgb("C2571A"));
+        dataSet.setValueTextSize(18);
+
+        //Creates the curved effect on the line graph
         dataSet.setCubicIntensity(0.2f);
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
