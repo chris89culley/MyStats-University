@@ -17,127 +17,131 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            >
-
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_below="@+id/person"
-                android:layout_width="wrap_content"
-                android:layout_height="104dp"
-                android:text="Basic Search"
-                android:textSize="24dp" />
-
-            <EditText
-                android:id="@+id/courseNameEntered"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="Subject or Course"
-                android:inputType="text"
-                android:textSize="18sp"
-                android:layout_below="@+id/textView6"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="53dp" />
-            <EditText
-                android:id="@+id/locationNameEntered"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
-                android:layout_below="@+id/radiusBar"
-                android:hint="Location or institution"
-
-                android:inputType="text"
-                android:textSize="18sp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
-
-
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/textInputLayout">
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:id="@+id/radiusText"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
-                android:text="within 0 km of "
-                android:gravity="center"
-                android:layout_centerHorizontal="@id/courseNameEntered"
-                android:layout_below="@id/courseNameEntered"
-                android:layout_weight="1" />
-
-            <SeekBar
-                android:id="@+id/radiusBar"
-                android:layout_below="@+id/radiusText"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
-                />
-
-
-            <RadioGroup
-                android:id="@+id/coursetype"
-                android:layout_below="@+id/locationNameEntered"
-                android:layout_width="wrap_content"
-                android:layout_alignLeft="@+id/courseNameEntered"
-                android:layout_alignRight="@+id/courseNameEntered"
-                android:layout_height="wrap_content" >
-
-                <RadioButton
-                    android:id="@+id/fulltime"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                >
+                <ImageView
+                    android:id="@+id/searchArmImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="full time courses"
-                    android:checked="true" />
+                    android:src="@drawable/searcharm"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:foregroundGravity="right"
+                    />
 
-                <RadioButton
-                    android:id="@+id/parttime"
+
+                <RadioGroup
+                    android:id="@+id/coursetype"
+                    android:layout_below="@+id/searchArmImage"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/fulltime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="full time"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/parttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="part time" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/courseNameEntered"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject or Course"
+                    android:inputType="text"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_below="@+id/coursetype"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp" />
+
+
+
+
+
+                <TextView
+                    android:id="@+id/radiusText"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="within 0 km of "
+                    android:gravity="center_horizontal"
+                    android:layout_alignLeft="@+id/courseNameEntered"
+                    android:layout_alignRight="@+id/courseNameEntered"
+                    android:layout_below="@id/courseNameEntered"
+                    android:layout_weight="1" />
+
+                <SeekBar
+                    android:id="@+id/radiusBar"
+                    android:layout_below="@+id/radiusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="part time courses" />
-
-            </RadioGroup>
-
-
-            <Button
-                android:id="@+id/simSearch"
-                android:layout_width="wrap_content"
-                android:layout_below="@+id/coursetype"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="77dp"
-                android:text="Search" />
+                    android:layout_alignRight="@id/radiusText"
+                    android:layout_alignLeft="@+id/radiusText"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    />
 
 
-            <ImageButton
-                android:id="@+id/getLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#00000000"
-                app:srcCompat="@android:drawable/ic_menu_mylocation"
-                android:layout_toLeftOf="@+id/locationNameEntered"
-                android:layout_toStartOf="@+id/locationNameEntered"
-                android:layout_below="@+id/radiusBar" />
+                <EditText
+                    android:id="@+id/locationNameEntered"
+                    android:layout_width="250dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:layout_below="@+id/radiusBar"
+                    android:hint="Location or institution"
+                    android:inputType="text"
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageButton
+                    android:id="@+id/getLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    app:srcCompat="@android:drawable/ic_menu_mylocation"
+                    android:layout_toLeftOf="@+id/locationNameEntered"
+                    android:layout_marginTop="30dp"
+                    android:layout_below="@+id/radiusBar"
+                    />
+
+                <Button
+                    android:id="@+id/searchButton"
+                    android:layout_below="@+id/locationNameEntered"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/buttonshape"
+                    android:text="Search"
+                    />
 
 
-        </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 
