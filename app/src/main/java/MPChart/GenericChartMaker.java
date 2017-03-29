@@ -52,6 +52,7 @@ public class GenericChartMaker {
      */
     public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
         try {
+            
 
             float[] data;
             //Convert the array of strings into an array of floats

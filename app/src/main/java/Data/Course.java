@@ -58,7 +58,7 @@ public class Course  implements Parcelable{
      * @return COURSEWORK - Percentage assessed by coursework
      */
     public ChartStats getPercentageAssesedByCourseWork(){
-        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assesed by CourseWork"},"Percentage of course assesed by coursework");
+        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assesed by CourseWork"},"Percentage of course assesed by coursework","pie");
         return cs;
     }
 
@@ -94,7 +94,7 @@ public class Course  implements Parcelable{
      * @return STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL - Percentage of those that go onto work and study
      */
     public ChartStats getPercentageWorkAndStudy(){
-        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"Percentage of those that went on to work and study");
+        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"Percentage of those that went on to work and study","pie");
         return cs;
     }
 
@@ -103,7 +103,7 @@ public class Course  implements Parcelable{
      * @return PROFMAN,OTHERJOB,UNKWN - Percentage of those in employment after 6 months
      */
     public ChartStats getEmploymentSixMonths(){
-        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"Percentage of those that went on to work and study");
+        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"Percentage of those that went on to work and study","pie");
         return cs;
     }
 
