@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -130,6 +131,12 @@ public class FragmentSelector extends Fragment {
             case 4:
                  view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 lineChart = (LineChart) view.findViewById(R.id.linechart);
+                TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
+                entryChartTitle.setText("Entry Requirements for the course");
+                TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
+                yAxislabel.setText("Percentage of people");
+                TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
+                xAxislabel.setText("Amount of UCAS Points");
 
                 lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
 //                lineChart.animateY(2000);
