@@ -26,7 +26,15 @@ public class UniversityStatsChartMaker {
     public static PieData getChartPercentageAssesedByCourseWork(Course course, PieChart chart){
         return GenericChartMaker.constructPieChart(course.getPercentageAssesedByCourseWork(), chart, "Percentage of course assesed by coursework");
     }
-
+    /**
+     * A method which gets the degree class data returns the pie data for it
+     * @param course - data from the database with the course information
+     * @param chart - The chart it will be applied to
+     * @return PieData for pie chart - AssesedByCourseWork
+     */
+    public static PieData getChartContinuationStats(Course course, PieChart chart) {
+        return GenericChartMaker.constructPieChart(course.getContinuationStats(), chart, "What students are doing 1 year into the course");
+    }
     /**
      * A method which gets the degree class data returns the pie data for it
      * @param course - data from the database with the course information
@@ -35,7 +43,8 @@ public class UniversityStatsChartMaker {
      */
     public static PieData getChartDegreeClass(Course course, PieChart chart){
         return GenericChartMaker.constructPieChart(course.getDegreeClass(), chart, "Degree classifications");
-    }
+
+
 
     /**
      * A method which gets the percentage of time spent in lectures and practicals and returns the bar data for it
