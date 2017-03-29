@@ -405,6 +405,9 @@ public class GenericChartMaker {
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
         chart.invalidate();
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setPinchZoom(false);
+        chart.setScaleEnabled(false);
 
 
         //Format the X Axis
