@@ -38,13 +38,13 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.course = course;
 
-        String[] stat1 = course.getTeachingOnMyCourseStats();
-        String[] stat2 = course.getAssesmentAndFeedbackStats();
-        String[] stat3 = course.getAccademicSupportStats();
-        String[] stat4 = course.getOrganisationAndManagementStats();
-        String[] stat5 = course.getLearningResourcesStats();
-        String[] stat6 = course.getPersonalDevelopmentStats();
-        String[] stat7 = course.getStudentUnionStats();
+        String[] stat1 = course.getTeachingOnMyCourseStats().getData();
+        String[] stat2 = course.getAssesmentAndFeedbackStats().getData();
+        String[] stat3 = course.getAccademicSupportStats().getData();
+        String[] stat4 = course.getOrganisationAndManagementStats().getData();
+        String[] stat5 = course.getLearningResourcesStats().getData();
+        String[] stat6 = course.getPersonalDevelopmentStats().getData();
+        String[] stat7 = course.getStudentUnionStats().getData();
 
         String[][] items1 = {
                 {"The course is intellectually stimulating: " + stat1[0], "Staff are ethusiastic about what they're teaching: " + stat1[1],
