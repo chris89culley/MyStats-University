@@ -393,7 +393,7 @@ public class GenericChartMaker {
         dataSet.setColor(ColorTemplate.rgb("0D3D56"));
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setDrawFilled(true);
-        dataSet.setFillAlpha(255);
+        dataSet.setFillAlpha(230);
         dataSet.setFillColor(ColorTemplate.rgb("C2571A"));
         dataSet.setValueTextSize(18);
 
@@ -401,11 +401,23 @@ public class GenericChartMaker {
         dataSet.setCubicIntensity(0.2f);
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-        //Format the Axis changing positions and
+        //Format the X Axis
         XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setDrawAxisLine(true);
+        xAxis1.setDrawGridLines(false);
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+
+        //Format the Y Axis from the right side of the graph
         YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
         yAxis1.setEnabled(false);
+        yAxis1.setDrawGridLines(false);
+
+        //Format the Y Axis from the right side of the graph
+        YAxis yAxis2 = chart.getAxis(YAxis.AxisDependency.LEFT);
+        yAxis2.setDrawGridLines(false);
+        yAxis2.setGranularityEnabled(true);
+        yAxis2.setGranularity(5);
 
         //Add the informaiton about the lines to the chart
         LineData lineData = new LineData(dataSet);
