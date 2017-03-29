@@ -15,6 +15,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 >
+
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,11 +24,39 @@
         android:background="#fff"
         app:tabGravity="center"/>
 
+    <TextView
+        android:id="@+id/courseNamePervasive"
+        android:layout_below="@id/tabLayout"
+        android:layout_width="match_parent"
+        android:background="#5E8091"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="23dp"
+        android:padding="3dp"
+        android:textColor="#254F63"
+        android:layout_height="wrap_content"
+        android:text="course name :"
+
+        />
+    <TextView
+        android:id="@+id/universityNamePervasive"
+        android:layout_below="@id/courseNamePervasive"
+        android:layout_width="match_parent"
+        android:background="#5E8091"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:textSize="12dp"
+        android:textColor="#254F63"
+        android:gravity="center"
+        android:text="university name : "
+
+        />
+
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/viewPager"
-        android:layout_below="@+id/tabLayout"
+        android:layout_below="@+id/universityNamePervasive"
         />
 
 </RelativeLayout>

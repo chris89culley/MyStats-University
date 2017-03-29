@@ -26,18 +26,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.w3c.dom.Text;
 
+import org.w3c.dom.Text;
+
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
+import Utilities.ExpandableSatisfactionAdapter;
 
 /**
  * Created by c077ing on 08/03/2017.
@@ -51,6 +56,7 @@ public class FragmentSelector extends Fragment {
     private HorizontalBarChart hbchart;
     private PieChart pChart;
     private Course course;
+    private LineChart lineChart;
 
     public FragmentSelector(int position, Course course) {
         this.pos = position;
@@ -77,11 +83,13 @@ public class FragmentSelector extends Fragment {
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
                 createSatisfactionStats(view);
                 return view;
+
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
                 createStudyInfo(view);
                 return view;
             case 4:
+
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 createEntryInfo(view);
                 return view;

@@ -2,39 +2,32 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.provider.CalendarContract;
-import android.support.v4.content.res.ResourcesCompat;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.chris.mystats_univeristy.CourseStats;
 import com.example.chris.mystats_univeristy.HomePage;
 import com.example.chris.mystats_univeristy.R;
+
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.Legend.LegendPosition;
-import java.util.Arrays;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Data.ChartStats;
 
@@ -86,13 +79,11 @@ public class GenericChartMaker {
             }
 
             BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
-            //barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
-            //Setting the colours of the data set
             barDataSet.setColors(Colors);
 
-            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
 
+            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
 
 
@@ -285,6 +276,7 @@ public class GenericChartMaker {
     public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle,String Colour){
              if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
                 return new PieData(null);
+
             }
 
             int[] data =  cs.getDataInt();
@@ -333,6 +325,67 @@ public class GenericChartMaker {
             return theData;
 
     }
+
+    /**
+     * Generic LineChart creater
+     * @param key Current X axis values
+     * @param labels //redundant atm to be implemented as a custom x Axis
+     * @param values Y axis values that are actually plotted against the X axis
+     * @param chart The LineChart that is being added
+     * @param title The title of the Chart
+     * @return
+     */
+    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
+
+        //float[] xAxis = stringToFloatConvertor(key);
+        float[] yAxis = stringToFloatConvertor(values);
+        float[] xAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
+        ArrayList<Entry> entries = new ArrayList<Entry>();
+        for (int i = 0; i < key.length; i++){
+            entries.add(new Entry(xAxis[i], yAxis[i]));
+        }
+        //create a set of data to add to the Lines to create the lines
+        LineDataSet dataSet = new LineDataSet(entries, title);
+        //Format the dataSet with cleaner lines and add different colours
+        dataSet.setColor(Color.BLUE);
+        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setDrawFilled(true);
+        dataSet.setCubicIntensity(0.2f);
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+
+        //Format the Axis changing positions and
+        XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+        YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        yAxis1.setEnabled(false);
+
+        //Add the informaiton about the lines to the chart
+        LineData lineData = new LineData(dataSet);
+       // chart.setData(lineData);
+       // chart.invalidate();
+        return lineData;
+    }
+
+    /**
+     * Converts a list of strings into a list of floats
+     * @param info - An array of Strings
+     * @return A list of floats
+     */
+    private static float[] stringToFloatConvertor(String[] info){
+        float[] data;
+        //Convert the array of strings into an array of floats
+        if (info.length > 0 ){
+            data = new float[info.length];
+        }  else{
+            return null;
+        }
+        for (int i = 0; i < info.length; i++){
+            data[i] = Float.parseFloat(info[i]);
+        }
+        return data;
+    }
+
 
 
 
