@@ -211,7 +211,7 @@ public class UniversityStatsChartMaker {
             tags.add("208 - 223");
             tags.add("224 - 239");
             tags.add("240+");
-            return GenericChartMaker.constructLineChart(keys, tags, course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+            return GenericChartMaker.constructLineChart(keys, course.getPreviousEntry(), chart);
         }
 
 

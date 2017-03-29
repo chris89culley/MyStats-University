@@ -371,30 +371,28 @@ public class GenericChartMaker {
     /**
      * Generic LineChart creater
      * @param key Current X axis values
-     * @param labels //redundant atm to be implemented as a custom x Axis
      * @param values Y axis values that are actually plotted against the X axis
      * @param chart The LineChart that is being added
-     * @param title The title of the Chart
      * @return
      */
-    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
+    public static LineData constructLineChart(String[] key, String[] values, LineChart chart) {
 
-        //float[] xAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
         float[] yAxis = stringToFloatConvertor(values);
         float[] xAxis = stringToFloatConvertor(key);
-        //Creates an arrayList to store the x and y axis
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
+
         //create a set of data to add to the Lines to create the lines
         LineDataSet dataSet = new LineDataSet(entries, null);
+
         //Format the dataSet with cleaner lines and add different colours
-        dataSet.setColor(ColorTemplate.rgb("0D3D56"));
-        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setColor(ColorTemplate.rgb("C2571A"));
         dataSet.setDrawFilled(true);
-        dataSet.setFillAlpha(230);
-        dataSet.setFillColor(ColorTemplate.rgb("C2571A"));
+        dataSet.setFillAlpha(180);
+        dataSet.setFillColor(ColorTemplate.rgb("F58B4C"));
         dataSet.setValueTextSize(18);
 
         //Creates the curved effect on the line graph
@@ -403,7 +401,10 @@ public class GenericChartMaker {
 
         //Chart formatting
         chart.setDescription(null);
-        dataSet.setDrawCircles(false);
+
+        dataSet.setDrawCircles(false); //Takes the points off th graph
+        dataSet.setDrawValues(false); //Takes the Values off the graph
+        chart.invalidate();
 
 
         //Format the X Axis
@@ -426,7 +427,6 @@ public class GenericChartMaker {
         yAxis2.setGranularityEnabled(true);
         yAxis2.setGranularity(5);
         yAxis2.setAxisMinimum(0);
-       // yAxis2.setAxisMaximum(100);
 
 
 

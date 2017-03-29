@@ -129,17 +129,39 @@ public class FragmentSelector extends Fragment {
             case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
             case 4:
-                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                lineChart = (LineChart) view.findViewById(R.id.linechart);
-                TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
-                entryChartTitle.setText("Entry Requirements for the course");
-                TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
-                yAxislabel.setText("Percentage of people");
-                TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
-                xAxislabel.setText("Amount of UCAS Points");
 
-                lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
-//                lineChart.animateY(2000);
+                //Entry_information fragment
+
+                //Used a try Catch incase the Database didn't hold the data for specified course
+                try {
+                    //set the view as the fragment_Entry_info view
+                    view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                    lineChart = (LineChart) view.findViewById(R.id.linechart);
+
+                    //Set the description
+                    TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
+                    entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
+                    entryChartTitle.setTypeface(retroFont);
+
+
+                    //Sets the Y Axis title
+                    TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
+                    yAxislabel.setText("Percentage of people");
+                    yAxislabel.setTypeface(retroFont);
+
+                    //Sets the X Axis title
+                    TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
+                    xAxislabel.setText("Amount of UCAS Points");
+                    xAxislabel.setTypeface(retroFont);
+
+                    lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
+
+                }
+                //Returns to the Error Fragment if the course doesn't have the previous entry requirements
+                catch (Exception e)
+                {
+                    view = inflater.inflate(R.layout.fragment_error, container, false);
+                }
 
 
                 return view;
