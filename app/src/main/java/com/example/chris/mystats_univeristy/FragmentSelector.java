@@ -44,10 +44,9 @@ public class FragmentSelector extends Fragment {
     public FragmentSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
-
-
     }
 
+    // fragment selector using a switch statement to determine which fragment to inflate
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,8 +62,10 @@ public class FragmentSelector extends Fragment {
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
-                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                createSatisfactionStats(view);
+                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
+                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course);
+                expandableListView.setAdapter(adapter);
                 return view;
 
             case 3:
@@ -121,10 +122,10 @@ public class FragmentSelector extends Fragment {
 
     private View createCostStatsPage(View v,Typeface font) {
 
-            TextView text = (TextView) view.findViewById(R.id.textView10);
-            TextView text1 = (TextView) view.findViewById(R.id.textView11);
+            TextView text = (TextView) view.findViewById(R.id.costStatInfo1);
+            TextView text2 = (TextView) view.findViewById(R.id.costStatInfo2);
             text.setTypeface(font);
-            text1.setTypeface(font);
+            text2.setTypeface(font);
 
             int low, high;
             String[] pte = course.getPrivateAccomodationDetails().getData();

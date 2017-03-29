@@ -2,11 +2,9 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-
 import com.example.chris.mystats_univeristy.CourseStats;
 import com.example.chris.mystats_univeristy.Home;
 import com.example.chris.mystats_univeristy.R;
-
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;

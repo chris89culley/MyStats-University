@@ -13,6 +13,7 @@ import Data.Course;
  * Created by c077ing on 08/03/2017.
  */
 
+// the fragment adapter sets the title's name on the tab layout and changes the fragment accordingly
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private String[] title = new String[]{"Cost Statistics","Employment Stats","Satisfaction Stats","Study Info",
