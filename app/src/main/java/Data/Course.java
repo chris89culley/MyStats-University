@@ -277,7 +277,17 @@ public class Course  implements Parcelable{
      * @return ChartStats - The degree class
      */
     public ChartStats getDegreeClass(){
-        ChartStats cs = new ChartStats(new String[]{UFIRST, UUPPER, ULOWER,UOTHER},new String[]{"First ","2:1", "2:2"},"Other","pie");
+        ChartStats cs = new ChartStats(new String[]{UFIRST, UUPPER,UOTHER},new String[]{"First ","2:1", "Other"},"Degree classifications on graduation","pie");
+        return cs;
+    }
+
+    /**
+     * Get the degree class of students who finished the course
+     * @return ChartStats - The degree class
+     */
+    public ChartStats getContinuationStats(){
+        ChartStats cs = new ChartStats(new String[]{UGAINED, ULEFT, UCONT,UDORMANT},new String[]{"Completed the course ","Left before completing the course","","Continued at the place of study", "Are taking a break from their studies"},"What students are doing a tear into their studies","pie");
+
         return cs;
     }
 
