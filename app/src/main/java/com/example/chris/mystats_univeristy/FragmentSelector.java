@@ -68,7 +68,7 @@ public class FragmentSelector extends Fragment {
 
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
-                createStudyInfo(view);
+                createStudyInfo(view,retroFont);
                 return view;
             case 4:
 
@@ -147,6 +147,7 @@ public class FragmentSelector extends Fragment {
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);
         salaryFourtymonthText.setTypeface(font);
         salarySixmonthText.setTypeface(font);
+
         final Animation animright1 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         final Animation animright2 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         double salary = 0;
@@ -252,8 +253,60 @@ public class FragmentSelector extends Fragment {
      * @param v View
      * @return
      */
-    private View createStudyInfo(View v){
+    private View createStudyInfo(View v,Typeface font){
+        TextView title = (TextView) view.findViewById(R.id.siPageOverView);
+        title.setTypeface(font);
 
+        TextView chartTitle1 = (TextView) view.findViewById(R.id.siChartTitle1);
+        chartTitle1.setTypeface(font);
+
+        TextView chartTitle2 = (TextView) view.findViewById(R.id.siChartTitle2);
+        chartTitle2.setTypeface(font);
+
+        String[] vals = course.getPercentageInScheduled().getData();
+
+        TextView stat1 = (TextView) view.findViewById(R.id.sistat1);
+        stat1.setTypeface(font);
+        stat1.setText(vals[0]+"% "+"Of time spent in supervised learning (lectures and seminars)");
+
+        vals = course.getPercentageAssesedByCourseWork().getData();
+
+        TextView stat2 = (TextView) view.findViewById(R.id.sistat2);
+        stat2.setTypeface(font);
+        stat2.setText(vals[0]+"% "+"Of the course is assessed by coursework");
+
+
+
+        pChart =  (PieChart) view.findViewById(R.id.sipie1);
+        pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
+        pChart.getLegend().setTypeface(font);
+        pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
+        pChart.animateXY(2000,2000);
+
+
+
+        pChart  =  (PieChart) view.findViewById(R.id.sipie2);
+        pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
+        pChart.getLegend().setTypeface(font);
+        pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
+        pChart.animateXY(2000,2000);
+
+
+        //view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+          //  boolean inview1,inview2;
+           // @Override
+            //public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+              //  Log.d("Scroll y pos",Integer.toString(scrollY));
+                //if (scrollY > 100 && scrollY < 1400 && inview1 == true){
+                  //  pChart.animateXY(2000,2000);
+                    //inview2 = !inview2;
+                //}
+                //if (scrollY > 1400 && inview2 == true){
+                  //  inview1 = !inview1;
+                    //pChart.animateXY(2000,2000);
+                //}
+            //}
+        //});
         return v;
     }
 
