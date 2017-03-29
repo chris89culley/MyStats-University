@@ -64,6 +64,10 @@ public class ChartStats {
         return dataInt;
     }
 
+    public String[] getData() {
+        return data;
+    }
+
     public boolean hasData(){
         return hasData;
     }
@@ -78,7 +82,7 @@ public class ChartStats {
         String str;
         for(int i = 0; i < dataAL.size() ;i++ ){ // removes any empty entries
 
-            if (Objects.equals(dataAL.get(i),"")|| Objects.equals(dataAL.get(i),"0")) {
+            if (Objects.equals(dataAL.get(i),"")|| Objects.equals(dataAL.get(i),"0") || Objects.equals(dataAL.get(i)," " )) {
                 dataAL.remove(i);
                 tagsAL.remove(i);
             }

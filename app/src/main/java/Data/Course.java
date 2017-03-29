@@ -55,7 +55,7 @@ public class Course  implements Parcelable{
 
     /**
      * Accessor method for Percentage assessed by coursework variable
-     * @return COURSEWORK - Percentage assessed by coursework
+     * @return ChartStats - for percentage assessed by coursework
      */
     public ChartStats getPercentageAssesedByCourseWork(){
         ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assesed by CourseWork"},"Percentage of course assesed by coursework","pie");
@@ -64,34 +64,36 @@ public class Course  implements Parcelable{
 
     /**
      * Accessor method for Percentage of time spent in lectures variable
-     * @return SCHEDULED - Percentage of time spent in lectures
+     * @return Chart stats - for percentage in scheduled
      */
-    public String[] getPercentageInScheduled(){
-       String[] values = {SCHEDULED};
-        return  values;
+    public ChartStats getPercentageInScheduled(){
+        ChartStats cs = new ChartStats(new String[]{SCHEDULED},new String[]{"In lectures or practicals"},"Percentage of time spent in lectures or practicals","");
+        return cs;
+
     }
 
     /**
      * Accessor method for Average salary after 6 months variables variable
-     * @return INSTLQ,INSTMED,INSTUQ - Average salary after 6 months variables
+     * @return ChartStats - average salary after 6 months
      */
-    public String[] getAvgSalarySixMonths(){
-        String[] values = {INSTLQ,INSTMED,INSTUQ};
-        return  values;
+    public ChartStats getAvgSalarySixMonths(){
+        ChartStats cs = new ChartStats(new String[]{INSTLQ,INSTMED,INSTUQ},new String[]{"Course Lower Quartile Salary","Course Median Salary","Course Upper Quartile Salary"},"Average salary after 6 months","");
+        return cs;
     }
 
     /**
      * Accessor method for Average salary after 40 months variables variable
-     * @return LDLQ,LDMED,LDUQ - Average salary after 40 months variables
+     * @return ChartStats - average salary after 40 months
      */
-    public String[] getAvgSalaryFoutrtyMonths(){
-        String[] values = {LDLQ,LDMED,LDUQ};
-        return  values;
+    public ChartStats getAvgSalaryFoutrtyMonths(){
+
+        ChartStats cs = new ChartStats(new String[]{LDLQ,LDMED,LDUQ},new String[]{"Lower Quartile Salary","Median Salary","Upper Quartile Salary"},"Average salary after 40 months","");
+        return cs;
     }
 
     /**
      * Accessor method for percentage of those that go onto work and studys variables variable
-     * @return STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL - Percentage of those that go onto work and study
+     * @return ChartStats - for percentages of those that go on to work and study
      */
     public ChartStats getPercentageWorkAndStudy(){
         ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"Percentage of those that went on to work and study","pie");
@@ -100,8 +102,8 @@ public class Course  implements Parcelable{
 
     /**
      * Accessor method for Percentage of those in employment after 6 months variables variable
-     * @return PROFMAN,OTHERJOB,UNKWN - Percentage of those in employment after 6 months
-     */
+     ** @return ChartStats - for employment after 6 months
+     * */
     public ChartStats getEmploymentSixMonths(){
         ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"Percentage of those that went on to work and study","pie");
         return cs;
@@ -109,65 +111,66 @@ public class Course  implements Parcelable{
 
     /**
      * Accessor method for teaching on my course stats variables variable
-     * @return Q1,Q2,Q3,Q4 - Teaching on my course stats
+     * @return ChartStats - Teaching on my course stats
      */
-    public String[] getTeachingOnMyCourseStats(){
-        String[] values = {Q1,Q2,Q3,Q4};
-        return values;
+    public ChartStats getTeachingOnMyCourseStats(){
+        ChartStats cs = new ChartStats(new String[]{Q1,Q2,Q3,Q4},new String[]{"Staff are good at explaining things","Staff have made the subject interesting","Staff are enthusiastic about what they are teaching","The course is intellectually stimulating"}, "Teaching on my course (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Assessment and feedback stats variables variable
-     * @return Q5,Q6,Q7,Q8,Q9 - Assessment and feedback stats
+     * @return ChartStats - Assessment and feedback stats
      */
-    public String[] getAssesmentAndFeedbackStats(){
-        String[] values = {Q5,Q6,Q7,Q8,Q9};
-        return values;
+    public ChartStats getAssesmentAndFeedbackStats(){
+        ChartStats cs = new ChartStats(new String[]{Q5,Q6,Q7,Q8,Q9},new String[]{"The criteria used in marking have been clear in advance","Assessment arrangements and marking have been fair","Feedback on my work has been prompt","I have received detailed comments on my work","Feedback on my work has helped me clarify things I did not understand"}, "Assessment and feedback (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Academic support stats variables variable
-     * @return Q10,Q11,Q12 - Academic support stats
+     * @return ChartStats - Academic support stats
      */
-    public String[] getAccademicSupportStats(){
-        String[] values = {Q10,Q11,Q12};
-        return values;
+    public ChartStats getAccademicSupportStats(){
+        ChartStats cs = new ChartStats(new String[]{Q10,Q11,Q12},new String[]{"I have received sufficient advice and support with my studies","I have been able to contact staff when I needed to","Good advice was available when I needed to make study choices"}, "Assessment and feedback (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Organisation and management stats variables variable
-     * @return Q13,Q14,Q15 - Organisation and management stats
+     * @return ChartStats - Organisation and management stats
      */
-    public String[] getOrganisationAndManagementStats(){
-        String[] values = {Q13,Q14,Q15};
-        return values;
+    public ChartStats getOrganisationAndManagementStats(){
+
+        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently as far as my activities are concerned","Any changes in the course or teaching have been communicated effectively","The course is well organised and is running smoothly"}, "Organisation and management (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Learning resource stats variables variable
-     * @return Q16,Q17,Q18 - Learning resource stats
+     * @return ChartStats - Learning resource stats
      */
-    public String[] getLearningResourcesStats(){
-        String[] values = {Q16,Q17,Q18};
-        return values;
+    public ChartStats getLearningResourcesStats(){
+        ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},new String[]{"The library resources and services are good enough for my needs","I have been able to access general IT resources when I needed to","I have been able to access specialised equipment, facilities, or rooms when I needed to"},"Learning resources (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Personal development stats variables variable
-     * @return Q19,Q20,Q21 - Personal development stats
+     * @return ChartStats - Personal development stats
      */
-    public String[] getPersonalDevelopmentStats(){
-        String[] values = {Q19,Q20,Q21};
-        return values;
+    public ChartStats getPersonalDevelopmentStats(){
+        ChartStats cs = new ChartStats(new String[]{Q19,Q20,Q21},new String[]{"The course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"},"Personal development (% agree)","");
+        return cs;
     }
 
     /**
      * Accessor method for Student union stats variables variable
-     * @return Q22- Student union stats
+     * @return ChartStats - Student union stats
      */
-    public String[] getStudentUnionStats(){
-        String[] values = {Q24};
-        return values;
+    public ChartStats getStudentUnionStats(){
+        ChartStats cs = new ChartStats(new String[]{Q24},new String[]{"I am satisfied with the Students' Union at my institution"},"Students' Union % satisfied with","");
+        return cs;
     }
 
     /**
@@ -253,20 +256,29 @@ public class Course  implements Parcelable{
 
     /**
      * Gets the accommodation costs for private rents near the uni, lower quartile , average and upper
-     * @return - The accommodation costs
+     * @return ChartStats - The accommodation costs
      */
-    public String[] getPrivateAccomodationDetails(){
-        String[] vals = new String[]{PRIVATELOWER, PRIVATEUPPER};
-        return vals;
+    public ChartStats getPrivateAccomodationDetails(){
+        ChartStats cs = new ChartStats(new String[]{PRIVATELOWER, PRIVATEUPPER},new String[]{"Lower Quartile","Upper Quartile"},"Private accomodation prices","");
+        return cs;
     }
 
     /**
      * Get the institutional accommodation costs, lower quartile , average and upper
-     * @return - The accommodation costs
+     * @return ChartStats - The accommodation costs
      */
-    public String[] getInstitutionalAccomDetails(){
-        String[] vals = new String[]{INSTLOWER, INSTMED, INSTUPPER};
-        return vals;
+    public ChartStats getInstitutionalAccomDetails(){
+        ChartStats cs = new ChartStats(new String[]{INSTLOWER, INSTMED, INSTUPPER},new String[]{"Lower Quartile","Median", "Upper Quartile"},"Insititutional accomodation prices","");
+        return cs;
+    }
+
+    /**
+     * Get the degree class of students who finished the course
+     * @return ChartStats - The degree class
+     */
+    public ChartStats getDegreeClass(){
+        ChartStats cs = new ChartStats(new String[]{UFIRST, UUPPER, ULOWER,UOTHER},new String[]{"First ","2:1", "2:2"},"Other","pie");
+        return cs;
     }
 
     /**

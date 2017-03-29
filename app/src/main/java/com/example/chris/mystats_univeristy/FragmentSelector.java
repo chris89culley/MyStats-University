@@ -4,12 +4,14 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -102,7 +104,7 @@ public class FragmentSelector extends Fragment {
             text1.setTypeface(font);
 
             int low, high;
-            String[] pte = course.getPrivateAccomodationDetails();
+            String[] pte = course.getPrivateAccomodationDetails().getData();
             low = Integer.parseInt(pte[0]);
             high = Integer.parseInt(pte[1]);
             TextView x = (TextView) view.findViewById(R.id.costPvt);
@@ -110,7 +112,7 @@ public class FragmentSelector extends Fragment {
             x.setTypeface(font);
 
 
-            String[] inst = course.getInstitutionalAccomDetails();
+            String[] inst = course.getInstitutionalAccomDetails().getData();
             low = Integer.parseInt(inst[0]);
             high = Integer.parseInt(inst[1]);
             x = (TextView) view.findViewById(R.id.costInst);
@@ -262,9 +264,9 @@ public class FragmentSelector extends Fragment {
      * @return
      */
     private View createEntryInfo(View v){
-        chart = (BarChart) view.findViewById(R.id.eibar1);
-        chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
-        chart.animateY(2000);
+        //LineChart chart = (LineChart) view.findViewById(R.id.eibar1);
+        //chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
+        //chart.animateY(2000);
         return v;
     }
 
