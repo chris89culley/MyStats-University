@@ -172,6 +172,14 @@ public class FragmentSelector extends Fragment {
         salaryFourtymonthText.setTypeface(font);
         salarySixmonthText.setTypeface(font);
 
+        salaryFourtymonthText.setTextSize(13f);
+        salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
+        salaryFourtymonthText.setText("The average salary 40 months after was \n" + course.getAverageSalaryAfter40MonthsText().trim());
+
+        salarySixmonthText.setTextSize(13f);
+        salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
+        salarySixmonthText.setText("The average salary 6 months after was \n " + course.getAverageSalaryAfter6MonthsText().trim());
+
         final Animation animright1 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         final Animation animright2 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         double salary = 0;
@@ -211,7 +219,7 @@ public class FragmentSelector extends Fragment {
         monthlyWage.setText("Your Monthly wage will be £" + salary +"\nAfter paying 20% tax \nand a student loan repayment of £"+repayment);
         }
 
-        salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
+        /*salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
             Boolean animFlag = true;
             @Override
             public void onClick(View v) {
@@ -236,7 +244,7 @@ public class FragmentSelector extends Fragment {
                     animFlag = false;
                 }
             }
-        });
+        });*/
        return v ;
     }
 

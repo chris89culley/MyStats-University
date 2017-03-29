@@ -95,14 +95,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/esStatIcon1"
-            android:layout_alignLeft="@+id/esStatText1"
-            android:layout_alignStart="@+id/esStatText1"
+            
             android:layout_marginBottom="19dp"
             android:id="@+id/animText1"
+            android:layout_centerHorizontal="true"
             android:textSize="15dp"
             android:fontFamily="sans-serif"
             android:textColor="#FFFFFF"
-            android:paddingLeft="40dp"/>
+            android:paddingLeft="60dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,11 +110,10 @@
             android:layout_marginBottom="19dp"
             android:id="@+id/animText2"
             android:layout_alignBottom="@+id/esStatIcon2"
-
-
+            android:layout_centerHorizontal="true"
             android:textSize="15dp"
             android:textColor="#FFFFFF"
-            android:paddingLeft="40dp"
+            android:paddingLeft="60dp"
             />
 
         <ImageView
