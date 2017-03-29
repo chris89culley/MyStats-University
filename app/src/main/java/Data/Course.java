@@ -2,6 +2,15 @@ package Data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+import android.widget.BaseAdapter;
+
+import com.example.chris.mystats_univeristy.CourseStats;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Currency;
+
 
 /*
  * Created by chris on 06/03/17.
@@ -48,9 +57,9 @@ public class Course  implements Parcelable{
      * Accessor method for Percentage assessed by coursework variable
      * @return COURSEWORK - Percentage assessed by coursework
      */
-    public String[] getPercentageAssesedByCourseWork(){
-        String[] values = {COURSEWORK};
-        return  values;
+    public ChartStats getPercentageAssesedByCourseWork(){
+        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assesed by CourseWork"},"Percentage of course assesed by coursework","pie");
+        return cs;
     }
 
     /**
@@ -58,7 +67,7 @@ public class Course  implements Parcelable{
      * @return SCHEDULED - Percentage of time spent in lectures
      */
     public String[] getPercentageInScheduled(){
-        String[] values = {SCHEDULED};
+       String[] values = {SCHEDULED};
         return  values;
     }
 
@@ -84,18 +93,18 @@ public class Course  implements Parcelable{
      * Accessor method for percentage of those that go onto work and studys variables variable
      * @return STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL - Percentage of those that go onto work and study
      */
-    public String[] getPercentageWorkAndStudy(){
-        String[] values = {STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL};
-        return values;
+    public ChartStats getPercentageWorkAndStudy(){
+        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"Percentage of those that went on to work and study","pie");
+        return cs;
     }
 
     /**
      * Accessor method for Percentage of those in employment after 6 months variables variable
      * @return PROFMAN,OTHERJOB,UNKWN - Percentage of those in employment after 6 months
      */
-    public String[] getEmploymentSixMonths(){
-        String[] values = {PROFMAN,OTHERJOB,UNKWN};
-        return values;
+    public ChartStats getEmploymentSixMonths(){
+        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"Percentage of those that went on to work and study","pie");
+        return cs;
     }
 
     /**
