@@ -101,5 +101,11 @@
             android:layout_width="1dp"
             android:layout_height="30dp"/>
 
+        <Space
+            android:id="@+id/sispace4"
+            android:layout_below="@id/sistat2"
+            android:layout_width="1dp"
+            android:layout_height="30dp"/>
+
 </RelativeLayout>
 </ScrollView>
