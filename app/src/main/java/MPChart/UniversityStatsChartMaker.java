@@ -1,10 +1,14 @@
 package MPChart;
-import android.util.Log;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.PieData;
 
-import com.github.mikephil.charting.charts.*;
-import com.github.mikephil.charting.data.*;
+import java.util.ArrayList;
 
-import Data.*;
+import Data.Course;
 
 /**
  * Created by Jack on 08/03/2017.
@@ -189,13 +193,28 @@ public class UniversityStatsChartMaker {
      * @param chart - The chart it will be applied to
      * @return BarData for bar chart - PreviousEntries
      */
-    public static BarData getChartPreviousEntries(Course course, BarChart chart){
-        String[] tags = {"< 48","48 < 63","63 < 79","79 < 96","96 < 112","112 < 127", "127 < 143", "143 < 159", "159 < 175 ","175 < 191","191 < 207", " 207 < 223 ", "224 < 240 ", "240 +"};
-        return GenericChartMaker.constructBarChart(tags,course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+    public static LineData getChartPreviousEntries(Course course, LineChart chart) {
+        String[] keys = {"48", "63", "79", "95", "111", "127", "143", "159", "175 ", "191", "207", "223", "239", "240"};
+        ArrayList<String> tags = new ArrayList<>();
+        {
+            tags.add("< 48");
+            tags.add("48 - 63");
+            tags.add("80 - 95");
+            tags.add("96 - 111");
+            tags.add("112 - 127");
+            tags.add("128 - 143");
+            tags.add("144 - 159");
+            tags.add("160 - 175");
+            tags.add("176 - 191");
+            tags.add("192 - 207");
+            tags.add("208 - 223");
+            tags.add("224 - 239");
+            tags.add("240+");
+            return GenericChartMaker.constructLineChart(keys, tags, course.getPreviousEntry(), chart, "Number of successful applicants in each tariff point bracket");
+        }
+
+
     }
-
-
-
 
 
 

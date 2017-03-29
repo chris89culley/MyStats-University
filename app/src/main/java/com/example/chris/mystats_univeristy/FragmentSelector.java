@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 
 import org.w3c.dom.Text;
@@ -52,6 +53,7 @@ public class FragmentSelector extends Fragment {
     private HorizontalBarChart hbchart;
     private PieChart pChart;
     private Course course;
+    private LineChart lineChart;
 
     public FragmentSelector(int position, Course course) {
         this.pos = position;
@@ -146,10 +148,13 @@ public class FragmentSelector extends Fragment {
             case 3:
                 return inflater.inflate(R.layout.fragment_study_info, container, false);
             case 4:
-                View view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                chart = (BarChart) view.findViewById(R.id.eibar1);
-                chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
-                chart.animateY(2000);
+                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                lineChart = (LineChart) view.findViewById(R.id.linechart);
+
+                lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
+//                lineChart.animateY(2000);
+
+
                 return view;
             case 5:
                 return inflater.inflate(R.layout.fragment_user_rating, container, false);

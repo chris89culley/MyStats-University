@@ -2,20 +2,26 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
+
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.components.Legend;
 
 import java.util.ArrayList;
 
@@ -288,7 +294,7 @@ public class GenericChartMaker {
      * @param Colour - colour preset selction
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(String[] tags,String [] values, PieChart chart, String dataTitle,String Colour){
+    public static PieData constructPieChart(String[] tags,String[] values, PieChart chart, String dataTitle,String Colour){
         try {
             float[] data;
             //Convert the array of strings into an array of floats
@@ -361,6 +367,67 @@ public class GenericChartMaker {
             return new PieData();
         }
     }
+
+    /**
+     * Generic LineChart creater
+     * @param key Current X axis values
+     * @param labels //redundant atm to be implemented as a custom x Axis
+     * @param values Y axis values that are actually plotted against the X axis
+     * @param chart The LineChart that is being added
+     * @param title The title of the Chart
+     * @return
+     */
+    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
+
+        //float[] xAxis = stringToFloatConvertor(key);
+        float[] yAxis = stringToFloatConvertor(values);
+        float[] xAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
+        ArrayList<Entry> entries = new ArrayList<Entry>();
+        for (int i = 0; i < key.length; i++){
+            entries.add(new Entry(xAxis[i], yAxis[i]));
+        }
+        //create a set of data to add to the Lines to create the lines
+        LineDataSet dataSet = new LineDataSet(entries, title);
+        //Format the dataSet with cleaner lines and add different colours
+        dataSet.setColor(Color.BLUE);
+        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setDrawFilled(true);
+        dataSet.setCubicIntensity(0.2f);
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+
+        //Format the Axis changing positions and
+        XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+        YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        yAxis1.setEnabled(false);
+
+        //Add the informaiton about the lines to the chart
+        LineData lineData = new LineData(dataSet);
+       // chart.setData(lineData);
+       // chart.invalidate();
+        return lineData;
+    }
+
+    /**
+     * Converts a list of strings into a list of floats
+     * @param info - An array of Strings
+     * @return A list of floats
+     */
+    private static float[] stringToFloatConvertor(String[] info){
+        float[] data;
+        //Convert the array of strings into an array of floats
+        if (info.length > 0 ){
+            data = new float[info.length];
+        }  else{
+            return null;
+        }
+        for (int i = 0; i < info.length; i++){
+            data[i] = Float.parseFloat(info[i]);
+        }
+        return data;
+    }
+
 
 
 

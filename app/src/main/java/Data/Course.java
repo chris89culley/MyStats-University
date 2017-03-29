@@ -1,14 +1,7 @@
 package Data;
 
-import android.util.Log;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-import android.widget.BaseAdapter;
-
-import java.lang.reflect.Field;
-import java.util.Currency;
 
 /*
  * Created by chris on 06/03/17.
@@ -164,7 +157,7 @@ public class Course  implements Parcelable{
      * @return Q22- Student union stats
      */
     public String[] getStudentUnionStats(){
-        String[] values = {Q22};
+        String[] values = {Q24};
         return values;
     }
 
@@ -281,7 +274,7 @@ public class Course  implements Parcelable{
      * @return - Successfull aplicants in each UCAS points bracket
      */
     public String[] getPreviousEntry(){
-        String[] vals = {T001,T048,T064,T080,T096,T112,T144,T160,T176,T192,T208,T224};
+        String[] vals = {T001,T048,T064,T080,T096,T112,T128,T144,T160,T176,T192,T208,T224,T240};
         return vals;
     }
 
