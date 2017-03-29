@@ -4,12 +4,14 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -41,10 +43,9 @@ public class FragmentSelector extends Fragment {
     public FragmentSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
-
-
     }
 
+    // fragment selector using a switch statement to determine which fragment to inflate
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,8 +61,10 @@ public class FragmentSelector extends Fragment {
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
-                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                createSatisfactionStats(view);
+                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
+                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course);
+                expandableListView.setAdapter(adapter);
                 return view;
 
             case 3:
@@ -96,10 +99,10 @@ public class FragmentSelector extends Fragment {
 
     private View createCostStatsPage(View v,Typeface font) {
 
-            TextView text = (TextView) view.findViewById(R.id.textView10);
-            TextView text1 = (TextView) view.findViewById(R.id.textView11);
+            TextView text = (TextView) view.findViewById(R.id.costStatInfo1);
+            TextView text2 = (TextView) view.findViewById(R.id.costStatInfo2);
             text.setTypeface(font);
-            text1.setTypeface(font);
+            text2.setTypeface(font);
 
             int low, high;
             String[] pte = course.getPrivateAccomodationDetails();
@@ -262,9 +265,9 @@ public class FragmentSelector extends Fragment {
      * @return
      */
     private View createEntryInfo(View v){
-        chart = (BarChart) view.findViewById(R.id.eibar1);
-        chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
-        chart.animateY(2000);
+//        chart = (Chart) view.findViewById(R.id.eibar1);
+//        chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
+//        chart.animateY(2000);
         return v;
     }
 

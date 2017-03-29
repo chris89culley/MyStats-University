@@ -6,18 +6,18 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/costStatInfo1"
         android:lineSpacingExtra="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Money matters, especially when you're a student,  below you'll find the cost of accommodation for both halls and the  local area."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="15dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:textSize="15dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="14dp" />
 
     <TextView
         android:id="@+id/costPvt"
@@ -32,10 +32,10 @@
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textColor="#fff"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/costStatInfo1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:id="@+id/costInst"
@@ -55,7 +55,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/costStatInfo2"
         android:lineSpacingExtra="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,9 +63,9 @@
         android:textSize="15dp"
         android:text="The UK student average according to NUS: £12,056 for living costs, which breaks down into £4,834 for rent, £1,956 for food, £316 for household goods, £42 for insurance, £2,074 for personal items, £1,524 for travel and £1,310 for leisure."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/costInst"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="31dp" />
 
 </RelativeLayout>

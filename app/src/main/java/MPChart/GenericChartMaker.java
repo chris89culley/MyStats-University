@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 
 import com.example.chris.mystats_univeristy.CourseStats;
-import com.example.chris.mystats_univeristy.HomePage;
+//import com.example.chris.mystats_univeristy.HomePage;
 import com.example.chris.mystats_univeristy.R;
 
 import com.github.mikephil.charting.charts.BarChart;
