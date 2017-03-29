@@ -1,4 +1,4 @@
-package Utilities;
+package Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -22,6 +22,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import Data.Course;
+import Utilities.Colours;
+import Utilities.FontGrabber;
 
 /**
  * Created by chris on 09/03/17.
@@ -93,7 +95,7 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         averageSatisfaction.setTypeface(retroFont);
         courseName.setTypeface(retroFont);
         universityname.setTypeface(vintage);
-        moreStatsButton.setTypeface(vintage);
+        moreStatsButton.setTypeface(retroFont);
 
 
 

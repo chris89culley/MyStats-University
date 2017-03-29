@@ -1,33 +1,15 @@
 package com.example.chris.mystats_univeristy;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.transition.*;
 import android.support.v4.app.Fragment;
-import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -35,11 +17,9 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 
-import org.w3c.dom.Text;
-
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
-import Utilities.ExpandableSatisfactionAdapter;
+import Adapters.ExpandableSatisfactionAdapter;
 
 /**
  * Created by c077ing on 08/03/2017.

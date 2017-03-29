@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import Data.Course;
-import Utilities.PagerAdapter;
+import Adapters.PagerAdapter;
 
 public class CourseStats extends MenuViewActivity  {
 
