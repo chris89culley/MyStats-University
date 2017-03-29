@@ -74,30 +74,31 @@ public class FragmentSelector extends Fragment {
                 return view;
             case 4:
                 //Entry_information fragment
-                    //set the view as the fragment_Entry_info view
-                    view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                    lineChart = (LineChart) view.findViewById(R.id.linechart);
+                    try {
+                        //set the view as the fragment_Entry_info view
+                        view = inflater.inflate(R.layout.fragment_entry_info, container, false);
+                        lineChart = (LineChart) view.findViewById(R.id.linechart);
 
-                    //Set the description
-                    TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
-                    entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
-                    entryChartTitle.setTypeface(retroFont);
+                        //Set the description
+                        TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
+                        entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
+                        entryChartTitle.setTypeface(retroFont);
 
+                        //Sets the Y Axis title
+                        TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
+                        yAxislabel.setText("Percentage of people");
+                        yAxislabel.setTypeface(retroFont);
 
-                    //Sets the Y Axis title
-                    TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
-                    yAxislabel.setText("Percentage of people");
-                    yAxislabel.setTypeface(retroFont);
+                        //Sets the X Axis title
+                        TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
+                        xAxislabel.setText("Amount of UCAS Points");
+                        xAxislabel.setTypeface(retroFont);
 
-                    //Sets the X Axis title
-                    TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
-                    xAxislabel.setText("Amount of UCAS Points");
-                    xAxislabel.setTypeface(retroFont);
+                        lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
+                    }catch (Exception e){
+                        return view = inflater.inflate(R.layout.fragment_error, container, false);
+                    }
 
-                    lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
-
-                view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                createEntryInfo(view);
                 return view;
             case 5:
                 view = inflater.inflate(R.layout.fragment_user_rating, container, false);
