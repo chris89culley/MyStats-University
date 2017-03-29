@@ -14,6 +14,12 @@ import android.widget.Toast;
 
 import com.example.chris.mystats_univeristy.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+import Data.ChartStats;
 import Data.Course;
 
 /**
@@ -29,13 +35,18 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
             "Accademic Support", "Organisation and Management",
             "Learning Resources", "Personal Development", "StudentUnion"};
 
-    String[][] items;
-    Context context;
-    Course course;
-    Typeface retroFont;
-    Typeface vintageFont;
-    static int i = 0;
+    private Context context;
+    private Course course;
+    private Typeface retroFont;
+    private Typeface vintageFont;
+    private int i = 0;
+    private ArrayList<ChartStats> satisfactionStats = new ArrayList<>();
 
+    /**
+     * This method uses the course and context to set up a header content expandable view
+     * @param context
+     * @param course
+     */
     public ExpandableSatisfactionAdapter(Context context, Course course) {
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
@@ -43,74 +54,95 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.course = course;
 
-        // all data that would be within a chart are stored within a string list
-        // which is later used to separate the chart elements for each expandable row
-        String[] stat1 = course.getTeachingOnMyCourseStats();
-        String[] stat2 = course.getAssesmentAndFeedbackStats();
-        String[] stat3 = course.getAccademicSupportStats();
-        String[] stat4 = course.getOrganisationAndManagementStats();
-        String[] stat5 = course.getLearningResourcesStats();
-        String[] stat6 = course.getPersonalDevelopmentStats();
-        String[] stat7 = course.getStudentUnionStats();
+        //Adds all the stats graphs to a list which we can then extract the data from
+        Collections.addAll(satisfactionStats,course.getTeachingOnMyCourseStats() ,
+                course.getAssesmentAndFeedbackStats(),
+                course.getAccademicSupportStats(),
+                course.getOrganisationAndManagementStats(),
+                course.getLearningResourcesStats(),
+                course.getPersonalDevelopmentStats(),
+                course.getStudentUnionStats() );
 
-
-        // two dimensional array used to set the data within each of the expandable rows
-        String[][] items1 = {
-                {"The course is intellectually stimulating: " + stat1[0] + "%", "Staff are ethusiastic about what they're teaching: " + stat1[1] + "%",
-                        "Staff made the subject interesting: " + stat1[2] + "%", "Staff are good at explaining things: " + stat1[3] + "%"},
-                {"Feedback on my work helped me clarify things I did not understand: " + stat2[0] + "%", "I have received detail comments on my work: " + stat2[1] + "%",
-                        "Feedback on my work has been prompt: " + stat2[2] + "%", "Assessment arrangements and marking have been fair: " + stat2[3] + "%", "The criteria used in marking have been clear in advance: " + stat2[4] + "%"},
-                {"Good advice was available when I needed to make study choices: " + stat3[0] + "%", "I have been able to contact staff when I needed to: " + stat3[1] + "%",
-                        "I have received sufficient advice and support with my studies: " + stat3[2] + "%"},
-                {"The course is well organised and is running smoothly: " + stat4[0] + "%",
-                        "Any changes in the course or teaching have been communicated effectively: " + stat4[1] + "%",
-                        "The timetable works efficiently as far as my activities are concerned: " + stat4[2] + "%"},
-                {"I have been able to access specialised equipment, facilities, or rooms when I needed to: " + stat5[0] + "%",
-                        "I have been able to access general IT resources when I needed to: " + stat5[1] + "%",
-                        "The library resources and services are good enough for my needs: " + stat5[2] + "%"},
-                {"As a result of the course, I feel confident in tackling unfamiliar problems: " + stat6[0] + "%", "My communication skills have improved: " + stat6[1] + "%",
-                        "The course has helped me to present myself with confidence: " + stat6[2] + "%"},
-                {"I am satisfied with the Student' Union at my institution: " + stat7[0] + "%"}};
-
-        items = items1;
     }
 
+    /**
+     * Gets the number of headers
+     * @return - The number of headers
+     */
     @Override
     public int getGroupCount() {
         return groupItems.length;
     }
 
+    /**
+     * Gets the number of entries at the passed header index
+     * @param groupPosition - The header index
+     * @return - Number of entries at the header index
+     */
     @Override
     public int getChildrenCount(int groupPosition) {
-        return items[groupPosition].length;
+        return satisfactionStats.get(groupPosition).getData().length;
     }
 
+    /**
+     * This method gets all of the data at the header index
+     * @param groupPosition - The header index
+     * @return - The data held in the header index
+     */
     @Override
     public Object getGroup(int groupPosition) {
         return groupItems[groupPosition];
     }
 
+    /**
+     * Given the header index and content index this method retrieves the relevant data
+     * @param groupPosition  - The header index
+     * @param childPosition - The content index
+     * @return
+     */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return items[groupPosition][childPosition];
+        return satisfactionStats.get(groupPosition).getData()[childPosition];
     }
 
+    /**
+     * Gets the group id (which is passed in )
+     * @param groupPosition - Header index
+     * @return - The header index
+     */
     @Override
     public long getGroupId(int groupPosition) {
         return groupPosition;
     }
 
+    /**
+     * Gets the child id from the passed in group and child position
+     * @param groupPosition - The header index
+     * @param childPosition - The content index
+     * @return - The child position
+     */
     @Override
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
 
+    /**
+     * Always returns false
+     * @return - false
+     */
     @Override
     public boolean hasStableIds() {
         return false;
     }
 
-    // expandable row data being set
+    /**
+     * This methhod sets the content for the group view ie the header
+     * @param groupPosition - The index of the group view
+     * @param isExpanded - Whether it has been expanded or not
+     * @param convertView - The view it converts
+     * @param parent - The viewgroups parent
+     * @return - A view with the updated content
+     */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         TextView textView = new TextView(context);
@@ -121,11 +153,21 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         return textView;
     }
 
-    // data within the expandable row being set with alternate colours
+
+    /**
+     * This method gets the child view based on the group position and the child positon which
+     * points to a particular stat area and then the specific stat
+     * @param groupPosition - The type of stat
+     * @param childPosition - The specific stat index
+     * @param isLastChild - True if we are at the last index
+     * @param convertView - The view we are converting
+     * @param parent - The parent view group
+     * @return - A view containing the content specified
+     */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final TextView textView = new TextView(context);
-        textView.setText(items[groupPosition][childPosition]);
+        textView.setText(satisfactionStats.get(groupPosition).getTags()[childPosition] + ", " + satisfactionStats.get(groupPosition).getData()[childPosition] + "%");
         textView.setTypeface(vintageFont);
         textView.setPadding(100, 15, 15, 15);
         textView.setTextSize(20);
@@ -140,6 +182,12 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         return textView;
     }
 
+    /**
+     * Returns if the child is able to be selected
+     * @param groupPosition - The header position
+     * @param childPosition - The index of the content within the child position
+     * @return
+     */
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;

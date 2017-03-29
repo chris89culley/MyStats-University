@@ -94,7 +94,7 @@ public class FragmentSelector extends Fragment {
                     xAxislabel.setText("Amount of UCAS Points");
                     xAxislabel.setTypeface(retroFont);
 
-                    lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart))
+                    lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
 
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 createEntryInfo(view);

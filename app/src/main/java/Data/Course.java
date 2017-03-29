@@ -118,6 +118,19 @@ public class Course  implements Parcelable{
         return cs;
     }
 
+    public String getPercentEnthusiasticAboutTeaching(){
+        return Q1;
+    }
+
+    public String getPercentThatThingStaffMadeTheSubjectInteresting(){
+        return Q2;
+    }
+
+    public String getPercentThatThinkStaffAreGoodAtExplaining(){
+        return Q3;
+    }
+
+
     /**
      * Accessor method for Assessment and feedback stats variables variable
      * @return ChartStats - Assessment and feedback stats
