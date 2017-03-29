@@ -177,7 +177,7 @@ public class DatabaseInformationQuerier {
          //   starthere = current.substring(0,importantCharacters);
        // }
 
-        if(lengthOfString > 1){
+        if(lengthOfString > 3){
 
           end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
         }
