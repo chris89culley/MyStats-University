@@ -53,6 +53,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         String[] stat6 = course.getPersonalDevelopmentStats();
         String[] stat7 = course.getStudentUnionStats();
 
+
         // two dimensional array used to set the data within each of the expandable rows
         String[][] items1 = {
                 {"The course is intellectually stimulating: " + stat1[0] + "%", "Staff are ethusiastic about what they're teaching: " + stat1[1] + "%",

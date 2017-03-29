@@ -2,11 +2,9 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-
 import com.example.chris.mystats_univeristy.CourseStats;
-//import com.example.chris.mystats_univeristy.HomePage;
+import com.example.chris.mystats_univeristy.Home;
 import com.example.chris.mystats_univeristy.R;
-
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -44,42 +42,29 @@ public class GenericChartMaker {
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param DataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
-        try {
-            
+    public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle){
+        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+            return new BarData();
+        }
 
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0){
-                data = new float[values.length];
-            }  else{
-                return new BarData();
-            }
-            for (int i = 0; i < data.length; i++) {
-                data[i] = Float.parseFloat(values[i]);
-            }
+        int[] data = cs.getDataInt();
+        String[] tags = cs.getTags();
+
 
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
             for (int i = 0; i < data.length; i++) {
-                try {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
-                } catch (Exception e){
-                    ArrayList<BarEntry> yentries = new ArrayList<>();
-                    yentries.add(new BarEntry(10f,10f));
-                    return new BarData(new BarDataSet(yentries,""));
-                }
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
             barDataSet.setColors(Colors);
 
@@ -99,52 +84,37 @@ public class GenericChartMaker {
             chart.setDescription(emptyDescription);
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
-            return theData;
-        } catch (Exception e){
 
-            return new BarData();
-
-        }
+        return theData;
     }
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param DataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @param Colour - colour preset selction
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle,String Colour){
-        try {
+    public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle,String Colour){
+        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+            return new BarData();
+        }
 
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0){
-                data = new float[values.length];
-            }  else{
-                return new BarData();
-            }
-            for (int i = 0; i < data.length; i++) {
-                data[i] = Float.parseFloat(values[i]);
-            }
+        int[] data = cs.getDataInt();
+        String[] tags = cs.getTags();
+
 
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
             for (int i = 0; i < data.length; i++) {
-                try {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
-                } catch (Exception e){
-                    ArrayList<BarEntry> yentries = new ArrayList<>();
-                    yentries.add(new BarEntry(10f,10f));
-                    return new BarData(new BarDataSet(yentries,""));
-                }
+
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
             //Setting the colour of the chart too each preset
             Colour = Colour.toLowerCase();
             int[] Colors;
@@ -178,21 +148,16 @@ public class GenericChartMaker {
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
             return theData;
-        } catch (Exception e){
 
-            return new BarData();
-
-        }
     }
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags, String[] values, BarChart chart){
-        return constructBarChart(tags,values, chart ,"Data");
+    public static BarData constructBarChart(ChartStats cs, BarChart chart){
+        return constructBarChart(cs, chart ,"Data");
     }
 
     /**
@@ -330,42 +295,71 @@ public class GenericChartMaker {
     /**
      * Generic LineChart creater
      * @param key Current X axis values
-     * @param labels //redundant atm to be implemented as a custom x Axis
      * @param values Y axis values that are actually plotted against the X axis
      * @param chart The LineChart that is being added
-     * @param title The title of the Chart
      * @return
      */
-    public static LineData constructLineChart(String[] key, ArrayList<String> labels, String[] values, LineChart chart, String title) {
+    public static LineData constructLineChart(String[] key, String[] values, LineChart chart) {
 
-        //float[] xAxis = stringToFloatConvertor(key);
+        //Creates an arrayList to store the x and y axis
         float[] yAxis = stringToFloatConvertor(values);
         float[] xAxis = stringToFloatConvertor(key);
-        //Creates an arrayList to store the x and y axis
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
+
         //create a set of data to add to the Lines to create the lines
-        LineDataSet dataSet = new LineDataSet(entries, title);
+        LineDataSet dataSet = new LineDataSet(entries, null);
+
         //Format the dataSet with cleaner lines and add different colours
-        dataSet.setColor(Color.BLUE);
-        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setColor(ColorTemplate.rgb("C2571A"));
         dataSet.setDrawFilled(true);
+        dataSet.setFillAlpha(180);
+        dataSet.setFillColor(ColorTemplate.rgb("F58B4C"));
+        dataSet.setValueTextSize(18);
+
+        //Creates the curved effect on the line graph
         dataSet.setCubicIntensity(0.2f);
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-        //Format the Axis changing positions and
+        //Chart formatting
+        chart.setDescription(null);
+
+        dataSet.setDrawCircles(false); //Takes the points off th graph
+        dataSet.setDrawValues(false); //Takes the Values off the graph
+        chart.invalidate();
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setPinchZoom(false);
+        chart.setScaleEnabled(false);
+
+
+        //Format the X Axis
         XAxis xAxis1 = chart.getXAxis();
+        xAxis1.setDrawAxisLine(true);
+        xAxis1.setDrawGridLines(false);
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis1.setAxisMinimum(48);
+        xAxis1.setAxisMaximum(240);
+
+        //Format the Y Axis from the right side of the graph
         YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
         yAxis1.setEnabled(false);
+        yAxis1.setDrawGridLines(false);
+
+
+        //Format the Y Axis from the right side of the graph
+        YAxis yAxis2 = chart.getAxis(YAxis.AxisDependency.LEFT);
+        yAxis2.setDrawGridLines(false);
+        yAxis2.setGranularityEnabled(true);
+        yAxis2.setGranularity(5);
+        yAxis2.setAxisMinimum(0);
+
+
+
 
         //Add the informaiton about the lines to the chart
-        LineData lineData = new LineData(dataSet);
-       // chart.setData(lineData);
-       // chart.invalidate();
-        return lineData;
+        return new LineData(dataSet);
     }
 
     /**
