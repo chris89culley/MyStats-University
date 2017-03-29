@@ -59,6 +59,14 @@ public class DatabaseInformationQuerier {
         current = cu;
     }
 
+    /**
+     * Moves the to the search results page with course list compiled and searched word
+     */
+    private void moveToSearchResults(){
+        intent.putParcelableArrayListExtra("searchResults" , courseList);
+        intent.putExtra("searchedName" , searchedWord);
+        this.current.startActivity(intent);
+    }
 
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
@@ -81,9 +89,7 @@ public class DatabaseInformationQuerier {
             //This is where the method is needed to pass the course data to the view
         }
         coursesIterator = data;
-        intent.putParcelableArrayListExtra("searchResults" , courseList);
-        intent.putExtra("searchedName" , searchedWord);
-        this.current.startActivity(intent);
+        moveToSearchResults();
     }
 
     /**
@@ -188,6 +194,7 @@ public class DatabaseInformationQuerier {
      * @return - A query to by applied to the database
      */
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
+
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
 
         return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(500);
@@ -209,8 +216,7 @@ public class DatabaseInformationQuerier {
             }
 
         }
-        intent.putParcelableArrayListExtra("searchResults" , courseList);
-        this.current.startActivity(intent);
+        moveToSearchResults();
     }
 
     /**
@@ -245,7 +251,7 @@ public class DatabaseInformationQuerier {
      */
     public void getACourseByCoursenameAndUniversityName(String courseName, final String universityName, final CourseTypes coursetype){
 
-
+                searchedWord = courseName;
                 Query query =  courseNameQuery(courseName, coursetype);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
