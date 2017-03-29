@@ -286,7 +286,7 @@ public class Course  implements Parcelable{
      * @return ChartStats - The degree class
      */
     public ChartStats getContinuationStats(){
-        ChartStats cs = new ChartStats(new String[]{UGAINED, ULEFT, UCONT,UDORMANT},new String[]{"Completed the course ","Left before completing the course","","Continued at the place of study", "Are taking a break from their studies"},"What students are doing a tear into their studies","pie");
+        ChartStats cs = new ChartStats(new String[]{UGAINED, ULEFT, UCONT,UDORMANT},new String[]{"Completed the course","Left before completing the course","Continued at the place of study", "Are taking a break from their studies"},"What students are doing a year into their studies","pie");
 
         return cs;
     }
