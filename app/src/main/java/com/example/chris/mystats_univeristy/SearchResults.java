@@ -1,30 +1,18 @@
 package com.example.chris.mystats_univeristy;
 
-import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.view.Menu;
-import android.view.View;
-
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import Data.Course;
-import Utilities.CourseListAdapter;
+import Adapters.CourseListAdapter;
 
 
 public class SearchResults extends AppCompatActivity {

@@ -4,6 +4,7 @@ package com.example.chris.mystats_univeristy;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -32,7 +33,7 @@ import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.MyLocationListener;
 import GPS.RadiusChecker;
-
+import Utilities.FontGrabber;
 
 
 import android.Manifest;
@@ -64,6 +65,7 @@ public class SearchPage extends MenuViewActivity  {
     private boolean shouldGetLocationFromLocationEditText = false;
     private boolean shouldGetLocationFromUserData = false;
     private LocationManager locationManager; //Class that handles the information sent by the LocationListener
+    private Typeface marketDeco ;
 
     /**
      * This method updates the radius text view 'radiusDisplay' with the current selected search radius so that the
@@ -99,6 +101,7 @@ public class SearchPage extends MenuViewActivity  {
      */
     private void setUpRadiusTextDisplay(){
         radiusDisplay = (TextView) findViewById(R.id.radiusText);
+        radiusDisplay.setTypeface(marketDeco);
     }
 
     /**
@@ -126,14 +129,17 @@ public class SearchPage extends MenuViewActivity  {
      */
     private void setUpSearchOptions(){
         searchedLocationEditTextField = (EditText) findViewById(R.id.locationNameEntered);
+        searchedLocationEditTextField.setTypeface(marketDeco);
         searchedCourseEditTextField = (EditText) findViewById(R.id.courseNameEntered);
+        searchedCourseEditTextField.setTypeface(marketDeco);
     }
 
     /**
      * Sets up a button which when pressed starts a search
      */
     private void setUpSearchButton(){
-        searchButton = (Button) findViewById(R.id.simSearch);
+        searchButton = (Button) findViewById(R.id.searchButton);
+        searchButton.setTypeface(marketDeco);
     }
 
     /**
@@ -141,6 +147,11 @@ public class SearchPage extends MenuViewActivity  {
      */
     private void setUpCourseTypeRadioButtons(){
         typeOfCourseSelector = (RadioGroup) findViewById(R.id.coursetype);
+        RadioButton r = (RadioButton) findViewById(R.id.fulltime);
+        r.setTypeface(marketDeco);
+        r = (RadioButton) findViewById(R.id.parttime);
+        r.setTypeface(marketDeco);
+
     }
 
     /**
@@ -156,7 +167,7 @@ public class SearchPage extends MenuViewActivity  {
      * @return - The type of course the user wishes to search
      */
     private CourseTypes getTheTypeOfCourseSelected(){
-        return getTheCurrentSelectedRadioButtonCourseTypeText().equals("full time courses") ? CourseTypes.FULL_TIME : CourseTypes.PART_TIME;
+        return getTheCurrentSelectedRadioButtonCourseTypeText().equals("full time") ? CourseTypes.FULL_TIME : CourseTypes.PART_TIME;
 
     }
 
@@ -266,6 +277,12 @@ public class SearchPage extends MenuViewActivity  {
                             getTheTypeOfCourseSelected());
                 }
                 else {
+                    Log.d("part time ", getTheTypeOfCourseSelected().toString());
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     databaseInfomationQuerier.getAllCoursesByCourseName(getTheCourseToBeSearched(),
                             getTheTypeOfCourseSelected());
                 }
@@ -285,6 +302,10 @@ public class SearchPage extends MenuViewActivity  {
             }
         });}
 
+    private void setUpFonts(){
+       marketDeco = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
+    }
+
     /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
@@ -293,6 +314,7 @@ public class SearchPage extends MenuViewActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+        setUpFonts();
         setUpWidgetsOnHomePage();
         longLatGrabber = new Geocoder(this);
         watchForLocationTextToChange();
