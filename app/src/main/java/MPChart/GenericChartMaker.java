@@ -240,30 +240,28 @@ public class GenericChartMaker {
      * @return The PieData object for the data provided to be used for pie chart construction
      */
     public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle,String Colour){
-             if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
-                return new PieData(null);
+        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+            return new PieData(null);
+        }
 
-            }
+        int[] data = cs.getDataInt();
+        String[] tags = cs.getTags();
 
-            int[] data =  cs.getDataInt();
-            String[] tags = cs.getTags();
+        ArrayList<PieEntry> yentries = new ArrayList<>();
 
+        //populates the arraylist with pie entries from the data array
+        for (int i = 0; i < data.length; i++) {
+            yentries.add(new PieEntry((data[i]), tags[i]));
+        }
 
-            ArrayList<PieEntry> yentries = new ArrayList<>();
+        //piechart display settings
+        chart.setHoleRadius(40f);
+        chart.setHighlightPerTapEnabled(true);
 
-            //populates the arraylist with pie entries from the data array
-            for (int i = 0; i < data.length; i++) {
-                yentries.add(new PieEntry((data[i]), tags[i]));
-            }
-
-            //piechart display settings
-            chart.setHoleRadius(40f);
-            chart.setHighlightPerTapEnabled(true);
-
-            //Creating a dataSet for the chart
-            PieDataSet pieDataSet = new PieDataSet(yentries, "");
-            pieDataSet.setSliceSpace(4);
-            pieDataSet.setValueTextSize(18);
+        //Creating a dataSet for the chart
+        PieDataSet pieDataSet = new PieDataSet(yentries, "");
+        pieDataSet.setSliceSpace(4);
+        pieDataSet.setValueTextSize(16);
 
             //Setting the colour of the chart too each preset
             Colour = Colour.toLowerCase();
@@ -281,14 +279,30 @@ public class GenericChartMaker {
             }
             pieDataSet.setColors(Colors);
 
-            Description emptyDescription = new Description();
-            emptyDescription.setText("");
-            chart.setDescription(emptyDescription);
-            chart.setDrawEntryLabels(true);
-            PieData theData = new PieData(pieDataSet);
-            theData.setValueFormatter(new PercentFormatter());
+        Description description = new Description();
+        description.setText(chartTitle);
+        description.setPosition(0f,0f);
+        chart.setDescription(description);
+        chart.setDrawEntryLabels(true);
 
-            return theData;
+        Legend l = chart.getLegend();
+        l.setTextColor(Color.WHITE);
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+
+        chart.setDrawSliceText(false);
+
+        PieData theData = new PieData(pieDataSet);
+        theData.setValueTextColor(Color.WHITE);
+        theData.setValueTypeface(Typeface.DEFAULT_BOLD);
+        theData.setValueFormatter(new PercentFormatter());
+
+        return theData;
 
     }
 
