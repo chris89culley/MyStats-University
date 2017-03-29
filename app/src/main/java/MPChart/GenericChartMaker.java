@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 
 import com.example.chris.mystats_univeristy.CourseStats;
-import com.example.chris.mystats_univeristy.HomePage;
+import com.example.chris.mystats_univeristy.Home;
 import com.example.chris.mystats_univeristy.R;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -44,42 +44,29 @@ public class GenericChartMaker {
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param DataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle){
-        try {
-            
+    public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle){
+        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+            return new BarData();
+        }
 
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0){
-                data = new float[values.length];
-            }  else{
-                return new BarData();
-            }
-            for (int i = 0; i < data.length; i++) {
-                data[i] = Float.parseFloat(values[i]);
-            }
+        int[] data = cs.getDataInt();
+        String[] tags = cs.getTags();
+
 
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
             for (int i = 0; i < data.length; i++) {
-                try {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
-                } catch (Exception e){
-                    ArrayList<BarEntry> yentries = new ArrayList<>();
-                    yentries.add(new BarEntry(10f,10f));
-                    return new BarData(new BarDataSet(yentries,""));
-                }
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
             barDataSet.setColors(Colors);
 
@@ -99,52 +86,37 @@ public class GenericChartMaker {
             chart.setDescription(emptyDescription);
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
-            return theData;
-        } catch (Exception e){
 
-            return new BarData();
-
-        }
+        return theData;
     }
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
-     * @param DataTitle - Title of the chart
+     * @param chartTitle - Title of the chart
      * @param Colour - colour preset selction
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags,String[] values, BarChart chart, String DataTitle,String Colour){
-        try {
+    public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle,String Colour){
+        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+            return new BarData();
+        }
 
-            float[] data;
-            //Convert the array of strings into an array of floats
-            if (values.length > 0){
-                data = new float[values.length];
-            }  else{
-                return new BarData();
-            }
-            for (int i = 0; i < data.length; i++) {
-                data[i] = Float.parseFloat(values[i]);
-            }
+        int[] data = cs.getDataInt();
+        String[] tags = cs.getTags();
+
 
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
             for (int i = 0; i < data.length; i++) {
-                try {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
-                } catch (Exception e){
-                    ArrayList<BarEntry> yentries = new ArrayList<>();
-                    yentries.add(new BarEntry(10f,10f));
-                    return new BarData(new BarDataSet(yentries,""));
-                }
+
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, DataTitle); //Creating a dataSet for the chart
+            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
             //Setting the colour of the chart too each preset
             Colour = Colour.toLowerCase();
             int[] Colors;
@@ -178,21 +150,16 @@ public class GenericChartMaker {
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
             return theData;
-        } catch (Exception e){
 
-            return new BarData();
-
-        }
     }
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
-     * @param tags - an Array labels for the data provided
-     * @param values - an Array of values for each of the labelled fields
+     * @param cs- Chart stats objects contains the data to be displayed
      * @param chart - reference to the chart from the view
      * @return The BarData object for the data provided to be used for bar chart construction
      */
-    public static BarData constructBarChart(String[] tags, String[] values, BarChart chart){
-        return constructBarChart(tags,values, chart ,"Data");
+    public static BarData constructBarChart(ChartStats cs, BarChart chart){
+        return constructBarChart(cs, chart ,"Data");
     }
 
     /**
