@@ -35,9 +35,9 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
     private ArrayList<Course> courses;
     private static LayoutInflater inflater = null;
     private static Set<String> added = new HashSet<>();
-    private static int[] colours = {Colours.LIGHT_BLUE_SEARCH_PAGE.getColor(),
-                                        Colours.MED_BLUE_SEARCH_PAGE.getColor(),
-                                        Colours.DARK_BLUE_SEARCH_PAGE.getColor()};
+    private static int[] colours = {Colours.GREEN_SHEEN.getColor(),
+            Colours.TEAL_DEER.getColor()
+    };
 
     public CourseListAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
         super(activity, textViewResourceId, header_id, courses);
@@ -79,12 +79,6 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
         //Sets the rows colour (alternates between all the colours)
         int colour = (colours[position % colours.length]);
         rowView.findViewById(R.id.row).setBackgroundColor(colour);
-
-        //If the colour is a dark one then we set the text to be white so it can be seen
-        if(colour == (Colours.DARK_BLUE_SEARCH_PAGE.getColor())){
-            universityname.setTextColor(Color.WHITE);
-            courseName.setTextColor(Color.WHITE);
-        }
 
 
 
