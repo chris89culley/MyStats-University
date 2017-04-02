@@ -41,12 +41,23 @@ public class FragmentSelector extends Fragment {
     private Course course;
     private LineChart lineChart;
 
+    /**
+     * sets the position of the fragment pager and the course data
+     * @param position
+     * @param course
+     */
     public FragmentSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
     }
 
-    // fragment selector using a switch statement to determine which fragment to inflate
+    /**
+     * on create view determines which fragment to inflate, pending on the position.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -98,11 +109,6 @@ public class FragmentSelector extends Fragment {
                     }catch (Exception e){
                         return view = inflater.inflate(R.layout.fragment_error, container, false);
                     }
-
-                return view;
-            case 5:
-                view = inflater.inflate(R.layout.fragment_user_rating, container, false);
-                createUserRating(view);
                 return view;
 
             default:
@@ -120,7 +126,6 @@ public class FragmentSelector extends Fragment {
      * @param font The font being used
      * @return
      */
-
     private View createCostStatsPage(View v,Typeface font) {
 
             TextView text = (TextView) view.findViewById(R.id.costStatInfo1);
@@ -343,7 +348,6 @@ public class FragmentSelector extends Fragment {
         return v;
     }
 
-
     /**
      * used to create the entry info fragments
      * @param v View
@@ -355,7 +359,6 @@ public class FragmentSelector extends Fragment {
         //chart.animateY(2000);
         return v;
     }
-
 
     /**
      * used to create the user rating fragments

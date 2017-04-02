@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_quick_search"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="52dp"
+    android:onClick="dialogClose"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextDialogUserInput"
+            android:layout_width="179dp"
+            android:background="@drawable/inputbox1"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:hint="Quick Search"
+            android:paddingLeft="25dp"
+            android:paddingTop="17dp"
+            android:maxLength="16"
+            android:paddingRight="10dp">
+
+            <requestFocus />
+
+        </EditText>
+    </RelativeLayout>
+</LinearLayout>

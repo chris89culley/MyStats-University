@@ -13,6 +13,10 @@ public class CourseStats extends MenuViewActivity  {
 
     TabLayout tb;
 
+    /**
+     * course stats sets up the view pager using the pager adapter.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +28,6 @@ public class CourseStats extends MenuViewActivity  {
         //Sets up the fonts, needs to be refactored out
         Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
-
 
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
         vp.setAdapter(new PagerAdapter(getSupportFragmentManager(), this, course));
@@ -39,7 +42,5 @@ public class CourseStats extends MenuViewActivity  {
         courseNamePervasive.setTypeface(retroFont);
         uniNamePervasive.setText(course.getUniversityWhereCourseIsTaught());
         uniNamePervasive.setTypeface(vintage);
-
-
     }
 }
