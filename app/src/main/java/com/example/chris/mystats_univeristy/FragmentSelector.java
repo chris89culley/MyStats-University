@@ -166,7 +166,12 @@ public class FragmentSelector extends Fragment {
 
         final TextView salarySixmonthText = (TextView) view.findViewById(R.id.animText1);
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);
+        final TextView monthlyBreakdownTitle = (TextView) view.findViewById(R.id.monthlyBreakdownTitle);
+        final TextView averageSalaryTitle = (TextView) view.findViewById(R.id.averageSalaryTitle);
+
+        monthlyBreakdownTitle.setTypeface(font);
         salaryFourtymonthText.setTypeface(font);
+        averageSalaryTitle.setTypeface(font);
         salarySixmonthText.setTypeface(font);
 
         salaryFourtymonthText.setTextSize(13f);
@@ -289,6 +294,10 @@ public class FragmentSelector extends Fragment {
 
         TextView chartTitle2 = (TextView) view.findViewById(R.id.siChartTitle2);
         chartTitle2.setTypeface(font);
+
+        TextView aBitMoreStudyInfoTitle = (TextView) view.findViewById(R.id.aBitMoreStudyInfoTitle);
+        aBitMoreStudyInfoTitle.setTypeface(font);
+
 
         String[] vals = course.getPercentageInScheduled().getData();
 

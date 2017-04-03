@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="20dp"
-            android:text="A bit more study info"
+            android:text="A bit more study info title"
             android:fontFamily=""
             android:textSize="20dp"
             android:paddingBottom="30dp"
