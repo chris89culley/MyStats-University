@@ -21,8 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
+                android:layout_alignParentStart="true"
+                >
                 <ImageView
                     android:id="@+id/searchArmImage"
                     android:layout_width="wrap_content"
@@ -30,16 +30,14 @@
                     android:src="@drawable/searcharm"
                     android:layout_marginTop="40dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="10dp"
                     android:foregroundGravity="right"
-                    android:src="@drawable/searcharm" />
+                    />
 
 
                 <RadioGroup
                     android:id="@+id/coursetype"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/searchArmImage"
+                    android:orientation="horizontal"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_marginTop="40dp"
@@ -50,8 +48,8 @@
                         android:layout_width="wrap_content"
                         android:textColor="#3B322C"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="full time" />
+                        android:text="full time"
+                        android:checked="true" />
 
                     <RadioButton
                         android:id="@+id/parttime"
@@ -66,7 +64,6 @@
                     android:id="@+id/courseNameEntered"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-
                     android:hint="Subject or Course"
                     android:inputType="text"
                     android:textSize="18sp"
@@ -74,11 +71,10 @@
                     android:textColor="#3B322C"
                     android:layout_below="@+id/coursetype"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:hint="Subject or Course"
-                    android:inputType="text"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="10dp" />
+
+
+
 
 
                 <TextView
@@ -92,66 +88,63 @@
                     android:layout_alignLeft="@+id/courseNameEntered"
                     android:layout_alignRight="@+id/courseNameEntered"
                     android:layout_below="@id/courseNameEntered"
-                    android:layout_marginTop="30dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="within 0 km of " />
+                    android:layout_weight="1" />
 
                 <SeekBar
                     android:id="@+id/radiusBar"
+                    android:layout_below="@+id/radiusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/radiusText"
                     android:layout_alignLeft="@+id/radiusText"
                     android:layout_marginTop="5dp"
                     android:textColor="#3B322C"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp" />
+                    />
 
 
                 <EditText
                     android:id="@+id/locationNameEntered"
                     android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/radiusBar"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerInParent="true"
                     android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:gravity="center"
                     android:textColor="#3B322C"
                     android:layout_below="@+id/radiusBar"
                     android:hint="Location or institution"
                     android:inputType="text"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true" />
 
                 <ImageButton
                     android:id="@+id/getLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/locationNameEntered"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toLeftOf="@+id/locationNameEntered"
-                    android:layout_toStartOf="@+id/locationNameEntered"
                     android:background="#00000000"
-                    android:src="@drawable/map_icon"
+                    app:srcCompat="@drawable/map_icon"
+                    android:layout_toLeftOf="@+id/locationNameEntered"
+                    android:textColor="#3B322C"
+                    android:layout_marginTop="30dp"
+                    android:layout_below="@+id/radiusBar"
                     />
 
                 <Button
                     android:id="@+id/searchButton"
+                    android:layout_below="@+id/locationNameEntered"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textColor="#3B322C"
                     android:layout_marginTop="30dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/locationNameEntered"
-                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="20sp"
-                    android:layout_marginTop="30dp"
+                    android:layout_centerHorizontal="true"
                     android:background="@drawable/buttonshape"
                     android:text="Search"
-                    android:textColor="@android:color/white"
-                    android:textSize="20dp" />
+                    />
+
+
+
 
 
             </RelativeLayout>
