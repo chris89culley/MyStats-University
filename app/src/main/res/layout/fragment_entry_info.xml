@@ -32,7 +32,7 @@
                 android:id="@+id/esspace2"
                 android:layout_below="@id/esChartTitle1"
                 android:layout_width="1dp"
-                android:layout_height="30dp" />
+                android:layout_height="20dp" />
 
 
             <TextView android:id="@+id/esYAxis"
@@ -56,7 +56,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/oldBurgundy"
                 android:layout_below="@id/linechart"
-                android:gravity="right"/>
+                android:gravity="center"/>
 
             <Space
                 android:id="@+id/esspace4"
