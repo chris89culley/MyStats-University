@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
->
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    >
+
+<group
+    android:id="@+id/icon_group"
+    >
+    <item
+        android:icon="@drawable/home_icon"
+        android:onClick="homeClick"
+        android:orderInCategory="1"
+        android:title="Home"
+        myapp:showAsAction="never" />
 
     <item
-        android:title="Home"
-        android:orderInCategory="1"
-        android:onClick="homeClick"
-        />
-    <item
-        android:title="Advance Search"
+        android:title="Search"
+        android:icon="@drawable/search_icon"
         android:orderInCategory="2"
-        android:onClick="advClick"
+        android:onClick="searchClick"
+        myapp:showAsAction="always"
         />
     <item
-        android:title="Account"
+        android:title="UCAS Tips"
+        android:icon="@drawable/ucas_tips"
         android:orderInCategory="3"
-        android:onClick="accClick"
+        myapp:showAsAction="never"
         />
     <item
         android:orderInCategory="4"
+        android:icon="@drawable/info_icon"
         android:title="About"
         android:onClick="aboutClick"
+        myapp:showAsAction="never"
         />
-
+</group>
 </menu>
