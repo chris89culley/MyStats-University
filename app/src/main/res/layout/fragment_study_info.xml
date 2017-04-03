@@ -3,28 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background">
+    >
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <TextView android:id="@+id/siPageOverView"
-        android:textColor="#FFFFFF"
-        android:background="#3C6478"
+        android:textColor="@color/oldBurgundy"
+        android:background="@color/tealDeer"
         android:paddingTop="10dp"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Here you'll find some info about studying this course, and what students are doing after it!"
         android:fontFamily=""
-        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
         android:textAlignment="center"
         android:layout_height="90dp" />
 
     <TextView android:id="@+id/siChartTitle1"
         android:layout_below="@id/siPageOverView"
-        android:textColor="#FFFFFF"
-        android:background="#43ABC9"
+        android:textColor="@color/oldBurgundy"
+        android:background="@color/greenSheen"
         android:layout_width="wrap_content"
         android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
@@ -44,12 +45,13 @@
         android:id="@+id/sipie1"
         android:layout_below="@id/sispace1"
         android:layout_width="match_parent"
+        android:background="@color/tealDeer"
         android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
 
     <TextView android:id="@+id/siChartTitle2"
         android:layout_below="@id/sipie1"
-        android:textColor="#FFFFFF"
-        android:background="#43ABC9"
+        android:textColor="@color/oldBurgundy"
+        android:background="@color/greenSheen"
         android:layout_width="wrap_content"
         android:paddingTop="5dp"
         android:layout_centerHorizontal="true"
@@ -68,30 +70,33 @@
         android:id="@+id/sipie2"
         android:layout_below="@id/sispace2"
         android:layout_width="match_parent"
+        android:background="@color/tealDeer"
         android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sistat1"
             android:textSize="15dp"
             android:padding="10dp"
             android:paddingTop="20dp"
+            android:background="@color/greenSheen"
+            android:textColor="@color/oldBurgundy"
             android:layout_centerHorizontal="true"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:textColor="#666666"
             android:layout_below="@+id/sipie2"
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sistat2"
             android:textSize="15dp"
+            android:background="@color/greenSheen"
             android:padding="10dp"
             android:layout_centerHorizontal="true"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:textColor="#666666"
+            android:textColor="@color/oldBurgundy"
             android:layout_below="@+id/sistat1"
             />
 

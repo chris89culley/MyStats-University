@@ -9,27 +9,27 @@
 
 
     <TextView
-        android:id="@+id/courseName"
+        android:id="@+id/satisfactionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="COURSE SEARCH RESULTS"
+        android:text="Sat Name"
         android:fontFamily="casual"
         android:textSize="30dp"
-        android:textColor="#3B322C"
+        android:textColor="#103649"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
 
     <TextView
-        android:id="@+id/universityName"
+        android:id="@+id/chartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#3B322C"
+        android:textColor="#103649"
         android:text="ExpandableLayout Header!"
         android:gravity="center"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/courseName"
+        android:layout_below="@+id/satisfactionName"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true" />
 

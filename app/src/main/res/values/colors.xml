@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#003762</color>
-    <color name="colorPrimaryDark">#003059</color>
-    <color name="colorAccent">#ff9911</color>
-    <color name="Background1">#43abc9</color>
-    <color name="Background2">#3C6478</color>
+    <color name="colorPrimary"> #72BDA3</color>
+    <color name="colorAccent">#839788</color>
+    <color name="colorPrimaryDark">#839788</color>
+    <color name="turtleGreen">#88B04B</color>
+    <color name="tealDeer">#94E8B4</color>
+    <color name="greenSheen">#72BDA3</color>
+    <color name="mummyTomb">#839788</color>
+    <color name="oldBurgundy">#3B322C</color>
 </resources>
