@@ -9,26 +9,26 @@
         android:layout_height="match_parent">
 
         <TextView android:id="@+id/esPageOverView"
-            android:textColor="#FFFFFF"
-            android:background="#3C6478"
+            android:textColor="@color/oldBurgundy"
+            android:background="@color/tealDeer"
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="On this page you'll find the amount that makes it to your pocket each month!"
-            android:fontFamily=""
-            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
 
             android:textAlignment="center"
             android:layout_height="90dp" />
 
         <TextView android:id="@+id/esChartTitle1"
             android:layout_below="@id/esPageOverView"
-            android:textColor="#FFFFFF"
-            android:background="#43ABC9"
+            android:textColor="@color/oldBurgundy"
+            android:background="@color/greenSheen"
             android:layout_width="wrap_content"
             android:paddingTop="10dp"
             android:layout_centerHorizontal="true"
-            android:text="Employment six months after completeing the course"
+            android:text="Employment six months after completing the course"
             android:fontFamily=""
             android:textSize="20dp"
 
@@ -58,8 +58,8 @@
 
         <TextView
             android:id="@+id/esStatText2"
-            android:textColor="#FFFFFF"
-            android:background="#3C6478"
+            android:textColor="@color/oldBurgundy"
+            android:background="@color/greenSheen"
             android:textSize="30dp"
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
@@ -68,8 +68,8 @@
 
         <TextView
             android:id="@+id/esStatText1"
-            android:textColor="#FFFFFF"
-            android:background="#43ABC9"
+            android:textColor="@color/oldBurgundy"
+            android:background="@color/greenSheen"
             android:textSize="30dp"
             android:textAlignment="center"
             android:layout_width="match_parent"
@@ -85,6 +85,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:paddingLeft="10dp"
+            android:background="@color/greenSheen"
             app:srcCompat="@drawable/poundsign"
             android:adjustViewBounds="false"
             android:layout_below="@+id/esspace2"
@@ -95,25 +96,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/esStatIcon1"
-            
             android:layout_marginBottom="19dp"
             android:id="@+id/animText1"
             android:layout_centerHorizontal="true"
             android:textSize="15dp"
+            android:textColor="@color/oldBurgundy"
             android:fontFamily="sans-serif"
-            android:textColor="#FFFFFF"
             android:paddingLeft="60dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="19dp"
+            android:background="@color/greenSheen"
             android:id="@+id/animText2"
             android:layout_alignBottom="@+id/esStatIcon2"
             android:layout_centerHorizontal="true"
             android:textSize="15dp"
-            android:textColor="#FFFFFF"
             android:paddingLeft="60dp"
+            android:textColor="@color/oldBurgundy"
             />
 
         <ImageView
