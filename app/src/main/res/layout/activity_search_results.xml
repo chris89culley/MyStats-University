@@ -7,27 +7,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chris.mystats_univeristy.SearchResults"
-    android:background="#8DA6B3">
 
-    <TextView
-        android:id="@+id/searchResultsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search Results"
-        android:textColor="#103649"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-       />
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/searchResultHead"
+        android:background="@drawable/border"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/searchResultsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Results"
+            android:background="#839788"
+            android:textColor="#3B322C"
+            android:textSize="25sp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:shadowColor="@color/oldBurgundy"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
 
     <com.andexert.expandablelayout.library.ExpandableLayoutListView
         android:id="@+id/listing"
-        android:background="#472600"
+        android:background="#839788"
+        android:layout_below="@id/searchResultHead"
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
         android:layout_height="match_parent"/>
 
 </RelativeLayout>

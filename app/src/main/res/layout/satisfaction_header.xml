@@ -2,18 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mummyTomb"
-   android:id="@+id/testing">
+    android:id="@+id/testing1">
 
 
 
     <TextView
-        android:id="@+id/courseName"
+        android:id="@+id/satTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="COURSE SEARCH RESULTS"
-        android:textColor="#3B322C"
+        android:text="Satisfaction"
+        android:textColor="#103649"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="27dp"

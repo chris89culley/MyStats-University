@@ -16,7 +16,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#BECED5"
             android:fillViewport="true"
             >
 
@@ -25,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_centerHorizontal="true"
                 android:textSize="15dp" />
 
@@ -39,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/oldBurgundy"
                 android:text="Percentage of students"
             android:layout_below="@id/esspace2"/>
 
@@ -47,12 +48,14 @@
                 android:id="@+id/linechart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:background="@color/tealDeer"
                 android:layout_below="@+id/esYAxis"></com.github.mikephil.charting.charts.LineChart>
 
 
             <TextView android:id="@+id/esXAxis"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@id/linechart"
                 android:gravity="right"/>
 

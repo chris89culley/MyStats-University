@@ -8,7 +8,7 @@ import android.graphics.Color;
 
 public enum Colours {
 
-    LIGHT_BLUE_SEARCH_PAGE("#8DA6B3"), MED_BLUE_SEARCH_PAGE("#5E8091"), DARK_BLUE_SEARCH_PAGE("#254F63");
+    TURTLE_GREEN("#88B04B"), TEAL_DEER("#94E8B4"), GREEN_SHEEN("#72BDA3") , MUMMYS_TOMB("#839788"), OLD_BURGUNDY("#3B322C");
 
     private int color;
     Colours(String hex){

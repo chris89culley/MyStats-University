@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#BECED5"
+    android:background="#94E8B4"
     android:id="@+id/drawerLayout">
 
 
@@ -29,7 +29,7 @@
 
                     <Button
                         android:id="@+id/ucastipbutton"
-                        android:textColor="#254F63"
+                        android:textColor="#3B322C"
                         android:text="ucas tips"
                         app:arc_angle="40"
                         android:layout_height="90dp"
@@ -42,7 +42,7 @@
 
                     <Button
                         android:id="@+id/accountbutton"
-                        android:textColor="#254F63"
+                        android:textColor="#3B322C"
                         android:text="account"
                         android:layout_height="90dp"
                         android:background="@drawable/accountbutton"
@@ -57,9 +57,9 @@
                         android:id="@+id/advancedsearchbutton"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:textColor="#254F63"
+                        android:textColor="#3B322C"
                         android:background="@drawable/searchbutton"
-                        app:arc_angle="0"
+                        app:arc_angle="-80"
                         android:textSize="10dp"
                         android:text="advanced \n search"
                         android:gravity="bottom|center"
@@ -71,9 +71,9 @@
                         android:text="quick search"
                         android:layout_height="90dp"
                         android:layout_width="90dp"
-                        app:arc_angle="-80"
+                        app:arc_angle="0"
                         android:textSize="10dp"
-                        android:textColor="#254F63"
+                        android:textColor="#3B322C"
                         android:gravity="bottom|center"
                         android:paddingBottom="25dp"
                         android:background="@drawable/quicksearchbutton"
@@ -87,7 +87,7 @@
                         android:text="about"
                         android:gravity="bottom|center"
                         android:paddingBottom="20dp"
-                        android:textColor="#254F63"
+                        android:textColor="#3B322C"
                         android:background="@drawable/aboutbutton"
                         app:arc_angle="80"
                         />

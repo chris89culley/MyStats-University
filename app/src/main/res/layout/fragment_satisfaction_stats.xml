@@ -16,12 +16,14 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/ssbar1"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@id/ssTextView"
             ></com.github.mikephil.charting.charts.HorizontalBarChart>
+
         <Space
             android:id="@+id/ssspace1"
             android:layout_below="@id/ssbar1"
@@ -38,6 +40,7 @@
             android:layout_below="@id/ssbar2"
             android:layout_width="1dp"
             android:layout_height="50dp"/>
+
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/ssbar3"
             android:layout_width="match_parent"
