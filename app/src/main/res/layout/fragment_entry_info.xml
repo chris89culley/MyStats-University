@@ -48,7 +48,6 @@
                 android:id="@+id/linechart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@color/tealDeer"
                 android:layout_below="@+id/esYAxis"></com.github.mikephil.charting.charts.LineChart>
 
 
