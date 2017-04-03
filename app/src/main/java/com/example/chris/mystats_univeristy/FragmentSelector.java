@@ -155,9 +155,7 @@ public class FragmentSelector extends Fragment {
      */
     private View createEmploymentStatsPage(View v,Typeface font){
 
-        TextView pageOverview = (TextView) view.findViewById(R.id.esPageOverView);
         TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
-        pageOverview.setTypeface(font);
         chartTitle1.setTypeface(font);
 
         pChart = (PieChart) view.findViewById(R.id.espie1);
@@ -166,9 +164,7 @@ public class FragmentSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
-        final ImageView salarySixmonthSymbol = (ImageView) view.findViewById(R.id.esStatIcon1);
         final TextView salarySixmonthText = (TextView) view.findViewById(R.id.animText1);
-        final ImageView salaryFourtymonthSymbol = (ImageView) view.findViewById(R.id.esStatIcon2);
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);
         salaryFourtymonthText.setTypeface(font);
         salarySixmonthText.setTypeface(font);
@@ -287,8 +283,6 @@ public class FragmentSelector extends Fragment {
      * @return
      */
     private View createStudyInfo(View v,Typeface font){
-        TextView title = (TextView) view.findViewById(R.id.siPageOverView);
-        title.setTypeface(font);
 
         TextView chartTitle1 = (TextView) view.findViewById(R.id.siChartTitle1);
         chartTitle1.setTypeface(font);
