@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="#839788"
+    android:background="@color/background"
     android:drawableTop="@android:color/black"
     android:drawableBottom="@android:color/black"
     >
@@ -23,7 +23,7 @@
         android:drawableLeft="@drawable/study"
         android:layout_marginTop="30sp"
         android:drawablePadding="10sp"
-        android:textColor="#103649"
+        android:textColor="@color/oldBurgundy"
         android:padding="10dip"
         />
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mode"
             android:text="overall sat bla bla"
-            android:textColor="#103649"
+            android:textColor="@color/oldBurgundy"
             android:drawablePadding="10sp"
             android:drawableLeft="@drawable/percent"
             android:gravity="center_vertical"
@@ -45,9 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/overallSatisafaction"
-        android:textColor="#103649"
         android:gravity="center_vertical"
         android:padding="10dip"
+        android:textColor="@color/oldBurgundy"
         android:drawableLeft="@drawable/creditcard"
         android:layout_alignLeft="@+id/mode"
         android:drawablePadding="10sp"
@@ -65,10 +65,10 @@
         android:layout_below="@+id/salaryAfter6"
         android:padding="10dip"
         android:layout_alignLeft="@+id/mode"
+        android:textColor="@color/oldBurgundy"
         android:drawablePadding="10sp"
         android:textSize="12dp"
         android:gravity="center_vertical"
-        android:textColor="#103649"
         />
 
 
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="#3B322C"
+        android:textColor="@color/oldBurgundy"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
         android:layout_centerHorizontal="true"

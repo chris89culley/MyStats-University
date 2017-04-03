@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Search Results"
             android:background="#839788"
-            android:textColor="#3B322C"
+            android:textColor="@color/greenSheen"
             android:textSize="25sp"
             android:padding="10dp"
             android:gravity="center"
