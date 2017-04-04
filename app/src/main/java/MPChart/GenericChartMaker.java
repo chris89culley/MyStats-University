@@ -68,8 +68,6 @@ public class GenericChartMaker {
                     labels.add(tags[i]);
             }
 
-        entries.add(new BarEntry(data.length, 0.0f));
-       labels.add("");
             BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
             barDataSet.setColors(Colors);
