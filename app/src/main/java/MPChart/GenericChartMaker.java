@@ -44,7 +44,7 @@ public class GenericChartMaker {
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param cs- Chart stats objects contains the data to be displayed
+     * @param cs- Chart stats objects contains the data to be displayed i
      * @param chart - reference to the chart from the view
      * @param chartTitle - Title of the chart
      * @return The BarData object for the data provided to be used for bar chart construction
