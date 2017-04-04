@@ -1,6 +1,7 @@
 package com.example.chris.mystats_univeristy;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,7 +10,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
@@ -23,27 +26,22 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
+
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.MyLocationListener;
 import GPS.RadiusChecker;
-import Utilities.FontGrabber;
-
-
-import android.Manifest;
-import android.os.Build;
-import android.support.annotation.NonNull;
 
 
 //A
 public class SearchPage extends MenuViewActivity  {
-
 
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
     private Button searchButton; //The button pressed to conduct a search
@@ -296,9 +294,10 @@ public class SearchPage extends MenuViewActivity  {
         getLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if (locationPermissionCheck() == true){
                 searchedLocationEditTextField.setText("My Location");
                 shouldGetLocationFromLocationEditText = false;
-                shouldGetLocationFromUserData = true;
+                shouldGetLocationFromUserData = true;}
             }
         });}
 
@@ -327,15 +326,14 @@ public class SearchPage extends MenuViewActivity  {
      * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
      */
     public void getUsersLocationalData() {
+
         locationManagerInitialiser(0,0);
         //Assigns the last location got by the location listener and adds it into the location manager
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if (location != null) {
             latitude = location.getLatitude();
             longitude = location.getLongitude();
-        }
-
-    }
+        }}
 
     /**
      * /**
@@ -373,8 +371,8 @@ public class SearchPage extends MenuViewActivity  {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
             return true;}
+            return true;
 
-        return true;
 
     }
 
