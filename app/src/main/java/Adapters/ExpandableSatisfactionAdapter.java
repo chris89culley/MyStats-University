@@ -167,12 +167,9 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
 
         BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
-        chart.getLegend().setEnabled(false);
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
-        chart.getAxisLeft().setEnabled(false);
-        chart.getAxisRight().setEnabled(false);
-        chart.getXAxis().setEnabled(true);
-        chart.animateXY(2000,2000);
+
+        chart.animateY(2000);
 
         return childView;
     }

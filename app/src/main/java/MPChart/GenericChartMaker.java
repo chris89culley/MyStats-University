@@ -21,9 +21,11 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 
@@ -72,6 +74,13 @@ public class GenericChartMaker {
             int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
             barDataSet.setColors(Colors);
 
+        barDataSet.setValueTextSize(20.0f);
+        barDataSet.setValueFormatter(new IValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return String.valueOf(value) + "%";
+            }
+        });
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
@@ -82,7 +91,6 @@ public class GenericChartMaker {
 
        xaxis.setCenterAxisLabels(true);
         xaxis.setXOffset(330.0f);
-
 
             chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);
@@ -98,6 +106,10 @@ public class GenericChartMaker {
             chart.setDescription(emptyDescription);
             xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
             BarData theData = new BarData(barDataSet);
+        chart.getAxisLeft().setEnabled(false);
+        chart.getAxisRight().setEnabled(false);
+        chart.getXAxis().setEnabled(true);
+        chart.getLegend().setEnabled(false);
         theData.setBarWidth(0.4f);
 
         return theData;
