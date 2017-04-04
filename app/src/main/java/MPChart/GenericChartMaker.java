@@ -30,6 +30,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.util.ArrayList;
 
 import Data.ChartStats;
+import Utilities.Colours;
 
 
 /**
@@ -71,7 +72,12 @@ public class GenericChartMaker {
             }
 
             BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
-            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
+        int[] Colors = { Colours.BLUE.getColor(),
+                Colours.GREEN_SHEEN.getColor() ,
+                Colours.LIGHT_BROWN.getColor(),
+                Colours.LIGHT_YELLOW.getColor(),
+                Colours.PURPLE.getColor(),
+                Colours.MUMMYS_TOMB.getColor()};
             barDataSet.setColors(Colors);
 
         barDataSet.setValueTextSize(20.0f);
@@ -86,11 +92,11 @@ public class GenericChartMaker {
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
 
 
-            xaxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//Moves the labels to the bottom of thr x axis
+            xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the bottom of thr x axis
 
 
        xaxis.setCenterAxisLabels(true);
-        xaxis.setXOffset(330.0f);
+        //xaxis.setXOffset(330.0f);
 
             chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);

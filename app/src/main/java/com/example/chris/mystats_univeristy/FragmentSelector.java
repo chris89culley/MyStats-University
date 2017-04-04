@@ -70,8 +70,19 @@ public class FragmentSelector extends Fragment {
                 return view;
             case 2:
                 view =  inflater.inflate(R.layout.satisfaction_content, container, false);
-                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+                final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
                 ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
+                expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+                    int prev = -1;
+                    @Override
+                    public void onGroupExpand(int groupPosition) {
+
+                        if(groupPosition != prev){
+                            expandableListView.collapseGroup(prev);
+                        }
+                        prev = groupPosition;
+                    }
+                });
                 expandableListView.setAdapter(adapter);
                 return view;
 

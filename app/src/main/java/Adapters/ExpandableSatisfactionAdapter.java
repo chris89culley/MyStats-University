@@ -170,6 +170,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
 
         chart.animateY(2000);
+        chart.getXAxis().setTypeface(retroFont);
 
         return childView;
     }
