@@ -29,7 +29,7 @@ import Utilities.FontGrabber;
  * Created by chris on 09/03/17.
  */
 
-public class CourseListAdapter extends ArrayAdapter<Course>{
+public class CourselistAdapter extends ArrayAdapter<Course>{
 
     private Activity activity;
     private ArrayList<Course> courses;
@@ -39,7 +39,7 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
             Colours.TEAL_DEER.getColor()
     };
 
-    public CourseListAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
+    public CourselistAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
         super(activity, textViewResourceId, header_id, courses);
         this.activity = activity;
         this.courses = courses;

@@ -7,95 +7,11 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/ssTextView"
+        <com.andexert.expandablelayout.library.ExpandableLayoutListView
+            android:id="@+id/listViewForSatisfactionStats"
+            android:background="#839788"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Satisfaction Page"
-            android:layout_marginTop="12dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar1"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@id/ssTextView"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-
-        <Space
-            android:id="@+id/ssspace1"
-            android:layout_below="@id/ssbar1"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar2"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace1"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace2"
-            android:layout_below="@id/ssbar2"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar3"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace2"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace3"
-            android:layout_below="@id/ssbar3"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar4"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace3"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace4"
-            android:layout_below="@id/ssbar4"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar5"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace4"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace5"
-            android:layout_below="@id/ssbar5"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar6"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace5"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace6"
-            android:layout_below="@id/ssbar6"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/ssbar7"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/ssspace6"
-            ></com.github.mikephil.charting.charts.HorizontalBarChart>
-        <Space
-            android:id="@+id/ssspace7"
-            android:layout_below="@id/ssbar7"
-            android:layout_width="1dp"
-            android:layout_height="50dp"/>
+            android:layout_height="match_parent"/>
 
 
     </RelativeLayout>

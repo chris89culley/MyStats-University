@@ -12,7 +12,7 @@ import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 import java.util.ArrayList;
 
 import Data.Course;
-import Adapters.CourseListAdapter;
+import Adapters.CourselistAdapter;
 
 
 public class SearchResults extends AppCompatActivity {
@@ -39,7 +39,7 @@ public class SearchResults extends AppCompatActivity {
 
 
         if(!courses.isEmpty()){
-            adapter = new CourseListAdapter( this, R.layout.search_row, R.layout.search_header, courses);
+            adapter = new CourselistAdapter( this, R.layout.search_row, R.layout.search_header, courses);
             listView.setAdapter(adapter);
         }
 

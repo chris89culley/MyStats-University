@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -20,8 +18,6 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
-import org.w3c.dom.Text;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
@@ -75,7 +71,7 @@ public class FragmentSelector extends Fragment {
             case 2:
                 view =  inflater.inflate(R.layout.satisfaction_content, container, false);
                 ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course);
+                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
                 expandableListView.setAdapter(adapter);
                 return view;
 
@@ -255,36 +251,6 @@ public class FragmentSelector extends Fragment {
        return v ;
     }
 
-
-    /**
-     * used to create the satisfaction stats fragments
-     * @param v View
-     * @return
-     */
-    private View createSatisfactionStats(View v){
-        chart = (BarChart) view.findViewById(R.id.ssbar1);
-        chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar2);
-        chart.setData(UniversityStatsChartMaker.getChartAssesmentAndFeedback(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar3);
-        chart.setData(UniversityStatsChartMaker.getChartAccademicSupport(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar4);
-        chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar5);
-        chart.setData(UniversityStatsChartMaker.getChartLearningResources(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar6);
-        chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar7);
-        chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
-        chart.animateY(2000);
-        return v;
-    }
 
 
     /**

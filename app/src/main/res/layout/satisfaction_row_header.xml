@@ -21,16 +21,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
 
-    <TextView
-        android:id="@+id/chartTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#103649"
-        android:text="ExpandableLayout Header!"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/satisfactionName"
-        android:layout_marginBottom="30dp"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

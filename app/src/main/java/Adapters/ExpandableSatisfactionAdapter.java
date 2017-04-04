@@ -1,10 +1,12 @@
 package Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chris.mystats_univeristy.R;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -21,6 +25,7 @@ import java.util.Collections;
 
 import Data.ChartStats;
 import Data.Course;
+import MPChart.UniversityStatsChartMaker;
 
 /**
  * Created by c077ing on 27/03/2017.
@@ -39,6 +44,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     private Course course;
     private Typeface retroFont;
     private Typeface vintageFont;
+    private static LayoutInflater inflater = null;
     private int i = 0;
     private ArrayList<ChartStats> satisfactionStats = new ArrayList<>();
 
@@ -47,10 +53,11 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      * @param context
      * @param course
      */
-    public ExpandableSatisfactionAdapter(Context context, Course course) {
+    public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity) {
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
 
+        inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
         this.course = course;
 
@@ -62,7 +69,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
                 course.getLearningResourcesStats(),
                 course.getPersonalDevelopmentStats(),
                 course.getStudentUnionStats() );
-
     }
 
     /**
@@ -81,7 +87,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public int getChildrenCount(int groupPosition) {
-        return satisfactionStats.get(groupPosition).getData().length;
+        return 1;
     }
 
     /**
@@ -102,7 +108,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return satisfactionStats.get(groupPosition).getData()[childPosition];
+        return null;
     }
 
     /**
@@ -145,12 +151,19 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        TextView textView = new TextView(context);
-        textView.setText(groupItems[groupPosition]);
-        textView.setTypeface(retroFont);
-        textView.setPadding(100, 15, 15, 15);
-        textView.setTextSize(30);
-        return textView;
+        final View rowView = inflater.inflate(R.layout.satisfaction_row, parent , false);
+
+        TextView sectionName = (TextView) rowView.findViewById(R.id.satisfactionName);
+        sectionName.setText(groupItems[groupPosition]);
+        sectionName.setTypeface(retroFont);
+
+
+//        TextView textView = new TextView(context);
+ //       textView.setText(groupItems[groupPosition]);
+  //      textView.setTypeface(retroFont);
+   //     textView.setPadding(100, 15, 15, 15);
+    //    textView.setTextSize(30);
+        return rowView;
     }
 
 
@@ -166,21 +179,40 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final TextView textView = new TextView(context);
-        textView.setText(satisfactionStats.get(groupPosition).getTags()[childPosition] + ", " + satisfactionStats.get(groupPosition).getData()[childPosition] + "%");
-        textView.setTypeface(vintageFont);
-        textView.setPadding(100, 15, 15, 15);
-        textView.setTextSize(20);
-        if(i == 0) {
-            textView.setBackgroundColor(Color.parseColor("#43ABC9"));
-            i++;
-        }
-        else{
-            i--;
-            textView.setBackgroundColor(Color.parseColor("#1496BB"));
-        }
-        return textView;
+            View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
+
+        BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
+        chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
+
+        return childView;
     }
+
+    public BarData getTheRightDataForTheGraph(int id, BarChart chart){
+
+        switch (id){
+
+            case 0 :
+                return UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart);
+            case 1:
+                return UniversityStatsChartMaker.getChartAssesmentAndFeedback(course,chart);
+            case 2:
+                return UniversityStatsChartMaker.getChartAccademicSupport(course,chart);
+            case 3:
+                return UniversityStatsChartMaker.getChartOrganisationAndManagement(course,chart);
+            case 4:
+                return UniversityStatsChartMaker.getChartLearningResources(course,chart);
+            case 5:
+                return UniversityStatsChartMaker.getChartPersonalDevelopment(course,chart);
+            case 6:
+                return UniversityStatsChartMaker.getChartStudentUnion(course,chart);
+            default:
+                return null;
+        }
+
+
+    }
+
+
 
     /**
      * Returns if the child is able to be selected
