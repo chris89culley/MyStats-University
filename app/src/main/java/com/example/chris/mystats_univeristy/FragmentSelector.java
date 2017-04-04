@@ -24,6 +24,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import org.w3c.dom.Text;
 
 import Data.Course;
+import Data.RSDBhandler;
 import MPChart.UniversityStatsChartMaker;
 import Adapters.ExpandableSatisfactionAdapter;
 
