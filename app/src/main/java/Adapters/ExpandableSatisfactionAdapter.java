@@ -46,7 +46,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     private Typeface vintageFont;
     private static LayoutInflater inflater = null;
     private int i = 0;
-    private ArrayList<ChartStats> satisfactionStats = new ArrayList<>();
 
     /**
      * This method uses the course and context to set up a header content expandable view
@@ -61,14 +60,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.course = course;
 
-        //Adds all the stats graphs to a list which we can then extract the data from
-        Collections.addAll(satisfactionStats,course.getTeachingOnMyCourseStats() ,
-                course.getAssesmentAndFeedbackStats(),
-                course.getAccademicSupportStats(),
-                course.getOrganisationAndManagementStats(),
-                course.getLearningResourcesStats(),
-                course.getPersonalDevelopmentStats(),
-                course.getStudentUnionStats() );
     }
 
     /**
@@ -157,12 +148,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         sectionName.setText(groupItems[groupPosition]);
         sectionName.setTypeface(retroFont);
 
-
-//        TextView textView = new TextView(context);
- //       textView.setText(groupItems[groupPosition]);
-  //      textView.setTypeface(retroFont);
-   //     textView.setPadding(100, 15, 15, 15);
-    //    textView.setTextSize(30);
         return rowView;
     }
 
@@ -179,7 +164,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-            View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
+        View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
 
         BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
