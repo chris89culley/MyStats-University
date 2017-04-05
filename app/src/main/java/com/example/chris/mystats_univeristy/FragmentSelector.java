@@ -143,27 +143,37 @@ public class FragmentSelector extends Fragment {
      * @return
      */
     private View createCostStatsPage(View v,Typeface font) {
+        TextView costIntro = (TextView) v.findViewById(R.id.cost_text_id);
+        TextView accomPvt = (TextView) v.findViewById(R.id.private_id);
+        TextView accomHalls = (TextView) v.findViewById(R.id.halls_id);
+        TextView insuanceCost = (TextView) v.findViewById(R.id.insurance_id);
+        TextView personalCost = (TextView) v.findViewById(R.id.personal_id);
+        TextView foodCost = (TextView) v.findViewById(R.id.food_id);
+        TextView leisureCost = (TextView) v.findViewById(R.id.leisure_id);
+        TextView travelCost = (TextView) v.findViewById(R.id.travel_id);
 
-            TextView text = (TextView) view.findViewById(R.id.costStatInfo1);
-            TextView text2 = (TextView) view.findViewById(R.id.costStatInfo2);
-            text.setTypeface(font);
-            text2.setTypeface(font);
+        costIntro.setTypeface(font);
+        accomPvt.setTypeface(font);
+        accomHalls.setTypeface(font);
+        insuanceCost.setTypeface(font);
+        personalCost.setTypeface(font);
+        foodCost.setTypeface(font);
+        leisureCost.setTypeface(font);
+        travelCost.setTypeface(font);
 
-            int low, high;
-            String[] pte = course.getPrivateAccomodationDetails().getData();
-            low = Integer.parseInt(pte[0]);
-            high = Integer.parseInt(pte[1]);
-            TextView x = (TextView) view.findViewById(R.id.costPvt);
-            x.setText("Private: £" + low + " - £" + high);
-            x.setTypeface(font);
+        int low, high;
 
+        String[] pte = course.getPrivateAccomodationDetails().getData();
+        low = Integer.parseInt(pte[0]);
+        high = Integer.parseInt(pte[1]);
+        accomPvt.setText("Private: £" + low + " - £" + high);
+        accomPvt.setTypeface(font);
 
-            String[] inst = course.getInstitutionalAccomDetails().getData();
-            low = Integer.parseInt(inst[0]);
-            high = Integer.parseInt(inst[1]);
-            x = (TextView) view.findViewById(R.id.costInst);
-            x.setText("Student Halls: £" + low + " - £" + high);
-            x.setTypeface(font);
+        String[] inst = course.getInstitutionalAccomDetails().getData();
+        low = Integer.parseInt(inst[0]);
+        high = Integer.parseInt(inst[1]);
+        accomHalls.setText("Student Halls: £" + low + " - £" + high);
+        accomHalls.setTypeface(font);
 
         return v;
     }

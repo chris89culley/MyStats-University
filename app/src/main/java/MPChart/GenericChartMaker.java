@@ -2,9 +2,7 @@ package MPChart;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-import com.example.chris.mystats_univeristy.CourseStats;
-import com.example.chris.mystats_univeristy.Home;
-import com.example.chris.mystats_univeristy.R;
+
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -31,6 +29,8 @@ import java.util.ArrayList;
 
 import Data.ChartStats;
 import Utilities.Colours;
+
+//import com.github.mikephil.charting.components.xAxis;
 
 
 /**
@@ -69,7 +69,9 @@ public class GenericChartMaker {
                     labels.add(tags[i]);
             }
 
+
        BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
+
 
         //Sets up the colours to be used by the charts
         int[] Colors = { Colours.BLUE.getColor(),
@@ -91,6 +93,7 @@ public class GenericChartMaker {
         });
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
+
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
             xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the bottom of thr x axis
 
@@ -117,8 +120,10 @@ public class GenericChartMaker {
         chart.getLegend().setEnabled(false);
         theData.setBarWidth(0.4f);
 
+
         return theData;
     }
+
 
 
     /**
@@ -289,62 +294,94 @@ public class GenericChartMaker {
         //Creates an arrayList to store the x and y axis
         float[] yAxis = stringToFloatConvertor(values);
         float[] xAxis = stringToFloatConvertor(key);
+        // ArrayList<Entry> entries = createEntryDataArray(key.length, yAxis, xAxis);
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
-
         //create a set of data to add to the Lines to create the lines
         LineDataSet dataSet = new LineDataSet(entries, null);
-
         //Format the dataSet with cleaner lines and add different colours
-        dataSet.setColor(ColorTemplate.rgb("C2571A"));
-        dataSet.setDrawFilled(true);
-        dataSet.setFillAlpha(180);
-        dataSet.setFillColor(ColorTemplate.rgb("F58B4C"));
-        dataSet.setValueTextSize(18);
-
+        dataSet = setLineGraphData(dataSet);
         //Creates the curved effect on the line graph
-        dataSet.setCubicIntensity(0.2f);
-        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-
+        dataSet = setGraphCurve(dataSet);
         //Chart formatting
-        chart.setDescription(null);
-
-        dataSet.setDrawCircles(false); //Takes the points off th graph
-        dataSet.setDrawValues(false); //Takes the Values off the graph
-        chart.invalidate();
-        chart.setDoubleTapToZoomEnabled(false);
-        chart.setPinchZoom(false);
-        chart.setScaleEnabled(false);
-
-
+        chart = setLineChartData(chart);
         //Format the X Axis
         XAxis xAxis1 = chart.getXAxis();
+        xAxis1 = setxAxisfeatures(xAxis1);
+        //Format the Y Axis from the right side of the graph
+        YAxis yAxisRightSide = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        //Format the Y Axis from the right side of the graph
+        YAxis yAxisLeftSide = chart.getAxis(YAxis.AxisDependency.LEFT);
+        yAxisLeftSide = setUpYAXaisLeft(yAxisLeftSide);
+         //Add the informaiton about the lines to the chart
+        return new LineData(dataSet);
+    }
+
+    /**
+     * Sets up the parameters for the Graphs right side yAXis
+     * @param yAxisRightSide
+     * @return
+     */
+    private static YAxis setUpYAxisRightSide(YAxis yAxisRightSide) {
+        yAxisRightSide = setUpYAxisRightSide(yAxisRightSide);
+        yAxisRightSide.setEnabled(false);
+        yAxisRightSide.setDrawGridLines(false);
+        return yAxisRightSide;
+    }
+
+    /**
+     * Sets up the Y Axis left side
+     * @param yAxisLeftSide
+     * @return
+     */
+    private static YAxis setUpYAXaisLeft(YAxis yAxisLeftSide) {
+        yAxisLeftSide.setDrawGridLines(false);
+        yAxisLeftSide.setGranularityEnabled(true);
+        yAxisLeftSide.setGranularity(5); //Sets how much the graph increments by
+        yAxisLeftSide.setAxisMinimum(0);
+        return yAxisLeftSide;
+    }
+
+    /**
+     * Sets up the details on the X Axis
+     * @param xAxis1
+     * @return
+     */
+    private static XAxis setxAxisfeatures(XAxis xAxis1) {
         xAxis1.setDrawAxisLine(true);
         xAxis1.setDrawGridLines(false);
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis1.setAxisMinimum(48);
-        xAxis1.setAxisMaximum(240);
+        xAxis1.setAxisMinimum(48); //Sets the minimun amount of the xAxis to 48 as this is the lowest that the informaition gives
+        xAxis1.setAxisMaximum(240);//Sets the Graphs max to 240 as it is the highest that we recieve.
+        return xAxis1;
 
-        //Format the Y Axis from the right side of the graph
-        YAxis yAxis1 = chart.getAxis(YAxis.AxisDependency.RIGHT);
-        yAxis1.setEnabled(false);
-        yAxis1.setDrawGridLines(false);
+    }
 
 
-        //Format the Y Axis from the right side of the graph
-        YAxis yAxis2 = chart.getAxis(YAxis.AxisDependency.LEFT);
-        yAxis2.setDrawGridLines(false);
-        yAxis2.setGranularityEnabled(true);
-        yAxis2.setGranularity(5);
-        yAxis2.setAxisMinimum(0);
+    /**
+     * Sets the Chart to have zoom and other properties.
+     * @param chart
+     * @return
+     */
+    private static LineChart setLineChartData(LineChart chart) {
+        chart.setDescription(null);
+        chart.invalidate(); // Calls the graph to refresh when viewed
+        chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
+        chart.setPinchZoom(false);//turns the graph zoom features off
+        chart.setScaleEnabled(false);
+        return chart;
+    }
 
-
-
-
-        //Add the informaiton about the lines to the chart
-        return new LineData(dataSet);
+    /**
+     * Set the LineGraph to have a curved graph instead of straight lines
+     * @param dataSet
+     */
+    private static LineDataSet setGraphCurve(LineDataSet dataSet) {
+        dataSet.setCubicIntensity(0.2f); //Set the amount the graph curves
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        return dataSet;
     }
 
     /**
@@ -366,11 +403,24 @@ public class GenericChartMaker {
         return data;
     }
 
+    /**
+     * Sets the Lingraph chart colours and
+     * @param dataSet
+     * @return
+     */
+    private static LineDataSet setLineGraphData(LineDataSet dataSet)
+    {
+        dataSet.setColor(ColorTemplate.rgb("C2571A"));
+        dataSet.setDrawFilled(true); //Set the Graph to fill the
+        dataSet.setFillAlpha(180); //Graph transparaty
+        dataSet.setFillColor(ColorTemplate.rgb("F58B4C")); //The colour under the graph
+        dataSet.setValueTextSize(18);
 
+        dataSet.setDrawCircles(false); //Takes the points off th graph
+        dataSet.setDrawValues(false); //Takes the Values off the graph
 
-
-
-
+        return dataSet;
+    }
 
 
 }
