@@ -30,9 +30,11 @@ public class CourseStats extends MenuViewActivity  {
         RSDBhandler dh = new RSDBhandler(this);
         try {
             dh.addEntry(course);
+            dh.readAll();
         }catch(Exception e){
             Log.d("Database","Couldn't add entry");
         }
+
         //Sets up the fonts, needs to be refactored out
         Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");

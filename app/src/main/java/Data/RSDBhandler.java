@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.util.Log;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,9 +34,11 @@ public class RSDBhandler extends SQLiteOpenHelper {
     //Name column name
     private static final String COL_NAME = "courseinfo";
 
-   ByteArrayOutputStream bo = null;
-    ObjectOutputStream out = null;
+    ByteArrayOutputStream bo = null;
+    ByteArrayInputStream bi = null;
 
+    ObjectOutputStream out = null;
+    ObjectInputStream in = null;
     /**
      * Deafult constructor uses the context and calls the super class
      * @param context context of the page
@@ -51,6 +54,11 @@ public class RSDBhandler extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
+        try{
+            emptyEntries();
+        }catch(Exception e){
+        }
+        emptyEntries();
         String CREATE_RECENTLY_VIEWED_TABLE = "CREATE TABLE "
                 + TABLE_NAME
                 + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -79,30 +87,105 @@ public class RSDBhandler extends SQLiteOpenHelper {
      * @throws IOException IOexception thrown when writing to the output stream
      */
     public void addEntry(Course course) throws IOException {
+        int count = countEntries();
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        try {
-            bo = new ByteArrayOutputStream();
-            out = new ObjectOutputStream(bo);
-            out.writeObject(course);
-            out.flush();
-            String serializedEntry = bo.toString();
-            values.put(COL_NAME, serializedEntry);
-            db.insert(TABLE_NAME, null, values);
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally {
-            out.close();
-            bo.close();
-            db.close();
+        if(count > 9) {
+            deleteFirst();
         }
+            try {
+                bo = new ByteArrayOutputStream();
+                out = new ObjectOutputStream(bo);
+                out.writeObject(course);
+                out.flush();
+                String serializedEntry = bo.toString();
+                values.put(COL_NAME, serializedEntry);
+                db.insert(TABLE_NAME, null, values);
+                Log.d("Database","Inserted"+course.getCourseName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                out.close();
+                bo.close();
+                db.close();
+            }
+
     }
 
 
-    public void getAll(){
-     //Should return a list of all course objects once deserialized
+    public List readAll() throws IOException {
+            List<Course> list = new ArrayList<Course>();
 
+            SQLiteDatabase db = this.getReadableDatabase();
 
+            String selectQuery = "SELECT * FROM " + TABLE_NAME;
+
+            Cursor cursor = db.rawQuery(selectQuery, null);
+
+            if (cursor.moveToFirst()) { // If data (records) available
+
+            int nameIdx = cursor.getColumnIndex(COL_NAME);
+
+            do {
+                try {
+                    out.flush();
+                    out.writeUTF(cursor.getString(nameIdx));
+
+                    bi = new ByteArrayInputStream(bo.toByteArray());
+                    in = new ObjectInputStream(bi);
+                    Object obj = (Object) in.readObject();
+
+                    list.add((Course)obj);
+                }catch(Exception e){
+                     e.printStackTrace();
+                }
+            }while (cursor.moveToNext()); // repeat until there are no more records
+        }
+        bi.close();
+        in.close();
+        db.close();
+        printList(list);
+        return list;
+    }
+
+    public void printList(List list){
+        for(int i=0;i<list.size();i++){
+            Course one = (Course) list.get(i);
+            Log.d("Database","Contents "+i+":"+one.getCourseName());
+        }
+
+    }
+
+    private int countEntries(){
+        String countQuery = "SELECT * FROM "+TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        int cnt = cursor.getCount();
+        cursor.close();
+
+       // Cursor cursor = db.rawQuery(countQuery, null);
+        Log.d("Database","No of entries "+cnt);
+        return cnt;
+    }
+
+    private void emptyEntries(){
+        String deleteQuery = "DELETE FROM "+TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        db.execSQL(deleteQuery);
+    }
+
+    private void deleteFirst(){
+        String alterQuery ="delete from " + TABLE_NAME+ " where rowid IN (Select rowid from " + TABLE_NAME + " limit 1)";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        db.execSQL(alterQuery);
     }
 
 }
