@@ -18,6 +18,7 @@
         <ExpandableListView
             android:id="@+id/expandableListView1"
             android:layout_below="@id/satisfactionTitle"
+            android:groupIndicator="@drawable/arrow"
             android:layout_width="match_parent"
             android:layout_height= "wrap_content" />
 
