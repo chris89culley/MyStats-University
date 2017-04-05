@@ -152,7 +152,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
             sectionName.setBackgroundColor(Colours.GREEN_SHEEN.getColor());
         }
         else{
-            sectionName.setBackgroundColor(Colours.TEAL_DEER.getColor());
+            sectionName.setBackgroundColor(Colours.BACKGROUND_GREEN.getColor());
         }
 
         sectionName.setText(groupItems[groupPosition]);
