@@ -51,7 +51,7 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
     /**
      * This method handles the creation of the content for each row
      * @param position - The position in the list view we are at
-     * @param convertView - The main view
+
      * @param parent - The parent to this row
      * @return - The row with content
      */

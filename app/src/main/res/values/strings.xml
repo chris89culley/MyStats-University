@@ -4,4 +4,5 @@
     <string name="closed">Closed</string>
     <string name="fulltime">Full time courses</string>
     <string name="parttime">Part time courses</string>
+    <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
 </resources>

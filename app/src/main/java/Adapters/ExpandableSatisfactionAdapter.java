@@ -26,6 +26,7 @@ import java.util.Collections;
 import Data.ChartStats;
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
+import Utilities.Colours;
 
 /**
  * Created by c077ing on 27/03/2017.
@@ -36,8 +37,8 @@ import MPChart.UniversityStatsChartMaker;
 public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
     // the titles of each expandable row
-    private String[] groupItems = {"Teaching on the Course", "Assesment and Feedback",
-            "Accademic Support", "Organisation and Management",
+    private String[] groupItems = {"Teaching on the Course", "Assessment and Feedback",
+            "Academic Support", "Organisation and Management",
             "Learning Resources", "Personal Development", "StudentUnion"};
 
     private Context context;
@@ -133,7 +134,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     }
 
     /**
-     * This methhod sets the content for the group view ie the header
+     * This method sets the content for the group view ie the header
      * @param groupPosition - The index of the group view
      * @param isExpanded - Whether it has been expanded or not
      * @param convertView - The view it converts
@@ -142,9 +143,18 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         final View rowView = inflater.inflate(R.layout.satisfaction_row, parent , false);
 
+        //Sets up alternating colours for the header
         TextView sectionName = (TextView) rowView.findViewById(R.id.satisfactionName);
+        if(groupPosition %2 == 0){
+            sectionName.setBackgroundColor(Colours.GREEN_SHEEN.getColor());
+        }
+        else{
+            sectionName.setBackgroundColor(Colours.TEAL_DEER.getColor());
+        }
+
         sectionName.setText(groupItems[groupPosition]);
         sectionName.setTypeface(retroFont);
 
@@ -168,13 +178,18 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
         BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
-
         chart.animateY(2000);
         chart.getXAxis().setTypeface(retroFont);
 
         return childView;
     }
 
+    /**
+     * This method uses the position id to determine which of the charts should be displayed to the user
+     * @param id - The position id
+     * @param chart - The chart for which the data will be entered into
+     * @return - Bar data that will fill up the chart
+     */
     public BarData getTheRightDataForTheGraph(int id, BarChart chart){
 
         switch (id){

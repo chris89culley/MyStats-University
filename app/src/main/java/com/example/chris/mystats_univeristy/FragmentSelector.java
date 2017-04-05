@@ -69,22 +69,10 @@ public class FragmentSelector extends Fragment {
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
-                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
-                final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
-                expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-                    int prev = -1;
-                    @Override
-                    public void onGroupExpand(int groupPosition) {
 
-                        if(groupPosition != prev){
-                            expandableListView.collapseGroup(prev);
-                        }
-                        prev = groupPosition;
-                    }
-                });
-                expandableListView.setAdapter(adapter);
-                return view;
+                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                createSatisfactionStatsPage(view, retroFont);
+                return  view;
 
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
@@ -126,6 +114,27 @@ public class FragmentSelector extends Fragment {
         }
     }
 
+    private View createSatisfactionStatsPage(View v, Typeface fontUsed){
+
+        TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
+        satisfactionTitle.setTypeface(fontUsed);
+        final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != prev){
+                    expandableListView.collapseGroup(prev);
+                }
+                prev = groupPosition;
+            }
+        });
+
+        expandableListView.setAdapter(adapter);
+        return v;
+    }
 
     /**
      * used to create the costs stats fragments
