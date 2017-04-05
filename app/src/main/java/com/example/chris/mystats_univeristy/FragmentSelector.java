@@ -69,11 +69,10 @@ public class FragmentSelector extends Fragment {
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
-                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
-                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course);
-                expandableListView.setAdapter(adapter);
-                return view;
+
+                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                createSatisfactionStatsPage(view, retroFont);
+                return  view;
 
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
@@ -115,6 +114,27 @@ public class FragmentSelector extends Fragment {
         }
     }
 
+    private View createSatisfactionStatsPage(View v, Typeface fontUsed){
+
+        TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
+        satisfactionTitle.setTypeface(fontUsed);
+        final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != prev){
+                    expandableListView.collapseGroup(prev);
+                }
+                prev = groupPosition;
+            }
+        });
+
+        expandableListView.setAdapter(adapter);
+        return v;
+    }
 
     /**
      * used to create the costs stats fragments
@@ -261,36 +281,6 @@ public class FragmentSelector extends Fragment {
        return v ;
     }
 
-
-    /**
-     * used to create the satisfaction stats fragments
-     * @param v View
-     * @return
-     */
-    private View createSatisfactionStats(View v){
-        chart = (BarChart) view.findViewById(R.id.ssbar1);
-        chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar2);
-        chart.setData(UniversityStatsChartMaker.getChartAssesmentAndFeedback(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar3);
-        chart.setData(UniversityStatsChartMaker.getChartAccademicSupport(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar4);
-        chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar5);
-        chart.setData(UniversityStatsChartMaker.getChartLearningResources(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar6);
-        chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar7);
-        chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
-        chart.animateY(2000);
-        return v;
-    }
 
 
     /**
