@@ -36,7 +36,7 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
     private static LayoutInflater inflater = null;
     private static Set<String> added = new HashSet<>();
     private static int[] colours = {Colours.GREEN_SHEEN.getColor(),
-            Colours.TEAL_DEER.getColor()
+            Colours.BACKGROUND_GREEN.getColor()
     };
 
     public CourselistAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {

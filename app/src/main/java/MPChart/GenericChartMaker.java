@@ -112,11 +112,12 @@ public class GenericChartMaker {
         Description emptyDescription = new Description();
         emptyDescription.setText("");
         chart.setDescription(emptyDescription);
+        xaxis.setDrawGridLines(false);
         xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
         BarData theData = new BarData(barDataSet);
         chart.getAxisLeft().setEnabled(false);
         chart.getAxisRight().setEnabled(false);
-        chart.getXAxis().setEnabled(true);
+        xaxis.setDrawAxisLine(false);
         chart.getLegend().setEnabled(false);
         theData.setBarWidth(0.4f);
 
