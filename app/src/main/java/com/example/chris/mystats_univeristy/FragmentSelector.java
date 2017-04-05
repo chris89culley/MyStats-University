@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -20,8 +18,6 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
-import org.w3c.dom.Text;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
@@ -73,11 +69,10 @@ public class FragmentSelector extends Fragment {
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
-                view =  inflater.inflate(R.layout.satisfaction_content, container, false);
-                ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-                ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course);
-                expandableListView.setAdapter(adapter);
-                return view;
+
+                view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                createSatisfactionStatsPage(view, retroFont);
+                return  view;
 
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
@@ -119,6 +114,27 @@ public class FragmentSelector extends Fragment {
         }
     }
 
+    private View createSatisfactionStatsPage(View v, Typeface fontUsed){
+
+        TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
+        satisfactionTitle.setTypeface(fontUsed);
+        final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
+        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != prev){
+                    expandableListView.collapseGroup(prev);
+                }
+                prev = groupPosition;
+            }
+        });
+
+        expandableListView.setAdapter(adapter);
+        return v;
+    }
 
     /**
      * used to create the costs stats fragments
@@ -127,27 +143,37 @@ public class FragmentSelector extends Fragment {
      * @return
      */
     private View createCostStatsPage(View v,Typeface font) {
+        TextView costIntro = (TextView) v.findViewById(R.id.cost_text_id);
+        TextView accomPvt = (TextView) v.findViewById(R.id.private_id);
+        TextView accomHalls = (TextView) v.findViewById(R.id.halls_id);
+        TextView insuanceCost = (TextView) v.findViewById(R.id.insurance_id);
+        TextView personalCost = (TextView) v.findViewById(R.id.personal_id);
+        TextView foodCost = (TextView) v.findViewById(R.id.food_id);
+        TextView leisureCost = (TextView) v.findViewById(R.id.leisure_id);
+        TextView travelCost = (TextView) v.findViewById(R.id.travel_id);
 
-            TextView text = (TextView) view.findViewById(R.id.costStatInfo1);
-            TextView text2 = (TextView) view.findViewById(R.id.costStatInfo2);
-            text.setTypeface(font);
-            text2.setTypeface(font);
+        costIntro.setTypeface(font);
+        accomPvt.setTypeface(font);
+        accomHalls.setTypeface(font);
+        insuanceCost.setTypeface(font);
+        personalCost.setTypeface(font);
+        foodCost.setTypeface(font);
+        leisureCost.setTypeface(font);
+        travelCost.setTypeface(font);
 
-            int low, high;
-            String[] pte = course.getPrivateAccomodationDetails().getData();
-            low = Integer.parseInt(pte[0]);
-            high = Integer.parseInt(pte[1]);
-            TextView x = (TextView) view.findViewById(R.id.costPvt);
-            x.setText("Private: £" + low + " - £" + high);
-            x.setTypeface(font);
+        int low, high;
 
+        String[] pte = course.getPrivateAccomodationDetails().getData();
+        low = Integer.parseInt(pte[0]);
+        high = Integer.parseInt(pte[1]);
+        accomPvt.setText("Private: £" + low + " - £" + high);
+        accomPvt.setTypeface(font);
 
-            String[] inst = course.getInstitutionalAccomDetails().getData();
-            low = Integer.parseInt(inst[0]);
-            high = Integer.parseInt(inst[1]);
-            x = (TextView) view.findViewById(R.id.costInst);
-            x.setText("Student Halls: £" + low + " - £" + high);
-            x.setTypeface(font);
+        String[] inst = course.getInstitutionalAccomDetails().getData();
+        low = Integer.parseInt(inst[0]);
+        high = Integer.parseInt(inst[1]);
+        accomHalls.setText("Student Halls: £" + low + " - £" + high);
+        accomHalls.setTypeface(font);
 
         return v;
     }
@@ -255,36 +281,6 @@ public class FragmentSelector extends Fragment {
        return v ;
     }
 
-
-    /**
-     * used to create the satisfaction stats fragments
-     * @param v View
-     * @return
-     */
-    private View createSatisfactionStats(View v){
-        chart = (BarChart) view.findViewById(R.id.ssbar1);
-        chart.setData(UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar2);
-        chart.setData(UniversityStatsChartMaker.getChartAssesmentAndFeedback(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar3);
-        chart.setData(UniversityStatsChartMaker.getChartAccademicSupport(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar4);
-        chart.setData(UniversityStatsChartMaker.getChartOrganisationAndManagement(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar5);
-        chart.setData(UniversityStatsChartMaker.getChartLearningResources(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar6);
-        chart.setData(UniversityStatsChartMaker.getChartPersonalDevelopment(course, chart));
-        chart.animateY(2000);
-        chart = (BarChart) view.findViewById(R.id.ssbar7);
-        chart.setData(UniversityStatsChartMaker.getChartStudentUnion(course, chart));
-        chart.animateY(2000);
-        return v;
-    }
 
 
     /**

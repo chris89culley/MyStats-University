@@ -1,10 +1,12 @@
 package Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chris.mystats_univeristy.R;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -21,6 +25,8 @@ import java.util.Collections;
 
 import Data.ChartStats;
 import Data.Course;
+import MPChart.UniversityStatsChartMaker;
+import Utilities.Colours;
 
 /**
  * Created by c077ing on 27/03/2017.
@@ -31,37 +37,29 @@ import Data.Course;
 public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
     // the titles of each expandable row
-    private String[] groupItems = {"Teaching on the Course", "Assesment and Feedback",
-            "Accademic Support", "Organisation and Management",
+    private String[] groupItems = {"Teaching on the Course", "Assessment and Feedback",
+            "Academic Support", "Organisation and Management",
             "Learning Resources", "Personal Development", "StudentUnion"};
 
     private Context context;
     private Course course;
     private Typeface retroFont;
     private Typeface vintageFont;
+    private static LayoutInflater inflater = null;
     private int i = 0;
-    private ArrayList<ChartStats> satisfactionStats = new ArrayList<>();
 
     /**
      * This method uses the course and context to set up a header content expandable view
      * @param context
      * @param course
      */
-    public ExpandableSatisfactionAdapter(Context context, Course course) {
+    public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity) {
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
 
+        inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
         this.course = course;
-
-        //Adds all the stats graphs to a list which we can then extract the data from
-        Collections.addAll(satisfactionStats,course.getTeachingOnMyCourseStats() ,
-                course.getAssesmentAndFeedbackStats(),
-                course.getAccademicSupportStats(),
-                course.getOrganisationAndManagementStats(),
-                course.getLearningResourcesStats(),
-                course.getPersonalDevelopmentStats(),
-                course.getStudentUnionStats() );
 
     }
 
@@ -81,7 +79,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public int getChildrenCount(int groupPosition) {
-        return satisfactionStats.get(groupPosition).getData().length;
+        return 1;
     }
 
     /**
@@ -102,7 +100,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return satisfactionStats.get(groupPosition).getData()[childPosition];
+        return null;
     }
 
     /**
@@ -136,7 +134,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     }
 
     /**
-     * This methhod sets the content for the group view ie the header
+     * This method sets the content for the group view ie the header
      * @param groupPosition - The index of the group view
      * @param isExpanded - Whether it has been expanded or not
      * @param convertView - The view it converts
@@ -145,12 +143,22 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        TextView textView = new TextView(context);
-        textView.setText(groupItems[groupPosition]);
-        textView.setTypeface(retroFont);
-        textView.setPadding(100, 15, 15, 15);
-        textView.setTextSize(30);
-        return textView;
+
+        final View rowView = inflater.inflate(R.layout.satisfaction_row, parent , false);
+
+        //Sets up alternating colours for the header
+        TextView sectionName = (TextView) rowView.findViewById(R.id.satisfactionName);
+        if(groupPosition %2 == 0){
+            sectionName.setBackgroundColor(Colours.GREEN_SHEEN.getColor());
+        }
+        else{
+            sectionName.setBackgroundColor(Colours.TEAL_DEER.getColor());
+        }
+
+        sectionName.setText(groupItems[groupPosition]);
+        sectionName.setTypeface(retroFont);
+
+        return rowView;
     }
 
 
@@ -166,21 +174,48 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final TextView textView = new TextView(context);
-        textView.setText(satisfactionStats.get(groupPosition).getTags()[childPosition] + ", " + satisfactionStats.get(groupPosition).getData()[childPosition] + "%");
-        textView.setTypeface(vintageFont);
-        textView.setPadding(100, 15, 15, 15);
-        textView.setTextSize(20);
-        if(i == 0) {
-            textView.setBackgroundColor(Color.parseColor("#43ABC9"));
-            i++;
-        }
-        else{
-            i--;
-            textView.setBackgroundColor(Color.parseColor("#1496BB"));
-        }
-        return textView;
+        View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
+
+        BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
+        chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
+        chart.animateY(2000);
+        chart.getXAxis().setTypeface(retroFont);
+
+        return childView;
     }
+
+    /**
+     * This method uses the position id to determine which of the charts should be displayed to the user
+     * @param id - The position id
+     * @param chart - The chart for which the data will be entered into
+     * @return - Bar data that will fill up the chart
+     */
+    public BarData getTheRightDataForTheGraph(int id, BarChart chart){
+
+        switch (id){
+
+            case 0 :
+                return UniversityStatsChartMaker.getChartTeachingOnMyCourse(course, chart);
+            case 1:
+                return UniversityStatsChartMaker.getChartAssesmentAndFeedback(course,chart);
+            case 2:
+                return UniversityStatsChartMaker.getChartAccademicSupport(course,chart);
+            case 3:
+                return UniversityStatsChartMaker.getChartOrganisationAndManagement(course,chart);
+            case 4:
+                return UniversityStatsChartMaker.getChartLearningResources(course,chart);
+            case 5:
+                return UniversityStatsChartMaker.getChartPersonalDevelopment(course,chart);
+            case 6:
+                return UniversityStatsChartMaker.getChartStudentUnion(course,chart);
+            default:
+                return null;
+        }
+
+
+    }
+
+
 
     /**
      * Returns if the child is able to be selected

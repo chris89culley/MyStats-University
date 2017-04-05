@@ -136,7 +136,12 @@ public class Course  implements Parcelable{
      * @return ChartStats - Assessment and feedback stats
      */
     public ChartStats getAssesmentAndFeedbackStats(){
-        ChartStats cs = new ChartStats(new String[]{Q5,Q6,Q7,Q8,Q9},new String[]{"The criteria used in marking have been clear in advance","Assessment arrangements and marking have been fair","Feedback on my work has been prompt","I have received detailed comments on my work","Feedback on my work has helped me clarify things I did not understand"}, "Assessment and feedback (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q5,Q6,Q7,Q8,Q9},new String[]{"The criteria used in marking have been clear in advance",
+                "Assessment arrangements and marking have been fair",
+                "Feedback on my work has been prompt",
+                "I have received detailed comments on my work",
+                "Feedback on my work has helped me clarify things I did not understand"},
+                "Assessment and feedback (% agree)","");
         return cs;
     }
 
@@ -145,7 +150,11 @@ public class Course  implements Parcelable{
      * @return ChartStats - Academic support stats
      */
     public ChartStats getAccademicSupportStats(){
-        ChartStats cs = new ChartStats(new String[]{Q10,Q11,Q12},new String[]{"I have received sufficient advice and support with my studies","I have been able to contact staff when I needed to","Good advice was available when I needed to make study choices"}, "Assessment and feedback (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q10,Q11,Q12},new String[]{"I have received sufficient advice and support with my studies",
+                "I have been able to contact staff when I needed to",
+                "Good advice was available when I needed to make study choices"},
+                "Assessment and feedback (% agree)","");
+
         return cs;
     }
 
@@ -155,7 +164,10 @@ public class Course  implements Parcelable{
      */
     public ChartStats getOrganisationAndManagementStats(){
 
-        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently as far as my activities are concerned","Any changes in the course or teaching have been communicated effectively","The course is well organised and is running smoothly"}, "Organisation and management (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently as far as my activities are concerned",
+                "Any changes in the course or teaching have been communicated effectively",
+                "The course is well organised and is running smoothly"},
+                "Organisation and management (% agree)","");
         return cs;
     }
 
@@ -164,7 +176,10 @@ public class Course  implements Parcelable{
      * @return ChartStats - Learning resource stats
      */
     public ChartStats getLearningResourcesStats(){
-        ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},new String[]{"The library resources and services are good enough for my needs","I have been able to access general IT resources when I needed to","I have been able to access specialised equipment, facilities, or rooms when I needed to"},"Learning resources (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},new String[]{"The library resources and services are good enough for my needs",
+                "I have been able to access general IT resources when I needed to",
+                "I have been able to access equipment, facilities, or rooms when needed"},
+                "Learning resources (% agree)","");
         return cs;
     }
 
@@ -182,7 +197,8 @@ public class Course  implements Parcelable{
      * @return ChartStats - Student union stats
      */
     public ChartStats getStudentUnionStats(){
-        ChartStats cs = new ChartStats(new String[]{Q24},new String[]{"I am satisfied with the Students' Union at my institution"},"Students' Union % satisfied with","");
+        ChartStats cs = new ChartStats(new String[]{Q24},new String[]{"I am satisfied with the Students' Union at my institution"},
+                "Students' Union % satisfied with","");
         return cs;
     }
 
