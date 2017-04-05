@@ -63,24 +63,26 @@ public class GenericChartMaker {
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
-       // entries.add(new BarEntry(0 , 0.0f));
-       //labels.add("");
 
        for (int i = 0; i < data.length; i++) {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
+       BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
+
+        //Sets up the colours to be used by the charts
         int[] Colors = { Colours.BLUE.getColor(),
                 Colours.GREEN_SHEEN.getColor() ,
                 Colours.LIGHT_BROWN.getColor(),
                 Colours.LIGHT_YELLOW.getColor(),
                 Colours.PURPLE.getColor(),
                 Colours.MUMMYS_TOMB.getColor()};
-            barDataSet.setColors(Colors);
+        barDataSet.setColors(Colors);
 
         barDataSet.setValueTextSize(20.0f);
+
+        //Creates a format whereby the value has a percent sign at the end
         barDataSet.setValueFormatter(new IValueFormatter() {
             @Override
             public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
@@ -90,28 +92,25 @@ public class GenericChartMaker {
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
             XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
-
-
             xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the bottom of thr x axis
 
 
        xaxis.setCenterAxisLabels(true);
-        //xaxis.setXOffset(330.0f);
 
-            chart.setDrawGridBackground(false);
+        chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);
         chart.setFitBars(false);
         xaxis.setDrawGridLines(false);
         chart.setDrawValueAboveBar(false);
-            chart.getAxisLeft().setDrawGridLines(false);
-            chart.getXAxis().setDrawGridLines(false);
+        chart.getAxisLeft().setDrawGridLines(false);
+        chart.getXAxis().setDrawGridLines(false);
         chart.getAxisLeft().setAxisLineWidth(1.0f);
-            chart.getAxisLeft().setStartAtZero(true);
-            Description emptyDescription = new Description();
-            emptyDescription.setText("");
-            chart.setDescription(emptyDescription);
-            xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
-            BarData theData = new BarData(barDataSet);
+        chart.getAxisLeft().setStartAtZero(true);
+        Description emptyDescription = new Description();
+        emptyDescription.setText("");
+        chart.setDescription(emptyDescription);
+        xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
+        BarData theData = new BarData(barDataSet);
         chart.getAxisLeft().setEnabled(false);
         chart.getAxisRight().setEnabled(false);
         chart.getXAxis().setEnabled(true);
