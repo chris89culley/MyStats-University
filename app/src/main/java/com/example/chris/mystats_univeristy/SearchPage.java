@@ -19,6 +19,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.CycleInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -126,6 +129,24 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
+
+    /**
+     * This method creates a shake for the passed in edit text indicating that it needs to be filled in
+      */
+    private void shakeTheCourseName(EditText textToBeShaken){
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        shake.setInterpolator(new CycleInterpolator(5));
+        textToBeShaken.startAnimation(shake);
+        showEditTextNotFilledInError(textToBeShaken);
+    }
+
+    /**
+     * Creates an error which is shown to the user when the passed text field isn't filled in
+     * @param textWithError - The edit text box with the error
+     */
+    private void showEditTextNotFilledInError(EditText textWithError){
+        textWithError.setError("You need to fill me in!");
     }
 
     /**
@@ -274,6 +295,11 @@ public class SearchPage extends MenuViewActivity  {
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
+                if(getTheCourseToBeSearched().isEmpty()){
+                    shakeTheCourseName(searchedCourseEditTextField);
+                    return;
+                }
 
                 loadingIcon.show();
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
