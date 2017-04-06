@@ -165,7 +165,7 @@ public class Course  implements Parcelable{
     public ChartStats getOrganisationAndManagementStats(){
 
         ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently as far as my activities are concerned",
-                "Any changes in the course or teaching have been communicated effectively",
+                "Changes in the course or teaching have been communicated effectively",
                 "The course is well organised and is running smoothly"},
                 "Organisation and management (% agree)","");
         return cs;
