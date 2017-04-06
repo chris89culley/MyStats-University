@@ -7,11 +7,13 @@ import android.os.Parcelable;
 import android.util.Log;
 
 import com.example.chris.mystats_univeristy.MenuViewActivity;
+import com.example.chris.mystats_univeristy.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -65,6 +67,8 @@ public class DatabaseInformationQuerier {
     private void moveToSearchResults(){
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         intent.putExtra("searchedName" , searchedWord);
+        AVLoadingIndicatorView icon = (AVLoadingIndicatorView) current.findViewById(R.id.loadingIcon);
+        icon.hide();
         this.current.startActivity(intent);
     }
 

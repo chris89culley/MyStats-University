@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 import java.util.List;
@@ -64,6 +65,7 @@ public class SearchPage extends MenuViewActivity  {
     private boolean shouldGetLocationFromUserData = false;
     private LocationManager locationManager; //Class that handles the information sent by the LocationListener
     private Typeface marketDeco ;
+    private AVLoadingIndicatorView loadingIcon;
 
     /**
      * This method updates the radius text view 'radiusDisplay' with the current selected search radius so that the
@@ -179,7 +181,16 @@ public class SearchPage extends MenuViewActivity  {
         setUpSearchButton();
         setUpCourseTypeRadioButtons();
         setUpgetLocationButton();
+        setUpLoadingIcon();
 
+    }
+
+    /**
+     * Sets up the loading icon to be displayed while a search is being made
+     */
+    private void setUpLoadingIcon(){
+        loadingIcon = (AVLoadingIndicatorView) findViewById(R.id.loadingIcon);
+        loadingIcon.hide();
     }
 
     /**
@@ -259,6 +270,8 @@ public class SearchPage extends MenuViewActivity  {
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
+                loadingIcon.show();
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 updateInfoQuerierWithIntentIntentions(intent);
                 if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
