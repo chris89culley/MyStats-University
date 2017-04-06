@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -33,6 +35,8 @@ public class RSDBhandler extends SQLiteOpenHelper {
     private static final String COL_ID = "_id";
     //Name column name
     private static final String COL_NAME = "courseinfo";
+
+    private Gson gson = new Gson();
 
     ByteArrayOutputStream bo = null;
     ByteArrayInputStream bi = null;
@@ -84,9 +88,8 @@ public class RSDBhandler extends SQLiteOpenHelper {
     /**
      *  A method which adds a serialized course object to the database
      * @param course The course object being added
-     * @throws IOException IOexception thrown when writing to the output stream
      */
-    public void addEntry(Course course) throws IOException {
+    public void addEntry(Course course){
         int count = countEntries();
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -95,27 +98,22 @@ public class RSDBhandler extends SQLiteOpenHelper {
             deleteFirst();
         }
             try {
-                bo = new ByteArrayOutputStream();
-                out = new ObjectOutputStream(bo);
-                out.writeObject(course);
-                out.flush();
-                String serializedEntry = bo.toString();
-                bo.flush();
-                values.put(COL_NAME, serializedEntry);
+                String json = gson.toJson(course);
+                Log.d("Database","JSON before "+ json);
+
+                values.put(COL_NAME, json);
                 db.insert(TABLE_NAME, null, values);
                 Log.d("Database","Inserted "+course.getCourseName());
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                out.close();
-                bo.close();
-                db.close();
             }
-
     }
 
-
-    public List readAll() throws IOException {
+    /**
+     * Reads all entries in the table and returns them a s a list
+     * @return List of Course objects
+     */
+    public List readAll() {
             List<Course> list = new ArrayList<Course>();
 
             SQLiteDatabase db = this.getReadableDatabase();
@@ -129,17 +127,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
 
             do {
                 try {
-                    bo.flush();
-                    out.flush();
+                    String json = cursor.getString(nameIdx);
+                    Course object = gson.fromJson(json, Course.class);
 
-
-                    Log.d("Database",cursor.getString(nameIdx));
-
-                    bi = new ByteArrayInputStream(bo.toByteArray());
-                    in = new ObjectInputStream(bi);
-                    Object obj = (Object) in.readObject();
-
-                    list.add((Course)obj);
+                    list.add(object);
                     Log.d("Database",Integer.toString(cursor.getPosition()));
 
                 }catch(Exception e){
@@ -147,21 +138,25 @@ public class RSDBhandler extends SQLiteOpenHelper {
                 }
             }while (cursor.moveToNext()); // repeat until there are no more records
         }
-        bi.close();
-        in.close();
-        db.close();
         printList(list);
         return list;
     }
 
+    /**
+     * prints all entries in the list used for debugging
+     * @param list - the list of items to be printed
+     */
     public void printList(List list){
         for(int i=0;i<list.size();i++){
-            Course one = (Course) list.get(i);
-            Log.d("Database","Contents "+i+":"+one.getCourseName());
+            Log.d("Database","Contents "+i+":"+((Course) list.get(i)).getCourseName());
         }
 
     }
 
+    /**
+     * counts the number of data entries in table
+     * @return number of entries in the table
+     */
     private int countEntries(){
         String countQuery = "SELECT * FROM "+TABLE_NAME;
 
@@ -177,7 +172,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
         return cnt;
     }
 
-    private void emptyEntries(){
+    /**
+     * Empties all the entries in the table
+     */
+    public void emptyEntries(){
         String deleteQuery = "DELETE FROM "+TABLE_NAME;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -185,6 +183,9 @@ public class RSDBhandler extends SQLiteOpenHelper {
         db.execSQL(deleteQuery);
     }
 
+    /**
+     * deletes the first entry in the table
+     */
     private void deleteFirst(){
         String alterQuery ="delete from " + TABLE_NAME+ " where rowid IN (Select rowid from " + TABLE_NAME + " limit 1)";
 

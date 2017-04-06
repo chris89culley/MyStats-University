@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import Data.Course;
 import Adapters.PagerAdapter;
 import Data.RSDBhandler;
@@ -28,18 +30,13 @@ public class CourseStats extends MenuViewActivity  {
         Course course = getIntent().getParcelableExtra("chosenCourse");
         //Passes this selection to the
         RSDBhandler dh = new RSDBhandler(this);
+
         try {
             dh.addEntry(course);
         }catch(Exception e){
             Log.d("Database","Couldn't add entry");
         }
-        try {
-            dh.readAll();
-        }catch(Exception e){
-            Log.d("Database","Couldn't read all");
-        }
-
-
+        
         //Sets up the fonts, needs to be refactored out
         Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
