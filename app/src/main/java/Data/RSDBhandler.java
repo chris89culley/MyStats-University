@@ -100,9 +100,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
                 out.writeObject(course);
                 out.flush();
                 String serializedEntry = bo.toString();
+                bo.flush();
                 values.put(COL_NAME, serializedEntry);
                 db.insert(TABLE_NAME, null, values);
-                Log.d("Database","Inserted"+course.getCourseName());
+                Log.d("Database","Inserted "+course.getCourseName());
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -124,19 +125,23 @@ public class RSDBhandler extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(selectQuery, null);
 
             if (cursor.moveToFirst()) { // If data (records) available
-
             int nameIdx = cursor.getColumnIndex(COL_NAME);
 
             do {
                 try {
+                    bo.flush();
                     out.flush();
-                    out.writeUTF(cursor.getString(nameIdx));
+
+
+                    Log.d("Database",cursor.getString(nameIdx));
 
                     bi = new ByteArrayInputStream(bo.toByteArray());
                     in = new ObjectInputStream(bi);
                     Object obj = (Object) in.readObject();
 
                     list.add((Course)obj);
+                    Log.d("Database",Integer.toString(cursor.getPosition()));
+
                 }catch(Exception e){
                      e.printStackTrace();
                 }
