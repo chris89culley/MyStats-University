@@ -45,6 +45,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     private Course course;
     private Typeface retroFont;
     private Typeface vintageFont;
+    private float graphTextSize = 1.0f;
     private static LayoutInflater inflater = null;
     private int i = 0;
 
@@ -53,13 +54,13 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      * @param context
      * @param course
      */
-    public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity) {
+    public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity, Float graphTextSize) {
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
-
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
         this.course = course;
+        this.graphTextSize = graphTextSize;
 
     }
 
@@ -146,6 +147,9 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
         final View rowView = inflater.inflate(R.layout.satisfaction_row, parent , false);
 
+        TextView title = (TextView) rowView.findViewById(R.id.satisfactionTitle);
+
+
         //Sets up alternating colours for the header
         TextView sectionName = (TextView) rowView.findViewById(R.id.satisfactionName);
         if(groupPosition %2 == 0){
@@ -180,6 +184,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
         chart.animateY(2000);
         chart.getXAxis().setTypeface(retroFont);
+        chart.getXAxis().setTextSize(graphTextSize);
 
         return childView;
     }
