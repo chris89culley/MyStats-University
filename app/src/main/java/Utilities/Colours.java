@@ -18,7 +18,8 @@ public enum Colours {
     LIGHT_BROWN("#EE976D"),
     PURPLE("#8581C2"),
     BACKGROUND_GREEN("#A3DAC7"),
-    BLUE("#4D749A") ;
+    BLUE("#4D749A") ,
+    DAN_PINK("#DF5061");
 
     private int color;
     Colours(String hex){
