@@ -20,6 +20,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import Data.Course;
+import Data.RSDBhandler;
 import MPChart.UniversityStatsChartMaker;
 import Adapters.ExpandableSatisfactionAdapter;
 
