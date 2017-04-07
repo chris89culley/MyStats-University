@@ -119,7 +119,7 @@ public class FragmentSelector extends Fragment {
         TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
         satisfactionTitle.setTypeface(fontUsed);
         final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity());
+        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity(), (satisfactionTitle.getTextSize()*0.25f));
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int prev = -1;

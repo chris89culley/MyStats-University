@@ -12,14 +12,13 @@
         android:id="@+id/satisfactionName"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="center"
+        android:gravity="right|center_vertical"
         android:text="Sat Name"
-        android:padding="25dp"
+        android:padding="15dp"
         android:fontFamily="casual"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textColor= "@color/oldBurgundy"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
 
         />
 

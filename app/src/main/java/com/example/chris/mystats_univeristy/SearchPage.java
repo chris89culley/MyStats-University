@@ -19,6 +19,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.CycleInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -28,8 +31,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.channguyen.rsv.RangeSliderView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,12 +50,12 @@ public class SearchPage extends MenuViewActivity  {
 
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
     private Button searchButton; //The button pressed to conduct a search
-    private final int MAX_KM_RADIUS_SEARCH = 500; //The max radius a user is allowed to search
-    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/100; //The modifier to the radius value (since the normal value only goes up to 100)
+    private final int MAX_KM_RADIUS_SEARCH = 200; //The max radius a user is allowed to search
+    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/5; //The modifier to the radius value (since the normal value only goes up to 100)
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private EditText searchedLocationEditTextField; //The location field the user can choose to enter to search around (can be a location or a university or blank)
     private MenuViewActivity currentActivity = this;
-    private SeekBar radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
+    private RangeSliderView radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
     private TextView radiusDisplay; //The text display of the current radius selected
     private double longitude; //The longitude of the location to be searched around
     private double latitude; // The latitude of the location to be searched around
@@ -64,15 +69,22 @@ public class SearchPage extends MenuViewActivity  {
     private boolean shouldGetLocationFromUserData = false;
     private LocationManager locationManager; //Class that handles the information sent by the LocationListener
     private Typeface marketDeco ;
+    private AVLoadingIndicatorView loadingIcon;
 
     /**
      * This method updates the radius text view 'radiusDisplay' with the current selected search radius so that the
      * user can decide to increase or decrease
      * @param progress - The seekbars current percent across ie out of a 100
      */
-    private void updateRadius(int progress){
-        sizeOfRadius = progress*RADIUS_VALUE_MODIFIER;
-        radiusDisplay.setText("within " +  String.valueOf(sizeOfRadius) + " km of");
+    private void updateRadius(int progress, boolean full){
+        if(full){
+            sizeOfRadius = progress*500;
+            radiusDisplay.setText("Whole UK search");
+        }
+        else{
+            sizeOfRadius = progress*RADIUS_VALUE_MODIFIER;
+            radiusDisplay.setText("within " +  String.valueOf(sizeOfRadius) + " km of");
+        }
     }
 
 
@@ -80,17 +92,14 @@ public class SearchPage extends MenuViewActivity  {
      * This method sets up the radius bar and initialised the radius the user searches around a location
      */
     private void setUpRadiusBar(){
-        radiusBar = (SeekBar) findViewById(R.id.radiusBar);
-        sizeOfRadius = radiusBar.getProgress();
-        radiusBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        radiusBar = (RangeSliderView) findViewById(R.id.radiusBar);
+        sizeOfRadius =(int) radiusBar.getSliderRadiusPercent();
+        radiusBar.setOnSlideListener(new RangeSliderView.OnSlideListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                updateRadius(progress);
+            public void onSlide(int index) {
+                updateRadius(index, (index == radiusBar.getRangeCount()-1));
             }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+
         });
     }
 
@@ -120,6 +129,24 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
+
+    /**
+     * This method creates a shake for the passed in edit text indicating that it needs to be filled in
+      */
+    private void shakeTheCourseName(EditText textToBeShaken){
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        shake.setInterpolator(new CycleInterpolator(5));
+        textToBeShaken.startAnimation(shake);
+        showEditTextNotFilledInError(textToBeShaken);
+    }
+
+    /**
+     * Creates an error which is shown to the user when the passed text field isn't filled in
+     * @param textWithError - The edit text box with the error
+     */
+    private void showEditTextNotFilledInError(EditText textWithError){
+        textWithError.setError("You need to fill me in!");
     }
 
     /**
@@ -179,7 +206,16 @@ public class SearchPage extends MenuViewActivity  {
         setUpSearchButton();
         setUpCourseTypeRadioButtons();
         setUpgetLocationButton();
+        setUpLoadingIcon();
 
+    }
+
+    /**
+     * Sets up the loading icon to be displayed while a search is being made
+     */
+    private void setUpLoadingIcon(){
+        loadingIcon = (AVLoadingIndicatorView) findViewById(R.id.loadingIcon);
+        loadingIcon.hide();
     }
 
     /**
@@ -259,6 +295,13 @@ public class SearchPage extends MenuViewActivity  {
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
+                if(getTheCourseToBeSearched().isEmpty()){
+                    shakeTheCourseName(searchedCourseEditTextField);
+                    return;
+                }
+
+                loadingIcon.show();
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 updateInfoQuerierWithIntentIntentions(intent);
                 if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {

@@ -1,17 +1,22 @@
 package Data;
 
 
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
 import com.example.chris.mystats_univeristy.MenuViewActivity;
+import com.example.chris.mystats_univeristy.NoCoursesFoundFragment;
+import com.example.chris.mystats_univeristy.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -63,8 +68,18 @@ public class DatabaseInformationQuerier {
      * Moves the to the search results page with course list compiled and searched word
      */
     private void moveToSearchResults(){
+        AVLoadingIndicatorView icon = (AVLoadingIndicatorView) current.findViewById(R.id.loadingIcon);
+
+        //This makes sure that we have search results, otherwise it shows a message to the user saying no search results have been found
+        if(courseList.size() < 1){
+            NoCoursesFoundFragment fragment = new NoCoursesFoundFragment();
+            fragment.show(current.getFragmentManager(), "test");
+            icon.hide();
+            return;
+        }
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         intent.putExtra("searchedName" , searchedWord);
+        icon.hide();
         this.current.startActivity(intent);
     }
 
