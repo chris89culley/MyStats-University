@@ -46,6 +46,10 @@ public class Course  implements Parcelable,Serializable{
         return TITLE;
     }
 
+
+    public boolean hasStatistics(){
+        return  !Q1.isEmpty() || !INSTLQ.isEmpty() || !PRIVATELOWER.isEmpty();
+    }
     /**
      * Gets the name of the university where the course is taught
      * @return - The name of the university

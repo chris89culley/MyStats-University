@@ -83,6 +83,7 @@ public class DatabaseInformationQuerier {
         this.current.startActivity(intent);
     }
 
+
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
      * course object creating a course object which can then be updated with the relevant details
@@ -100,8 +101,9 @@ public class DatabaseInformationQuerier {
             DataSnapshot next = data.next();
             count++;
             Course course = next.getValue(Course.class);
-            courseList.add(course);
-            //This is where the method is needed to pass the course data to the view
+            if(course.hasStatistics()){
+                courseList.add(course);
+            }
         }
         coursesIterator = data;
         moveToSearchResults();
