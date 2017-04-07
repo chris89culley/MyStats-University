@@ -48,7 +48,7 @@ public class Course  implements Parcelable,Serializable{
 
 
     public boolean hasStatistics(){
-        return  !Q1.isEmpty() || !INSTLQ.isEmpty() || !PRIVATELOWER.isEmpty();
+        return  !Q1.isEmpty() && (!COURSEWORK.isEmpty() && !PRIVATELOWER.isEmpty() && !INSTMED.isEmpty());
     }
     /**
      * Gets the name of the university where the course is taught
@@ -214,6 +214,7 @@ public class Course  implements Parcelable,Serializable{
     public String getFullCourseName(){
         return getDegreeType() + " " + getCourseName() + " " +  getCourseTypeText();
     }
+
 
 
     /**

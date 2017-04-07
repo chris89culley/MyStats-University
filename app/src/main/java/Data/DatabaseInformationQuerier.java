@@ -221,15 +221,12 @@ public class DatabaseInformationQuerier {
     private void collectAndCheckLocation(DataSnapshot dataSnapshot, Set<String> keys){
         courseList.clear();
         Iterator<DataSnapshot> courses = dataSnapshot.getChildren().iterator();
-        Log.d("number of close unis " , String.valueOf(keys.size()));
         int count = 0;
         while(courses.hasNext() && count < 300){
             count++;
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
                 courseList.add(course.getValue(Course.class));
-            }else{
-                Log.d("not relevant" , (String) course.child("NAME").getValue());
             }
 
         }

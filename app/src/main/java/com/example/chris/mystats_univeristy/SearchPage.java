@@ -318,7 +318,6 @@ public class SearchPage extends MenuViewActivity  {
                             getTheTypeOfCourseSelected());
                 }
                 else {
-                    Log.d("part time ", getTheTypeOfCourseSelected().toString());
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -328,6 +327,16 @@ public class SearchPage extends MenuViewActivity  {
                             getTheTypeOfCourseSelected());
                 }
             }});}
+
+    /**
+     * Resets the page to the default starting values
+     */
+    private void resetPage(){
+        longitude = 0.0;
+        latitude = 0.0;
+        shouldGetLocationFromLocationEditText = true;
+        shouldGetLocationFromUserData = false;
+    }
 
     /**
      * Handles the action listener for the location button, calls the setter to get permissions and set the lang and lat to the users current location.
