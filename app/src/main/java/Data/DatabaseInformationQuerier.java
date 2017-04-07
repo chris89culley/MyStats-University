@@ -70,6 +70,7 @@ public class DatabaseInformationQuerier {
     private void moveToSearchResults(){
         AVLoadingIndicatorView icon = (AVLoadingIndicatorView) current.findViewById(R.id.loadingIcon);
 
+        //This makes sure that we have search results, otherwise it shows a message to the user saying no search results have been found
         if(courseList.size() < 1){
             NoCoursesFoundFragment fragment = new NoCoursesFoundFragment();
             fragment.show(current.getFragmentManager(), "test");
