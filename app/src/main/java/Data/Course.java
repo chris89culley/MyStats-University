@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 
 import com.example.chris.mystats_univeristy.CourseStats;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -19,7 +20,7 @@ import java.util.Currency;
  * Details.pdf stored in the MyStats-University folder
  */
 
-public class Course  implements Parcelable{
+public class Course  implements Parcelable,Serializable{
 
 
     public String KISCOURSEID,UKPRN,CRSEURL,DISTANCE,FOUNDATION,KISMODE,SANDWICH,TITLE
