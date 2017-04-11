@@ -100,7 +100,17 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ucasTipsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), UcasTips.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     /**
      * This method takes an item and applies an animation
