@@ -160,6 +160,8 @@ public class GenericChartMaker {
             }
 
             //piechart display settings
+            chart.setCenterText("%");
+            chart.setCenterTextSize(20f);
             chart.setHoleRadius(40f);
             chart.setHighlightPerTapEnabled(true);
 
@@ -170,7 +172,7 @@ public class GenericChartMaker {
 
 
             //Colours array in the form of hex codes
-            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
+            int[]Colors =  {ColorTemplate.rgb("77C261"),ColorTemplate.rgb("fef65b"),ColorTemplate.rgb("C781B8"),ColorTemplate.rgb("2c7bb5")};
             //Setting the colours of the data set
             pieDataSet.setColors(Colors);
 
@@ -195,7 +197,7 @@ public class GenericChartMaker {
             PieData theData = new PieData(pieDataSet);
             theData.setValueTextColor(Color.WHITE);
             theData.setValueTypeface(Typeface.DEFAULT_BOLD);
-            theData.setValueFormatter(new PercentFormatter());
+            //theData.setValueFormatter(new PercentFormatter());
 
             return theData;
     }
