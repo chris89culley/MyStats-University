@@ -1,8 +1,14 @@
 package com.example.chris.mystats_univeristy;
 
-/**
- * Created by Terence Lawson on 11/04/2017.
- */
+import android.os.Bundle;
 
-public class UcasTips {
+public class UcasTips extends MenuViewActivity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ucas_tips);
+
+    }
 }
