@@ -15,6 +15,7 @@
         <Button
             android:layout_width="40dp"
             android:id="@+id/searchBtn"
+            android:drawableStart="@drawable/search_alpha"
             android:background="#fff"
             android:drawableTint="@color/colorPrimaryDark"
             android:layout_height="35dp"
