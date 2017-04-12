@@ -79,7 +79,10 @@ public class DatabaseInformationQuerier {
         }
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         intent.putExtra("searchedName" , searchedWord);
+
+        if(icon != null)
         icon.hide();
+
         this.current.startActivity(intent);
     }
 

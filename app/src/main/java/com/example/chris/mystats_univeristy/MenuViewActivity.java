@@ -137,10 +137,9 @@ public class MenuViewActivity extends AppCompatActivity {
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(true);
         dialog.show();
-
-//        View search = dialog.findViewById(R.id.editTextDialogUserInput);
         searchBtn = (Button) dialog.findViewById(R.id.searchBtn);
-        handleSearchButtonPressed();
+        handleSearchButtonPressed(dialog.getCurrentFocus());
+//        View search = dialog.findViewById(R.id.editTextDialogUserInput);
 //        search.onTouchEvent()
     }
 
@@ -150,6 +149,7 @@ public class MenuViewActivity extends AppCompatActivity {
      * @param v
      */
     public void dialogClose(View v){
+
         dialog.dismiss();
     }
 
@@ -170,9 +170,8 @@ public class MenuViewActivity extends AppCompatActivity {
      * Gets the course name that the user wishes to search for
      * @return - The course name
      */
-    private String getTheCourseToBeSearched(){
-        searchedCourseEditTextField = (EditText) findViewById(R.id.editTextDialogUserInput);
-//        dialogBox.getText();
+    private String getTheCourseToBeSearched(View v){
+        searchedCourseEditTextField = (EditText) v.findViewById(R.id.editTextDialogUserInput);
         return searchedCourseEditTextField.getText().toString();
     }
 
@@ -182,15 +181,16 @@ public class MenuViewActivity extends AppCompatActivity {
      * to the database either through radius checker or directly to the database querier
      *
      */
-    private void handleSearchButtonPressed(){
+    private void handleSearchButtonPressed(final View v){
 
         searchBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
+                String course = getTheCourseToBeSearched(v);
+                if(course.isEmpty()) return;
                 updateInfoQuerierWithIntentIntentions(intent);
-
-                    databaseInfomationQuerier.getAllCoursesByCourseName(getTheCourseToBeSearched(),
+                    databaseInfomationQuerier.getAllCoursesByCourseName(course,
                             CourseTypes.FULL_TIME);
                 }
             });
