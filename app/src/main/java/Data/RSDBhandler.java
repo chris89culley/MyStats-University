@@ -114,7 +114,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
      * Reads all entries in the table and returns them a s a list
      * @return List of Course objects
      */
-    public List<Course> readAll() {
+    public ArrayList<Course> readAll() {
             List<Course> list = new ArrayList<Course>();
 
             SQLiteDatabase db = this.getReadableDatabase();
