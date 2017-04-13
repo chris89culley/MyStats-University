@@ -62,7 +62,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
             emptyEntries();
         }catch(Exception e){
         }
-        emptyEntries();
+
         String CREATE_RECENTLY_VIEWED_TABLE = "CREATE TABLE "
                 + TABLE_NAME
                 + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
