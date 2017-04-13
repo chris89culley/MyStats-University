@@ -41,6 +41,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     ByteArrayOutputStream bo = null;
     ByteArrayInputStream bi = null;
 
+    SQLiteDatabase db;
     ObjectOutputStream out = null;
     ObjectInputStream in = null;
     /**
@@ -49,7 +50,6 @@ public class RSDBhandler extends SQLiteOpenHelper {
      */
     public RSDBhandler(Context context){
         super(context,DATABASE_NAME,null,1);
-        Log.d("Database","database created");
     }
 
     /**
@@ -92,6 +92,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     public void addEntry(Course course){
         int count = countEntries();
 
+        Log.d("ia m " , course.getCourseName());
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         if(count > 9) {
@@ -113,7 +114,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
      * Reads all entries in the table and returns them a s a list
      * @return List of Course objects
      */
-    public List readAll() {
+    public ArrayList<Course> readAll() {
             List<Course> list = new ArrayList<Course>();
 
             SQLiteDatabase db = this.getReadableDatabase();
@@ -160,7 +161,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     private int countEntries(){
         String countQuery = "SELECT * FROM "+TABLE_NAME;
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery(countQuery, null);
 
@@ -178,7 +179,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     public void emptyEntries(){
         String deleteQuery = "DELETE FROM "+TABLE_NAME;
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
 
         db.execSQL(deleteQuery);
     }
@@ -189,7 +190,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     private void deleteFirst(){
         String alterQuery ="delete from " + TABLE_NAME+ " where rowid IN (Select rowid from " + TABLE_NAME + " limit 1)";
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
 
         db.execSQL(alterQuery);
     }
