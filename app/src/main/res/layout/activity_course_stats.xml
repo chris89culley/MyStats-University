@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
         android:text="course name :"
-
         />
     <TextView
         android:id="@+id/universityNamePervasive"

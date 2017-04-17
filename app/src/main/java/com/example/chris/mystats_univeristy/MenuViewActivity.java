@@ -1,23 +1,17 @@
 package com.example.chris.mystats_univeristy;
 
 import android.app.Dialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.EventLog;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -33,6 +27,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
+
 
 public class MenuViewActivity extends AppCompatActivity {
     private MenuViewActivity currentActivity = this;
