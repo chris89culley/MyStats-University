@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".About" />
+        <activity android:name="aboutFragments.About" />
         <activity android:name=".MenuViewActivity" />
         <activity android:name=".Account" />
         <activity android:name=".AdvanceSearch" />
