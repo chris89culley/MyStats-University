@@ -24,9 +24,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/data_picture"
+                android:src="@drawable/app_icon"
                 android:layout_below="@id/aboutTitle"
-                android:background="@color/greenSheen"
+                android:background="@color/background"
                 android:id="@+id/dataPic"
                 android:paddingTop="10dp"
                 />
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/basic_intro"
-                android:background="@color/background"
+                android:background="@color/greenSheen"
                 android:text="@string/basic_intro"
                 android:layout_below="@+id/dataPic"
                 android:gravity="center"
