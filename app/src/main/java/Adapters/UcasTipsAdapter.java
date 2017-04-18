@@ -5,8 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import AboutFragments.AboutFragmentSelecter;
+
 import UcasTipsFragments.UcasTips;
+import UcasTipsFragments.UcasTipsFragmentSelecter;
 
 /**
  * Created by Terence Lawson on 18/04/2017.
@@ -27,7 +28,7 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
      */
     @Override
     public Fragment getItem(int position) {
-        AboutFragmentSelecter frag = new AboutFragmentSelecter(position);
+        UcasTipsFragmentSelecter frag = new UcasTipsFragmentSelecter(position);
         return frag;    }
 
     @Override
