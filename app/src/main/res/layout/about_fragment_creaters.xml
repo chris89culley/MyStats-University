@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+                <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/chris"
+                android:layout_width="match_parent"
+                android:background="@color/background"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="right"
+                android:drawableLeft="@drawable/insurance_icon"
+                android:drawablePadding="15dp"
+                android:layout_height="match_parent"
+                android:text="@string/chris_personal" />
+
+
+            <TextView
+                android:id="@+id/terry"
+                android:layout_width="match_parent"
+                android:background="@color/greenSheen"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="right"
+                android:drawableRight="@drawable/insurance_icon"
+                android:drawablePadding="15dp"
+                android:layout_height="match_parent"
+                android:text="@string/tel_personal"
+                android:layout_below="@+id/chris"/>
+
+
+            <TextView
+                android:id="@+id/dan"
+                android:layout_width="match_parent"
+                android:background="@color/background"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="right"
+                android:drawableLeft="@drawable/insurance_icon"
+                android:drawablePadding="15dp"
+                android:layout_height="match_parent"
+                android:text="@string/dan_personal"
+                android:layout_below="@+id/terry"/>
+            <TextView
+                android:id="@+id/jack"
+                android:layout_width="match_parent"
+                android:background="@color/greenSheen"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="right"
+                android:drawableRight="@drawable/insurance_icon"
+                android:drawablePadding="15dp"
+                android:layout_height="match_parent"
+                android:text="@string/jack_personal"
+                android:layout_below="@+id/dan"/>
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+    </LinearLayout>
+
