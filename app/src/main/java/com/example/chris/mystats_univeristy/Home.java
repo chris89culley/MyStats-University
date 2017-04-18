@@ -6,25 +6,18 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 
-import com.google.firebase.database.FirebaseDatabase;
 import com.ogaclejapan.arclayout.ArcLayout;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import Animations.AnimatorUtils;
-
-import Data.Course;
-import Data.DatabaseInformationQuerier;
 import Data.RSDBhandler;
 
 public class Home extends AppCompatActivity {
@@ -64,7 +57,7 @@ public class Home extends AppCompatActivity {
         //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
         Button accountButton = (Button) findViewById(R.id.accountbutton);
-        Button recentSearchButton = (Button) findViewById(R.id.advancedsearchbutton);
+        Button recentSearchButton = (Button) findViewById(R.id.recentsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
 
@@ -106,7 +99,7 @@ public class Home extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), About.class);
+                Intent intent = new Intent(v.getContext(), aboutFragments.About.class);
                 startActivity(intent);
             }
         });
