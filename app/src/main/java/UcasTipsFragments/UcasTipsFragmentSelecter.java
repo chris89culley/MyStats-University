@@ -1,4 +1,4 @@
-package UcasTips;
+package UcasTipsFragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -25,7 +25,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * sets the position of the fragment pager and the course data
      * @param position
      */
-    public AboutFragmentSelecter(int position) {
+    public UcasTipsFragmentSelecter(int position) {
         this.pos = position;
     }
 

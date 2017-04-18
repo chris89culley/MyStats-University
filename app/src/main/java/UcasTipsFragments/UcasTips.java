@@ -1,4 +1,4 @@
-package UcasTips;
+package UcasTipsFragments;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -14,6 +14,8 @@ import Adapters.UcasTipsAdapter;
  */
 
 public class UcasTips extends MenuViewActivity {
+
+
     TabLayout tb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

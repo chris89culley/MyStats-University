@@ -26,7 +26,6 @@
         <activity android:name=".SearchResults" />
         <activity android:name=".CourseStats" />
         <activity android:name=".SearchPage" />
-        <activity android:name=".UcasTips"/>
     </application>
 
 </manifest>

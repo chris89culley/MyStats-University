@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import AboutFragments.AboutFragmentSelecter;
-import UcasTips.UcasTips;
+import UcasTipsFragments.UcasTips;
 
 /**
  * Created by Terence Lawson on 18/04/2017.
