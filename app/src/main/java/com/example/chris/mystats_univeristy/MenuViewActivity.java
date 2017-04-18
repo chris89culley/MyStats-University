@@ -1,7 +1,6 @@
 package com.example.chris.mystats_univeristy;
 
 import android.app.Dialog;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,7 +26,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
-
 
 public class MenuViewActivity extends AppCompatActivity {
     private MenuViewActivity currentActivity = this;
