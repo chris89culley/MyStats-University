@@ -26,4 +26,9 @@
     <string name="copy_page_intro">On this page, you can find the legal stuff about the data used on MyStats</string>
     <string name="copy_unistats_disclaimer">MyStats is in no way affiliated with the UniStats website and uses and supplies the information without conjunction with the UniStats website.</string>
     <string name="copy_hesa_disclaimer">All the information is taken from the HESA database the data is published under a Creative Commons Attribution 4.0 International Licence. This means you can use and adapt this content for personal and commercial use, but you must give appropriate credit, provide a link to the licence and indicate if you have made changes. Appropriate credit should include our name (HESA) and web address (www.hesa.ac.uk). HESA is not responsible for any the conclusions or way the data is represented on this app and is not responsible for any content on this app.</string>
+
+
+
+    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
+
 </resources>
