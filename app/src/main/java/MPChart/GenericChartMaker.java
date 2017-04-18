@@ -51,7 +51,7 @@ public class GenericChartMaker {
      * @return The BarData object for the data provided to be used for bar chart construction
      */
     public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle){
-        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+        if(!cs.hasData()){//Checks the have data flag is false espace function computer
             return new BarData();
         }
 
@@ -59,11 +59,11 @@ public class GenericChartMaker {
         String[] tags = cs.getTags();
 
 
+        //new arraylists for the data entries and the text labels for them
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<>();
 
-            ArrayList<BarEntry> entries = new ArrayList<>();
-            ArrayList<String> labels = new ArrayList<>();
-
-
+        //add the data and the labsls to the arraylists
        for (int i = 0; i < data.length; i++) {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
@@ -99,7 +99,7 @@ public class GenericChartMaker {
 
 
        xaxis.setCenterAxisLabels(true);
-
+        //axis chart and data display settings being altered
         chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);
         chart.setFitBars(false);
@@ -124,9 +124,6 @@ public class GenericChartMaker {
 
         return theData;
     }
-
-
-
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
      * @param cs- Chart stats objects contains the data to be displayed
@@ -174,12 +171,14 @@ public class GenericChartMaker {
             //Setting the colours of the data set
             pieDataSet.setColors(Colors);
 
+            //Changing description settings
             Description description = new Description();
             description.setText(chartTitle);
             description.setPosition(0f,0f);
             chart.setDescription(description);
             chart.setDrawEntryLabels(true);
 
+            //Changing legend potion and settings
             Legend l = chart.getLegend();
             l.setTextColor(Color.WHITE);
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -192,6 +191,7 @@ public class GenericChartMaker {
 
             chart.setDrawSliceText(false);
 
+            //changing the dataset settings
             PieData theData = new PieData(pieDataSet);
             theData.setValueTextColor(Color.WHITE);
             theData.setValueTypeface(Typeface.DEFAULT_BOLD);
@@ -256,12 +256,14 @@ public class GenericChartMaker {
             }
             pieDataSet.setColors(Colors);
 
+        //Changing description settings
         Description description = new Description();
         description.setText(chartTitle);
         description.setPosition(0f,0f);
         chart.setDescription(description);
         chart.setDrawEntryLabels(true);
 
+        //Changing legend potion and settings
         Legend l = chart.getLegend();
         l.setTextColor(Color.WHITE);
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -274,6 +276,7 @@ public class GenericChartMaker {
 
         chart.setDrawSliceText(false);
 
+        //changing the dataset settings
         PieData theData = new PieData(pieDataSet);
         theData.setValueTextColor(Color.WHITE);
         theData.setValueTypeface(Typeface.DEFAULT_BOLD);
