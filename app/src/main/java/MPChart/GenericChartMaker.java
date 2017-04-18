@@ -19,13 +19,16 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 
 import Data.ChartStats;
+import Utilities.Colours;
 
 //import com.github.mikephil.charting.components.xAxis;
 
@@ -42,7 +45,7 @@ public class GenericChartMaker {
 
     /**
      *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param cs- Chart stats objects contains the data to be displayed
+     * @param cs- Chart stats objects contains the data to be displayed i
      * @param chart - reference to the chart from the view
      * @param chartTitle - Title of the chart
      * @return The BarData object for the data provided to be used for bar chart construction
@@ -56,100 +59,74 @@ public class GenericChartMaker {
         String[] tags = cs.getTags();
 
 
+
             ArrayList<BarEntry> entries = new ArrayList<>();
             ArrayList<String> labels = new ArrayList<>();
 
-            for (int i = 0; i < data.length; i++) {
+
+       for (int i = 0; i < data.length; i++) {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
             }
 
-            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
-            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
-            barDataSet.setColors(Colors);
 
+       BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
+
+
+        //Sets up the colours to be used by the charts
+        int[] Colors = { Colours.BLUE.getColor(),
+                Colours.GREEN_SHEEN.getColor() ,
+                Colours.LIGHT_BROWN.getColor(),
+                Colours.LIGHT_YELLOW.getColor(),
+                Colours.PURPLE.getColor(),
+                Colours.MUMMYS_TOMB.getColor()};
+        barDataSet.setColors(Colors);
+
+        barDataSet.setValueTextSize(20.0f);
+
+        //Creates a format whereby the value has a percent sign at the end
+        barDataSet.setValueFormatter(new IValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return String.valueOf(value) + "%";
+            }
+        });
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
-            XAxis xAxis = chart.getXAxis(); // gets the X axis of the chart
+
+            XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
+            xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the bottom of thr x axis
 
 
-            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
+       xaxis.setCenterAxisLabels(true);
 
-            chart.setDrawGridBackground(false);
-            chart.getAxisLeft().setDrawGridLines(false);
-            chart.getXAxis().setDrawGridLines(false);
-            chart.getAxisLeft().setStartAtZero(true);
-            Description emptyDescription = new Description();
-            emptyDescription.setText("");
-            chart.setDescription(emptyDescription);
-            xAxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
-            BarData theData = new BarData(barDataSet);
+        chart.setDrawGridBackground(false);
+        chart.setDrawMarkers(false);
+        chart.setFitBars(false);
+        xaxis.setDrawGridLines(false);
+        chart.setDrawValueAboveBar(false);
+        chart.getAxisLeft().setDrawGridLines(false);
+        chart.getXAxis().setDrawGridLines(false);
+        chart.getAxisLeft().setAxisLineWidth(1.0f);
+        chart.getAxisLeft().setStartAtZero(true);
+        Description emptyDescription = new Description();
+        emptyDescription.setText("");
+        chart.setDescription(emptyDescription);
+        xaxis.setDrawGridLines(false);
+        xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
+        BarData theData = new BarData(barDataSet);
+        chart.getAxisLeft().setEnabled(false);
+        chart.getAxisRight().setEnabled(false);
+        xaxis.setDrawAxisLine(false);
+        chart.getLegend().setEnabled(false);
+        theData.setBarWidth(0.4f);
+
 
         return theData;
     }
 
-    /**
-     *  A functions which take two strings arrays and reference to the chart and returns it as a bar data to construct a bar chart
-     * @param cs- Chart stats objects contains the data to be displayed
-     * @param chart - reference to the chart from the view
-     * @param chartTitle - Title of the chart
-     * @param Colour - colour preset selction
-     * @return The BarData object for the data provided to be used for bar chart construction
-     */
-    public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle,String Colour){
-        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
-            return new BarData();
-        }
-
-        int[] data = cs.getDataInt();
-        String[] tags = cs.getTags();
 
 
-            ArrayList<BarEntry> entries = new ArrayList<>();
-            ArrayList<String> labels = new ArrayList<>();
-
-            for (int i = 0; i < data.length; i++) {
-                    entries.add(new BarEntry(i, data[i]));
-                    labels.add(tags[i]);
-
-            }
-
-            BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
-            //Setting the colour of the chart too each preset
-            Colour = Colour.toLowerCase();
-            int[] Colors;
-            switch (Colour){
-                case "orange":
-                    Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
-                case "indigo":
-                    Colors = new int[] {ColorTemplate.rgb("093145"),ColorTemplate.rgb("0D3D56"),ColorTemplate.rgb("3C6478"),ColorTemplate.rgb("0C374D")};
-                case "blue":
-                    Colors = new int[] {ColorTemplate.rgb("107896"),ColorTemplate.rgb("1496BB"),ColorTemplate.rgb("43ABC9"),ColorTemplate.rgb("1287A8")};
-                    break;
-                default: Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
-                    break;
-            }
-            barDataSet.setColors(Colors);
-
-            chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
-
-            XAxis xAxis = chart.getXAxis(); // gets the X axis of the chart
-
-
-            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//Moves the labels to the bottom of thr x axis
-
-            chart.setDrawGridBackground(false);
-            chart.getAxisLeft().setDrawGridLines(false);
-            chart.getXAxis().setDrawGridLines(false);
-            chart.getAxisLeft().setStartAtZero(true);
-            Description emptyDescription = new Description();
-            emptyDescription.setText("");
-            chart.setDescription(emptyDescription);
-            xAxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
-            BarData theData = new BarData(barDataSet);
-            return theData;
-
-    }
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
      * @param cs- Chart stats objects contains the data to be displayed
@@ -183,6 +160,8 @@ public class GenericChartMaker {
             }
 
             //piechart display settings
+            chart.setCenterText("%");
+            chart.setCenterTextSize(20f);
             chart.setHoleRadius(40f);
             chart.setHighlightPerTapEnabled(true);
 
@@ -193,7 +172,7 @@ public class GenericChartMaker {
 
 
             //Colours array in the form of hex codes
-            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
+            int[]Colors =  {ColorTemplate.rgb("2c7bb5"),ColorTemplate.rgb("ff3300"),ColorTemplate.rgb("C781B8"),ColorTemplate.rgb("fef65b")};
             //Setting the colours of the data set
             pieDataSet.setColors(Colors);
 
@@ -218,7 +197,7 @@ public class GenericChartMaker {
             PieData theData = new PieData(pieDataSet);
             theData.setValueTextColor(Color.WHITE);
             theData.setValueTypeface(Typeface.DEFAULT_BOLD);
-            theData.setValueFormatter(new PercentFormatter());
+            //theData.setValueFormatter(new PercentFormatter());
 
             return theData;
     }

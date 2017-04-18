@@ -1,17 +1,22 @@
 package Data;
 
 
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
 import com.example.chris.mystats_univeristy.MenuViewActivity;
+import com.example.chris.mystats_univeristy.NoCoursesFoundFragment;
+import com.example.chris.mystats_univeristy.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -63,10 +68,24 @@ public class DatabaseInformationQuerier {
      * Moves the to the search results page with course list compiled and searched word
      */
     private void moveToSearchResults(){
+        AVLoadingIndicatorView icon = (AVLoadingIndicatorView) current.findViewById(R.id.loadingIcon);
+
+        //This makes sure that we have search results, otherwise it shows a message to the user saying no search results have been found
+        if(courseList.size() < 1){
+            NoCoursesFoundFragment fragment = new NoCoursesFoundFragment();
+            fragment.show(current.getFragmentManager(), "test");
+            icon.hide();
+            return;
+        }
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         intent.putExtra("searchedName" , searchedWord);
+
+        if(icon != null)
+        icon.hide();
+
         this.current.startActivity(intent);
     }
+
 
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
@@ -85,8 +104,9 @@ public class DatabaseInformationQuerier {
             DataSnapshot next = data.next();
             count++;
             Course course = next.getValue(Course.class);
-            courseList.add(course);
-            //This is where the method is needed to pass the course data to the view
+            if(course.hasStatistics()){
+                courseList.add(course);
+            }
         }
         coursesIterator = data;
         moveToSearchResults();
@@ -204,15 +224,12 @@ public class DatabaseInformationQuerier {
     private void collectAndCheckLocation(DataSnapshot dataSnapshot, Set<String> keys){
         courseList.clear();
         Iterator<DataSnapshot> courses = dataSnapshot.getChildren().iterator();
-        Log.d("number of close unis " , String.valueOf(keys.size()));
         int count = 0;
         while(courses.hasNext() && count < 300){
             count++;
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
                 courseList.add(course.getValue(Course.class));
-            }else{
-                Log.d("not relevant" , (String) course.child("NAME").getValue());
             }
 
         }

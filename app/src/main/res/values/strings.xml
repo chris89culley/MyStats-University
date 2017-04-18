@@ -4,4 +4,23 @@
     <string name="closed">Closed</string>
     <string name="fulltime">Full time courses</string>
     <string name="parttime">Part time courses</string>
+    <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
+
+
+
+    <string name="about_app_title">MyStat University</string>
+    <string name="basic_intro">The MyStats application was created to make an easy way to find different courses from specific universities within a certain area.
+    The app was created by students for students, parents and teachers to easily find out the facts about different courses and universities.
+    </string>
+
+    <string name="chris_personal">This is Chris, a 27 year old meditating pescatarian, he  was previously in business in the renewable sector but after building a SAP calculator he realised his real passion is in code and mathematics.</string>
+    <string name="tel_personal">This is Terry, after working in McDonalds until the age of 23 he decided it was time to pursue his dream of computer coding. In his spare time Terry enjoys playing pool. Terry is about to start a placement at Sabisu. Terry aspires to work as a software developer once he finishes his degree course.</string>
+    <string name="dan_personal">This is Daniel, he is currently 26 and is from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
+    <string name="jack_personal">This is Jack, he is currently 21 and from Darlington. Jack is currently studying for his bachelor’s degree in computer science at Teeside university. Next year he is due to embark on a work placement at redev development in Leeds. This will be his first time working in the industry and is an exciting opportunity. This opportunity should help him reach his long-term career goal of joining the software industry as a software engineer.</string>
+
+    <string name="data_intro">This section explains where the MyStats Application collects the information and how it is used. The application stores the information in firebase database and returns any relevant complete course sets. </string>
+    <string name="hesa">The main amount of information is collected by the Higher Education Statistics Agency (HESA) and stored in a database on the HESA website. It receives the information mainly from the different university in which course it is displaying the information about. This agency collects as much information as it can about each course, some courses however have certain pieces of information missing. MyStats only shows courses with complete information. </string>
+    <string name="national_student_survey"> The MyStat app uses data from the National Student Survey to collect satisfaction information about the different courses from the students, this is done by Ipsos MORI. This information is collected through a questionnaire containing 22 questions and an additional 6 questions for NHS students. If the questionnaire hasn’t been completed by 10 students on a course, then the information isn’t included. For more information please visit the NSS website at http://www.thestudentsurvey.com</string>
+    <string name="dlfh">The Destination of Leavers from Higher Education is used to find the information about people who have recently left university. The DLHE asks the leavers of courses what they are doing roughly 6 months and has an 80 response rate after the course has finished, they then survey the same people 40 months later with a 40 response rate.</string>
+
 </resources>

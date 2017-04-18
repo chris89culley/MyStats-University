@@ -14,6 +14,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            xmlns:rsv="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,6 +24,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 >
+
+
+
                 <ImageView
                     android:id="@+id/searchArmImage"
                     android:layout_width="wrap_content"
@@ -90,18 +94,19 @@
                     android:layout_below="@id/courseNameEntered"
                     android:layout_weight="1" />
 
-                <SeekBar
+
+                <com.github.channguyen.rsv.RangeSliderView
                     android:id="@+id/radiusBar"
                     android:layout_below="@+id/radiusText"
+                    rsv:rangeCount="10"
+                    rsv:filledColor="@color/mummyTomb"
+                    android:layout_alignRight="@id/courseNameEntered"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/radiusText"
-                    android:layout_alignLeft="@+id/radiusText"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#3B322C"
+                    android:layout_alignLeft="@+id/courseNameEntered"
+                    android:layout_height="30dp"
                     android:layout_centerHorizontal="true"
+                    android:paddingTop="10dp"
                     />
-
 
                 <EditText
                     android:id="@+id/locationNameEntered"
@@ -143,8 +148,15 @@
                     android:text="Search"
                     />
 
-
-
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/loadingIcon"
+                    android:layout_width="150dp"
+                android:layout_height="150dp"
+                    style="@style/AVLoadingIndicatorView.Large"
+                    app:indicatorColor="#DF5061"
+                    app:indicatorName="BallSpinFadeLoaderIndicator"
+                    android:layout_centerInParent="true"
+                />
 
 
             </RelativeLayout>

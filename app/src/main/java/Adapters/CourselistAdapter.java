@@ -29,17 +29,17 @@ import Utilities.FontGrabber;
  * Created by chris on 09/03/17.
  */
 
-public class CourseListAdapter extends ArrayAdapter<Course>{
+public class CourselistAdapter extends ArrayAdapter<Course>{
 
     private Activity activity;
     private ArrayList<Course> courses;
     private static LayoutInflater inflater = null;
     private static Set<String> added = new HashSet<>();
     private static int[] colours = {Colours.GREEN_SHEEN.getColor(),
-            Colours.TEAL_DEER.getColor()
+            Colours.BACKGROUND_GREEN.getColor()
     };
 
-    public CourseListAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
+    public CourselistAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<Course> courses) {
         super(activity, textViewResourceId, header_id, courses);
         this.activity = activity;
         this.courses = courses;
@@ -51,7 +51,7 @@ public class CourseListAdapter extends ArrayAdapter<Course>{
     /**
      * This method handles the creation of the content for each row
      * @param position - The position in the list view we are at
-     * @param convertView - The main view
+
      * @param parent - The parent to this row
      * @return - The row with content
      */

@@ -15,12 +15,4 @@
         expandable:el_contentLayout="@layout/satisfaction_content"
         android:background= "#8DA6B3"/>
 
-    <com.andexert.expandablelayout.library.ExpandableLayoutItem
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/row1"
-        expandable:el_headerLayout="@layout/satisfaction_row_header"
-        expandable:el_contentLayout="@layout/satisfaction_content"
-        android:background= "#8DA6B3"/>
 </RelativeLayout>

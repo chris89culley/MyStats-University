@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/data_intro"
+            android:background="@color/background"
+            android:textSize="15dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:drawablePadding="15dp"
+            android:text="@string/data_intro"/>
+
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hefa"
+                android:layout_below="@+id/data_intro"
+                android:background="@color/greenSheen"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="left"
+                android:drawableRight="@drawable/hesa_picture"
+                android:drawablePadding="15dp"
+                android:text="@string/hesa"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hefa"
+                android:id="@+id/nss"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="right"
+                android:drawableLeft="@drawable/nss_logo"
+                android:drawablePadding="15dp"
+                android:text="@string/national_student_survey"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nss"
+                android:background="@color/greenSheen"
+                android:id="@+id/dlhe"
+                android:textSize="15dp"
+                android:padding="15dp"
+                android:gravity="left"
+                android:drawableRight="@drawable/dhle_logo"
+                android:drawablePadding="15dp"
+                android:text="@string/dlfh"/>
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

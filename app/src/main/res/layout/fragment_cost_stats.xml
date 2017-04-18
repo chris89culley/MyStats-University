@@ -1,85 +1,121 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/costStatInfo1"
-        android:lineSpacingExtra="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Money matters, especially when you're a student,  below you'll find the cost of accommodation for both halls and the  local area."
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="15dp"
-        android:layout_alignParentTop="true"
-        android:textColor="@color/oldBurgundy"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp" />
+        <TextView
+            android:id="@+id/cost_text_id"
+            android:lineSpacingExtra="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/background"
+            android:text="Money matters, especially when you're a student,  below you'll find the living cost statistics according to NUS for the average UK student and the average cost for accomadation."
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/costPvt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:height="98dp"
-        android:background="@color/greenSheen"
-        android:gravity="center_vertical"
-        android:padding="6dp"
-        android:drawableLeft="@drawable/house2"
-        android:text="No Private Accomadation Stats Found."
-        android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:textColor="@color/oldBurgundy"
-        android:layout_below="@+id/costStatInfo1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp" />
+        <TextView
+            android:id="@+id/private_id"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:background="@color/greenSheen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/private_icon"
+            android:layout_below="@+id/cost_text_id"/>
 
-    <TextView
-        android:id="@+id/costInst"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/greenSheen"
-        android:gravity="center_vertical"
-        android:padding="6dp"
-        android:drawableLeft="@drawable/halls"
-        android:text="No University Accomadation Stats Found."
-        android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:textColor="@color/oldBurgundy"
-        android:layout_below="@+id/costPvt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/halls_id"
+            android:background="@color/background"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/halls_icon"
+            android:layout_below="@+id/private_id"/>
 
-    <TextView
-        android:id="@+id/costStatInfo2"
-        android:lineSpacingExtra="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="15dp"
-        android:text="The UK student average according to NUS: £12,056 for living costs, which breaks down into £4,834 for rent, £1,956 for food, £316 for household goods, £42 for insurance, £2,074 for personal items, £1,524 for travel and £1,310 for leisure."
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/costInst"
-        android:textColor="@color/oldBurgundy"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="31dp" />
+        <TextView
+            android:id="@+id/insurance_id"
+            android:background="@color/greenSheen"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="£42 for insurance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/insurance_icon"
+            android:layout_below="@+id/halls_id"/>
+
+        <TextView
+            android:id="@+id/personal_id"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:text="£2,074 for personal goods"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/personal_icon"
+            android:layout_below="@+id/insurance_id"/>
+
+        <TextView
+            android:id="@+id/food_id"
+            android:background="@color/greenSheen"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="£1,956 for food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/food_icon"
+            android:layout_below="@+id/personal_id"/>
+
+        <TextView
+            android:id="@+id/leisure_id"
+            android:background="@color/background"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="£1,310 for leisure time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/film_icon2"
+            android:layout_below="@+id/food_id"/>
+
+        <TextView
+            android:id="@+id/travel_id"
+            android:background="@color/greenSheen"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="£1,524 for travel expenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/travel_icon"
+            android:layout_below="@+id/leisure_id"/>
 
         <Space
-            android:id="@+id/esspace3"
-            android:layout_below="@+id/costStatInfo2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:background="@color/background"
-            android:layout_width="1dp"
-            android:paddingTop="30dp"
-            android:layout_height="20dp" />
+            android:layout_below="@+id/leisure_id"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="89dp" />
+
 
     </RelativeLayout>
 </ScrollView>

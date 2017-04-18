@@ -27,6 +27,19 @@
                     app:arc_origin="center"
                     >
 
+
+                    <Button
+                        android:id="@+id/aboutbutton"
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:textSize="10dp"
+                        android:text="about"
+                        android:gravity="bottom|center"
+                        android:paddingBottom="20dp"
+                        android:textColor="#3B322C"
+                        android:background="@drawable/aboutbutton"
+                        app:arc_angle="80"
+                        />
                     <Button
                         android:id="@+id/ucastipbutton"
                         android:textColor="#3B322C"
@@ -39,6 +52,20 @@
                         android:textSize="10dp"
                         android:paddingBottom="25dp"
                         />
+
+
+                    <Button
+                    android:id="@+id/quicksearchbutton"
+                    android:text="quick search"
+                    android:layout_height="85dp"
+                    android:layout_width="85dp"
+                    app:arc_angle="0"
+                    android:textSize="10dp"
+                    android:textColor="#3B322C"
+                    android:gravity="bottom|center"
+                    android:paddingBottom="25dp"
+                    android:background="@drawable/quicksearchbutton"
+                    />
 
                     <Button
                         android:id="@+id/accountbutton"
@@ -54,43 +81,19 @@
                         />
 
                     <Button
-                        android:id="@+id/advancedsearchbutton"
+                        android:id="@+id/recentsearchbutton"
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:textColor="#3B322C"
                         android:background="@drawable/searchbutton"
                         app:arc_angle="-80"
                         android:textSize="10dp"
-                        android:text="advanced \n search"
+                        android:text="recent \n search"
                         android:gravity="bottom|center"
                         android:paddingBottom="10dp"
                         />
 
-                    <Button
-                        android:id="@+id/quicksearchbutton"
-                        android:text="quick search"
-                        android:layout_height="85dp"
-                        android:layout_width="85dp"
-                        app:arc_angle="0"
-                        android:textSize="10dp"
-                        android:textColor="#3B322C"
-                        android:gravity="bottom|center"
-                        android:paddingBottom="25dp"
-                        android:background="@drawable/quicksearchbutton"
-                        />
 
-                    <Button
-                        android:id="@+id/aboutbutton"
-                        android:layout_width="85dp"
-                        android:layout_height="85dp"
-                        android:textSize="10dp"
-                        android:text="about"
-                        android:gravity="bottom|center"
-                        android:paddingBottom="20dp"
-                        android:textColor="#3B322C"
-                        android:background="@drawable/aboutbutton"
-                        app:arc_angle="80"
-                        />
 
                 </com.ogaclejapan.arclayout.ArcLayout>
 
