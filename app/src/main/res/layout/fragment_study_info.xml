@@ -58,39 +58,37 @@
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
             android:paddingTop="20dp"
-            android:text="A bit more study info title"
+            android:text="A bit more study info"
             android:fontFamily=""
             android:textSize="20dp"
             android:textAlignment="center"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sistat1"
-            android:textSize="15dp"
-            android:padding="20dp"
-            android:background="@color/greenSheen"
-            android:textColor="@color/oldBurgundy"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:layout_below="@+id/aBitMoreStudyInfoTitle"
+            android:layout_height="50dp"
             />
 
+            />
         <TextView
+            android:id="@+id/sistat1"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:background="@color/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/lecture_icon"
+            android:layout_below="@+id/aBitMoreStudyInfoTitle"/>
+
+        <TextView
             android:id="@+id/sistat2"
-            android:textSize="15dp"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="20dp"
             android:background="@color/greenSheen"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="30dp"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:textColor="@color/oldBurgundy"
-            android:layout_below="@+id/sistat1"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/writing_icon"
+            android:layout_below="@+id/sistat1"/>
 
         <Space
             android:id="@+id/sispace4"
