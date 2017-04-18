@@ -1,4 +1,4 @@
-package aboutFragments;
+package AboutFragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

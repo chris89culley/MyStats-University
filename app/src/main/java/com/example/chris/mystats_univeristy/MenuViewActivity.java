@@ -1,8 +1,6 @@
 package com.example.chris.mystats_univeristy;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,8 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -87,7 +83,7 @@ public class MenuViewActivity extends AppCompatActivity {
      * @param item
      */
     public void aboutClick(MenuItem item) {
-        Intent intent = new Intent(this, About.class);
+        Intent intent = new Intent(this, AboutFragments.About.class);
         startActivity(intent);
     }
 

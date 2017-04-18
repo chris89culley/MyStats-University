@@ -1,4 +1,4 @@
-package aboutFragments;
+package AboutFragments;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;

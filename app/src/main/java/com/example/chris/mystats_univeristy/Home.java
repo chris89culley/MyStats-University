@@ -99,7 +99,7 @@ public class Home extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), aboutFragments.About.class);
+                Intent intent = new Intent(v.getContext(), AboutFragments.About.class);
                 startActivity(intent);
             }
         });
