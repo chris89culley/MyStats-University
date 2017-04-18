@@ -48,12 +48,18 @@ public class AboutFragmentSelecter extends Fragment {
                 switch (pos){
                     case 0:
                         view = inflater.inflate(R.layout.about_fragment_app, container, false);
+                        editAboutTheApp();
                         return view;
                     case 1:
                         view = inflater.inflate(R.layout.about_fragment_creaters, container, false);
                         editCreatersFragment();
                         return view;
                     case 2:
+                        view = inflater.inflate(R.layout.about_fragment_the_data, container, false);
+
+                        editTheDataFragment();
+                        return view;
+                    case 3:
                         view = inflater.inflate(R.layout.about_fragment_copyright, container, false);
                         return view;
                 }
@@ -66,6 +72,24 @@ public class AboutFragmentSelecter extends Fragment {
 
             return view;
         }
+
+    private void editAboutTheApp() {
+        TextView aboutTitle = (TextView) view.findViewById(R.id.aboutTitle);
+        aboutTitle.setTypeface(retroFont);
+        TextView basic_info = (TextView) view.findViewById(R.id.basic_intro);
+        basic_info.setTypeface(retroFont);
+    }
+
+    private void editTheDataFragment() {
+        TextView dataIntro = (TextView) view.findViewById((R.id.data_intro));
+        dataIntro.setTypeface(retroFont);
+        TextView hefa = (TextView) view.findViewById((R.id.hefa));
+        hefa.setTypeface(retroFont);
+        TextView nss = (TextView) view.findViewById((R.id.nss));
+        nss.setTypeface(retroFont);
+        TextView dlhe = (TextView) view.findViewById((R.id.dlhe));
+        dlhe.setTypeface(retroFont);
+    }
 
     private void editCreatersFragment(){
         TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
