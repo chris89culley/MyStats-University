@@ -4,45 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chris.mystats_univeristy.UcasTips"
-    android:paddingBottom="16dp"
-    android:id="@+id/drawerLayout"
-    android:background="@color/background">
+    tools:context="UcasTips.UcasTips"
+    android:background="@color/background"
+    android:id="@+id/UcasTipsPageTop">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView1"
+
+
+        <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="UCAS Tips"
-            android:textSize="24dp"
-            android:layout_below="@+id/drawerLayout"/>
+            android:id="@+id/UcasTipsTabLayout"
+            app:tabMode="scrollable"
+            android:background="#FFFF"
+            app:tabGravity="center"/>
 
-        <!-- activity_info layout file -->
-        <!-- Clickable title -->
-        <TextView
-            android:id="@+id/help_title_gest"
-            android:text="Tip 1"
-            android:clickable="true"
-            android:onClick="toggle_contents"
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/textView1"/>
-
-        <!--content to hide/show -->
-        <TextView
-            android:id="@+id/txt_help_gest"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Test 1"/>
+            android:id="@+id/UcasTipsViewPager"
+            android:layout_below="@+id/UcasTipsTabLayout"
+            />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
