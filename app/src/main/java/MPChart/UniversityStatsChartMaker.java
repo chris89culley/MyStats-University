@@ -96,7 +96,7 @@ public class UniversityStatsChartMaker {
      * @return PieData for pie chart - EploymentSixMonths
      */
     public static PieData getChartEploymentSixMonths(Course course, PieChart chart){
-        return GenericChartMaker.constructPieChart(course.getEmploymentSixMonths(), chart, "Employment 6 months after completing the course","blue");
+        return GenericChartMaker.constructPieChart(course.getEmploymentSixMonths(), chart, "Employment 6 months after completing the course");
     }
 
     //Below are the NSS question sets

@@ -207,15 +207,13 @@ public class FragmentSelector extends Fragment {
         salarySixmonthText.setTypeface(font);
 
         salaryFourtymonthText.setTextSize(13f);
-        salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-        salaryFourtymonthText.setText("The average salary 40 months after was \n" + course.getAverageSalaryAfter40MonthsText().trim());
+        //salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
+        salaryFourtymonthText.setText("The average salary 40 months after\n was\n" + course.getAverageSalaryAfter40MonthsText().trim()+" GBP");
 
         salarySixmonthText.setTextSize(13f);
-        salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-        salarySixmonthText.setText("The average salary 6 months after was \n " + course.getAverageSalaryAfter6MonthsText().trim());
+        //salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
+        salarySixmonthText.setText("The average salary 6 months after\n was\n" + course.getAverageSalaryAfter6MonthsText().trim()+" GBP");
 
-        final Animation animright1 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
-        final Animation animright2 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         double salary = 0;
         try{
             Log.d("Salary", course.getAverageSalaryAfter6MonthsText().substring(1));
@@ -226,7 +224,6 @@ public class FragmentSelector extends Fragment {
 
             e.printStackTrace();
         }
-        TextView monthlyWage = (TextView) view.findViewById(R.id.esWageAfterRepayments);
         if (salary != 0 ){
           int repayment = 0;
         if (salary > 174950 && salary <= 18500 ){
@@ -237,7 +234,6 @@ public class FragmentSelector extends Fragment {
           repayment = 48;
         } else if(salary > 24000 && salary <= 27000) {
         repayment = 71;
-
         } else if(salary > 27000 && salary <= 30000 ) {
           repayment = 71;
         } else if(salary > 30000){
@@ -249,41 +245,21 @@ public class FragmentSelector extends Fragment {
         salary -= repayment;
         salary = Math.round(salary);
 
-        monthlyWage.setTypeface(font);
-        monthlyWage.setText("Your Monthly wage will be £" + salary +"\nAfter paying 20% tax \nand a student loan repayment of £"+repayment);
-        }
+        TextView monthlyWage = (TextView) view.findViewById(R.id.monthlyBreakdownAfterTax);
+        TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
+        TextView taxPayment = (TextView) view.findViewById(R.id.monthlyBreakdownTax);
 
-        /*salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
-            Boolean animFlag = true;
-            @Override
-            public void onClick(View v) {
-                if (animFlag == true ) {
-                    salaryFourtymonthText.setTextSize(13f);
-                    salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-                    salaryFourtymonthText.setText("The average salary 40 months after was \n" + course.getAverageSalaryAfter40MonthsText().trim());
-                    salaryFourtymonthText.startAnimation(animright1);
-                    animFlag = false;
-                }
-            }
-        });
-        salarySixmonthSymbol.setOnClickListener(new View.OnClickListener() {
-            Boolean animFlag = true;
-            @Override
-            public void onClick(View v) {
-                if (animFlag == true ) {
-                    salarySixmonthText.setTextSize(13f);
-                    salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-                    salarySixmonthText.setText("The average salary 6 months after was \n " + course.getAverageSalaryAfter6MonthsText().trim());
-                    salarySixmonthText.startAnimation(animright2);
-                    animFlag = false;
-                }
-            }
-        });*/
+        monthlyWage.setTypeface(font);
+        loanRepayment.setTypeface(font);
+        taxPayment.setTypeface(font);
+
+        monthlyWage.setText("Average monthly wage of: " + salary+" Pounds");
+        loanRepayment.setText("Student loan repayment of: "+repayment+" Pounds");
+        taxPayment.setText("Paying 20% tax");
+
+        }
        return v ;
     }
-
-
-
     /**
      * used to create the study info fragments
      * @param v View
@@ -329,22 +305,6 @@ public class FragmentSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
-
-        //view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-          //  boolean inview1,inview2;
-           // @Override
-            //public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-              //  Log.d("Scroll y pos",Integer.toString(scrollY));
-                //if (scrollY > 100 && scrollY < 1400 && inview1 == true){
-                  //  pChart.animateXY(2000,2000);
-                    //inview2 = !inview2;
-                //}
-                //if (scrollY > 1400 && inview2 == true){
-                  //  inview1 = !inview1;
-                    //pChart.animateXY(2000,2000);
-                //}
-            //}
-        //});
         return v;
     }
 
