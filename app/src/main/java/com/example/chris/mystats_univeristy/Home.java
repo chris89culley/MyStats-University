@@ -63,7 +63,7 @@ public class Home extends AppCompatActivity {
         //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
         Button accountButton = (Button) findViewById(R.id.accountbutton);
-        Button recentSearchButton = (Button) findViewById(R.id.advancedsearchbutton);
+        Button recentSearchButton = (Button) findViewById(R.id.recentsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
 
