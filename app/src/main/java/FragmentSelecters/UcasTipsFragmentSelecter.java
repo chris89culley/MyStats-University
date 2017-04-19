@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.chris.mystats_univeristy.R;
 
@@ -47,9 +48,11 @@ public class UcasTipsFragmentSelecter extends Fragment {
             switch (pos){
                 case 0:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_intro, container, false);
+                    editUcasTipsFragmentIntro();
+
                     return view;
                 case 1:
-                    view = inflater.inflate(R.layout.ucas_tips_fragment_getting_started, container, false);
+                    view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
                     return view;
                 case 2:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
@@ -63,5 +66,10 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
 
         return view;
+    }
+
+    private void editUcasTipsFragmentIntro() {
+        TextView introText = (TextView) view.findViewById(R.id.ucastips_itroduction);
+        introText.setTypeface(retroFont);
     }
 }

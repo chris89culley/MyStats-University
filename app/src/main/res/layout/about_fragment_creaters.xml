@@ -10,58 +10,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
+                <TextView
+                    android:id="@+id/meet_the_team_intro"
+                    style="@style/text_view_left"
+                    android:text="@string/meet_the_team_intro"
+                    android:drawableRight="@drawable/uni_icon"
+                    />
 
                 <TextView
-                android:layout_marginTop="5dp"
+                android:layout_below="@id/meet_the_team_intro"
                 android:id="@+id/chris"
-                android:layout_width="match_parent"
-                android:background="@color/background"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="right"
                 android:drawableLeft="@drawable/insurance_icon"
-                android:drawablePadding="15dp"
-                android:layout_height="match_parent"
+                style="@style/text_view_right"
                 android:text="@string/chris_personal" />
 
 
             <TextView
                 android:id="@+id/terry"
-                android:layout_width="match_parent"
-                android:background="@color/greenSheen"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="right"
+                style="@style/text_view_left"
                 android:drawableRight="@drawable/insurance_icon"
-                android:drawablePadding="15dp"
-                android:layout_height="match_parent"
                 android:text="@string/tel_personal"
                 android:layout_below="@+id/chris"/>
 
 
             <TextView
                 android:id="@+id/dan"
-                android:layout_width="match_parent"
-                android:background="@color/background"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="right"
+                style="@style/text_view_right"
                 android:drawableLeft="@drawable/insurance_icon"
-                android:drawablePadding="15dp"
-                android:layout_height="match_parent"
                 android:text="@string/dan_personal"
                 android:layout_below="@+id/terry"/>
+
+
             <TextView
                 android:id="@+id/jack"
-                android:layout_width="match_parent"
-                android:background="@color/greenSheen"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="right"
+                style="@style/text_view_left"
                 android:drawableRight="@drawable/insurance_icon"
-                android:drawablePadding="15dp"
-                android:layout_height="match_parent"
                 android:text="@string/jack_personal"
                 android:layout_below="@+id/dan"/>
 

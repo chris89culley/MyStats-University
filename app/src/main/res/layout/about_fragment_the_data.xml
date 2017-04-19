@@ -10,56 +10,33 @@
             android:layout_height="wrap_content">
 
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/text_view_center"
             android:id="@+id/data_intro"
-            android:background="@color/background"
-            android:textSize="15dp"
-            android:padding="15dp"
-            android:gravity="center"
-            android:drawablePadding="15dp"
             android:text="@string/data_intro"/>
 
 
 
             <TextView
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/text_view_right"
                 android:id="@+id/hefa"
                 android:layout_below="@+id/data_intro"
-                android:background="@color/greenSheen"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="left"
-                android:drawableRight="@drawable/hesa_picture"
-                android:drawablePadding="15dp"
+                android:drawableLeft="@drawable/hesa_picture"
                 android:text="@string/hesa"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/text_view_left"
                 android:layout_below="@+id/hefa"
                 android:id="@+id/nss"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="right"
-                android:drawableLeft="@drawable/nss_logo"
-                android:drawablePadding="15dp"
+                android:drawableRight="@drawable/nss_logo"
                 android:text="@string/national_student_survey"/>
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/text_view_right"
                 android:layout_below="@+id/nss"
                 android:background="@color/greenSheen"
                 android:id="@+id/dlhe"
-                android:textSize="15dp"
-                android:padding="15dp"
-                android:gravity="left"
-                android:drawableRight="@drawable/dhle_logo"
-                android:drawablePadding="15dp"
+                android:drawableLeft="@drawable/dhle_logo"
                 android:text="@string/dlfh"/>
 
 
