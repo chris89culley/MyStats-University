@@ -42,9 +42,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Market_Deco.ttf");
+       retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Market_Deco.ttf");
 
-
+        //Cycles through the fragments choosing which one to inflate
         try {
             switch (pos){
                 case 0:
