@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import Animations.AnimatorUtils;
+
 import Data.Course;
 import Data.DatabaseInformationQuerier;
 import Data.RSDBhandler;

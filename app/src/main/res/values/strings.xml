@@ -5,4 +5,10 @@
     <string name="fulltime">Full time courses</string>
     <string name="parttime">Part time courses</string>
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
+
+
+    <string name="chris_personal">This is Chris, a 28 year old meditating pescatarian, he  was previously in business in the renewable sector but after building a SAP calculator he realised his real passion is in code and mathematics.</string>
+    <string name="tel_personal">This is Terry, after working in McDonalds until the age of 23 he decided it was time to pursue his dream of computer coding. In his spare time Terry enjoys playing pool. Terry is about to start a placement at Sabisu. Terry aspires to work as a software developer once he finishes his degree course.</string>
+    <string name="dan_personal">This is Daniel, he is currently 26 and is from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
+    <string name="jack_personal">This is Jack, he is currently 21 and from Darlington. Jack is currently studying for his bachelor’s degree in computer science at Teeside university. Next year he is due to embark on a work placement at redev development in Leeds. This will be his first time working in the industry and is an exciting opportunity. This opportunity should help him reach his long-term career goal of joining the software industry as a software engineer.</string>
 </resources>
