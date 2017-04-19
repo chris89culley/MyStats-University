@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-import UcasTipsFragments.UcasTips;
-import UcasTipsFragments.UcasTipsFragmentSelecter;
+import com.example.chris.mystats_univeristy.UcasTips;
+import FragmentSelecters.UcasTipsFragmentSelecter;
 
 /**
  * Created by Terence Lawson on 18/04/2017.

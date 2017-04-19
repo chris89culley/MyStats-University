@@ -1,4 +1,4 @@
-package AboutFragments;
+package FragmentSelecters;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

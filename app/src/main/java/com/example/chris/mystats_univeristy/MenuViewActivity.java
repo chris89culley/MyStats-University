@@ -83,7 +83,7 @@ public class MenuViewActivity extends AppCompatActivity {
      * @param item
      */
     public void aboutClick(MenuItem item) {
-        Intent intent = new Intent(this, AboutFragments.About.class);
+        Intent intent = new Intent(this, About.class);
         startActivity(intent);
     }
 

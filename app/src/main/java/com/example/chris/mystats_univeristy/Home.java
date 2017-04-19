@@ -99,7 +99,7 @@ public class Home extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AboutFragments.About.class);
+                Intent intent = new Intent(v.getContext(), About.class);
                 startActivity(intent);
             }
         });
@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity {
         ucasTipsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), UcasTipsFragments.UcasTips.class);
+                Intent intent = new Intent(v.getContext(), UcasTips.class);
                 startActivity(intent);
             }
         });

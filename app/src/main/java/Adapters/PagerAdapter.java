@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.chris.mystats_univeristy.FragmentSelector;
+import FragmentSelecters.StatsPageSelecter;
 
 import Data.Course;
 
@@ -44,7 +44,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        FragmentSelector frag = new FragmentSelector(position, course);
+        StatsPageSelecter frag = new StatsPageSelecter(position, course);
         return frag;
     }
 

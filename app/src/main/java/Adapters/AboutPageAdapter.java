@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import AboutFragments.AboutFragmentSelecter;
+import FragmentSelecters.AboutFragmentSelecter;
 
 /**
  * Created by Terence Lawson on 17/04/2017.
