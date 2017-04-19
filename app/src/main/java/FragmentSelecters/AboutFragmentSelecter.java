@@ -92,6 +92,8 @@ public class AboutFragmentSelecter extends Fragment {
     }
 
     private void editCreatersFragment(){
+        TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
+        meetTheTeamIntro.setTypeface(retroFont);
         TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
         chrisDetails.setTypeface(retroFont);
         TextView telDetails = (TextView) view.findViewById(R.id.terry);
