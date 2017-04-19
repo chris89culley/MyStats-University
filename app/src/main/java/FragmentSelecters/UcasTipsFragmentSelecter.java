@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +50,10 @@ public class UcasTipsFragmentSelecter extends Fragment {
                 case 0:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_intro, container, false);
                     editUcasTipsFragmentIntro();
-
                     return view;
                 case 1:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
+                    editUcasTipsFragmentChoosingTheRightCourse();
                     return view;
                 case 2:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
@@ -68,8 +69,28 @@ public class UcasTipsFragmentSelecter extends Fragment {
         return view;
     }
 
+    private void editUcasTipsFragmentChoosingTheRightCourse() {
+        TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.ucas_tips_choosing_course_intro);
+        ucasTipsChoosingCourseIntro.setTypeface(retroFont);
+
+        TextView ucasTipsCareer = (TextView) view.findViewById(R.id.ucas_tips_career);
+        ucasTipsCareer.setTypeface(retroFont);
+
+        TextView ucasTipsHobby = (TextView) view.findViewById(R.id.ucas_tips_hobby);
+        ucasTipsHobby.setTypeface(retroFont);
+
+        TextView ucasTipsEntryRequirements = (TextView) view.findViewById(R.id.ucas_tips_entry_requirments);
+        ucasTipsChoosingCourseIntro.setTypeface(retroFont);
+
+        TextView ucasTipsLocation = (TextView) view.findViewById(R.id.ucas_tips_location);
+        ucasTipsLocation.setTypeface(retroFont);
+
+        TextView ucasTipsModules = (TextView) view.findViewById(R.id.ucas_tips_modules);
+        ucasTipsModules.setTypeface(retroFont);
+    }
+
     private void editUcasTipsFragmentIntro() {
-        TextView introText = (TextView) view.findViewById(R.id.ucastips_itroduction);
+        TextView introText = (TextView) view.findViewById(R.id.ucastips_introduction);
         introText.setTypeface(retroFont);
     }
 }

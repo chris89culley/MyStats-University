@@ -36,6 +36,17 @@
 
     <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have found the best tips they can to help create your route as easy and successful as possible.</string>
 
+    <string name="ucas_tips_choosing_course_intro">So, first things first, deciding which course it is you want to take. Do you have a certain job in mind? This decision will help to shape the whole of your application form. You have most likely considered this however with over 37000 courses on offer in over 350 different universities it sometimes isn’t the easiest of choices. Therefore, we at UniStats have found the best points for you to consider</string>
+    <string name="ucas_tips_career">Career: Do you have a certain career in mind? Perhaps you can talk to someone who is already in that career about how they got into the career. See a career guidance councillor at school or college. </string>
+    <string name="ucas_tips_hobby">Hobby: If you haven’t a specific career in mind have you got a certain area in which you would like to go into something that you are passionate about. Considering a specific area can help to decrease the amount of options drastically.</string>
+    <string name="ucas_tips_entry_requirments">Entry requirements: So, you have decided on a course or an area of courses but let’s be totally realistic for a second, do you have the grades or will you get the grades? If no, then this may not be the course for you. However, make sure to look at mature student, foundation years or special circumstances, MyStats gives a good overview of what students usually have when they apply for a certain course at a certain university. </string>
+    <string name="ucas_tips_location">Location: You know the course, you feel like you have the grades but still don’t know what university to go to, maybe you should consider these points. How will you do being far away from home? Is there a city that you would just love to live in? Do you know someone who is already at a certain university? Try to consider these points.</string>
+    <string name="ucas_tips_modules">Modules: Finally, you have narrowed it down, you have an idea of the type of course or career you want to take, you think you can get the grades or have looked at another entry way and have a few different universities to consider, well you need to make sure you look at the modules the course has to offer. Some courses may be similar but might have modules that cater to your needs and your overall needs.</string>
+
+
+
+
+
 
     <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
 
