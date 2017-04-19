@@ -17,7 +17,7 @@ import Data.Course;
 /**
  * pager adapter sets the titles of the tablayout and returns the page count which helps select the fragment to inflate.
  */
-public class PagerAdapter extends FragmentPagerAdapter {
+public class StatsPageAdapter extends FragmentPagerAdapter {
 
     private String[] title = new String[]{"Cost Statistics","Employment Stats","Satisfaction Stats","Study Info",
             "Entry Info"};
@@ -31,7 +31,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
      * @param context
      * @param course
      */
-    public PagerAdapter(FragmentManager fm, Context context, Course course) {
+    public StatsPageAdapter(FragmentManager fm, Context context, Course course) {
         super(fm);
         this.context = context;
         this.course = course;
