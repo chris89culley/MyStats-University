@@ -41,6 +41,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
     ByteArrayOutputStream bo = null;
     ByteArrayInputStream bi = null;
 
+    SQLiteDatabase db;
     ObjectOutputStream out = null;
     ObjectInputStream in = null;
     /**
@@ -49,7 +50,6 @@ public class RSDBhandler extends SQLiteOpenHelper {
      */
     public RSDBhandler(Context context){
         super(context,DATABASE_NAME,null,1);
-        Log.d("Database","database created");
     }
 
     /**
@@ -63,6 +63,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
             emptyEntries();
         }catch(Exception e){
         }
+
         // Creating the query string for a recently viewed table
         String CREATE_RECENTLY_VIEWED_TABLE = "CREATE TABLE "
                 + TABLE_NAME
@@ -95,6 +96,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
         //count entries - returns num in the db
         int count = countEntries();
 
+        Log.d("ia m " , course.getCourseName());
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //if the db has over 10 entries remove the first one and add one at the end
@@ -117,8 +119,8 @@ public class RSDBhandler extends SQLiteOpenHelper {
      * Reads all entries in the table and returns them a s a list
      * @return List of Course objects
      */
-    public List readAll() {
-            List<Course> list = new ArrayList<Course>();
+    public ArrayList<Course> readAll() {
+            ArrayList<Course> list = new ArrayList<Course>();
 
             SQLiteDatabase db = this.getReadableDatabase();
 
@@ -165,8 +167,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
     private int countEntries(){
         // Creating the query string for selecting the db entries
         String countQuery = "SELECT * FROM "+TABLE_NAME;
+
         SQLiteDatabase db = this.getReadableDatabase();
         //Executing the select query
+
         Cursor cursor = db.rawQuery(countQuery, null);
         //count the results from the select
         int cnt = cursor.getCount();
@@ -182,8 +186,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
     public void emptyEntries(){
         //creating the query string for deleting all the entries
         String deleteQuery = "DELETE FROM "+TABLE_NAME;
+
         SQLiteDatabase db = this.getReadableDatabase();
         //Executing the query for deleting the entires
+
         db.execSQL(deleteQuery);
     }
 
@@ -193,8 +199,10 @@ public class RSDBhandler extends SQLiteOpenHelper {
     private void deleteFirst(){
         //creating the query string for deletingthe first entry
         String alterQuery ="delete from " + TABLE_NAME+ " where rowid IN (Select rowid from " + TABLE_NAME + " limit 1)";
+
         SQLiteDatabase db = this.getReadableDatabase();
         //Executing the query for deleting the first entry
+
         db.execSQL(alterQuery);
     }
 
