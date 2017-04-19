@@ -51,7 +51,7 @@ public class GenericChartMaker {
      * @return The BarData object for the data provided to be used for bar chart construction
      */
     public static BarData constructBarChart(ChartStats cs, BarChart chart, String chartTitle){
-        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
+        if(!cs.hasData()){//Checks the have data flag is false espace function computer
             return new BarData();
         }
 
@@ -59,11 +59,11 @@ public class GenericChartMaker {
         String[] tags = cs.getTags();
 
 
+        //new arraylists for the data entries and the text labels for them
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<>();
 
-            ArrayList<BarEntry> entries = new ArrayList<>();
-            ArrayList<String> labels = new ArrayList<>();
-
-
+        //add the data and the labsls to the arraylists
        for (int i = 0; i < data.length; i++) {
                     entries.add(new BarEntry(i, data[i]));
                     labels.add(tags[i]);
@@ -99,7 +99,7 @@ public class GenericChartMaker {
 
 
        xaxis.setCenterAxisLabels(true);
-
+        //axis chart and data display settings being altered
         chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);
         chart.setFitBars(false);
@@ -124,9 +124,6 @@ public class GenericChartMaker {
 
         return theData;
     }
-
-
-
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
      * @param cs- Chart stats objects contains the data to be displayed
@@ -160,6 +157,8 @@ public class GenericChartMaker {
             }
 
             //piechart display settings
+            chart.setCenterText("%");
+            chart.setCenterTextSize(20f);
             chart.setHoleRadius(40f);
             chart.setHighlightPerTapEnabled(true);
 
@@ -170,16 +169,18 @@ public class GenericChartMaker {
 
 
             //Colours array in the form of hex codes
-            int[]Colors =  {ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F58B4c"),ColorTemplate.rgb("DA621E")};
+            int[]Colors =  {ColorTemplate.rgb("2c7bb5"),ColorTemplate.rgb("ff3300"),ColorTemplate.rgb("C781B8"),ColorTemplate.rgb("fef65b")};
             //Setting the colours of the data set
             pieDataSet.setColors(Colors);
 
+            //Changing description settings
             Description description = new Description();
             description.setText(chartTitle);
             description.setPosition(0f,0f);
             chart.setDescription(description);
             chart.setDrawEntryLabels(true);
 
+            //Changing legend potion and settings
             Legend l = chart.getLegend();
             l.setTextColor(ColorTemplate.rgb("3B322C"));
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -192,10 +193,11 @@ public class GenericChartMaker {
 
             chart.setDrawSliceText(false);
 
+            //changing the dataset settings
             PieData theData = new PieData(pieDataSet);
             theData.setValueTextColor(Color.WHITE);
             theData.setValueTypeface(Typeface.DEFAULT_BOLD);
-            theData.setValueFormatter(new PercentFormatter());
+            //theData.setValueFormatter(new PercentFormatter());
 
             return theData;
     }
@@ -256,12 +258,14 @@ public class GenericChartMaker {
             }
             pieDataSet.setColors(Colors);
 
+        //Changing description settings
         Description description = new Description();
         description.setText(chartTitle);
         description.setPosition(0f,0f);
         chart.setDescription(description);
         chart.setDrawEntryLabels(true);
 
+        //Changing legend potion and settings
         Legend l = chart.getLegend();
         l.setTextColor(Color.WHITE);
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -274,6 +278,7 @@ public class GenericChartMaker {
 
         chart.setDrawSliceText(false);
 
+        //changing the dataset settings
         PieData theData = new PieData(pieDataSet);
         theData.setValueTextColor(Color.WHITE);
         theData.setValueTypeface(Typeface.DEFAULT_BOLD);
@@ -282,7 +287,6 @@ public class GenericChartMaker {
         return theData;
 
     }
-
     /**
      * Generic LineChart creater
      * @param key Current X axis values
@@ -301,7 +305,7 @@ public class GenericChartMaker {
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
         //create a set of data to add to the Lines to create the lines
-        LineDataSet dataSet = new LineDataSet(entries, null);
+        LineDataSet dataSet = new LineDataSet(entries, "testing");
         //Format the dataSet with cleaner lines and add different colours
         dataSet = setLineGraphData(dataSet);
         //Creates the curved effect on the line graph
@@ -313,11 +317,26 @@ public class GenericChartMaker {
         xAxis1 = setxAxisfeatures(xAxis1);
         //Format the Y Axis from the right side of the graph
         YAxis yAxisRightSide = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        yAxisRightSide = setUpYAxisRightSide(yAxisRightSide);
+
         //Format the Y Axis from the right side of the graph
         YAxis yAxisLeftSide = chart.getAxis(YAxis.AxisDependency.LEFT);
         yAxisLeftSide = setUpYAXaisLeft(yAxisLeftSide);
-         //Add the informaiton about the lines to the chart
+        //Add the informaiton about the lines to the chart
+
+        Legend legend = chart.getLegend();
+        legend = setLegendFeatures(legend);
         return new LineData(dataSet);
+}
+
+    /**
+     * Method to change the details of the legend (currently turns it off
+     * @param legend
+     * @return
+     */
+    private static Legend setLegendFeatures(Legend legend) {
+        legend.setEnabled(false);
+        return legend;
     }
 
     /**
@@ -326,7 +345,6 @@ public class GenericChartMaker {
      * @return
      */
     private static YAxis setUpYAxisRightSide(YAxis yAxisRightSide) {
-        yAxisRightSide = setUpYAxisRightSide(yAxisRightSide);
         yAxisRightSide.setEnabled(false);
         yAxisRightSide.setDrawGridLines(false);
         return yAxisRightSide;
@@ -411,12 +429,11 @@ public class GenericChartMaker {
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
-        dataSet.setColor(ColorTemplate.rgb("C2571A"));
+        dataSet.setColor(ColorTemplate.rgb("#4b88b0"));
         dataSet.setDrawFilled(true); //Set the Graph to fill the
-        dataSet.setFillAlpha(180); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("F58B4C")); //The colour under the graph
+        dataSet.setFillAlpha(240); //Graph transparaty
+        dataSet.setFillColor(ColorTemplate.rgb("#4D749A")); //The colour under the graph
         dataSet.setValueTextSize(18);
-
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
 

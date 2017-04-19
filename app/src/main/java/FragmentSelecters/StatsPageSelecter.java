@@ -1,4 +1,4 @@
-package com.example.chris.mystats_univeristy;
+package FragmentSelecters;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.chris.mystats_univeristy.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -25,7 +26,7 @@ import Adapters.ExpandableSatisfactionAdapter;
  * Created by c077ing on 08/03/2017.
  */
 
-public class FragmentSelector extends Fragment {
+public class StatsPageSelecter extends Fragment {
 
     private int pos;
     private View view;
@@ -40,7 +41,7 @@ public class FragmentSelector extends Fragment {
      * @param position
      * @param course
      */
-    public FragmentSelector(int position, Course course) {
+    public StatsPageSelecter(int position, Course course) {
         this.pos = position;
         this.course = course;
     }
@@ -84,20 +85,16 @@ public class FragmentSelector extends Fragment {
                         lineChart = (LineChart) view.findViewById(R.id.linechart);
 
                         //Set the description
-                        TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
-                        entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
-                        entryChartTitle.setTypeface(retroFont);
+                        TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
+                        pageDescription.setTypeface(retroFont);
 
                         //Sets the Y Axis title
                         TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
-                        yAxislabel.setText("Percentage of people");
                         yAxislabel.setTypeface(retroFont);
 
                         //Sets the X Axis title
                         TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
-                        xAxislabel.setText("Amount of UCAS Points");
                         xAxislabel.setTypeface(retroFont);
-
                         lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
                     }catch (Exception e){
                         return view = inflater.inflate(R.layout.fragment_error, container, false);
