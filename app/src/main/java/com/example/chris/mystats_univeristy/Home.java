@@ -90,6 +90,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), SearchResults.class);
                 RSDBhandler dataGrabber =  new RSDBhandler(v.getContext());
+                intent.putExtra("searchedName" , "Recent Searches");
                 intent.putParcelableArrayListExtra("searchResults" , dataGrabber.readAll());
                 startActivity(intent);
             }
