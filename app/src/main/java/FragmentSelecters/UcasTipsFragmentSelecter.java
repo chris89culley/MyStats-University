@@ -57,6 +57,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
                     return view;
                 case 2:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
+                    editUcasTipsFragmentPersonalStatement();
                     return view;
             }
 
@@ -67,6 +68,33 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
 
         return view;
+    }
+
+    private void editUcasTipsFragmentPersonalStatement() {
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TextView ucasTipsOpeningParagraph = (TextView) view.findViewById(R.id.ucas_tips_opening_paragraph);
+        ucasTipsOpeningParagraph.setTypeface(retroFont);
+
+        TextView ucasTipsTakeYourTime = (TextView) view.findViewById(R.id.ucas_tips_take_your_time);
+        ucasTipsTakeYourTime.setTypeface(retroFont);
+
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
+        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
     }
 
     private void editUcasTipsFragmentChoosingTheRightCourse() {
