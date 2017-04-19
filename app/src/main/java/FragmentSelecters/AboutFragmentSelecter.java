@@ -43,7 +43,7 @@ public class AboutFragmentSelecter extends Fragment {
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
             retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Market_Deco.ttf");
 
-
+            //Cycles through the fragments choosing which one to inflate
             try {
                 switch (pos){
                     case 0:
@@ -73,6 +73,9 @@ public class AboutFragmentSelecter extends Fragment {
             return view;
         }
 
+    /**
+     * Sets the font type of the About the App Fragment
+     */
     private void editAboutTheApp() {
         TextView aboutTitle = (TextView) view.findViewById(R.id.aboutTitle);
         aboutTitle.setTypeface(retroFont);
@@ -80,6 +83,9 @@ public class AboutFragmentSelecter extends Fragment {
         basic_info.setTypeface(retroFont);
     }
 
+    /**
+     * Sets the font type of the The Data Fragment
+     */
     private void editTheDataFragment() {
         TextView dataIntro = (TextView) view.findViewById((R.id.data_intro));
         dataIntro.setTypeface(retroFont);
@@ -90,7 +96,9 @@ public class AboutFragmentSelecter extends Fragment {
         TextView dlhe = (TextView) view.findViewById((R.id.dlhe));
         dlhe.setTypeface(retroFont);
     }
-
+    /**
+     * Sets the font type of the Meet the team Fragment
+     */
     private void editCreatersFragment(){
         TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
         meetTheTeamIntro.setTypeface(retroFont);
