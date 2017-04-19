@@ -1,4 +1,4 @@
-package AboutFragments;
+package com.example.chris.mystats_univeristy;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;

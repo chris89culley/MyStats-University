@@ -24,9 +24,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/app_icon"
+                android:src="@drawable/data_picture"
                 android:layout_below="@id/aboutTitle"
-                android:background="@color/background"
+                android:background="@color/greenSheen"
                 android:id="@+id/dataPic"
                 android:paddingTop="10dp"
                 />

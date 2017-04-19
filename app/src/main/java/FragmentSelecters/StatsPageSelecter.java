@@ -1,4 +1,4 @@
-package com.example.chris.mystats_univeristy;
+package FragmentSelecters;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.chris.mystats_univeristy.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -20,7 +21,6 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import Data.Course;
-import Data.RSDBhandler;
 import MPChart.UniversityStatsChartMaker;
 import Adapters.ExpandableSatisfactionAdapter;
 
@@ -28,7 +28,7 @@ import Adapters.ExpandableSatisfactionAdapter;
  * Created by c077ing on 08/03/2017.
  */
 
-public class FragmentSelector extends Fragment {
+public class StatsPageSelecter extends Fragment {
 
     private int pos;
     private View view;
@@ -43,7 +43,7 @@ public class FragmentSelector extends Fragment {
      * @param position
      * @param course
      */
-    public FragmentSelector(int position, Course course) {
+    public StatsPageSelecter(int position, Course course) {
         this.pos = position;
         this.course = course;
     }
