@@ -8,11 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -21,10 +17,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import java.util.ArrayList;
-
 import Data.Course;
-import Data.RSDBhandler;
 import MPChart.UniversityStatsChartMaker;
 import Adapters.ExpandableSatisfactionAdapter;
 
@@ -194,8 +187,7 @@ public class FragmentSelector extends Fragment {
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(null,android.R.layout.simple_list_item_1,arr);
         //ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
 
-
-        TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
+        final TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
         chartTitle1.setTypeface(font);
 
         pChart = (PieChart) view.findViewById(R.id.espie1);
@@ -204,26 +196,22 @@ public class FragmentSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
-        ArrayList<PieChart> list = new ArrayList();
-        list.add(pChart);
 
-        final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
-
-        ArrayAdapter<PieChart> adapter = new ArrayAdapter<PieChart>(getContext(),android.R.layout.simple_list_item_1,list);
-
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int prev = -1;
+        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            //false if chart in view
+            boolean animFlag = false;
             @Override
-            public void onGroupExpand(int groupPosition) {
-                if(groupPosition != prev){
-                    expandableListView.collapseGroup(prev);
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                //chart position plus chart height
+                float animPos = pChart.getY()+pChart.getHeight();
+                if(animFlag == true && scrollY < animPos ){
+                    pChart.animateXY(2000,2000);
+                    animFlag = false;
+                } else if(scrollY > animPos ){
+                    animFlag = true;
                 }
-                prev = groupPosition;
             }
         });
-
-        expandableListView.setAdapter(adapter);
-
 
 
 
@@ -321,20 +309,46 @@ public class FragmentSelector extends Fragment {
         stat2.setText(vals[0]+"% "+"Of the course is assessed by coursework");
 
 
-
+        //Chart 1 data population and settings
         pChart =  (PieChart) view.findViewById(R.id.sipie1);
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
-
-
-        pChart  =  (PieChart) view.findViewById(R.id.sipie2);
+        //Chart 2 data population and settings
+        pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
+
+        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            //false if chart in view
+            boolean animFlag1 = false;
+            boolean animFlag2 = false;
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                //chart position plus chart height
+                PieChart pie1 = (PieChart) view.findViewById(R.id.sipie1);
+                PieChart pie2 = (PieChart) view.findViewById(R.id.sipie2);
+
+                //animation position
+                float animPos = pie1.getY()+pie1.getHeight();
+                //using the postions of the charts to trigger animations in the scroll view
+                if(animFlag1 == true && scrollY < animPos ){
+                    pie1.animateXY(2000,2000);
+                    animFlag1 = false;
+                } else if(scrollY > animPos ){
+                    animFlag1 = true;
+                }else if(animFlag2 == true && scrollY+view.getHeight() > pie2.getY()){
+                    pie2.animateXY(2000,2000);
+                    animFlag2 = false;
+                } else if (scrollY+view.getHeight() < pie2.getY() && animFlag2 == false ){
+                    animFlag2 = true;
+                }
+            }
+        });
 
         return v;
     }
