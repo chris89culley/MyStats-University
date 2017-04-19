@@ -74,6 +74,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
         return view;
     }
 
+    /**
+     * Sets the font type of the Interview Fragment
+     */
     private void editUcasTipsFragmentInterview() {
         TextView ucasTipsInterviewIntro = (TextView) view.findViewById(R.id.ucas_tips_interview_intro);
         ucasTipsInterviewIntro.setTypeface(retroFont);
@@ -104,6 +107,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
     }
 
+    /**
+     * Sets the font type of the PersonalStatement Fragment
+     */
     private void editUcasTipsFragmentPersonalStatement() {
         TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
         ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
@@ -134,6 +140,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
     }
 
+    /**
+     * Sets the font type of the Choosing the Right Course Fragment
+     */
     private void editUcasTipsFragmentChoosingTheRightCourse() {
         TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.ucas_tips_choosing_course_intro);
         ucasTipsChoosingCourseIntro.setTypeface(retroFont);
@@ -157,6 +166,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
         ucasTipsOpenDays.setTypeface(retroFont);
     }
 
+    /**
+     * Sets the font type of the Intro Fragment
+     */
     private void editUcasTipsFragmentIntro() {
         TextView introText = (TextView) view.findViewById(R.id.ucastips_introduction);
         introText.setTypeface(retroFont);
