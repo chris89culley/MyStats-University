@@ -59,6 +59,10 @@ public class UcasTipsFragmentSelecter extends Fragment {
                     view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
                     editUcasTipsFragmentPersonalStatement();
                     return view;
+                case 3:
+                    view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
+                    editUcasTipsFragmentInterview();
+                    return view;
             }
 
         }catch(Exception IO){
@@ -68,6 +72,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
 
         return view;
+    }
+
+    private void editUcasTipsFragmentInterview() {
     }
 
     private void editUcasTipsFragmentPersonalStatement() {
