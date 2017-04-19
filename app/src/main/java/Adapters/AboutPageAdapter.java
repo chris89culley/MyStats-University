@@ -34,11 +34,19 @@ public class AboutPageAdapter extends FragmentPagerAdapter {
         return frag;
     }
 
+    /**
+     * Returns the amount of fragments currently available
+     */
     @Override
     public int getCount() {
         return pageCount;
     }
 
+    /**
+     * returns the name of the Fragment at the corrent position selected
+     * @param pos the position of the Fragment
+     * @return
+     */
     @Override
     public CharSequence getPageTitle(int pos){
         return title[pos];
