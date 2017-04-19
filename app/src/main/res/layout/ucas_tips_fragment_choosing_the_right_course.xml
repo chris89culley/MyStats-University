@@ -51,6 +51,13 @@
                 android:text="@string/ucas_tips_modules"
                 android:drawableLeft="@drawable/door_icon1"/>
 
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_open_days"
+                android:layout_below="@id/ucas_tips_modules"
+                android:text="@string/ucas_tips_open_days"
+                android:drawableRight="@drawable/door_icon1"
+                />
 
 
 
