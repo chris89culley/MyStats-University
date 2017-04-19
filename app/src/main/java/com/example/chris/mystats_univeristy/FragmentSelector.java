@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -18,6 +20,8 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
 
 import Data.Course;
 import Data.RSDBhandler;
@@ -187,6 +191,10 @@ public class FragmentSelector extends Fragment {
      */
     private View createEmploymentStatsPage(View v,Typeface font){
 
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(null,android.R.layout.simple_list_item_1,arr);
+        //ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
+
+
         TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
         chartTitle1.setTypeface(font);
 
@@ -195,6 +203,29 @@ public class FragmentSelector extends Fragment {
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
+
+        ArrayList<PieChart> list = new ArrayList();
+        list.add(pChart);
+
+        final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
+
+        ArrayAdapter<PieChart> adapter = new ArrayAdapter<PieChart>(getContext(),android.R.layout.simple_list_item_1,list);
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != prev){
+                    expandableListView.collapseGroup(prev);
+                }
+                prev = groupPosition;
+            }
+        });
+
+        expandableListView.setAdapter(adapter);
+
+
+
 
         final TextView salarySixmonthText = (TextView) view.findViewById(R.id.animText1);
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);

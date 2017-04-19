@@ -5,9 +5,26 @@
     android:layout_height="fill_parent">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
+        android:id="@+id/esRelativeLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <ExpandableListView
+            android:id="@+id/esExpandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/espie1"
+
+                android:background="@color/greenSheen"
+                android:layout_width="match_parent"
+                android:padding="80dp"
+                android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
+        </ExpandableListView>
 
         <TextView android:id="@+id/esChartTitle1"
             android:textColor="@color/oldBurgundy"
@@ -24,17 +41,9 @@
             />
 
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/espie1"
-            android:layout_below="@id/esChartTitle1"
-            android:background="@color/greenSheen"
-            android:layout_width="match_parent"
-            android:padding="80dp"
-            android:layout_height="300dp"></com.github.mikephil.charting.charts.PieChart>
-
         <TextView android:id="@+id/averageSalaryTitle"
             android:textColor="@color/oldBurgundy"
-            android:layout_below="@id/espie1"
+            android:layout_below="@+id/espie1"
             android:layout_width="match_parent"
             android:padding="30dp"
             android:layout_centerHorizontal="true"

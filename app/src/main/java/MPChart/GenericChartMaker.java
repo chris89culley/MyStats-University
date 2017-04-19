@@ -181,7 +181,7 @@ public class GenericChartMaker {
             chart.setDrawEntryLabels(true);
 
             Legend l = chart.getLegend();
-            l.setTextColor(Color.WHITE);
+            l.setTextColor(ColorTemplate.rgb("3B322C"));
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
             l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
             l.setOrientation(Legend.LegendOrientation.VERTICAL);
