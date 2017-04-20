@@ -15,20 +15,11 @@
                 android:text="@string/ucas_tips_choosing_course_intro"
                 />
 
-            <TextView
-                style="@style/text_view_center"
-                android:id="@+id/ucas_tips_career"
-                android:background="@color/greenSheen"
-                android:layout_below="@+id/ucas_tips_choosing_course_intro"
-                android:text="@string/ucas_tips_career"
-                android:drawableTop="@drawable/door_icon1"/>
-
-
-            <TextView
+           <TextView
                 style="@style/text_view_center"
 
                 android:id="@+id/ucas_tips_hobby"
-                android:layout_below="@+id/ucas_tips_career"
+                android:layout_below="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_hobby"
                 android:drawableTop="@drawable/door_icon1"/>
 
@@ -48,21 +39,7 @@
                 android:text="@string/ucas_tips_location"
                 android:drawableTop="@drawable/map_icon"/>
 
-            <TextView
-                style="@style/text_view_center"
-                android:id="@+id/ucas_tips_modules"
-                android:background="@color/greenSheen"
-                android:layout_below="@+id/ucas_tips_location"
-                android:text="@string/ucas_tips_modules"
-                android:drawableTop="@drawable/door_icon1"/>
 
-            <TextView
-                style="@style/text_view_center"
-                android:id="@+id/ucas_tips_open_days"
-                android:layout_below="@id/ucas_tips_modules"
-                android:text="@string/ucas_tips_open_days"
-                android:drawableTop="@drawable/research"
-                />
 
 
 

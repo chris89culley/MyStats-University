@@ -60,5 +60,28 @@
         <item name="android:drawablePadding">15dp</item>
     </style>
 
+    <style name="question_title">
+        <item name="android:gravity">left</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/background</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="answer">
+        <item name="android:gravity">left</item>
+        <item name="android:padding">350dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/greenSheen</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:drawablePadding">15dp</item>
+    </style>
 </resources>
