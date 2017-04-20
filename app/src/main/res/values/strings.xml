@@ -7,23 +7,24 @@
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
 
 
-
+    <!-- The About pages -->
+    <!-- the App Fragment-->
     <string name="about_app_title">MyStat University</string>
     <string name="basic_intro">The MyStats application was created to make an easy way to find different courses from specific universities within a certain area.
     The app was created by students for students, parents and teachers to easily find out the facts about different courses and universities.
     </string>
-
+    <!--The meet the team Fragment-->
     <string name="meet_the_team_intro">The team first met as they all attended Teesside University. This page tells everyone a little about each person who contributed to the making of this app.</string>
     <string name="chris_personal">This is Chris, a 27 year old meditating pescatarian, previously in business in the renewable sector;  Chris realised his true calling was in programming and problem solving after he built a SAP calculator making income predictions based on post code solar radiation levels.  Chris is studying Computer Science and aims to continue his education to Msc with interests in Machine Learning.</string>
     <string name="tel_personal">This is Terry, after working in McDonalds until the age of 23 he decided it was time to pursue his dream of computer coding. In his spare time Terry enjoys playing pool. Terry is about to start a placement at Sabisu. Terry aspires to work as a software developer once he finishes his degree course.</string>
     <string name="dan_personal">This is Daniel, he is currently 26 and is from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
     <string name="jack_personal">This is Jack, he is currently 21 and from Darlington. Jack is currently studying for his bachelor’s degree in computer science at Teeside university. Next year he is due to embark on a work placement at redev development in Leeds. This will be his first time working in the industry and is an exciting opportunity. This opportunity should help him reach his long-term career goal of joining the software industry as a software engineer.</string>
-
+    <!--The Data fragment-->
     <string name="data_intro">This section explains where the MyStats Application collects the information and how it is used. The application stores the information in firebase database and returns any relevant complete course sets. </string>
     <string name="hesa">The main amount of information is collected by the Higher Education Statistics Agency (HESA) and stored in a database on the HESA website. It receives the information mainly from the different university in which course it is displaying the information about. This agency collects as much information as it can about each course, some courses however have certain pieces of information missing. MyStats only shows courses with complete information. www.hesa.ac.uk</string>
     <string name="national_student_survey"> The MyStat app uses data from the National Student Survey to collect satisfaction information about the different courses from the students, this is done by Ipsos MORI. This information is collected through a questionnaire containing 22 questions and an additional 6 questions for NHS students. If the questionnaire hasn’t been completed by 10 students on a course, then the information isn’t included. For more information please visit the NSS website at http://www.thestudentsurvey.com</string>
     <string name="dlfh">The Destination of Leavers from Higher Education is used to find the information about people who have recently left university. The DLHE asks the leavers of courses what they are doing roughly 6 months and has an 80 response rate after the course has finished, they then survey the same people 40 months later with a 40 response rate.</string>
-
+    <!--The copyright details fragment-->
     <string name="copy_page_intro">On this page, you can find the legal stuff about the data used on MyStats</string>
     <string name="copy_unistats_disclaimer">MyStats is in no way affiliated with the UniStats website and uses and supplies the information without conjunction with the UniStats website.</string>
     <string name="copy_hesa_disclaimer">All the information is taken from the HESA database the data is published under a Creative Commons Attribution 4.0 International Licence. This means you can use and adapt this content for personal and commercial use, but you must give appropriate credit, provide a link to the licence and indicate if you have made changes. Appropriate credit should include our name (HESA) and web address (www.hesa.ac.uk). HESA is not responsible for any the conclusions or way the data is represented on this app and is not responsible for any content on this app.</string>
@@ -33,9 +34,10 @@
 
 
 
-
+    <!--Ucas Tips section-->
+    <!--Intro frament-->
     <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have found the best tips they can to help create your route as easy and successful as possible.</string>
-
+    <!--Choosing your course fragment-->
     <string name="ucas_tips_choosing_course_intro">So, first things first, deciding which course it is you want to take. Do you have a certain job in mind? This decision will help to shape the whole of your application form. You have most likely considered this however with over 37000 courses on offer in over 350 different universities it sometimes isn’t the easiest of choices. Therefore, we at UniStats have found the best points for you to consider</string>
     <string name="ucas_tips_career">Career: Do you have a certain career in mind? Perhaps you can talk to someone who is already in that career about how they got into the career. See a career guidance councillor at school or college. </string>
     <string name="ucas_tips_hobby">Hobby: If you haven’t a specific career in mind have you got a certain area in which you would like to go into something that you are passionate about. Considering a specific area can help to decrease the amount of options drastically.</string>
@@ -43,7 +45,7 @@
     <string name="ucas_tips_location">Location: You know the course, you feel like you have the grades but still don’t know what university to go to, maybe you should consider these points. How will you do being far away from home? Is there a city that you would just love to live in? Do you know someone who is already at a certain university? Try to consider these points.</string>
     <string name="ucas_tips_modules">Modules: Finally, you have narrowed it down, you have an idea of the type of course or career you want to take, you think you can get the grades or have looked at another entry way and have a few different universities to consider, well you need to make sure you look at the modules the course has to offer. Some courses may be similar but might have modules that cater to your needs and your overall needs.</string>
     <string name="ucas_tips_open_days">Open Days: Try different open days at the different Universities you want to go to. This will give you a view of the campus and an overview of the course. It even gives you a chance to current tutors and students. This should give you a much better grasp of the courses and institute.</string>
-
+    <!--Personal Statement Fragment-->
     <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. Now this can be a daunting task and is something all University admissions officers take very seriously. It could mean getting onto the course of your dreams, or not getting onto any courses at all. Well now that you are paying attention, here are some great tips to get you started.</string>
     <string name="ucas_tips_opening_paragraph">The opening Paragraph: Use the first paragraph to really grab the attention of whoever is reading this. Remember these people see allot of personal statements so they probably already know if one is good or bad from the first sentence never mind the first paragraph.</string>
     <string name="ucas_tips_take_your_time">Take your time: Start your personal statement early, this will give you plenty of time to make amendments read it through get it checked by your peers, teachers, parents or any advisors you may see.</string>
@@ -53,7 +55,7 @@
     <string name="ucas_tips_sell_yourself">Sell Yourself: Always remember you want to get on the course they aren’t after you. Really sell yourself and all the best qualities that you have. Include little details, have you had a job in the past, you will usually find skills are easily transferable that you can talk about and may just give you the edge against another candidate.</string>
     <string name="ucas_tips_your_expectations">Your expectations: Tell them what you hope to get from the course, talk about Career plans and your future once you have done the course. Say why you think this course best ties in with your aspirations. </string>
     <string name="ucas_tips_your_grammer">Your Grammar: This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, allot of services are available to get your personal statement checked. Bad English could make or break any candidate. </string>
-
+    <!--Interview Fragment-->
     <string name="ucas_tips_interview_intro">So, you’ve done it you’ve choose what to apply for wrote your personal statement sent it off and now the universities have short listed you, they want to meet you. This can be scary and for some people their first ever interview. Not to worry here at MyStats we have some tips and tricks to help you along the way.</string>
     <string name="ucas_tips_checking">Check for interviews: A University could send you an invitation directly or it could send you one through your UCAS track. Make sure you are regularly checking whatever means you may be contacted.</string>
     <string name="ucas_tips_times">Times or dates: If and where possible keep with the time and date the university have offered you, if this isn’t possible make sure to contact the university itself directly.</string>
@@ -65,15 +67,8 @@
     <string name="ucas_tips_practice">Practice: In the end practice will make perfect. Practice in the mirror, to your friends or with your parents. Try and find somewhere that gives mock interviews at school or college. Someone will be willing to help you and it will help to create the confidence to get you ahead of the competition.</string>
 
 
-
-
-
-
-
-
-
-
-
+    <!--Stats framents-->
+    <!--Entry information Fragment-->
     <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
 
 </resources>
