@@ -59,7 +59,7 @@
                 android:id="@+id/ucas_tips_practice"
                 android:layout_below="@id/ucas_tips_dress"
                 android:text="@string/ucas_tips_practice"
-                android:drawableTop="@drawable/door_icon1"
+                android:drawableTop="@drawable/tie"
                 />
 
 
