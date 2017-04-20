@@ -16,63 +16,62 @@
                 />
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
+                android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_checking"
                 android:layout_below="@+id/ucas_tips_interview_intro"
                 android:text="@string/ucas_tips_checking"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_times"
                 android:layout_below="@+id/ucas_tips_checking"
                 android:text="@string/ucas_tips_times"
-                android:drawableRight="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_preparing"
+                android:background="@color/greenSheen"
+
                 android:layout_below="@+id/ucas_tips_times"
                 android:text="@string/ucas_tips_preparing"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_plan_your_travel"
                 android:layout_below="@+id/ucas_tips_preparing"
                 android:text="@string/ucas_tips_plan_your_travel"
-                android:drawableRight="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_dress"
+                android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_plan_your_travel"
                 android:text="@string/ucas_tips_dress"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_left"
-                android:id="@+id/ucas_tips_research"
-                android:layout_below="@id/ucas_tips_dress"
-                android:text="@string/ucas_tips_research"
-                android:drawableRight="@drawable/door_icon1"
-                />
-
-            <TextView
-                style="@style/text_view_right"
-                android:id="@+id/ucas_tips_be_yourself"
-                android:layout_below="@+id/ucas_tips_research"
-                android:text="@string/ucas_tips_be_yourself"
-                android:drawableLeft="@drawable/door_icon1"/>
-
-            <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_practice"
-                android:layout_below="@id/ucas_tips_be_yourself"
+                android:layout_below="@id/ucas_tips_dress"
                 android:text="@string/ucas_tips_practice"
-                android:drawableRight="@drawable/door_icon1"
+                android:drawableTop="@drawable/door_icon1"
                 />
+
+
+            <TextView
+                style="@style/text_view_center"
+                android:id="@+id/ucas_tips_be_yourself"
+                android:background="@color/greenSheen"
+                android:layout_below="@id/ucas_tips_practice"
+                android:text="@string/ucas_tips_be_yourself"
+                android:drawableTop="@drawable/door_icon1"/>
+
 
 
 

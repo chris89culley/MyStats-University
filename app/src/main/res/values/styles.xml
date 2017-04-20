@@ -23,6 +23,26 @@
     <style name="color1">@style/holo_blue_brigt</style>
 
 
+    <style name="line_break">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#839788</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <style name="text_view_right">
         <item name="android:gravity">right</item>
         <item name="android:padding">15dp</item>
@@ -62,26 +82,24 @@
 
     <style name="question_title">
         <item name="android:gravity">left</item>
-        <item name="android:padding">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/background</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
         <item name="android:textSize">20dp</item>
         <item name="android:drawablePadding">15dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:drawableRight">@drawable/question_mark_resize</item>
+
     </style>
 
     <style name="answer">
         <item name="android:gravity">left</item>
-        <item name="android:padding">350dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingLeft">35dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/greenSheen</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
         <item name="android:textSize">15dp</item>
-        <item name="android:drawablePadding">15dp</item>
     </style>
 </resources>

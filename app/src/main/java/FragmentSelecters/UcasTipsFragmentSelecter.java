@@ -96,9 +96,6 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsDress = (TextView) view.findViewById(R.id.ucas_tips_dress);
         ucasTipsDress.setTypeface(retroFont);
 
-        TextView ucasTipsResearch = (TextView) view.findViewById(R.id.ucas_tips_research);
-        ucasTipsResearch.setTypeface(retroFont);
-
         TextView ucasTipsBeYourSelf = (TextView) view.findViewById(R.id.ucas_tips_be_yourself);
         ucasTipsBeYourSelf.setTypeface(retroFont);
 
@@ -121,8 +118,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsBeExcited = (TextView) view.findViewById(R.id.ucas_tips_be_excited);
         ucasTipsBeExcited.setTypeface(retroFont);
 
-        TextView ucasTipsBePositive = (TextView) view.findViewById(R.id.ucas_tips_be_positive);
-        ucasTipsBePositive.setTypeface(retroFont);
+
 
         TextView ucasTipsBePrepared = (TextView) view.findViewById(R.id.personal_statement_tips);
         ucasTipsBePrepared.setTypeface(retroFont);
