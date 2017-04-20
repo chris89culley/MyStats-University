@@ -15,49 +15,93 @@
                 android:text="@string/ucas_tips_choosing_course_intro"
                 />
 
-            <TextView
-                style="@style/text_view_right"
-                android:id="@+id/ucas_tips_career"
-                android:layout_below="@+id/ucas_tips_choosing_course_intro"
-                android:text="@string/ucas_tips_career"
-                android:drawableLeft="@drawable/door_icon1"/>
-
-
-            <TextView
-                style="@style/text_view_left"
+           <TextView
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_hobby"
-                android:layout_below="@+id/ucas_tips_career"
+                android:layout_below="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_hobby"
-                android:drawableRight="@drawable/door_icon1"/>
+               android:background="@color/greenSheen"
+               android:drawableTop="@drawable/basketball"/>
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_entry_requirments"
                 android:layout_below="@+id/ucas_tips_hobby"
                 android:text="@string/ucas_tips_entry_requirments"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/research"/>
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
+                android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location"
+                android:paddingBottom="5dp"
                 android:layout_below="@+id/ucas_tips_entry_requirments"
                 android:text="@string/ucas_tips_location"
-                android:drawableRight="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/house"/>
+
 
             <TextView
-                style="@style/text_view_right"
-                android:id="@+id/ucas_tips_modules"
+                style="@style/question_title"
+                android:id="@+id/ucas_tips_location_q1"
                 android:layout_below="@+id/ucas_tips_location"
-                android:text="@string/ucas_tips_modules"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:text="@string/ucas_tips_location_q1"/>
+            <View
+                android:id="@+id/q1_line_break"
+                style="@style/line_break"
+                android:layout_below="@+id/ucas_tips_location_q1"
+                />
+            <TextView
+                style="@style/answer"
+                android:id="@+id/ucas_tips_location_a1"
+                android:layout_below="@+id/q1_line_break"
+                android:text="@string/ucas_tips_location_a1"/>
 
             <TextView
-                style="@style/text_view_left"
-                android:id="@+id/ucas_tips_open_days"
-                android:layout_below="@id/ucas_tips_modules"
-                android:text="@string/ucas_tips_open_days"
-                android:drawableRight="@drawable/door_icon1"
-                />
+                style="@style/question_title"
+                android:background="@color/greenSheen"
+                android:id="@+id/ucas_tips_location_q2"
+                android:layout_below="@+id/ucas_tips_location_a1"
+                android:text="@string/ucas_tips_location_q2"/>
+            <View
+                style="@style/line_break"
+                android:id="@+id/q2_line_break"
+                android:layout_below="@+id/ucas_tips_location_q2"/>
+            <TextView
+                style="@style/answer"
+                android:background="@color/greenSheen"
+                android:id="@+id/ucas_tips_location_a2"
+                android:layout_below="@+id/q2_line_break"
+                android:text="@string/ucas_tips_location_a2"/>
+            <TextView
+                style="@style/question_title"
+                android:id="@+id/ucas_tips_location_q3"
+                android:layout_below="@+id/ucas_tips_location_a2"
+                android:text="@string/ucas_tips_location_q3"/>
+            <View
+                style="@style/line_break"
+                android:id="@+id/q3_line_break"
+                android:layout_below="@+id/ucas_tips_location_q3"/>
+            <TextView
+                style="@style/answer"
+                android:id="@+id/ucas_tips_location_a3"
+                android:layout_below="@+id/q3_line_break"
+                android:text="@string/ucas_tips_location_a3"/>
+            <TextView
+                style="@style/question_title"
+                android:id="@+id/ucas_tips_location_q4"
+                android:background="@color/greenSheen"
+                android:layout_below="@+id/ucas_tips_location_a3"
+                android:text="@string/ucas_tips_location_q4"/>
+            <View
+                style="@style/line_break"
+                android:id="@+id/q4_line_break"
+                android:layout_below="@id/ucas_tips_location_q4"/>
+            <TextView
+                style="@style/answer"
+                android:id="@+id/ucas_tips_location_a4"
+                android:background="@color/greenSheen"
+                android:layout_below="@+id/q4_line_break"
+                android:text="@string/ucas_tips_location_a4"/>
 
 
 
