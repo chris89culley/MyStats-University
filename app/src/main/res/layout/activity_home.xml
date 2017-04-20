@@ -56,7 +56,7 @@
 
                     <Button
                     android:id="@+id/quicksearchbutton"
-                    android:text="quick search"
+                    android:text="search"
                     android:layout_height="85dp"
                     android:layout_width="85dp"
                     app:arc_angle="0"
@@ -81,14 +81,14 @@
                         />
 
                     <Button
-                        android:id="@+id/advancedsearchbutton"
+                        android:id="@+id/recentsearchbutton"
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:textColor="#3B322C"
                         android:background="@drawable/searchbutton"
                         app:arc_angle="-80"
                         android:textSize="10dp"
-                        android:text="advanced \n search"
+                        android:text="recent \n search"
                         android:gravity="bottom|center"
                         android:paddingBottom="10dp"
                         />

@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
 import Data.Course;
-import Adapters.PagerAdapter;
+import Adapters.StatsPageAdapter;
 import Data.RSDBhandler;
 
 public class CourseStats extends MenuViewActivity  {
@@ -42,7 +40,7 @@ public class CourseStats extends MenuViewActivity  {
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
 
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
-        vp.setAdapter(new PagerAdapter(getSupportFragmentManager(), this, course));
+        vp.setAdapter(new StatsPageAdapter(getSupportFragmentManager(), this, course));
 
         tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);

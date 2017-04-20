@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/greenSheen">
+
+
+            <TextView
+                android:id="@+id/copy_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/copy_page_intro"
+                android:background="@color/background"
+            android:paddingTop="10dp"
+            android:padding="10dp"
+            android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/copy_unistats_disclaimer"
+                android:layout_below="@+id/copy_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/copy_unistats_disclaimer"
+                android:paddingTop="10dp"
+                android:padding="10dp"
+                android:background="@color/greenSheen"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/copu_hesa_disclaimer"
+                android:layout_below="@id/copy_unistats_disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/copy_hesa_disclaimer"
+                android:background="@color/background"
+                android:paddingTop="10dp"
+                android:padding="10dp"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

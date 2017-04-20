@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/text_view_center"
+                android:id="@+id/personal_statement_introduction"
+                android:text="@string/ucas_tips_personal_statement_intro"/>
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_opening_paragraph"
+                android:layout_below="@+id/personal_statement_introduction"
+                android:text="@string/ucas_tips_opening_paragraph"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_take_your_time"
+                android:layout_below="@+id/ucas_tips_opening_paragraph"
+                android:text="@string/ucas_tips_take_your_time"
+                android:drawableRight="@drawable/door_icon1"/>
+
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_be_excited"
+                android:layout_below="@+id/ucas_tips_take_your_time"
+                android:text="@string/ucas_tips_be_excited"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_be_positive"
+                android:layout_below="@+id/ucas_tips_be_excited"
+                android:text="@string/ucas_tips_be_positive"
+                android:drawableRight="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_be_prepared"
+                android:layout_below="@+id/ucas_tips_be_positive"
+                android:text="@string/ucas_tips_be_prepared"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_sell_yourself"
+                android:layout_below="@+id/ucas_tips_be_prepared"
+                android:text="@string/ucas_tips_sell_yourself"
+                android:drawableRight="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_your_expectations"
+                android:layout_below="@+id/ucas_tips_sell_yourself"
+                android:text="@string/ucas_tips_your_expectations"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_your_grammer"
+                android:layout_below="@+id/ucas_tips_your_expectations"
+                android:text="@string/ucas_tips_your_grammer"
+                android:drawableRight="@drawable/door_icon1"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

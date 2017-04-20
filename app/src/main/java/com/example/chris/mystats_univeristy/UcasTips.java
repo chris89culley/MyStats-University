@@ -7,24 +7,27 @@ import android.support.v4.view.ViewPager;
 import com.example.chris.mystats_univeristy.MenuViewActivity;
 import com.example.chris.mystats_univeristy.R;
 
-import Adapters.AboutPageAdapter;
+import Adapters.UcasTipsAdapter;
 
-public class About extends MenuViewActivity {
+/**
+ * Created by Terence Lawson on 18/04/2017.
+ */
+
+public class UcasTips extends MenuViewActivity {
+
 
     TabLayout tb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_ucas_tips);
 
-        ViewPager vp = (ViewPager) findViewById(R.id.aboutViewPager);
-        vp.setAdapter(new AboutPageAdapter(getSupportFragmentManager(), this));
+        ViewPager vp = (ViewPager) findViewById(R.id.UcasTipsViewPager);
+        vp.setAdapter(new UcasTipsAdapter(getSupportFragmentManager(), this));
 
 
-        tb = (TabLayout) findViewById(R.id.aboutTabLayout);
+        tb = (TabLayout) findViewById(R.id.UcasTipsTabLayout);
         tb.setupWithViewPager(vp);
 
     }
-
-
 }

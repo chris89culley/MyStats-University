@@ -51,23 +51,38 @@ public class ChartStats {
     }
 
 
+    /**
+     * Accessor method for the title of the chart
+     * @return  String ChartTitle
+     */
     public String getChartTitle() {
         return chartTitle;
     }
-
+    /**
+     * Accessor method for the tags
+     * @return  String[] tags
+     */
     public String[] getTags() {
         return tags;
-
     }
-
+    /**
+     * Accessor method for the data as ints
+     * @return  int[] Data
+     */
     public int[] getDataInt() {
         return dataInt;
     }
-
+    /**
+     * Accessor method for the data
+     * @return  String[] Data
+     */
     public String[] getData() {
         return data;
     }
-
+    /**
+     * Accessor method for the hasData flag
+     * @return  hasData flag
+     */
     public boolean hasData(){
         return hasData;
     }
@@ -80,6 +95,7 @@ public class ChartStats {
         ArrayList<String> dataAL = new ArrayList<String>(Arrays.asList(data));
         ArrayList<String> tagsAL = new ArrayList<String>(Arrays.asList(tags));
         String str;
+
         for(int i = 0; i < dataAL.size() ;i++ ){ // removes any empty entries
 
             if (Objects.equals(dataAL.get(i),"")|| Objects.equals(dataAL.get(i),"0") || Objects.equals(dataAL.get(i)," " )) {
@@ -102,10 +118,12 @@ public class ChartStats {
         data = dataAL.toArray(data);
 
         tags = new String[tagsAL.size()];
-     tags = tagsAL.toArray(tags);
-
+        tags = tagsAL.toArray(tags);
     }
 
+    /**
+     * Store the data as integers rather than strings
+     */
     private void dataToInt(){
         dataInt = new int[data.length];
         for (int i =0; data.length > i;i++){

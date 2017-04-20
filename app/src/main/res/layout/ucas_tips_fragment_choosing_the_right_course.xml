@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/text_view_center"
+                android:id="@+id/ucas_tips_choosing_course_intro"
+                android:text="@string/ucas_tips_choosing_course_intro"
+                />
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_career"
+                android:layout_below="@+id/ucas_tips_choosing_course_intro"
+                android:text="@string/ucas_tips_career"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_hobby"
+                android:layout_below="@+id/ucas_tips_career"
+                android:text="@string/ucas_tips_hobby"
+                android:drawableRight="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_entry_requirments"
+                android:layout_below="@+id/ucas_tips_hobby"
+                android:text="@string/ucas_tips_entry_requirments"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_location"
+                android:layout_below="@+id/ucas_tips_entry_requirments"
+                android:text="@string/ucas_tips_location"
+                android:drawableRight="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_right"
+                android:id="@+id/ucas_tips_modules"
+                android:layout_below="@+id/ucas_tips_location"
+                android:text="@string/ucas_tips_modules"
+                android:drawableLeft="@drawable/door_icon1"/>
+
+            <TextView
+                style="@style/text_view_left"
+                android:id="@+id/ucas_tips_open_days"
+                android:layout_below="@id/ucas_tips_modules"
+                android:text="@string/ucas_tips_open_days"
+                android:drawableRight="@drawable/door_icon1"
+                />
+
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
