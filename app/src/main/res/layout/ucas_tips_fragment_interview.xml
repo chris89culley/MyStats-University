@@ -21,7 +21,7 @@
                 android:id="@+id/ucas_tips_checking"
                 android:layout_below="@+id/ucas_tips_interview_intro"
                 android:text="@string/ucas_tips_checking"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/student_boy"/>
 
 
             <TextView
@@ -29,23 +29,22 @@
                 android:id="@+id/ucas_tips_times"
                 android:layout_below="@+id/ucas_tips_checking"
                 android:text="@string/ucas_tips_times"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/clock"/>
 
             <TextView
                 style="@style/text_view_center"
                 android:id="@+id/ucas_tips_preparing"
                 android:background="@color/greenSheen"
-
                 android:layout_below="@+id/ucas_tips_times"
                 android:text="@string/ucas_tips_preparing"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/talking"/>
 
             <TextView
                 style="@style/text_view_center"
                 android:id="@+id/ucas_tips_plan_your_travel"
                 android:layout_below="@+id/ucas_tips_preparing"
                 android:text="@string/ucas_tips_plan_your_travel"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/backpack"/>
 
             <TextView
                 style="@style/text_view_center"
@@ -53,7 +52,7 @@
                 android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_plan_your_travel"
                 android:text="@string/ucas_tips_dress"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/motorboard"/>
 
             <TextView
                 style="@style/text_view_center"
@@ -70,7 +69,7 @@
                 android:background="@color/greenSheen"
                 android:layout_below="@id/ucas_tips_practice"
                 android:text="@string/ucas_tips_be_yourself"
-                android:drawableTop="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/girl_student"/>
 
 
 

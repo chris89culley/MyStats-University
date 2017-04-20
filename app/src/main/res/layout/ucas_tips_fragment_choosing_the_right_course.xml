@@ -21,7 +21,7 @@
                 android:layout_below="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_hobby"
                android:background="@color/greenSheen"
-               android:drawableTop="@drawable/research"/>
+               android:drawableTop="@drawable/basketball"/>
 
             <TextView
                 style="@style/text_view_center"
