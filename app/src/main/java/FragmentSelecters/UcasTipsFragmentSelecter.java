@@ -114,8 +114,6 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
         ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
 
-        TextView ucasTipsOpeningParagraph = (TextView) view.findViewById(R.id.ucas_tips_opening_paragraph);
-        ucasTipsOpeningParagraph.setTypeface(retroFont);
 
         TextView ucasTipsTakeYourTime = (TextView) view.findViewById(R.id.ucas_tips_take_your_time);
         ucasTipsTakeYourTime.setTypeface(retroFont);
@@ -126,14 +124,11 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsBePositive = (TextView) view.findViewById(R.id.ucas_tips_be_positive);
         ucasTipsBePositive.setTypeface(retroFont);
 
-        TextView ucasTipsBePrepared = (TextView) view.findViewById(R.id.ucas_tips_be_prepared);
+        TextView ucasTipsBePrepared = (TextView) view.findViewById(R.id.personal_statement_tips);
         ucasTipsBePrepared.setTypeface(retroFont);
 
-        TextView ucasTipsSellYourself = (TextView) view.findViewById(R.id.ucas_tips_sell_yourself);
+        TextView ucasTipsSellYourself = (TextView) view.findViewById(R.id.ucas_tips_the_thesaurus);
         ucasTipsSellYourself.setTypeface(retroFont);
-
-        TextView ucasTipsYourExpectations = (TextView) view.findViewById(R.id.ucas_tips_your_expectations);
-        ucasTipsYourExpectations.setTypeface(retroFont);
 
         TextView ucasTipsYourGrammer = (TextView) view.findViewById(R.id.ucas_tips_your_grammer);
         ucasTipsYourGrammer.setTypeface(retroFont);
@@ -147,8 +142,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.ucas_tips_choosing_course_intro);
         ucasTipsChoosingCourseIntro.setTypeface(retroFont);
 
-        TextView ucasTipsCareer = (TextView) view.findViewById(R.id.ucas_tips_career);
-        ucasTipsCareer.setTypeface(retroFont);
+
 
         TextView ucasTipsHobby = (TextView) view.findViewById(R.id.ucas_tips_hobby);
         ucasTipsHobby.setTypeface(retroFont);
@@ -159,11 +153,31 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TextView ucasTipsLocation = (TextView) view.findViewById(R.id.ucas_tips_location);
         ucasTipsLocation.setTypeface(retroFont);
 
-        TextView ucasTipsModules = (TextView) view.findViewById(R.id.ucas_tips_modules);
-        ucasTipsModules.setTypeface(retroFont);
+        TextView ucasTipsLocationQ1 = (TextView) view.findViewById(R.id.ucas_tips_location_q1);
+        ucasTipsLocationQ1.setTypeface(retroFont);
 
-        TextView ucasTipsOpenDays = (TextView) view.findViewById(R.id.ucas_tips_open_days);
-        ucasTipsOpenDays.setTypeface(retroFont);
+        TextView ucasTipsLocationA1 = (TextView) view.findViewById(R.id.ucas_tips_location_a1);
+        ucasTipsLocationA1.setTypeface(retroFont);
+
+        TextView ucasTipsLocationQ2 = (TextView) view.findViewById(R.id.ucas_tips_location_q2);
+        ucasTipsLocationQ2.setTypeface(retroFont);
+
+        TextView ucasTipsLocationA2 = (TextView) view.findViewById(R.id.ucas_tips_location_a2);
+        ucasTipsLocationA2.setTypeface(retroFont);
+
+        TextView ucasTipsLocationQ3 = (TextView) view.findViewById(R.id.ucas_tips_location_q3);
+        ucasTipsLocationQ3.setTypeface(retroFont);
+
+        TextView ucasTipsLocationA3 = (TextView) view.findViewById(R.id.ucas_tips_location_a3);
+        ucasTipsLocationA3.setTypeface(retroFont);
+
+        TextView ucasTipsLocationQ4 = (TextView) view.findViewById(R.id.ucas_tips_location_q4);
+        ucasTipsLocationQ4.setTypeface(retroFont);
+
+        TextView ucasTipsLocationA4 = (TextView) view.findViewById(R.id.ucas_tips_location_a4);
+        ucasTipsLocationA4.setTypeface(retroFont);
+
+
     }
 
     /**
