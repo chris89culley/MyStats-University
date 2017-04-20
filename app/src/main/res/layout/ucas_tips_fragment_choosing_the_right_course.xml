@@ -16,47 +16,52 @@
                 />
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_career"
+                android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_career"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
+
                 android:id="@+id/ucas_tips_hobby"
                 android:layout_below="@+id/ucas_tips_career"
                 android:text="@string/ucas_tips_hobby"
-                android:drawableRight="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_entry_requirments"
+                android:background="@color/greenSheen"
+
                 android:layout_below="@+id/ucas_tips_hobby"
                 android:text="@string/ucas_tips_entry_requirments"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_location"
                 android:layout_below="@+id/ucas_tips_entry_requirments"
                 android:text="@string/ucas_tips_location"
-                android:drawableRight="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/map_icon"/>
 
             <TextView
-                style="@style/text_view_right"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_modules"
+                android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_location"
                 android:text="@string/ucas_tips_modules"
-                android:drawableLeft="@drawable/door_icon1"/>
+                android:drawableTop="@drawable/door_icon1"/>
 
             <TextView
-                style="@style/text_view_left"
+                style="@style/text_view_center"
                 android:id="@+id/ucas_tips_open_days"
                 android:layout_below="@id/ucas_tips_modules"
                 android:text="@string/ucas_tips_open_days"
-                android:drawableRight="@drawable/door_icon1"
+                android:drawableTop="@drawable/research"
                 />
 
 
