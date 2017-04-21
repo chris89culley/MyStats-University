@@ -1,4 +1,4 @@
-package com.example.chris.mystats_univeristy;
+package FragmentSelectors;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,11 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.chris.mystats_univeristy.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -20,7 +19,6 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import Data.Course;
-import Data.RSDBhandler;
 import MPChart.UniversityStatsChartMaker;
 import Adapters.ExpandableSatisfactionAdapter;
 
@@ -28,7 +26,7 @@ import Adapters.ExpandableSatisfactionAdapter;
  * Created by c077ing on 08/03/2017.
  */
 
-public class FragmentSelector extends Fragment {
+public class StatsPageSelecter extends Fragment {
 
     private int pos;
     private View view;
@@ -43,7 +41,7 @@ public class FragmentSelector extends Fragment {
      * @param position
      * @param course
      */
-    public FragmentSelector(int position, Course course) {
+    public StatsPageSelecter(int position, Course course) {
         this.pos = position;
         this.course = course;
     }
@@ -87,20 +85,16 @@ public class FragmentSelector extends Fragment {
                         lineChart = (LineChart) view.findViewById(R.id.linechart);
 
                         //Set the description
-                        TextView entryChartTitle = (TextView) view.findViewById(R.id.esChartTitle1);
-                        entryChartTitle.setText("Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course");
-                        entryChartTitle.setTypeface(retroFont);
+                        TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
+                        pageDescription.setTypeface(retroFont);
 
                         //Sets the Y Axis title
                         TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
-                        yAxislabel.setText("Percentage of people");
                         yAxislabel.setTypeface(retroFont);
 
                         //Sets the X Axis title
                         TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
-                        xAxislabel.setText("Amount of UCAS Points");
                         xAxislabel.setTypeface(retroFont);
-
                         lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
                     }catch (Exception e){
                         return view = inflater.inflate(R.layout.fragment_error, container, false);
@@ -187,7 +181,10 @@ public class FragmentSelector extends Fragment {
      */
     private View createEmploymentStatsPage(View v,Typeface font){
 
-        TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(null,android.R.layout.simple_list_item_1,arr);
+        //ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
+
+        final TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
         chartTitle1.setTypeface(font);
 
         pChart = (PieChart) view.findViewById(R.id.espie1);
@@ -195,6 +192,25 @@ public class FragmentSelector extends Fragment {
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
+
+
+        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            //false if chart in view
+            boolean animFlag = false;
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                //chart position plus chart height
+                float animPos = pChart.getY()+pChart.getHeight();
+                if(animFlag == true && scrollY < animPos ){
+                    pChart.animateXY(2000,2000);
+                    animFlag = false;
+                } else if(scrollY > animPos ){
+                    animFlag = true;
+                }
+            }
+        });
+
+
 
         final TextView salarySixmonthText = (TextView) view.findViewById(R.id.animText1);
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);
@@ -207,15 +223,13 @@ public class FragmentSelector extends Fragment {
         salarySixmonthText.setTypeface(font);
 
         salaryFourtymonthText.setTextSize(13f);
-        salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-        salaryFourtymonthText.setText("The average salary 40 months after was \n" + course.getAverageSalaryAfter40MonthsText().trim());
+        //salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
+        salaryFourtymonthText.setText("The average salary 40 months after\n was\n" + course.getAverageSalaryAfter40MonthsText().trim()+" GBP");
 
         salarySixmonthText.setTextSize(13f);
-        salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-        salarySixmonthText.setText("The average salary 6 months after was \n " + course.getAverageSalaryAfter6MonthsText().trim());
+        //salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
+        salarySixmonthText.setText("The average salary 6 months after\n was\n" + course.getAverageSalaryAfter6MonthsText().trim()+" GBP");
 
-        final Animation animright1 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
-        final Animation animright2 = AnimationUtils.loadAnimation(this.getContext(),R.anim.slide_right);
         double salary = 0;
         try{
             Log.d("Salary", course.getAverageSalaryAfter6MonthsText().substring(1));
@@ -226,7 +240,6 @@ public class FragmentSelector extends Fragment {
 
             e.printStackTrace();
         }
-        TextView monthlyWage = (TextView) view.findViewById(R.id.esWageAfterRepayments);
         if (salary != 0 ){
           int repayment = 0;
         if (salary > 174950 && salary <= 18500 ){
@@ -237,7 +250,6 @@ public class FragmentSelector extends Fragment {
           repayment = 48;
         } else if(salary > 24000 && salary <= 27000) {
         repayment = 71;
-
         } else if(salary > 27000 && salary <= 30000 ) {
           repayment = 71;
         } else if(salary > 30000){
@@ -249,41 +261,21 @@ public class FragmentSelector extends Fragment {
         salary -= repayment;
         salary = Math.round(salary);
 
-        monthlyWage.setTypeface(font);
-        monthlyWage.setText("Your Monthly wage will be £" + salary +"\nAfter paying 20% tax \nand a student loan repayment of £"+repayment);
-        }
+        TextView monthlyWage = (TextView) view.findViewById(R.id.monthlyBreakdownAfterTax);
+        TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
+        TextView taxPayment = (TextView) view.findViewById(R.id.monthlyBreakdownTax);
 
-        /*salaryFourtymonthSymbol.setOnClickListener(new View.OnClickListener() {
-            Boolean animFlag = true;
-            @Override
-            public void onClick(View v) {
-                if (animFlag == true ) {
-                    salaryFourtymonthText.setTextSize(13f);
-                    salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-                    salaryFourtymonthText.setText("The average salary 40 months after was \n" + course.getAverageSalaryAfter40MonthsText().trim());
-                    salaryFourtymonthText.startAnimation(animright1);
-                    animFlag = false;
-                }
-            }
-        });
-        salarySixmonthSymbol.setOnClickListener(new View.OnClickListener() {
-            Boolean animFlag = true;
-            @Override
-            public void onClick(View v) {
-                if (animFlag == true ) {
-                    salarySixmonthText.setTextSize(13f);
-                    salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-                    salarySixmonthText.setText("The average salary 6 months after was \n " + course.getAverageSalaryAfter6MonthsText().trim());
-                    salarySixmonthText.startAnimation(animright2);
-                    animFlag = false;
-                }
-            }
-        });*/
+        monthlyWage.setTypeface(font);
+        loanRepayment.setTypeface(font);
+        taxPayment.setTypeface(font);
+
+        monthlyWage.setText("Average monthly wage of: " + salary+" Pounds");
+        loanRepayment.setText("Student loan repayment of: "+repayment+" Pounds");
+        taxPayment.setText("Paying 20% tax");
+
+        }
        return v ;
     }
-
-
-
     /**
      * used to create the study info fragments
      * @param v View
@@ -314,37 +306,47 @@ public class FragmentSelector extends Fragment {
         stat2.setText(vals[0]+"% "+"Of the course is assessed by coursework");
 
 
-
+        //Chart 1 data population and settings
         pChart =  (PieChart) view.findViewById(R.id.sipie1);
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
-
-
-        pChart  =  (PieChart) view.findViewById(R.id.sipie2);
+        //Chart 2 data population and settings
+        pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
         pChart.animateXY(2000,2000);
 
+        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            //false if chart in view
+            boolean animFlag1 = false;
+            boolean animFlag2 = false;
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                //chart position plus chart height
+                PieChart pie1 = (PieChart) view.findViewById(R.id.sipie1);
+                PieChart pie2 = (PieChart) view.findViewById(R.id.sipie2);
 
-        //view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-          //  boolean inview1,inview2;
-           // @Override
-            //public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-              //  Log.d("Scroll y pos",Integer.toString(scrollY));
-                //if (scrollY > 100 && scrollY < 1400 && inview1 == true){
-                  //  pChart.animateXY(2000,2000);
-                    //inview2 = !inview2;
-                //}
-                //if (scrollY > 1400 && inview2 == true){
-                  //  inview1 = !inview1;
-                    //pChart.animateXY(2000,2000);
-                //}
-            //}
-        //});
+                //animation position
+                float animPos = pie1.getY()+pie1.getHeight();
+                //using the postions of the charts to trigger animations in the scroll view
+                if(animFlag1 == true && scrollY < animPos ){
+                    pie1.animateXY(2000,2000);
+                    animFlag1 = false;
+                } else if(scrollY > animPos ){
+                    animFlag1 = true;
+                }else if(animFlag2 == true && scrollY+view.getHeight() > pie2.getY()){
+                    pie2.animateXY(2000,2000);
+                    animFlag2 = false;
+                } else if (scrollY+view.getHeight() < pie2.getY() && animFlag2 == false ){
+                    animFlag2 = true;
+                }
+            }
+        });
+
         return v;
     }
 

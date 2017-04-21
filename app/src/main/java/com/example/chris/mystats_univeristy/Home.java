@@ -6,8 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Animations.AnimatorUtils;
+import Data.RSDBhandler;
 
 public class Home extends AppCompatActivity {
 
@@ -55,15 +56,13 @@ public class Home extends AppCompatActivity {
 
         //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
-        Button accountButton = (Button) findViewById(R.id.accountbutton);
-        Button advancedSearchButton = (Button) findViewById(R.id.advancedsearchbutton);
+        Button recentSearchButton = (Button) findViewById(R.id.recentsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
 
         //Sets the fonts of all the buttons
         quickSearchButton.setTypeface(retroFont);
-        accountButton.setTypeface(retroFont);
-        advancedSearchButton.setTypeface(retroFont);
+        recentSearchButton.setTypeface(retroFont);
         ucasTipsButton.setTypeface(retroFont);
         aboutButton.setTypeface(retroFont);
 
@@ -76,18 +75,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        accountButton.setOnClickListener(new View.OnClickListener() {
+        recentSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Account.class);
-                startActivity(intent);
-            }
-        });
-
-        advancedSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdvanceSearch.class);
+                Intent intent = new Intent(v.getContext(), SearchResults.class);
+                RSDBhandler dataGrabber =  new RSDBhandler(v.getContext());
+                intent.putExtra("searchedName" , "Recent Searches");
+                intent.putParcelableArrayListExtra("searchResults" , dataGrabber.readAll());
                 startActivity(intent);
             }
         });

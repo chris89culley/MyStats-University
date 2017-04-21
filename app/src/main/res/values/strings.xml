@@ -5,4 +5,91 @@
     <string name="fulltime">Full time courses</string>
     <string name="parttime">Part time courses</string>
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
+
+
+    <!-- The About pages -->
+    <!-- the App Fragment-->
+    <string name="about_app_title">MyStat University</string>
+    <string name="basic_intro">The MyStats application was created to make an easy way to find different courses from specific universities within a certain area.
+    The app was created by students for students, parents and teachers to easily find out the facts about different courses and universities.
+    </string>
+    <!--The meet the team Fragment-->
+    <string name="meet_the_team_intro">The team first met as they all attended Teesside University. This page tells everyone a little about each person who contributed to the making of this app.</string>
+    <string name="chris_personal">This is Chris, a 27 year old meditating pescatarian, previously in business in the renewable sector;  Chris realised his true calling was in programming and problem solving after he built a SAP calculator making income predictions based on post code solar radiation levels.  Chris is studying Computer Science and aims to continue his education to Msc with interests in Machine Learning.</string>
+    <string name="tel_personal">This is Terry, after working in McDonalds until the age of 23 he decided it was time to pursue his dream of computer coding. In his spare time Terry enjoys playing pool. Terry is about to start a placement at Sabisu. Terry aspires to work as a software developer once he finishes his degree course.</string>
+    <string name="dan_personal">This is Daniel, he is currently 26 and is from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
+    <string name="jack_personal">This is Jack, he is currently 21 and from Darlington. Jack is currently studying for his bachelor’s degree in computer science at Teeside university. Next year he is due to embark on a work placement at redev development in Leeds. This will be his first time working in the industry and is an exciting opportunity. This opportunity should help him reach his long-term career goal of joining the software industry as a software engineer.</string>
+    <!--The Data fragment-->
+    <string name="data_intro">This section explains where the MyStats Application collects the information and how it is used. The application stores the information in firebase database and returns any relevant complete course sets. </string>
+    <string name="hesa">The main amount of information is collected by the Higher Education Statistics Agency (HESA) and stored in a database on the HESA website. It receives the information mainly from the different university in which course it is displaying the information about. This agency collects as much information as it can about each course, some courses however have certain pieces of information missing. MyStats only shows courses with complete information. www.hesa.ac.uk</string>
+    <string name="national_student_survey"> The MyStat app uses data from the National Student Survey to collect satisfaction information about the different courses from the students, this is done by Ipsos MORI. This information is collected through a questionnaire containing 22 questions and an additional 6 questions for NHS students. If the questionnaire hasn’t been completed by 10 students on a course, then the information isn’t included. For more information please visit the NSS website at http://www.thestudentsurvey.com</string>
+    <string name="dlfh">The Destination of Leavers from Higher Education is used to find the information about people who have recently left university. The DLHE asks the leavers of courses what they are doing roughly 6 months and has an 80 response rate after the course has finished, they then survey the same people 40 months later with a 40 response rate.</string>
+    <!--The copyright details fragment-->
+    <string name="copy_page_intro">On this page, you can find the legal stuff about the data used on MyStats</string>
+    <string name="copy_unistats_disclaimer">MyStats is in no way affiliated with the UniStats website and uses and supplies the information without conjunction with the UniStats website.</string>
+    <string name="copy_hesa_disclaimer">All the information is taken from the HESA database the data is published under a Creative Commons Attribution 4.0 International Licence. This means you can use and adapt this content for personal and commercial use, but you must give appropriate credit, provide a link to the licence and indicate if you have made changes. Appropriate credit should include our name (HESA) and web address (www.hesa.ac.uk). HESA is not responsible for any the conclusions or way the data is represented on this app and is not responsible for any content on this app.</string>
+
+
+
+
+
+
+    <!--Ucas Tips section-->
+    <!--Intro frament-->
+    <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have put together some tips and hints to help you in your university application journey.</string>
+    <!--Choosing your course fragment-->
+    <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37000 courses offered across 350 different universities just starting out can be overwhelming. Below are some tips in how to choose the course right for you, followed by ways to test this choice to determine if you have made the right decision. </string>
+    <string name="ucas_tips_hobby">Research shows that intrinsically motivating work makes people a lot happier than a big pay cheque so why not pursue a course in the thing you do for fun, your hobby. Whether that’s computer games, gardening, crafts or cooking its worth exploring courses that incorporate your passion rather than concentrating on earning potential alone.  </string>
+    <string name="ucas_tips_entry_requirments">Entry requirements: Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
+    <string name="ucas_tips_location">Location: The choice of location is as important as the course itself, this largely depends on individual circumstances so here are some questions you could ask yourself before settling on a location;</string>
+    <string name="ucas_tips_location_q1">Is it important for you to be close to your family? If so how close?</string>
+    <string name="ucas_tips_location_a1">Graduate employment research has evidenced that students who leave home develop self-sufficiency sooner and therefore have potentially better job prospects than those who stay with family which is worth bearing in mind before you settle for ironed shirts and dinners on the table.</string>
+    <string name="ucas_tips_location_q2">What are the transportation times back home, is it an expensive route? </string>
+    <string name="ucas_tips_location_a2">A student rail or coach card will be a very sensible long-term investment and can make a great Christmas present from your family or friends, you may even find your bank will give you one free of charge when you move to a student account.</string>
+    <string name="ucas_tips_location_q3">Are you prepared for the city life if you are from the country and vise versa if you are from the big city would you be happy to give that up for a rural setting? </string>
+    <string name="ucas_tips_location_a3">Your time at university will be an opportunity for you to pursue your interests in a way you may never be able to again; so it is important that you’ll be able to access facilities enabling you to explore these interests. </string>
+    <string name="ucas_tips_location_q4">What about your budget, would you need to get a job to help fund your studies at that location?</string>
+    <string name="ucas_tips_location_a4">The cost of living varies throughout the country, aside from London the more expensive areas are still given the same student loan payments, meaning it is worth considering areas in the North of the country to take advantage of cheaper rents and nights out.  </string>
+
+    <!--Personal Statement Fragment-->
+    <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. Now this can be a daunting task and is something all University admissions officers take very seriously. This could be the difference between you getting onto the course of your dreams, or not getting onto any courses at all. Well now that you are nice and scared, here are some great tips to get you started.</string>
+    <string name="personal_statement_tips">Content of the personal statement:
+Make a great opening Paragraph: Use the first paragraph to grab the attention of the reader. Remember these people see a lot of personal statements so they probably already know if one is good or bad from the first sentence never mind the first paragraph. Do not use a quote to start your personal statement with, it might seem original but so many students do this and it’s not well received, this space is for you to sell yourself, not to share what others have said.
+
+Reasons for wanting to study the course:
+Say makes you want to take this course further, what has inspired you in your current studies. Talk about what made you interested and anything extra you have done to prepare you in this subject area. Do you have an overall goal, if it’s reasonable then mention it.
+How are you right for the course
+Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.
+What have you done outside of the class room (and why is it relevant)
+Write about how you have chased your interests in the subject outside of your current or previous courses. Talk about extra clubs you may have joined. Any extra studying or reading you have done should be mentioned this could be from a wide range of media, then give your reflective opinions on these different sources. Don’t mention doing any extra reading that everyone else is doing. Expand on this and say why it’s relevant to the course, speak about anything else you have done which is relevant to the subject.
+What transferable skills do you have?  (expand on the most relevant ones)
+Talk about any abilities you excel at, talk about if you are a good problem solver or work well independently. Try and tailor these skills to something that will work well with the subject you want to study. Give examples where possible if it is at school on the Duke of Edinburgh Award or any projects or a position of responsibility you may have held.
+
+Give some evidence that you can work independently and analytically.
+Briefly show how one of your current or previous courses has made you use these skills and think more critically and use alternative methods as a way of solving a problem.
+
+
+
+
+Your expectations: Tell them what you hope to get from the course, talk about Career plans and your future once you have done the course. Say why you think this course best ties in with your aspirations.
+</string>
+    <string name="ucas_tips_take_your_time">Take your time: Start your personal statement early, this will give you plenty of time to make amendments read it through get it checked by your peers, teachers, parents or any advisors you may see.</string>
+    <string name="ucas_tips_be_excited">Be Excited: Universities read hundreds if not thousands of different students’ personal statements. Make yours stand out by showing your enthusiasm get them to feel exactly how excited you are to go and do their course.</string>
+    <string name="ucas_tips_your_grammer">Your Grammar: This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, a lot of services are available to get your personal statement checked. Bad English could make or break any candidate.</string>
+    <string name="ucas_tips_the_thesaurus">Don’t overuse the thesaurus:  Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language you use and not use big words that make you sound clever. </string>
+
+    <!--Interview Fragment-->
+    <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Below you’ll find some tips to get you through the big day. </string>
+    <string name="ucas_tips_checking">Check for interviews: A University could send you an invitation directly or it could send you one through your UCAS track. Make sure you are regularly checking whatever means you may be contacted.</string>
+    <string name="ucas_tips_times">Times or dates: If and where possible keep with the time and date the university have offered you. It is not the end of the world to change an appointment but make sure you do so in good time. Make sure if you do change your interview date and time then you do it directly to the university and not through track.</string>
+    <string name="ucas_tips_preparing">Start Preparing: The key here is research; the course, modules  and the university are all talking points you should know thoroughly. Make sure you have re-read over your personal statement as this is probably going to be the basis for most of their questions. They will be expecting good students to have questions for them, so have follow up questions to keep the conversation moving.</string>
+    <string name="ucas_tips_plan_your_travel">Plan your Travel: There’s nothing worse than a late interviewee and planning your travel will avoid this disaster. This is a good opportunity to explore the surrounding area so it’s always best to arrive a few hours early then make sure you’re at the interview room 15 minutes before its due to begin.</string>
+    <string name="ucas_tips_dress">Choosing your outfit: When picking your interview attire it’s important that you are dressed like you want to be on the course. This doesn’t need to be suited a booted but smart casual is a minimum, most universities will stipulate their expectations so it’s best to call or email ahead of time to ask about the dress code. </string>
+    <string name="ucas_tips_practice">Practice: In the end practice will make perfect. Practice in the mirror, to your friends or with your parents. Try and find somewhere that gives mock interviews at school or college. Someone will be willing to help you and it will help to create the confidence to get you ahead of the competition.</string>
+    <string name="ucas_tips_be_yourself">Be Yourself: Let your personality show, the university is not expecting the finished product with vast knowledge of the subject but are looking for students that are motivated and show potential. </string>
+
+    <!--Stats framents-->
+    <!--Entry information Fragment-->
+    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
+
 </resources>

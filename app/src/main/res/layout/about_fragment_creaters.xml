@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/meet_the_team_intro"
+                    style="@style/text_view_left"
+                    android:text="@string/meet_the_team_intro"
+                    android:drawableRight="@drawable/uni_icon"
+                    />
+
+                <TextView
+                android:layout_below="@id/meet_the_team_intro"
+                android:id="@+id/chris"
+                android:drawableLeft="@drawable/insurance_icon"
+                style="@style/text_view_right"
+                android:text="@string/chris_personal" />
+
+
+            <TextView
+                android:id="@+id/terry"
+                style="@style/text_view_left"
+                android:drawableRight="@drawable/insurance_icon"
+                android:text="@string/tel_personal"
+                android:layout_below="@+id/chris"/>
+
+
+            <TextView
+                android:id="@+id/dan"
+                style="@style/text_view_right"
+                android:drawableLeft="@drawable/insurance_icon"
+                android:text="@string/dan_personal"
+                android:layout_below="@+id/terry"/>
+
+
+            <TextView
+                android:id="@+id/jack"
+                style="@style/text_view_left"
+                android:drawableRight="@drawable/insurance_icon"
+                android:text="@string/jack_personal"
+                android:layout_below="@+id/dan"/>
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+    </LinearLayout>
+
