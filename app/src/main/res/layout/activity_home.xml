@@ -22,8 +22,8 @@
                     android:layout_height="match_parent"
                     app:arc_freeAngle="true"
                     android:layout_marginTop="10sp"
-                    app:arc_radius="145sp"
-                    app:arc_axisRadius="140sp"
+                    app:arc_radius="155sp"
+                    app:arc_axisRadius="150sp"
                     app:arc_origin="center"
                     >
 
@@ -38,13 +38,13 @@
                         android:paddingBottom="20dp"
                         android:textColor="#3B322C"
                         android:background="@drawable/aboutbutton"
-                        app:arc_angle="80"
+                        app:arc_angle="60"
                         />
                     <Button
                         android:id="@+id/ucastipbutton"
                         android:textColor="#3B322C"
                         android:text="ucas tips"
-                        app:arc_angle="40"
+                        app:arc_angle="20"
                         android:layout_height="85dp"
                         android:layout_width="85dp"
                         android:background="@drawable/ucastips"
@@ -59,7 +59,7 @@
                     android:text="search"
                     android:layout_height="85dp"
                     android:layout_width="85dp"
-                    app:arc_angle="0"
+                    app:arc_angle="-20"
                     android:textSize="10dp"
                     android:textColor="#3B322C"
                     android:gravity="bottom|center"
@@ -67,18 +67,6 @@
                     android:background="@drawable/quicksearchbutton"
                     />
 
-                    <Button
-                        android:id="@+id/accountbutton"
-                        android:textColor="#3B322C"
-                        android:text="account"
-                        android:layout_height="85dp"
-                        android:background="@drawable/accountbutton"
-                        android:layout_width="85dp"
-                        android:gravity="bottom|center"
-                        android:textSize="10dp"
-                        android:paddingBottom="25dp"
-                        app:arc_angle="-40"
-                        />
 
                     <Button
                         android:id="@+id/recentsearchbutton"
@@ -86,7 +74,7 @@
                         android:layout_height="85dp"
                         android:textColor="#3B322C"
                         android:background="@drawable/searchbutton"
-                        app:arc_angle="-80"
+                        app:arc_angle="-60"
                         android:textSize="10dp"
                         android:text="recent \n search"
                         android:gravity="bottom|center"
