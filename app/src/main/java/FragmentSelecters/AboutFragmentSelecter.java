@@ -61,6 +61,7 @@ public class AboutFragmentSelecter extends Fragment {
                         return view;
                     case 3:
                         view = inflater.inflate(R.layout.about_fragment_copyright, container, false);
+                        editTheCopyrightFragment();
                         return view;
                 }
 
@@ -72,6 +73,19 @@ public class AboutFragmentSelecter extends Fragment {
 
             return view;
         }
+    /**
+     * Sets the font type of the Copyright Fragment
+     */
+    private void editTheCopyrightFragment() {
+        TextView pageIntro = (TextView) view.findViewById(R.id.copy_intro);
+        pageIntro.setTypeface(retroFont);
+
+        TextView copyUniStats = (TextView) view.findViewById(R.id.copy_unistats_disclaimer);
+        copyUniStats.setTypeface(retroFont);
+
+        TextView copyHesaDisclaimer = (TextView) view.findViewById(R.id.copu_hesa_disclaimer);
+        copyHesaDisclaimer.setTypeface(retroFont);
+    }
 
     /**
      * Sets the font type of the About the App Fragment
@@ -111,5 +125,7 @@ public class AboutFragmentSelecter extends Fragment {
         TextView jackDetails = (TextView) view.findViewById(R.id.jack);
         jackDetails.setTypeface(retroFont);
     }
+
+
 
 }
