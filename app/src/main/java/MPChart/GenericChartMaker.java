@@ -70,6 +70,7 @@ public class GenericChartMaker {
             }
 
 
+
        BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
 
 
