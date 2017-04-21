@@ -4,13 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:paddingTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ucastips_itroduction"
+        style="@style/text_view_center"
+        android:id="@+id/ucastips_introduction"
         android:text="@string/ucas_tips_intro"
-        android:drawablePadding="25dp"
-        android:padding="10dp"
-        android:gravity="center"
         android:drawableBottom="@drawable/ucaslogo"/>
+
+
 </LinearLayout>

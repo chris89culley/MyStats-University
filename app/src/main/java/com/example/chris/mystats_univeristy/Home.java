@@ -56,14 +56,12 @@ public class Home extends AppCompatActivity {
 
         //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
-        Button accountButton = (Button) findViewById(R.id.accountbutton);
         Button recentSearchButton = (Button) findViewById(R.id.recentsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
 
         //Sets the fonts of all the buttons
         quickSearchButton.setTypeface(retroFont);
-        accountButton.setTypeface(retroFont);
         recentSearchButton.setTypeface(retroFont);
         ucasTipsButton.setTypeface(retroFont);
         aboutButton.setTypeface(retroFont);
@@ -73,14 +71,6 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), SearchPage.class);
-                startActivity(intent);
-            }
-        });
-
-        accountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Account.class);
                 startActivity(intent);
             }
         });

@@ -70,6 +70,7 @@ public class GenericChartMaker {
             }
 
 
+
        BarDataSet barDataSet = new BarDataSet(entries, chartTitle); //Creating a dataSet for the chart
 
 
@@ -287,6 +288,22 @@ public class GenericChartMaker {
         return theData;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Generic LineChart creater
      * @param key Current X axis values

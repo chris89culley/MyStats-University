@@ -7,16 +7,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 import com.example.chris.mystats_univeristy.UcasTips;
-import FragmentSelecters.UcasTipsFragmentSelecter;
+import FragmentSelectors.UcasTipsFragmentSelecter;
 
 /**
  * Created by Terence Lawson on 18/04/2017.
  */
 
 public class UcasTipsAdapter extends FragmentPagerAdapter{
-    private String[] title = new String[]{"Intro","Getting Started","Personal Statement", };
+    private String[] title = new String[]{"Intro","Choosing your Course","Personal Statement", "Interview" };
     Context context;
-    private int pageCount = 3;
+    private int pageCount = 4;
 
     public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
         super(fm);
@@ -31,11 +31,19 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
         UcasTipsFragmentSelecter frag = new UcasTipsFragmentSelecter(position);
         return frag;    }
 
+    /**
+     * Returns the amount of fragments currently available
+     */
     @Override
     public int getCount() {
         return pageCount;
     }
 
+    /**
+     * returns the name of the Fragment at the corrent position selected
+     * @param pos the position of the Fragment
+     * @return
+     */
     @Override
     public CharSequence getPageTitle(int pos){
         return title[pos];
