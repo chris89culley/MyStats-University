@@ -287,6 +287,22 @@ public class GenericChartMaker {
         return theData;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Generic LineChart creater
      * @param key Current X axis values
