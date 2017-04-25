@@ -14,9 +14,9 @@ import FragmentSelectors.UcasTipsFragmentSelecter;
  */
 
 public class UcasTipsAdapter extends FragmentPagerAdapter{
-    private String[] title = new String[]{"Intro","Choosing your Course","Personal Statement", "Interview" };
+    private String[] title = new String[]{"Choosing your Course","Personal Statement", "Interview" };
     Context context;
-    private int pageCount = 4;
+    private int pageCount = 3;
 
     public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
         super(fm);

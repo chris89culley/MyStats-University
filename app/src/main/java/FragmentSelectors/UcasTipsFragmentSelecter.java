@@ -47,18 +47,14 @@ public class UcasTipsFragmentSelecter extends Fragment {
         try {
             switch (pos){
                 case 0:
-                    view = inflater.inflate(R.layout.ucas_tips_fragment_intro, container, false);
-                    editUcasTipsFragmentIntro();
-                    return view;
-                case 1:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
                     editUcasTipsFragmentChoosingTheRightCourse();
                     return view;
-                case 2:
+                case 1:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
                     editUcasTipsFragmentPersonalStatement();
                     return view;
-                case 3:
+                case 2:
                     view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
                     editUcasTipsFragmentInterview();
                     return view;
