@@ -20,7 +20,7 @@
                 <TextView
                 android:layout_below="@id/meet_the_team_intro"
                 android:id="@+id/chris"
-                android:drawableLeft="@drawable/insurance_icon"
+                android:drawableLeft="@drawable/chris"
                 style="@style/text_view_right"
                 android:text="@string/chris_personal" />
 
@@ -28,7 +28,7 @@
             <TextView
                 android:id="@+id/terry"
                 style="@style/text_view_left"
-                android:drawableRight="@drawable/insurance_icon"
+                android:drawableRight="@drawable/tel"
                 android:text="@string/tel_personal"
                 android:layout_below="@+id/chris"/>
 
@@ -36,7 +36,7 @@
             <TextView
                 android:id="@+id/dan"
                 style="@style/text_view_right"
-                android:drawableLeft="@drawable/insurance_icon"
+                android:drawableLeft="@drawable/dan"
                 android:text="@string/dan_personal"
                 android:layout_below="@+id/terry"/>
 
@@ -44,7 +44,7 @@
             <TextView
                 android:id="@+id/jack"
                 style="@style/text_view_left"
-                android:drawableRight="@drawable/insurance_icon"
+                android:drawableRight="@drawable/jack"
                 android:text="@string/jack_personal"
                 android:layout_below="@+id/dan"/>
 

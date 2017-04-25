@@ -16,4 +16,8 @@ public class FontGrabber {
     public  static  Typeface getMarketDecoFont(Activity activity){
         return  Typeface.createFromAsset(activity.getAssets(), "fonts/Market_Deco.ttf");
     }
+
+    public  static  Typeface getJosefinSanFont(Activity activity){
+        return  Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
+    }
 }

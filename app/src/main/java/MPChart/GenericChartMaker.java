@@ -322,7 +322,7 @@ public class GenericChartMaker {
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
         //create a set of data to add to the Lines to create the lines
-        LineDataSet dataSet = new LineDataSet(entries, "testing");
+        LineDataSet dataSet = new LineDataSet(entries, null);
         //Format the dataSet with cleaner lines and add different colours
         dataSet = setLineGraphData(dataSet);
         //Creates the curved effect on the line graph
@@ -446,10 +446,10 @@ public class GenericChartMaker {
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
-        dataSet.setColor(ColorTemplate.rgb("#4b88b0"));
+        dataSet.setColor(ColorTemplate.rgb("#008ae6"));
         dataSet.setDrawFilled(true); //Set the Graph to fill the
         dataSet.setFillAlpha(240); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("#4D749A")); //The colour under the graph
+        dataSet.setFillColor(ColorTemplate.rgb("#008ae6")); //The colour under the graph
         dataSet.setValueTextSize(18);
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
