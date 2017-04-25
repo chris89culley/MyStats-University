@@ -397,6 +397,7 @@ public class SearchPage extends MenuViewActivity  {
     public void locationManagerInitialiser(int mili, int distance) {
         //Checks if the
         if (locationPermissionCheck() == true){
+
             //Initialisees the Location manager witht he Location services.
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -423,8 +424,9 @@ public class SearchPage extends MenuViewActivity  {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
             return true;}
+        else {
             return true;
-
+        }
 
     }
 
@@ -441,7 +443,7 @@ public class SearchPage extends MenuViewActivity  {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 return;
             } else {
-                locationPermissionCheck();
+                return;
             }
         }
 
