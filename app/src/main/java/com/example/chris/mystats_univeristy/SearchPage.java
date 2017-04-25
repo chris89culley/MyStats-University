@@ -397,6 +397,7 @@ public class SearchPage extends MenuViewActivity  {
     public void locationManagerInitialiser(int mili, int distance) {
         //Checks if the
         if (locationPermissionCheck() == true){
+
             //Initialisees the Location manager witht he Location services.
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -418,13 +419,13 @@ public class SearchPage extends MenuViewActivity  {
         //Checks if the User already has the permissions granted
         //Asks the user to give the app permission to use locaitonal services
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-        Log.d("line 349", "In the permissions authorisation");
 
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
             return true;}
+        else {
             return true;
-
+        }
 
     }
 
@@ -441,7 +442,15 @@ public class SearchPage extends MenuViewActivity  {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 return;
             } else {
-                locationPermissionCheck();
+                searchedLocationEditTextField.setText("");
+                shouldGetLocationFromLocationEditText = true;
+                shouldGetLocationFromUserData = false;
+
+
+                Toast toast = Toast.makeText(getApplicationContext(), "I'm sorry this feature is not possible to use without Location services enabled", 10);
+                toast.show();
+
+                return;
             }
         }
 
