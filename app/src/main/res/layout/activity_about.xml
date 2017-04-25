@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".About"
     android:background="@color/background"
-    android:id="@+id/aboutPageTop">
+    android:id="@+id/drawerLayout"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,13 +34,12 @@
 
     </RelativeLayout>
 
+
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/navDrawer"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-
         app:menu="@menu/navigation"
-        android:layout_gravity="start">
-    </android.support.design.widget.NavigationView>
+        android:layout_gravity="start" />
 
 </android.support.v4.widget.DrawerLayout>
