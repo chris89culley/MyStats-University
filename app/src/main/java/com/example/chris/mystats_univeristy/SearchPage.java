@@ -307,7 +307,8 @@ public class SearchPage extends MenuViewActivity  {
                 if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
                     updateLongAndLatWithLocationGiven(getTheLocationFieldText());
                 } else if (shouldGetLocationFromUserData) {
-                    getUsersLocationalData();
+                    if(locationPermissionCheck() == true){
+                    getUsersLocationalData();}
                 }
                 if(shouldGetLocationFromLocationEditText || shouldGetLocationFromUserData) {
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius,
@@ -347,8 +348,8 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void onClick(View view) {
                 if (locationPermissionCheck() == true){
-                searchedLocationEditTextField.setText("My Location");
-                shouldGetLocationFromLocationEditText = false;
+                    searchedLocationEditTextField.setText("My Location");
+                    shouldGetLocationFromLocationEditText = false;
                 shouldGetLocationFromUserData = true;}
             }
         });}
@@ -447,7 +448,7 @@ public class SearchPage extends MenuViewActivity  {
                 shouldGetLocationFromUserData = false;
 
 
-                Toast toast = Toast.makeText(getApplicationContext(), "I'm sorry this feature is not possible to use without Location services enabled", 10);
+                Toast toast = Toast.makeText(getApplicationContext(), "Location Services Disabled", Toast.LENGTH_SHORT);
                 toast.show();
 
                 return;
