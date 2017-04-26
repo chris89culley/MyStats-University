@@ -39,7 +39,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     // the titles of each expandable row
     private String[] groupItems = {"Teaching on the Course", "Assessment and Feedback",
             "Academic Support", "Organisation and Management",
-            "Learning Resources", "Personal Development", "StudentUnion"};
+            "Learning Resources", "Personal Development"};
 
     private Context context;
     private Course course;
@@ -55,7 +55,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      * @param course
      */
     public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity, Float graphTextSize) {
-        retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
+        retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
@@ -160,6 +160,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         }
 
         sectionName.setText(groupItems[groupPosition]);
+        sectionName.setTextColor(Colours.OLD_BURGUNDY.getColor());
         sectionName.setTypeface(retroFont);
 
         return rowView;
@@ -185,6 +186,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         chart.animateY(2000);
         chart.getXAxis().setTypeface(retroFont);
         chart.getXAxis().setTextSize(graphTextSize);
+        chart.getXAxis().setTextColor(Colours.OLD_BURGUNDY.getColor());
 
         return childView;
     }
@@ -211,8 +213,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
                 return UniversityStatsChartMaker.getChartLearningResources(course,chart);
             case 5:
                 return UniversityStatsChartMaker.getChartPersonalDevelopment(course,chart);
-            case 6:
-                return UniversityStatsChartMaker.getChartStudentUnion(course,chart);
             default:
                 return null;
         }

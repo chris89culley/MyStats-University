@@ -21,7 +21,7 @@ public class LocationScreen extends MenuViewActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radiuschecker);
 
-        check = (Button) findViewById(R.id.searchAdv);
+        check = (Button) findViewById(R.id.searchBtn);
 
         check.setOnClickListener(new View.OnClickListener(){
             @Override

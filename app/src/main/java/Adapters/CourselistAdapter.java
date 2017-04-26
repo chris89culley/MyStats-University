@@ -64,7 +64,7 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
         TextView averageSalaryAfter6 = (TextView) rowView.findViewById(R.id.salaryAfter6);
         TextView percentThatGoOnToWork = (TextView) rowView.findViewById(R.id.percentThatGoToWork);
         TextView averageSatisfaction = (TextView) rowView.findViewById(R.id.overallSatisafaction);
-        Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Market_Deco.ttf");
+        Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
         Button moreStatsButton = (Button) rowView.findViewById(R.id.moreStatsButton);
 

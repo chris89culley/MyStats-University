@@ -22,8 +22,6 @@
         <activity android:name=".UcasTips"/>
         <activity android:name=".About" />
         <activity android:name=".MenuViewActivity" />
-        <activity android:name=".Account" />
-        <activity android:name=".AdvanceSearch" />
         <activity android:name=".SearchResults" />
         <activity android:name=".CourseStats" />
         <activity android:name=".SearchPage" />

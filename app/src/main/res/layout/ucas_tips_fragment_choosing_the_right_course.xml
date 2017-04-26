@@ -11,13 +11,21 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_choosing_course_intro"
                 />
 
            <TextView
                 style="@style/text_view_center"
-                android:id="@+id/ucas_tips_hobby"
+               android:lineSpacingExtra="8dp"
+               android:textSize="16dp"
+               android:padding="15dp"
+               android:textColor="@color/oldBurgundy"
+               android:id="@+id/ucas_tips_hobby"
                 android:layout_below="@+id/ucas_tips_choosing_course_intro"
                 android:text="@string/ucas_tips_hobby"
                android:background="@color/greenSheen"
@@ -25,6 +33,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_entry_requirments"
                 android:layout_below="@+id/ucas_tips_hobby"
                 android:text="@string/ucas_tips_entry_requirments"
@@ -34,15 +46,23 @@
                 style="@style/text_view_center"
                 android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location"
-                android:paddingBottom="5dp"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/ucas_tips_entry_requirments"
                 android:text="@string/ucas_tips_location"
                 android:drawableTop="@drawable/house"/>
 
 
             <TextView
+                android:background="@color/greenSheen"
                 style="@style/question_title"
                 android:id="@+id/ucas_tips_location_q1"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/ucas_tips_location"
                 android:text="@string/ucas_tips_location_q1"/>
             <View
@@ -52,14 +72,23 @@
                 />
             <TextView
                 style="@style/answer"
+                android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location_a1"
                 android:layout_below="@+id/q1_line_break"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:text="@string/ucas_tips_location_a1"/>
 
             <TextView
                 style="@style/question_title"
                 android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location_q2"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/ucas_tips_location_a1"
                 android:text="@string/ucas_tips_location_q2"/>
             <View
@@ -70,26 +99,45 @@
                 style="@style/answer"
                 android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location_a2"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/q2_line_break"
                 android:text="@string/ucas_tips_location_a2"/>
             <TextView
+                android:background="@color/greenSheen"
                 style="@style/question_title"
                 android:id="@+id/ucas_tips_location_q3"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/ucas_tips_location_a2"
                 android:text="@string/ucas_tips_location_q3"/>
             <View
                 style="@style/line_break"
+                android:background="@color/greenSheen"
                 android:id="@+id/q3_line_break"
                 android:layout_below="@+id/ucas_tips_location_q3"/>
             <TextView
                 style="@style/answer"
+                android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_location_a3"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/q3_line_break"
                 android:text="@string/ucas_tips_location_a3"/>
             <TextView
                 style="@style/question_title"
                 android:id="@+id/ucas_tips_location_q4"
                 android:background="@color/greenSheen"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/ucas_tips_location_a3"
                 android:text="@string/ucas_tips_location_q4"/>
             <View
@@ -100,6 +148,10 @@
                 style="@style/answer"
                 android:id="@+id/ucas_tips_location_a4"
                 android:background="@color/greenSheen"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_below="@+id/q4_line_break"
                 android:text="@string/ucas_tips_location_a4"/>
 

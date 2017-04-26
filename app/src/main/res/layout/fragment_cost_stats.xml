@@ -10,13 +10,15 @@
         <TextView
             android:id="@+id/cost_text_id"
             android:lineSpacingExtra="8dp"
+            android:textSize="17dp"
+            android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:background="@color/background"
             android:text="Money matters, especially when you're a student,  below you'll find the living cost statistics according to NUS for the average UK student and the average cost for accomadation."
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textSize="15dp" />
+             />
 
         <TextView
             android:id="@+id/private_id"
@@ -24,6 +26,7 @@
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="20dp"
+            android:textColor="@color/oldBurgundy"
             android:background="@color/greenSheen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,6 +37,7 @@
             android:id="@+id/halls_id"
             android:background="@color/background"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="20dp"
@@ -46,6 +50,7 @@
             android:id="@+id/insurance_id"
             android:background="@color/greenSheen"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textAlignment="center"
             android:textSize="20dp"
             android:gravity="center"
@@ -58,6 +63,7 @@
         <TextView
             android:id="@+id/personal_id"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textSize="20dp"
             android:text="£2,074 for personal goods"
             android:textAlignment="center"
@@ -72,6 +78,7 @@
             android:id="@+id/food_id"
             android:background="@color/greenSheen"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textSize="20dp"
             android:textAlignment="center"
             android:gravity="center"
@@ -85,6 +92,7 @@
             android:id="@+id/leisure_id"
             android:background="@color/background"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textSize="20dp"
             android:textAlignment="center"
             android:gravity="center"
@@ -98,6 +106,7 @@
             android:id="@+id/travel_id"
             android:background="@color/greenSheen"
             android:padding="15dp"
+            android:textColor="@color/oldBurgundy"
             android:textSize="20dp"
             android:textAlignment="center"
             android:gravity="center"

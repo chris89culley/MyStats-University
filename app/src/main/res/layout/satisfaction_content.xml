@@ -10,13 +10,14 @@
 
         <ExpandableListView
             android:id="@+id/expandableListView1"
+            android:textColor="@color/oldBurgundy"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/changeableBarChartOnSatisfactionDropDowns"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="230dp"
             ></com.github.mikephil.charting.charts.HorizontalBarChart>
 
     </LinearLayout>
