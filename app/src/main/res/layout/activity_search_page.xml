@@ -31,7 +31,7 @@
                     android:id="@+id/searchArmImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/searcharm"
+                    android:src="@drawable/searcharm2"
                     android:layout_marginTop="40dp"
                     android:layout_alignParentRight="true"
                     android:foregroundGravity="right"
@@ -50,7 +50,7 @@
                     <RadioButton
                         android:id="@+id/fulltime"
                         android:layout_width="wrap_content"
-                        android:textColor="#3B322C"
+                        android:textColor="@color/oldBurgundy"
                         android:layout_height="wrap_content"
                         android:text="full time"
                         android:checked="true" />
@@ -59,7 +59,7 @@
                         android:id="@+id/parttime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#3B322C"
+                        android:textColor="@color/oldBurgundy"
                         android:layout_marginLeft="50dp"
                         android:text="part time" />
                 </RadioGroup>
@@ -72,7 +72,7 @@
                     android:inputType="text"
                     android:textSize="18sp"
                     android:gravity="center"
-                    android:textColor="#3B322C"
+                    android:textColor="@color/oldBurgundy"
                     android:layout_below="@+id/coursetype"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp" />
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:text="within 0 km of "
-                    android:textColor="#3B322C"
+                    android:textColor="@color/oldBurgundy"
                     android:gravity="center_horizontal"
                     android:layout_alignLeft="@+id/courseNameEntered"
                     android:layout_alignRight="@+id/courseNameEntered"
@@ -95,11 +95,9 @@
                     android:layout_weight="1" />
 
 
-                <com.github.channguyen.rsv.RangeSliderView
+                <SeekBar
                     android:id="@+id/radiusBar"
                     android:layout_below="@+id/radiusText"
-                    rsv:rangeCount="10"
-                    rsv:filledColor="@color/mummyTomb"
                     android:layout_alignRight="@id/courseNameEntered"
                     android:layout_width="wrap_content"
                     android:layout_alignLeft="@+id/courseNameEntered"
@@ -115,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:textColor="#3B322C"
+                    android:textColor="@color/oldBurgundy"
                     android:layout_below="@+id/radiusBar"
                     android:hint="Location or institution"
                     android:inputType="text"
@@ -129,7 +127,7 @@
                     android:background="#00000000"
                     app:srcCompat="@drawable/map_icon"
                     android:layout_toLeftOf="@+id/locationNameEntered"
-                    android:textColor="#3B322C"
+                    android:textColor="@color/oldBurgundy"
                     android:layout_marginTop="30dp"
                     android:layout_below="@+id/radiusBar"
                     />
@@ -139,8 +137,8 @@
                     android:layout_below="@+id/locationNameEntered"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textColor="#3B322C"
                     android:layout_marginTop="30dp"
+                    android:textColor="@color/oldBurgundy"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20sp"
                     android:layout_centerHorizontal="true"

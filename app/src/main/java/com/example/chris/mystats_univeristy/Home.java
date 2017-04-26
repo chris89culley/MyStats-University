@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
@@ -23,6 +24,7 @@ import Data.RSDBhandler;
 public class Home extends AppCompatActivity {
 
 
+    private ArcLayout menuOptions;
 
 
     /**
@@ -32,6 +34,7 @@ public class Home extends AppCompatActivity {
      */
     private void animateTheArclayout(ArcLayout layout){
         List<Animator> animatorList = new ArrayList();
+
 
         for (int i = 0; i < layout.getChildCount(); i ++){
             animatorList.add(createShowItemAnimator(layout.getChildAt(i)));
@@ -44,17 +47,33 @@ public class Home extends AppCompatActivity {
         animatorSet.start();
     }
 
+
+    /**
+     * When the page is resumed from going off onto either a different page or off the app
+     * the animation is restarted
+     */
+    @Override
+    protected void onResume(){
+        animateTheArclayout(menuOptions);
+        super.onResume();
+    }
+
+    /**
+     * When the app is first created this method is run, this method sets up all the buttons and their
+     * actions once pressed
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
 
         //Sets up the arc layout and an initial animation
-        ArcLayout layout = (ArcLayout) findViewById(R.id.arc) ;
-        animateTheArclayout(layout);
+        menuOptions = (ArcLayout) findViewById(R.id.arc) ;
+        animateTheArclayout(menuOptions);      //Sets up all the buttons
 
-        //Sets up all the buttons
         Button quickSearchButton  = (Button) findViewById(R.id.quicksearchbutton);
         Button recentSearchButton = (Button) findViewById(R.id.recentsearchbutton);
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
@@ -114,8 +133,8 @@ public class Home extends AppCompatActivity {
     private Animator createShowItemAnimator(final View item)
     {
         //Where the animation begins
-        float dx =  0 - item.getX();
-        float dy = 1000 - item.getY();
+        float dx =  0;
+        float dy = 1000;
 
         item.setRotation(300f);
         item.setTranslationX(dx);

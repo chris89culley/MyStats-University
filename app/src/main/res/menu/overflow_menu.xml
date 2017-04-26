@@ -3,6 +3,7 @@
     xmlns:myapp="http://schemas.android.com/tools">
     <item
         android:title="Search"
+        android:id="@+id/searchforoverflow"
         android:src="@drawable/search_icon"
         android:orderInCategory="100"
         android:onClick="searchQuick"

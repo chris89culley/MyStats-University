@@ -1,5 +1,6 @@
 package com.example.chris.mystats_univeristy;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,8 +8,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +34,7 @@ public class MenuViewActivity extends AppCompatActivity {
     int i = 0;
     Dialog dialog;
     Button searchBtn;
+    MenuItem searchButtonForOverflow;
     private TextView dialogBox;
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private AVLoadingIndicatorView loadingIcon;
@@ -49,6 +54,8 @@ public class MenuViewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_menu);
         getMenuInflater().inflate(R.menu.overflow_menu, menu);
+        searchButtonForOverflow = menu.findItem(R.id.searchforoverflow);
+
 
         return true;
     }
@@ -106,6 +113,24 @@ public class MenuViewActivity extends AppCompatActivity {
     }
 
     /**
+     * on selected item from menu, start activity.
+     * @param item
+     */
+    public void ucasClick(MenuItem item) {
+        Intent intent = new Intent(this, UcasTips.class);
+        startActivity(intent);
+    }
+
+    /**
+     * on selected item from menu, start activity.
+     * @param item
+     */
+    public void recentClick(MenuItem item) {
+        Intent intent = new Intent(this, UcasTips.class);
+        startActivity(intent);
+    }
+
+    /**
      * on click of the quick search icon (overflow), open the input dialog fragment.
      * @param item
      */
@@ -128,10 +153,22 @@ public class MenuViewActivity extends AppCompatActivity {
         dialog.show();
         searchBtn = (Button) dialog.findViewById(R.id.searchBtn);
         handleSearchButtonPressed(dialog.getCurrentFocus());
+        searchBtn.performClick();
 //        View search = dialog.findViewById(R.id.editTextDialogUserInput);
 //        search.onTouchEvent()
     }
-
+    /**
+     * {@inheritDoc}
+     *
+     * <p>Please note: AppCompat uses it's own feature id for the action bar:
+     * {@link AppCompatDelegate#FEATURE_SUPPORT_ACTION_BAR FEATURE_SUPPORT_ACTION_BAR}.</p>
+     */
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        openDialog();
+        searchButtonForOverflow.setVisible(false);
+        return false;
+    }
 
     /**
      * the dialog fragment has a on click event to close the fragment and continue with the previous activity.
@@ -177,10 +214,14 @@ public class MenuViewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 String course = getTheCourseToBeSearched(v);
-                if(course.isEmpty()) return;
+                if(course.isEmpty()) {
+                    searchButtonForOverflow.setVisible(true);
+                    return;
+                }
                 updateInfoQuerierWithIntentIntentions(intent);
                     databaseInfomationQuerier.getAllCoursesByCourseName(course,
                             CourseTypes.FULL_TIME);
+                searchButtonForOverflow.setVisible(true);
                 }
             });
     }

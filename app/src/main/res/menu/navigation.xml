@@ -18,19 +18,29 @@
         android:icon="@drawable/search_icon"
         android:orderInCategory="2"
         android:onClick="searchClick"
-        myapp:showAsAction="always"
+        myapp:showAsAction="never"
         />
+
     <item
         android:title="UCAS Tips"
         android:icon="@drawable/ucas_tips"
-        android:orderInCategory="3"
+        android:onClick="ucasClick"
+        android:orderInCategory="4"
         myapp:showAsAction="never"
         />
+
     <item
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         android:icon="@drawable/info_icon"
         android:title="About"
         android:onClick="aboutClick"
+        myapp:showAsAction="never"
+        />
+    <item
+        android:orderInCategory="3"
+        android:icon="@drawable/recent_search"
+        android:title="Recent Searches"
+        android:onClick="recentClick"
         myapp:showAsAction="never"
         />
 </group>
