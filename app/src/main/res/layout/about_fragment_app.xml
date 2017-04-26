@@ -2,9 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -17,28 +14,27 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/data_picture"
-                android:layout_below="@id/aboutTitle"
-                android:background="@color/greenSheen"
-                android:id="@+id/dataPic"
-                android:paddingTop="10dp"
-                />
-
             <TextView
-                style="@style/text_view_center"
+                style="@style/text_view_left"
                 android:id="@+id/basic_intro"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:textColor="#3B322C"
                 android:padding="15dp"
                 android:background="@color/greenSheen"
-                android:text="@string/basic_intro"
-                android:layout_below="@+id/dataPic"
-                />
+                android:text="So you want to know more about the app, great!\n\nThe application was developed with the intention to give everyone a quick and simple way to research university courses across the UK.\n\nIf you’re a prospective under/postgraduate then this app could change your life! By helping you find interesting and useful stats to help you choose the course for you."
+                android:layout_below="@+id/aboutTitle"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
-    </ScrollView>
+
+    <ImageView
+        android:id="@+id/dataPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutTitle"
+        android:background="@color/greenSheen"
+        android:padding="15dp"
+        android:src="@drawable/data_picture" />
 </LinearLayout>
