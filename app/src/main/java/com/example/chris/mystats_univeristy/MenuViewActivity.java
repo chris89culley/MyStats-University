@@ -113,6 +113,24 @@ public class MenuViewActivity extends AppCompatActivity {
     }
 
     /**
+     * on selected item from menu, start activity.
+     * @param item
+     */
+    public void ucasClick(MenuItem item) {
+        Intent intent = new Intent(this, UcasTips.class);
+        startActivity(intent);
+    }
+
+    /**
+     * on selected item from menu, start activity.
+     * @param item
+     */
+    public void recentClick(MenuItem item) {
+        Intent intent = new Intent(this, UcasTips.class);
+        startActivity(intent);
+    }
+
+    /**
      * on click of the quick search icon (overflow), open the input dialog fragment.
      * @param item
      */
