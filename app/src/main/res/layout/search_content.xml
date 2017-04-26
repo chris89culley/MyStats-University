@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Study mode :"
-        android:textSize="12sp"
+        android:textSize="17dp"
         android:gravity="center_vertical"
         android:layout_marginLeft="20sp"
         android:drawableLeft="@drawable/study"
@@ -38,7 +38,7 @@
             android:drawableLeft="@drawable/percent"
             android:gravity="center_vertical"
             android:padding="10dip"
-            android:textSize="12sp"
+            android:textSize="17dp"
             />
     <TextView
         android:id="@+id/salaryAfter6"
@@ -52,7 +52,7 @@
         android:layout_alignLeft="@+id/mode"
         android:drawablePadding="10sp"
         android:text="salary after 6 months"
-        android:textSize="12dp"
+        android:textSize="17dp"
         />
 
 
@@ -67,7 +67,7 @@
         android:layout_alignLeft="@+id/mode"
         android:textColor="@color/oldBurgundy"
         android:drawablePadding="10sp"
-        android:textSize="12dp"
+        android:textSize="17dp"
         android:gravity="center_vertical"
         />
 

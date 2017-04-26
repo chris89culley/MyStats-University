@@ -13,12 +13,13 @@
 
             <TextView
                 android:id="@+id/copy_intro"
-            android:layout_width="match_parent"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="#3B322C"
+                android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/copy_page_intro"
-                android:background="@color/background"
-            android:paddingTop="10dp"
-            android:padding="10dp"
+            android:text="@string/copy_page_intro" android:background="@color/background"
             android:gravity="center"/>
 
             <TextView
@@ -27,8 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/copy_unistats_disclaimer"
-                android:paddingTop="10dp"
-                android:padding="10dp"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
                 android:background="@color/greenSheen"
                 android:gravity="center"/>
 
@@ -39,8 +42,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/copy_hesa_disclaimer"
                 android:background="@color/background"
-                android:paddingTop="10dp"
-                android:padding="10dp"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
                 android:gravity="center"/>
 
         </RelativeLayout>

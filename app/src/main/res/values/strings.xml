@@ -4,7 +4,7 @@
     <string name="closed">Closed</string>
     <string name="fulltime">Full time courses</string>
     <string name="parttime">Part time courses</string>
-    <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to find out the percentage were satisfied with the enclosed statements</string>
+    <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to see the percentage were satisfied with the enclosed statements</string>
 
 
     <!-- The About pages -->
@@ -93,4 +93,6 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
     <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
     <string name="entry_info_xaxis">Amount of UCAS Points</string>
     <string name="entry_info_yaxis">Percentage of people</string>
+
 </resources>
+
