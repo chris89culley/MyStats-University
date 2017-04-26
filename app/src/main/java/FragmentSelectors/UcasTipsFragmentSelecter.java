@@ -171,11 +171,4 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
     }
 
-    /**
-     * Sets the font type of the Intro Fragment
-     */
-    private void editUcasTipsFragmentIntro() {
-        TextView introText = (TextView) view.findViewById(R.id.ucastips_introduction);
-        introText.setTypeface(retroFont);
-    }
 }

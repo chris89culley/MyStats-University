@@ -95,8 +95,8 @@ public class GenericChartMaker {
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
 
-            XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
-            xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the bottom of thr x axis
+        XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
+        xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the top of the x axis
 
 
        xaxis.setCenterAxisLabels(true);

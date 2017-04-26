@@ -63,7 +63,7 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - for percentage assessed by coursework
      */
     public ChartStats getPercentageAssesedByCourseWork(){
-        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assesed by CourseWork"},"Percentage of course assesed by coursework","pie");
+        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assessed by coursework"},"% of course assessed by coursework","pie");
         return cs;
     }
 
@@ -72,7 +72,7 @@ public class Course  implements Parcelable,Serializable{
      * @return Chart stats - for percentage in scheduled
      */
     public ChartStats getPercentageInScheduled(){
-        ChartStats cs = new ChartStats(new String[]{SCHEDULED},new String[]{"In lectures or practicals"},"Percentage of time spent in lectures or practicals","");
+        ChartStats cs = new ChartStats(new String[]{SCHEDULED},new String[]{"In lectures or practicals"},"% of time spent in lectures & practicals","");
         return cs;
 
     }
@@ -101,7 +101,7 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - for percentages of those that go on to work and study
      */
     public ChartStats getPercentageWorkAndStudy(){
-        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"Percentage of those that went on to work and study","pie");
+        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"% that went on to work & study","pie");
         return cs;
     }
 
@@ -110,7 +110,7 @@ public class Course  implements Parcelable,Serializable{
      ** @return ChartStats - for employment after 6 months
      * */
     public ChartStats getEmploymentSixMonths(){
-        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"Percentage of those that went on to work and study","pie");
+        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"% that went on to work and study","pie");
         return cs;
     }
 
@@ -145,7 +145,7 @@ public class Course  implements Parcelable,Serializable{
                 "Assessment arrangements and marking have been fair",
                 "Feedback on my work has been prompt",
                 "I have received detailed comments on my work",
-                "Feedback on my work has helped me clarify things I did not understand"},
+                "Feedback helped me clarify things I did not understand"},
                 "Assessment and feedback (% agree)","");
         return cs;
     }
@@ -169,8 +169,8 @@ public class Course  implements Parcelable,Serializable{
      */
     public ChartStats getOrganisationAndManagementStats(){
 
-        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently as far as my activities are concerned",
-                "Changes in the course or teaching have been communicated effectively",
+        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently for my activities",
+                "Changes in the course/teaching have been communicated well",
                 "The course is well organised and is running smoothly"},
                 "Organisation and management (% agree)","");
         return cs;
@@ -183,7 +183,7 @@ public class Course  implements Parcelable,Serializable{
     public ChartStats getLearningResourcesStats(){
         ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},new String[]{"The library resources and services are good enough for my needs",
                 "I have been able to access general IT resources when I needed to",
-                "I have been able to access equipment, facilities, or rooms when needed"},
+                "I have had good access to equipment and rooms when needed"},
                 "Learning resources (% agree)","");
         return cs;
     }
@@ -193,7 +193,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Personal development stats
      */
     public ChartStats getPersonalDevelopmentStats(){
-        ChartStats cs = new ChartStats(new String[]{Q19,Q20,Q21},new String[]{"The course has helped me to present myself with confidence","My communication skills have improved","As a result of the course, I feel confident in tackling unfamiliar problems"},"Personal development (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q19,Q20,Q21},new String[]{
+                "The course has helped me to present myself with confidence",
+                "My communication skills have improved","The course helped me feel confident in tackling unfamiliar problems"},
+                "Personal development (% agree)","");
         return cs;
     }
 
