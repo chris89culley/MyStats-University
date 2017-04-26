@@ -2,6 +2,8 @@ package com.example.chris.mystats_univeristy;
 
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,11 +22,15 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.CycleInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -39,6 +45,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.io.IOException;
 import java.util.List;
 
+import Animations.AnimatorUtils;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.MyLocationListener;
@@ -51,11 +58,12 @@ public class SearchPage extends MenuViewActivity  {
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
     private Button searchButton; //The button pressed to conduct a search
     private final int MAX_KM_RADIUS_SEARCH = 200; //The max radius a user is allowed to search
-    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/5; //The modifier to the radius value (since the normal value only goes up to 100)
+    private final int SEEK_BUTTON_RANGE = 100;
+    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/SEEK_BUTTON_RANGE; //The modifier to the radius value (since the normal value only goes up to 100)
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private EditText searchedLocationEditTextField; //The location field the user can choose to enter to search around (can be a location or a university or blank)
     private MenuViewActivity currentActivity = this;
-    private RangeSliderView radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
+    private SeekBar radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
     private TextView radiusDisplay; //The text display of the current radius selected
     private double longitude; //The longitude of the location to be searched around
     private double latitude; // The latitude of the location to be searched around
@@ -70,6 +78,8 @@ public class SearchPage extends MenuViewActivity  {
     private LocationManager locationManager; //Class that handles the information sent by the LocationListener
     private Typeface marketDeco ;
     private AVLoadingIndicatorView loadingIcon;
+    private ImageView searchArm;
+
 
     /**
      * This method updates the radius text view 'radiusDisplay' with the current selected search radius so that the
@@ -92,14 +102,23 @@ public class SearchPage extends MenuViewActivity  {
      * This method sets up the radius bar and initialised the radius the user searches around a location
      */
     private void setUpRadiusBar(){
-        radiusBar = (RangeSliderView) findViewById(R.id.radiusBar);
-        sizeOfRadius =(int) radiusBar.getSliderRadiusPercent();
-        radiusBar.setOnSlideListener(new RangeSliderView.OnSlideListener() {
+        radiusBar = (SeekBar) findViewById(R.id.radiusBar);
+        sizeOfRadius =(int) radiusBar.getProgress();
+        radiusBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onSlide(int index) {
-                updateRadius(index, (index == radiusBar.getRangeCount()-1));
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateRadius(progress, (progress == SEEK_BUTTON_RANGE));
             }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
         });
     }
 
@@ -124,7 +143,6 @@ public class SearchPage extends MenuViewActivity  {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 shouldGetLocationFromUserData = false;
                 shouldGetLocationFromLocationEditText = true;
-                Log.d("we are gettiedit text ", " sldjfdsl");
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -359,6 +377,25 @@ public class SearchPage extends MenuViewActivity  {
     }
 
     /**
+     * Animates the search arm by rotating it slightly and translating across a bit of the x axis
+     */
+    private void animateSearchArm(){
+        searchArm = (ImageView) findViewById(R.id.searchArmImage);
+        Animator anim = ObjectAnimator.ofPropertyValuesHolder(searchArm, AnimatorUtils.rotation(5f, -10f), AnimatorUtils.translationX(300f, 50f));
+        anim.setDuration(1000);
+        anim.start();
+    }
+
+    /**
+     * animates the arm when the app is resumed
+     */
+    @Override
+    protected  void onResume(){
+        animateSearchArm();
+        super.onResume();
+    }
+
+    /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
      */
@@ -366,6 +403,7 @@ public class SearchPage extends MenuViewActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+        animateSearchArm();
         setUpFonts();
         setUpWidgetsOnHomePage();
         longLatGrabber = new Geocoder(this);
