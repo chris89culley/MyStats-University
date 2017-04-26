@@ -36,7 +36,7 @@ public class CourseStats extends MenuViewActivity  {
         }
         
         //Sets up the fonts, needs to be refactored out
-        Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
+        Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         Typeface vintage = Typeface.createFromAsset(this.getAssets(), "fonts/octin vintage b rg.ttf");
 
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);

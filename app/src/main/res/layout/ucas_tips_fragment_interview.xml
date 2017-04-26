@@ -11,12 +11,20 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_interview_intro"
                 android:text="@string/ucas_tips_interview_intro"
                 />
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_checking"
                 android:layout_below="@+id/ucas_tips_interview_intro"
@@ -26,6 +34,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_times"
                 android:layout_below="@+id/ucas_tips_checking"
                 android:text="@string/ucas_tips_times"
@@ -33,6 +45,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_preparing"
                 android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_times"
@@ -41,6 +57,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_plan_your_travel"
                 android:layout_below="@+id/ucas_tips_preparing"
                 android:text="@string/ucas_tips_plan_your_travel"
@@ -48,6 +68,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_dress"
                 android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_plan_your_travel"
@@ -56,6 +80,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_practice"
                 android:layout_below="@id/ucas_tips_dress"
                 android:text="@string/ucas_tips_practice"
@@ -65,6 +93,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_be_yourself"
                 android:background="@color/greenSheen"
                 android:layout_below="@id/ucas_tips_practice"
