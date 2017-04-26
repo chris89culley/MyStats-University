@@ -95,11 +95,9 @@
                     android:layout_weight="1" />
 
 
-                <com.github.channguyen.rsv.RangeSliderView
+                <SeekBar
                     android:id="@+id/radiusBar"
                     android:layout_below="@+id/radiusText"
-                    rsv:rangeCount="10"
-                    rsv:filledColor="@color/mummyTomb"
                     android:layout_alignRight="@id/courseNameEntered"
                     android:layout_width="wrap_content"
                     android:layout_alignLeft="@+id/courseNameEntered"

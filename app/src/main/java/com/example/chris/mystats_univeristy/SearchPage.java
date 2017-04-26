@@ -51,11 +51,12 @@ public class SearchPage extends MenuViewActivity  {
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
     private Button searchButton; //The button pressed to conduct a search
     private final int MAX_KM_RADIUS_SEARCH = 200; //The max radius a user is allowed to search
-    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/5; //The modifier to the radius value (since the normal value only goes up to 100)
+    private final int SEEK_BUTTON_RANGE = 100;
+    private final int RADIUS_VALUE_MODIFIER = MAX_KM_RADIUS_SEARCH/SEEK_BUTTON_RANGE; //The modifier to the radius value (since the normal value only goes up to 100)
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private EditText searchedLocationEditTextField; //The location field the user can choose to enter to search around (can be a location or a university or blank)
     private MenuViewActivity currentActivity = this;
-    private RangeSliderView radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
+    private SeekBar radiusBar; //This is the radius bar which can be slid by the user indicating a larger/smaller radius search
     private TextView radiusDisplay; //The text display of the current radius selected
     private double longitude; //The longitude of the location to be searched around
     private double latitude; // The latitude of the location to be searched around
@@ -92,14 +93,23 @@ public class SearchPage extends MenuViewActivity  {
      * This method sets up the radius bar and initialised the radius the user searches around a location
      */
     private void setUpRadiusBar(){
-        radiusBar = (RangeSliderView) findViewById(R.id.radiusBar);
-        sizeOfRadius =(int) radiusBar.getSliderRadiusPercent();
-        radiusBar.setOnSlideListener(new RangeSliderView.OnSlideListener() {
+        radiusBar = (SeekBar) findViewById(R.id.radiusBar);
+        sizeOfRadius =(int) radiusBar.getProgress();
+        radiusBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onSlide(int index) {
-                updateRadius(index, (index == radiusBar.getRangeCount()-1));
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateRadius(progress, (progress == SEEK_BUTTON_RANGE));
             }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
         });
     }
 
@@ -124,7 +134,6 @@ public class SearchPage extends MenuViewActivity  {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 shouldGetLocationFromUserData = false;
                 shouldGetLocationFromLocationEditText = true;
-                Log.d("we are gettiedit text ", " sldjfdsl");
             }
             @Override
             public void afterTextChanged(Editable s) {}
