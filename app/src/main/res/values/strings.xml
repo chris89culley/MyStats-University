@@ -91,5 +91,6 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
     <!--Stats framents-->
     <!--Entry information Fragment-->
     <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
-
+    <string name="entry_info_xaxis">Amount of UCAS Points</string>
+    <string name="entry_info_yaxis">Percentage of people</string>
 </resources>

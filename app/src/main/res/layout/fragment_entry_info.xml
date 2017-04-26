@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Percentage of people"
+                android:text="@string/entry_info_yaxis"
                 android:textColor="@color/oldBurgundy"
                 android:layout_below="@id/pageDescription"
                 android:background="@color/greenSheen"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linechart"
                 android:textColor="@color/oldBurgundy"
-                android:text="The Amount of UCAS Points"
+                android:text="@string/entry_info_xaxis"
                 android:gravity="right"
                 android:paddingTop="10dp"
                 android:background="@color/greenSheen"/>
