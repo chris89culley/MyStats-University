@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
@@ -10,61 +12,99 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/meet_the_team_intro"
-                    style="@style/text_view_left"
-                    android:lineSpacingExtra="8dp"
-                    android:textSize="17dp"
-                    android:padding="15dp"
+
+            <com.ogaclejapan.arclayout.ArcLayout
+                android:id="@+id/arcAboutTeamPage"
+                android:layout_width="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_height="350dp"
+                app:arc_freeAngle="true"
+                app:arc_radius="150sp"
+                app:arc_axisRadius="135sp"
+                app:arc_origin="center"
+                >
+
+
+                <Button
+                    android:id="@+id/chrisButton"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:textSize="11dp"
+                    android:gravity="bottom|center"
+                    android:paddingBottom="20dp"
                     android:textColor="#3B322C"
-                    android:text="@string/meet_the_team_intro"
-                    android:drawableRight="@drawable/uni_icon"
+                    android:background="@drawable/chris"
+                    app:arc_angle="45"
+                    />
+                <Button
+                    android:id="@+id/telButton"
+                    android:textColor="#3B322C"
+                    app:arc_angle="90"
+                    android:layout_height="85dp"
+                    android:layout_width="85dp"
+                    android:background="@drawable/tel"
+                    android:gravity="bottom|center"
+                    android:textSize="11dp"
+                    android:paddingBottom="25dp"
                     />
 
-                <TextView
-                android:layout_below="@id/meet_the_team_intro"
-                android:id="@+id/chris"
-                    android:lineSpacingExtra="8dp"
-                    android:textSize="17dp"
-                    android:padding="15dp"
+
+                <Button
+                    android:id="@+id/danButton"
+                    android:layout_height="85dp"
+                    android:layout_width="85dp"
+                    app:arc_angle="-45"
+                    android:textSize="14dp"
                     android:textColor="#3B322C"
-                    android:drawableLeft="@drawable/chris"
-                style="@style/text_view_right"
-                android:text="@string/chris_personal" />
+                    android:gravity="bottom|center"
+                    android:paddingBottom="25dp"
+                    android:background="@drawable/dan"
+                    />
 
+
+                <Button
+                    android:id="@+id/jackButton"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:textColor="#3B322C"
+                    android:background="@drawable/jack"
+                    app:arc_angle="-90"
+                    android:textSize="11dp"
+                    android:gravity="bottom|center"
+                    android:paddingBottom="10dp"
+                    />
+
+
+
+                    <Button
+                        android:id="@+id/teessideIconButton"
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:textColor="#3B322C"
+                        android:background="@drawable/uni_icon"
+                        app:arc_angle="-0"
+                        android:textSize="11dp"
+                        android:gravity="bottom|center"
+                        android:paddingBottom="10dp"
+                        />
+
+
+
+
+            </com.ogaclejapan.arclayout.ArcLayout>
 
             <TextView
-                android:id="@+id/terry"
-                android:lineSpacingExtra="8dp"
-                android:textSize="17dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/personDescriptionAboutUs"
+                android:text="@string/meet_the_team_intro"
+                android:layout_marginTop="300dp"
                 android:padding="15dp"
-                android:textColor="#3B322C"
-                style="@style/text_view_left"
-                android:drawableRight="@drawable/tel"
-                android:text="@string/tel_personal"
-                android:layout_below="@+id/chris"/>
-
-
-            <TextView
-                android:id="@+id/dan"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/greenSheen"
                 android:lineSpacingExtra="8dp"
-                android:textSize="17dp"
-                android:padding="15dp"
-                style="@style/text_view_right"
-                android:drawableLeft="@drawable/dan"
-                android:text="@string/dan_personal"
-                android:layout_below="@+id/terry"/>
-
-
-            <TextView
-                android:id="@+id/jack"
-                android:lineSpacingExtra="8dp"
-                android:textSize="17dp"
-                android:textColor="#3B322C"
-                style="@style/text_view_left"
-                android:drawableRight="@drawable/jack"
-                android:text="@string/jack_personal"
-                android:layout_below="@+id/dan"/>
+                android:layout_below="@+id/telButton"/>
 
 
 

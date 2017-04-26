@@ -3,13 +3,17 @@ package FragmentSelectors;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.chris.mystats_univeristy.R;
+
+import static com.example.chris.mystats_univeristy.R.string.copy_page_intro;
 
 /**
  * Created by Terence Lawson on 17/04/2017.
@@ -114,16 +118,57 @@ public class AboutFragmentSelecter extends Fragment {
      * Sets the font type of the Meet the team Fragment
      */
     private void editCreatersFragment(){
-        TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
-        meetTheTeamIntro.setTypeface(retroFont);
-        TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
-        chrisDetails.setTypeface(retroFont);
-        TextView telDetails = (TextView) view.findViewById(R.id.terry);
-        telDetails.setTypeface(retroFont);
-        TextView danDetails = (TextView) view.findViewById(R.id.dan);
-        danDetails.setTypeface(retroFont);
-        TextView jackDetails = (TextView) view.findViewById(R.id.jack);
-        jackDetails.setTypeface(retroFont);
+
+        final TextView personDescription = (TextView) view.findViewById(R.id.personDescriptionAboutUs);
+
+        Button chrisButton = (Button) view.findViewById(R.id.chrisButton);
+        Button danButton = (Button) view.findViewById(R.id.danButton);
+        Button jackButton = (Button) view.findViewById(R.id.jackButton);
+        Button telButton = (Button) view.findViewById(R.id.telButton);
+        chrisButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                personDescription.setText(getString(R.string.chris_personal));
+
+            }
+        });
+
+        danButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                personDescription.setText(getString(R.string.dan_personal));
+
+            }
+        });
+
+        jackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                personDescription.setText(getString(R.string.jack_personal));
+
+            }
+        });
+
+        telButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                personDescription.setText(getString(R.string.tel_personal));
+
+            }
+        });
+
+
+
+        //TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
+        //meetTheTeamIntro.setTypeface(retroFont);
+        //TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
+        //chrisDetails.setTypeface(retroFont);
+        //TextView telDetails = (TextView) view.findViewById(R.id.terry);
+        //telDetails.setTypeface(retroFont);
+        //TextView danDetails = (TextView) view.findViewById(R.id.dan);
+        //danDetails.setTypeface(retroFont);
+        //TextView jackDetails = (TextView) view.findViewById(R.id.jack);
+        //jackDetails.setTypeface(retroFont);
     }
 
 
