@@ -380,9 +380,18 @@ public class SearchPage extends MenuViewActivity  {
      */
     private void animateSearchArm(){
         searchArm = (ImageView) findViewById(R.id.searchArmImage);
-        Animator anim = ObjectAnimator.ofPropertyValuesHolder(searchArm, AnimatorUtils.rotation(10f, -15f), AnimatorUtils.translationX(200f, 50f));
-        anim.setDuration(1500);
+        Animator anim = ObjectAnimator.ofPropertyValuesHolder(searchArm, AnimatorUtils.rotation(5f, -10f), AnimatorUtils.translationX(300f, 50f));
+        anim.setDuration(1000);
         anim.start();
+    }
+
+    /**
+     * animates the arm when the app is resumed
+     */
+    @Override
+    protected  void onResume(){
+        animateSearchArm();
+        super.onResume();
     }
 
     /**
