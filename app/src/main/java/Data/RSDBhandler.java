@@ -100,35 +100,39 @@ public class RSDBhandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //if the db has over 10 entries remove the first one and add one at the end
+
+        String json = gson.toJson(course);
         if(count > 9) {
             deleteFirst();
         }
-            try {
-                String json = gson.toJson(course);
+        try {
+            if (checkIfExists(json) == false){
                 Log.d("Database","JSON before "+ json);
 
                 values.put(COL_NAME, json);
                 db.insert(TABLE_NAME, null, values);
                 Log.d("Database","Inserted "+course.getCourseName());
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     /**
      * Reads all entries in the table and returns them a s a list
      * @return List of Course objects
      */
     public ArrayList<Course> readAll() {
-            ArrayList<Course> list = new ArrayList<Course>();
+        ArrayList<Course> list = new ArrayList<Course>();
 
-            SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
-            String selectQuery = "SELECT * FROM " + TABLE_NAME;
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
 
-            Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-            if (cursor.moveToFirst()) { // If data (records) available
+        if (cursor.moveToFirst()) { // If data (records) available
             int nameIdx = cursor.getColumnIndex(COL_NAME);
 
             do {
@@ -140,7 +144,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
                     Log.d("Database",Integer.toString(cursor.getPosition()));
 
                 }catch(Exception e){
-                     e.printStackTrace();
+                    e.printStackTrace();
                 }
             }while (cursor.moveToNext()); // repeat until there are no more records
         }
@@ -204,6 +208,23 @@ public class RSDBhandler extends SQLiteOpenHelper {
         //Executing the query for deleting the first entry
 
         db.execSQL(alterQuery);
+    }
+
+    /**
+     * Check if a reccord exists in the table
+     * @param fieldValue - the value being searched for
+     */
+    private boolean checkIfExists(String fieldValue){
+        boolean ret = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+        String Query = "Select * from " + TABLE_NAME + " where " + COL_NAME + " = '" + fieldValue+"'";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() > 0){
+            cursor.close();
+            ret = true;
+        }
+        cursor.close();
+        return ret;
     }
 
 }
