@@ -27,7 +27,7 @@
             android:background="@color/greenSheen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/private_icon"
+            android:drawableLeft="@drawable/house_icon2"
             android:layout_below="@+id/cost_text_id"/>
 
         <TextView
