@@ -31,7 +31,7 @@
                     android:id="@+id/searchArmImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/searcharm"
+                    android:src="@drawable/searcharm2"
                     android:layout_marginTop="40dp"
                     android:layout_alignParentRight="true"
                     android:foregroundGravity="right"

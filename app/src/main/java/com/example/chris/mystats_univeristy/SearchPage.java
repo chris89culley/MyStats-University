@@ -2,6 +2,8 @@ package com.example.chris.mystats_univeristy;
 
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,11 +22,15 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.CycleInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -39,6 +45,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.io.IOException;
 import java.util.List;
 
+import Animations.AnimatorUtils;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import GPS.MyLocationListener;
@@ -71,6 +78,8 @@ public class SearchPage extends MenuViewActivity  {
     private LocationManager locationManager; //Class that handles the information sent by the LocationListener
     private Typeface marketDeco ;
     private AVLoadingIndicatorView loadingIcon;
+    private ImageView searchArm;
+
 
     /**
      * This method updates the radius text view 'radiusDisplay' with the current selected search radius so that the
@@ -367,6 +376,16 @@ public class SearchPage extends MenuViewActivity  {
     }
 
     /**
+     * Animates the search arm by rotating it slightly and translating across a bit of the x axis
+     */
+    private void animateSearchArm(){
+        searchArm = (ImageView) findViewById(R.id.searchArmImage);
+        Animator anim = ObjectAnimator.ofPropertyValuesHolder(searchArm, AnimatorUtils.rotation(10f, -15f), AnimatorUtils.translationX(200f, 50f));
+        anim.setDuration(1500);
+        anim.start();
+    }
+
+    /**
      * Creates the home page and initialises the listeners
      * @param savedInstanceState
      */
@@ -374,6 +393,7 @@ public class SearchPage extends MenuViewActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+        animateSearchArm();
         setUpFonts();
         setUpWidgetsOnHomePage();
         longLatGrabber = new Geocoder(this);
