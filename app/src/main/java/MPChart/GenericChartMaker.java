@@ -3,6 +3,7 @@ package MPChart;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -402,6 +403,8 @@ public class GenericChartMaker {
      * @return
      */
     private static LineChart setLineChartData(LineChart chart) {
+        chart.animateX(1000, Easing.EasingOption.EaseInBounce);
+        chart.animateXY(1000, 1000);
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
         chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
@@ -446,10 +449,11 @@ public class GenericChartMaker {
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
-        dataSet.setColor(ColorTemplate.rgb("#008ae6"));
+    int[] Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
+        dataSet.setColor(ColorTemplate.rgb("C2571A"));
         dataSet.setDrawFilled(true); //Set the Graph to fill the
         dataSet.setFillAlpha(240); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("#008ae6")); //The colour under the graph
+        dataSet.setFillColor(ColorTemplate.rgb("C2571A")); //The colour under the graph
         dataSet.setValueTextSize(18);
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
