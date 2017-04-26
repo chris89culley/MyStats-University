@@ -17,7 +17,7 @@
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/changeableBarChartOnSatisfactionDropDowns"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="230dp"
             ></com.github.mikephil.charting.charts.HorizontalBarChart>
 
     </LinearLayout>

@@ -109,12 +109,18 @@ public class StatsPageSelecter extends Fragment {
         }
     }
 
+    /**
+     * This creates the satisfaction stats  page with list view with bar charts giving the students satisfaction levels with the course
+     * @param v - The ivew
+     * @param fontUsed - The font used on the page
+     * @return - The page with the satisfaction stats
+     */
     private View createSatisfactionStatsPage(View v, Typeface fontUsed){
 
         TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
         satisfactionTitle.setTypeface(fontUsed);
         final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
-        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity(), (satisfactionTitle.getTextSize()*0.25f));
+        ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity(), (satisfactionTitle.getTextSize()*0.30f));
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int prev = -1;
