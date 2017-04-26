@@ -449,11 +449,10 @@ public class GenericChartMaker {
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
-    int[] Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
-        dataSet.setColor(ColorTemplate.rgb("C2571A"));
+        dataSet.setColor(ColorTemplate.rgb("F26D21"));
         dataSet.setDrawFilled(true); //Set the Graph to fill the
         dataSet.setFillAlpha(240); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("C2571A")); //The colour under the graph
+        dataSet.setFillColor(ColorTemplate.rgb("F26D21")); //The colour under the graph
         dataSet.setValueTextSize(18);
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
