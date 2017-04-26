@@ -11,6 +11,8 @@
         android:id="@+id/row1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/oldBurgundy"
         expandable:el_headerLayout="@layout/satisfaction_row_header"
         expandable:el_contentLayout="@layout/satisfaction_content"
         android:background= "#8DA6B3"/>

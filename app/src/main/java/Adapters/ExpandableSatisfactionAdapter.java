@@ -55,7 +55,7 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      * @param course
      */
     public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity, Float graphTextSize) {
-        retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Market_Deco.ttf");
+        retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         vintageFont = Typeface.createFromAsset(context.getAssets(), "fonts/octin vintage b rg.ttf");
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;

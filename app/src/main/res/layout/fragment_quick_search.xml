@@ -30,6 +30,7 @@
         <EditText
             android:id="@+id/editTextDialogUserInput"
             android:layout_width="200dp"
+            android:textColor="@color/oldBurgundy"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"

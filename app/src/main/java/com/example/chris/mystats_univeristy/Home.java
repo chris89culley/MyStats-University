@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
+        Typeface retroFont = Typeface.createFromAsset(this.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
 
         //Sets up the arc layout and an initial animation
         menuOptions = (ArcLayout) findViewById(R.id.arc) ;
