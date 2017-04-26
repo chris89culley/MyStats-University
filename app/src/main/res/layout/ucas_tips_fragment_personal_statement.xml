@@ -11,11 +11,19 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/personal_statement_introduction"
                 android:text="@string/ucas_tips_personal_statement_intro"/>
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/personal_statement_tips"
                 android:background="@color/greenSheen"
                 android:layout_below="@+id/personal_statement_introduction"
@@ -24,6 +32,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_take_your_time"
                 android:layout_below="@+id/personal_statement_tips"
                 android:text="@string/ucas_tips_take_your_time"
@@ -32,6 +44,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="16dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:background="@color/greenSheen"
                 android:id="@+id/ucas_tips_be_excited"
                 android:layout_below="@+id/ucas_tips_take_your_time"
@@ -42,6 +58,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_your_grammer"
                 android:layout_below="@+id/ucas_tips_be_excited"
                 android:text="@string/ucas_tips_your_grammer"
@@ -49,6 +69,10 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:id="@+id/ucas_tips_the_thesaurus"
                 android:background="@color/greenSheen"
                 android:layout_below="@+id/ucas_tips_your_grammer"

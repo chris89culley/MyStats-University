@@ -11,13 +11,21 @@
 
             <TextView
             style="@style/text_view_center"
-            android:id="@+id/data_intro"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="#3B322C"
+                android:id="@+id/data_intro"
             android:text="@string/data_intro"/>
 
 
 
             <TextView
                 style="@style/text_view_right"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="#3B322C"
                 android:id="@+id/hefa"
                 android:layout_below="@+id/data_intro"
                 android:drawableLeft="@drawable/hesa_picture"
@@ -25,6 +33,10 @@
 
             <TextView
                 style="@style/text_view_left"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="#3B322C"
                 android:layout_below="@+id/hefa"
                 android:id="@+id/nss"
                 android:drawableRight="@drawable/nss_logo"
@@ -33,6 +45,10 @@
 
             <TextView
                 style="@style/text_view_right"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="#3B322C"
                 android:layout_below="@+id/nss"
                 android:background="@color/greenSheen"
                 android:id="@+id/dlhe"

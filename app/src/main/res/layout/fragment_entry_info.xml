@@ -13,13 +13,14 @@
 
             <TextView android:id="@+id/pageDescription"
                 android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:padding="15dp"
+                android:textColor="@color/oldBurgundy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:layout_weight="2"
                 android:text="@string/entry_info_introduction"
                 android:adjustViewBounds = "true"
-                android:textSize="15dp"
                 />
 
 
@@ -30,6 +31,9 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/entry_info_yaxis"
+
+                android:textColor="@color/oldBurgundy"
+
                 android:layout_below="@id/pageDescription"
                 android:background="@color/greenSheen"
                 />
@@ -50,6 +54,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linechart"
+
+                android:textColor="@color/oldBurgundy"
+
                 android:text="@string/entry_info_xaxis"
                 android:gravity="right"
                 android:paddingTop="10dp"
