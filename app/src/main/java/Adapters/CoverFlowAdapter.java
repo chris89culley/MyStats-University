@@ -1,7 +1,10 @@
 package Adapters;
 
 /**
- * Created by chris on 26/04/17. Some code taken from https://android-arsenal.com/details/1/1481
+ * Created by chris on 26/04/17.
+ *
+ * This  code is largely taken from https://android-arsenal.com/details/1/1481 with slight modifications for the person datatype
+ *
  */
 
 

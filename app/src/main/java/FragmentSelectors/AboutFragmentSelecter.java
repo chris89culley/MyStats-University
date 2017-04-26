@@ -213,7 +213,8 @@ public class AboutFragmentSelecter extends Fragment {
         team.add(new Person(R.drawable.chris, R.string.chris_personal));
         team.add(new Person(R.drawable.jack, R.string.jack_personal));
         team.add(new Person(R.drawable.tel, R.string.tel_personal));
-        team.add(new Person(R.drawable.dan, R.string.jack_personal));
+        team.add(new Person(R.drawable.dan, R.string.dan_personal));
+
         CoverFlowAdapter mAdapter = new CoverFlowAdapter(this.getContext());
         mAdapter.setData(team);
         mCoverFlow.setAdapter(mAdapter);
@@ -253,65 +254,6 @@ public class AboutFragmentSelecter extends Fragment {
                 mTitle.setText("");
             }
         });
-
-
-        /**
-        arcLayout = (ArcLayout) view.findViewById(R.id.arcAboutTeamPage);
-        final TextView personDescription = (TextView) view.findViewById(R.id.personDescriptionAboutUs);
-
-        final Button chrisButton = (Button) view.findViewById(R.id.chrisButton);
-        final Button danButton = (Button) view.findViewById(R.id.danButton);
-        final Button jackButton = (Button) view.findViewById(R.id.jackButton);
-        final Button telButton = (Button) view.findViewById(R.id.telButton);
-        chrisButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personDescription.setText(getString(R.string.chris_personal));
-                animateToCenter(chrisButton);
-            }
-        });
-
-        danButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personDescription.setText(getString(R.string.dan_personal));
-                animateToCenter(danButton);
-
-
-            }
-        });
-
-        jackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personDescription.setText(getString(R.string.jack_personal));
-                animateToCenter(jackButton);
-
-            }
-        });
-
-        telButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personDescription.setText(getString(R.string.tel_personal));
-                animateToCenter(telButton);
-
-            }
-        });
-
-
-
-        //TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
-        //meetTheTeamIntro.setTypeface(retroFont);
-        //TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
-        //chrisDetails.setTypeface(retroFont);
-        //TextView telDetails = (TextView) view.findViewById(R.id.terry);
-        //telDetails.setTypeface(retroFont);
-        //TextView danDetails = (TextView) view.findViewById(R.id.dan);
-        //danDetails.setTypeface(retroFont);
-        //TextView jackDetails = (TextView) view.findViewById(R.id.jack);
-        //jackDetails.setTypeface(retroFont);
-         */
     }
 
 
