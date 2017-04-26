@@ -42,7 +42,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
        retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
-
+   //test Comment
         //Cycles through the fragments choosing which one to inflate
         try {
             switch (pos){
