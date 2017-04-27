@@ -143,8 +143,10 @@ public class GenericChartMaker {
      * @param chartTitle - Title of the chart
      * @return The PieData object for the data provided to be used for pie chart construction
      */
+ 
     public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle) {
         if (!cs.hasData()) {//Checks the have data flag is false espace functioncomputer
+
             return new PieData(null);
         }
 
