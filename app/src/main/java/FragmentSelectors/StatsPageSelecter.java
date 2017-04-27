@@ -411,18 +411,6 @@ public class StatsPageSelecter extends Fragment {
     }
 
     /**
-     * used to create the entry info fragments
-     * @param v View
-     * @return
-     */
-    private View createEntryInfo(View v){
-        //LineChart chart = (LineChart) view.findViewById(R.id.eibar1);
-        //chart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, chart));
-        //chart.animateY(2000);
-        return v;
-    }
-
-    /**
      * used to create the user rating fragments
      * @param v View
      * @return
