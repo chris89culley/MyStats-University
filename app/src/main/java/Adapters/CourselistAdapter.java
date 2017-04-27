@@ -118,7 +118,7 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
 
         Animation shake = AnimationUtils.loadAnimation(this.getContext(), R.anim.shake);
         shake.setDuration(1500);
-        shake.setInterpolator(new CycleInterpolator(20));
+        shake.setInterpolator(new CycleInterpolator(10));
         moreStatsButton.setAnimation(shake);
 
         return rowView;
