@@ -17,6 +17,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.example.chris.mystats_univeristy.R;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -112,11 +113,60 @@ public class StatsPageSelecter extends Fragment {
             return view = inflater.inflate(R.layout.fragment_error, container, false);
         }
     }
+        @Override
+        public void setMenuVisibility(final boolean visible) {
+            super.setMenuVisibility(visible);
+            if (visible) {
+                if(pos == 0){
+                    if (this.isVisible()){
+                        Log.d(" 124", "onResume: in the page 1 context");}
+                }
+
+                if(pos == 1){
+                    Log.d("124", "onResume: in the page 2 context");
+                }
+                if(pos == 2){
+                    Log.d("124", "onResume: in the page 3 context");
+                }
+                if(pos == 3){
+                    Log.d("124", "onResume: in the page 4 context");
+                }
+                if(pos == 4){
+                    if(!view.hasFocus());
+                    lineChart = (LineChart) view.findViewById(R.id.linechart);
+                    lineChart.animateX(1000, Easing.EasingOption.EaseInBounce);
+                    Log.d("124", "onResume: in the lineGraph context");
+                }
+            }
+        }
+
+
+
 
     @Override
     public void onResume(){
         super.onResume();
-        view.invalidate();
+
+        if(pos == 0){
+            if (this.isVisible()){
+            Log.d(" 124", "onResume: in the page 1 context");}
+        }
+
+        if(pos == 1){
+            Log.d("124", "onResume: in the page 2 context");
+        }
+        if(pos == 2){
+            Log.d("124", "onResume: in the page 3 context");
+        }
+        if(pos == 3){
+            Log.d("124", "onResume: in the page 4 context");
+        }
+        if(pos == 4){
+            if(!view.hasFocus());
+            lineChart = (LineChart) view.findViewById(R.id.linechart);
+            lineChart.animateX(1000, Easing.EasingOption.EaseInBounce);
+            Log.d("124", "onResume: in the lineGraph context");
+        }
     }
     private void createEntryInfo(Typeface retroFont) {
         lineChart = (LineChart) view.findViewById(R.id.linechart);

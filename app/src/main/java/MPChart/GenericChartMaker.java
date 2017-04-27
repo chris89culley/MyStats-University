@@ -22,7 +22,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
@@ -349,8 +348,8 @@ public class GenericChartMaker {
      * @return
      */
     private static LineChart setLineChartData(LineChart chart) {
-        chart.animateX(1000, Easing.EasingOption.EaseInBounce);
-        chart.animateXY(1000, 1000);
+        chart.animateX(1000, Easing.EasingOption.EaseInCubic);
+
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
         chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
