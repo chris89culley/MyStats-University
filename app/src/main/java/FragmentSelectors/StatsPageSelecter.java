@@ -113,61 +113,42 @@ public class StatsPageSelecter extends Fragment {
             return view = inflater.inflate(R.layout.fragment_error, container, false);
         }
     }
-        @Override
+
+
+    /**
+     * This method is used to restart the animation when going onto the right fragment
+     * used to get over the problem with fragments caching ahead of being opened and doing the animation before the view was seen
+     * @param visible
+     */
+    @Override
         public void setMenuVisibility(final boolean visible) {
             super.setMenuVisibility(visible);
             if (visible) {
                 if(pos == 0){
-                    if (this.isVisible()){
-                        Log.d(" 124", "onResume: in the page 1 context");}
+                    //Nothing to animate
                 }
 
                 if(pos == 1){
-                    Log.d("124", "onResume: in the page 2 context");
+                    pChart = (PieChart) view.findViewById(R.id.espie1);
+                    pChart.animateXY(2000,2000);
                 }
                 if(pos == 2){
-                    Log.d("124", "onResume: in the page 3 context");
+                    //Nothing to Animate
                 }
                 if(pos == 3){
-                    Log.d("124", "onResume: in the page 4 context");
+                    pChart = (PieChart) view.findViewById(R.id.sipie1);
+                    pChart.animateXY(2000,2000);
+                    pChart =  (PieChart) view.findViewById(R.id.sipie2);
+                    pChart.animateXY(2000,2000);
                 }
                 if(pos == 4){
-                    if(!view.hasFocus());
                     lineChart = (LineChart) view.findViewById(R.id.linechart);
                     lineChart.animateX(1000, Easing.EasingOption.EaseInBounce);
-                    Log.d("124", "onResume: in the lineGraph context");
                 }
             }
         }
 
 
-
-
-    @Override
-    public void onResume(){
-        super.onResume();
-
-        if(pos == 0){
-            if (this.isVisible()){
-            Log.d(" 124", "onResume: in the page 1 context");}
-        }
-
-        if(pos == 1){
-            Log.d("124", "onResume: in the page 2 context");
-        }
-        if(pos == 2){
-            Log.d("124", "onResume: in the page 3 context");
-        }
-        if(pos == 3){
-            Log.d("124", "onResume: in the page 4 context");
-        }
-        if(pos == 4){
-            if(!view.hasFocus());
-            lineChart = (LineChart) view.findViewById(R.id.linechart);
-            lineChart.animateX(1000, Easing.EasingOption.EaseInBounce);
-            Log.d("124", "onResume: in the lineGraph context");
-        }
-    }
     private void createEntryInfo(Typeface retroFont) {
         lineChart = (LineChart) view.findViewById(R.id.linechart);
 

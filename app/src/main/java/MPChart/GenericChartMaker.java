@@ -349,7 +349,6 @@ public class GenericChartMaker {
      */
     private static LineChart setLineChartData(LineChart chart) {
         chart.animateX(1000, Easing.EasingOption.EaseInCubic);
-
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
         chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
