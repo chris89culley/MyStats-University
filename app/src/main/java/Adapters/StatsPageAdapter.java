@@ -45,7 +45,8 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         StatsPageSelecter frag = new StatsPageSelecter(position, course);
-        return frag;}
+        return frag;
+    }
 
 
     /**

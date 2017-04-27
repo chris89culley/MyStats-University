@@ -73,18 +73,22 @@ public class StatsPageSelecter extends Fragment {
         try {
         switch(pos) {
             case 0:
+                //Cost Stats Fragment
+                view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
 
-                view = inflater.inflate(R.layout.fragment_cost_stats, container, false);createCostStatsPage(view,retroFont);
+                //Sets the Fonts and pieces for the Cost Stats Fragment
+                createCostStatsPage(view,retroFont);
                 return view;
             case 1:
+                //Employ Stats Fragment
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-                activity.onRestoreInstanceState(onResume());
+
+                //Sets details for the EmploymentStatsPage
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
 
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                view.invalidate();
                 createSatisfactionStatsPage(view, retroFont);
                 return  view;
 
@@ -112,8 +116,7 @@ public class StatsPageSelecter extends Fragment {
     @Override
     public void onResume(){
         super.onResume();
-        // put your code here...
-
+        view.invalidate();
     }
     private void createEntryInfo(Typeface retroFont) {
         lineChart = (LineChart) view.findViewById(R.id.linechart);
