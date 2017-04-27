@@ -17,9 +17,8 @@
     <TextView
         android:id="@+id/label"
         android:layout_width="match_parent"
-        android:lineSpacingExtra="8dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmallInverse"
+        android:lineSpacingExtra="8dp"
         android:padding="8dp"
         tools:text="Title"
         android:background="@color/oldBurgundy"

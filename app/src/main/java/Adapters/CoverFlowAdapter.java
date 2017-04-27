@@ -9,6 +9,7 @@ package Adapters;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +27,10 @@ public class CoverFlowAdapter extends BaseAdapter {
 
     private ArrayList<Person> mData = new ArrayList<>(0);
     private Context mContext;
-
+    Typeface retroFont;
     public CoverFlowAdapter(Context context) {
         mContext = context;
+        retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
     }
 
     public void setData(ArrayList<Person> data) {
@@ -76,6 +78,7 @@ public class CoverFlowAdapter extends BaseAdapter {
             rowView = inflater.inflate(R.layout.item_coverflow, null);
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.text = (TextView) rowView.findViewById(R.id.label);
+
             viewHolder.image = (ImageView) rowView
                     .findViewById(R.id.image);
             rowView.setTag(viewHolder);
@@ -83,8 +86,8 @@ public class CoverFlowAdapter extends BaseAdapter {
 
         ViewHolder holder = (ViewHolder) rowView.getTag();
 
-        holder.image.setImageResource(mData.get(position).imageResId);
         holder.text.setText(mData.get(position).titleResId);
+        holder.image.setImageResource(mData.get(position).imageResId);
 
         return rowView;
     }

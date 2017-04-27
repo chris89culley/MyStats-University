@@ -168,9 +168,11 @@ public class AboutFragmentSelecter extends Fragment {
             public View makeView() {
                 LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelecter.this.getContext());
                 TextView textView = (TextView) inflater.inflate(R.layout.item_title, null);
+                textView.setTypeface(retroFont);
                 return textView;
             }
         });
+
 
         imageCarousel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
