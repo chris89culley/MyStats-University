@@ -35,11 +35,20 @@ public class CoverFlowAdapter extends BaseAdapter {
         mData = data;
     }
 
+    /**
+     * Gets the number of items of data
+     * @return
+     */
     @Override
     public int getCount() {
         return mData.size();
     }
 
+    /**
+     * Gets a particular item at an idex
+     * @param pos - The index of the item
+     * @return - The item at the index
+     */
     @Override
     public Object getItem(int pos) {
         return mData.get(pos);
@@ -50,6 +59,13 @@ public class CoverFlowAdapter extends BaseAdapter {
         return pos;
     }
 
+    /**
+     * Gets the view to be displayed based on the index of the item
+     * @param position - The index of the item
+     * @param convertView - The view
+     * @param parent - The parent to the view
+     * @return The view containing the item image and descriptions
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -58,7 +74,6 @@ public class CoverFlowAdapter extends BaseAdapter {
         if (rowView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.item_coverflow, null);
-
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.text = (TextView) rowView.findViewById(R.id.label);
             viewHolder.image = (ImageView) rowView

@@ -1,39 +1,27 @@
 package FragmentSelectors;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.example.chris.mystats_univeristy.R;
-import com.ogaclejapan.arclayout.ArcLayout;
 
 import java.util.ArrayList;
 
 import Adapters.CoverFlowAdapter;
-import Animations.AnimatorUtils;
 import Data.Person;
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
-
-import static com.example.chris.mystats_univeristy.R.string.copy_page_intro;
 
 /**
  * Created by Terence Lawson on 17/04/2017.
@@ -44,8 +32,7 @@ public class AboutFragmentSelecter extends Fragment {
         private View view;
         private int pos;
         private Typeface retroFont;
-        private ArcLayout arcLayout;
-    private FeatureCoverFlow mCoverFlow;
+        private FeatureCoverFlow imageCarousel;
 
         /**
          * sets the position of the fragment pager and the course data
@@ -76,8 +63,8 @@ public class AboutFragmentSelecter extends Fragment {
                         editAboutTheApp();
                         return view;
                     case 1:
-                        view = inflater.inflate(R.layout.about_fragment_creaters, container, false);
-                        editCreatersFragment();
+                        view = inflater.inflate(R.layout.about_fragment_creators, container, false);
+                        createAboutTheTeamFragment();
                         return view;
                     case 2:
                         view = inflater.inflate(R.layout.about_fragment_the_data, container, false);
@@ -136,95 +123,47 @@ public class AboutFragmentSelecter extends Fragment {
         dlhe.setTypeface(retroFont);
     }
 
-    private  void animateToLocation(final Button object, final float right, final float down){
-
-        final float startX = object.getX();
-        final float startY = object.getY();
-        Point center = arcLayout.getOrigin();
-
-        TranslateAnimation anim = new TranslateAnimation(0, right, 0 , down );
-        anim.setDuration(1000);
-        anim.setAnimationListener(new TranslateAnimation.AnimationListener(){
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                object.setX(startX + right);
-                object.setY(startY + down);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        object.startAnimation(anim);
-
-
-    }
-    /**
-     * Animates the search arm by rotating it slightly and translating across a bit of the x axis
-     */
-    private void animateToCenter(final Button object){
-
-        final float startX = object.getX();
-        final float startY = object.getY();
-        Point center = arcLayout.getOrigin();
-
-        final float right = center.x - startX - 100;
-        final float down = center.y - startY - 200;
-        TranslateAnimation anim = new TranslateAnimation(0, right, 0 , down );
-        anim.setDuration(1000);
-        anim.setAnimationListener(new TranslateAnimation.AnimationListener(){
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                object.setX(startX + right);
-                object.setY(startY + down);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        object.startAnimation(anim);
-    }
-
 
     /**
-     * Sets the font type of the Meet the team Fragment
+     * Creates an array list of team members with images and descriptions
+     * @return - The array of team members
      */
-    private void editCreatersFragment(){
-        mCoverFlow = (FeatureCoverFlow) view.findViewById(R.id.coverflow);
+    private ArrayList<Person> createAnArrayListOfStaff(){
         final ArrayList<Person> team = new ArrayList<>();
 
         team.add(new Person(R.drawable.chris, R.string.chris_personal));
         team.add(new Person(R.drawable.jack, R.string.jack_personal));
         team.add(new Person(R.drawable.tel, R.string.tel_personal));
         team.add(new Person(R.drawable.dan, R.string.dan_personal));
+        return team;
+    }
 
-        CoverFlowAdapter mAdapter = new CoverFlowAdapter(this.getContext());
-        mAdapter.setData(team);
-        mCoverFlow.setAdapter(mAdapter);
-        final TextSwitcher mTitle = (TextSwitcher) view.findViewById(R.id.title);
+    /**
+     * Adds the animations to the description when they fade in and out (using the text switcher)
+     * @param description The description to add animations to
+     */
+    private void setAnimationsForDescription(TextSwitcher description){
         Animation in = AnimationUtils.loadAnimation(this.getContext(), R.anim.slide_in_top);
         Animation out = AnimationUtils.loadAnimation(this.getContext(), R.anim.slide_out_bottom);
-        mTitle.setInAnimation(in);
-        mTitle.setOutAnimation(out);
+        description.setInAnimation(in);
+        description.setOutAnimation(out);
+    }
 
-        mTitle.setFactory(new ViewSwitcher.ViewFactory() {
+    /**
+     * Creates the about the team fragment which holds pictures of all the staff in a carousel style
+     * and there descriptions
+     */
+    private void createAboutTheTeamFragment(){
+        imageCarousel = (FeatureCoverFlow) view.findViewById(R.id.coverflow);
+
+        CoverFlowAdapter mAdapter = new CoverFlowAdapter(this.getContext());
+        final ArrayList<Person> team = createAnArrayListOfStaff();
+        mAdapter.setData(team);
+        imageCarousel.setAdapter(mAdapter);
+        final TextSwitcher description = (TextSwitcher) view.findViewById(R.id.title);
+        setAnimationsForDescription(description);
+
+        description.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
                 LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelecter.this.getContext());
@@ -233,7 +172,7 @@ public class AboutFragmentSelecter extends Fragment {
             }
         });
 
-        mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        imageCarousel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -243,15 +182,15 @@ public class AboutFragmentSelecter extends Fragment {
             }
         });
 
-        mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
+        imageCarousel.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
             @Override
             public void onScrolledToPosition(int position) {
-                mTitle.setText(getResources().getString(team.get(position).titleResId));
+                description.setText(getResources().getString(team.get(position).titleResId));
             }
 
             @Override
             public void onScrolling() {
-                mTitle.setText("");
+                description.setText("");
             }
         });
     }

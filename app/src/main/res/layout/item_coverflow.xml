@@ -22,7 +22,7 @@
         android:textAppearance="?android:attr/textAppearanceSmallInverse"
         android:padding="8dp"
         tools:text="Title"
-        android:background="@drawable/jack"
+        android:background="@color/oldBurgundy"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
