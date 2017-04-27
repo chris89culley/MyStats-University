@@ -229,7 +229,7 @@ public class StatsPageSelecter extends Fragment {
 
         String[] inst = course.getInstitutionalAccomDetails().getData();
         low = Integer.parseInt(inst[0]);
-        high = Integer.parseInt(inst[2]);
+        high = Integer.parseInt(inst[1]);
         accomHalls.setText("Student Halls: £" + low + " - £" + high);
         accomHalls.setTypeface(font);
 
