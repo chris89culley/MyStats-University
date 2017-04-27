@@ -37,7 +37,6 @@
             android:background="@drawable/inputbox1"
             android:hint="Quick Search"
             android:maxLength="16"
-            android:onClick="quickSearch"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"
             android:paddingTop="17dp"

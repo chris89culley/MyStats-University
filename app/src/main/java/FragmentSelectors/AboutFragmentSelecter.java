@@ -7,9 +7,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import com.example.chris.mystats_univeristy.R;
+
+import java.util.ArrayList;
+
+import Adapters.CoverFlowAdapter;
+import Data.Person;
+import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
 /**
  * Created by Terence Lawson on 17/04/2017.
@@ -19,8 +31,8 @@ public class AboutFragmentSelecter extends Fragment {
 
         private View view;
         private int pos;
-        Typeface retroFont;
-
+        private Typeface retroFont;
+        private FeatureCoverFlow imageCarousel;
 
         /**
          * sets the position of the fragment pager and the course data
@@ -51,8 +63,8 @@ public class AboutFragmentSelecter extends Fragment {
                         editAboutTheApp();
                         return view;
                     case 1:
-                        view = inflater.inflate(R.layout.about_fragment_creaters, container, false);
-                        editCreatersFragment();
+                        view = inflater.inflate(R.layout.about_fragment_creators, container, false);
+                        createAboutTheTeamFragment();
                         return view;
                     case 2:
                         view = inflater.inflate(R.layout.about_fragment_the_data, container, false);
@@ -110,20 +122,79 @@ public class AboutFragmentSelecter extends Fragment {
         TextView dlhe = (TextView) view.findViewById((R.id.dlhe));
         dlhe.setTypeface(retroFont);
     }
+
+
     /**
-     * Sets the font type of the Meet the team Fragment
+     * Creates an array list of team members with images and descriptions
+     * @return - The array of team members
      */
-    private void editCreatersFragment(){
-        TextView meetTheTeamIntro = (TextView) view.findViewById(R.id.meet_the_team_intro);
-        meetTheTeamIntro.setTypeface(retroFont);
-        TextView chrisDetails = (TextView) view.findViewById(R.id.chris);
-        chrisDetails.setTypeface(retroFont);
-        TextView telDetails = (TextView) view.findViewById(R.id.terry);
-        telDetails.setTypeface(retroFont);
-        TextView danDetails = (TextView) view.findViewById(R.id.dan);
-        danDetails.setTypeface(retroFont);
-        TextView jackDetails = (TextView) view.findViewById(R.id.jack);
-        jackDetails.setTypeface(retroFont);
+    private ArrayList<Person> createAnArrayListOfStaff(){
+        final ArrayList<Person> team = new ArrayList<>();
+
+        team.add(new Person(R.drawable.chris, R.string.chris_personal));
+        team.add(new Person(R.drawable.jack, R.string.jack_personal));
+        team.add(new Person(R.drawable.tel, R.string.tel_personal));
+        team.add(new Person(R.drawable.dan, R.string.dan_personal));
+        return team;
+    }
+
+    /**
+     * Adds the animations to the description when they fade in and out (using the text switcher)
+     * @param description The description to add animations to
+     */
+    private void setAnimationsForDescription(TextSwitcher description){
+        Animation in = AnimationUtils.loadAnimation(this.getContext(), R.anim.slide_in_top);
+        Animation out = AnimationUtils.loadAnimation(this.getContext(), R.anim.slide_out_bottom);
+        description.setInAnimation(in);
+        description.setOutAnimation(out);
+    }
+
+    /**
+     * Creates the about the team fragment which holds pictures of all the staff in a carousel style
+     * and there descriptions
+     */
+    private void createAboutTheTeamFragment(){
+        imageCarousel = (FeatureCoverFlow) view.findViewById(R.id.coverflow);
+
+        CoverFlowAdapter mAdapter = new CoverFlowAdapter(this.getContext());
+        final ArrayList<Person> team = createAnArrayListOfStaff();
+        mAdapter.setData(team);
+        imageCarousel.setAdapter(mAdapter);
+        final TextSwitcher description = (TextSwitcher) view.findViewById(R.id.title);
+        setAnimationsForDescription(description);
+
+        description.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelecter.this.getContext());
+                TextView textView = (TextView) inflater.inflate(R.layout.item_title, null);
+                textView.setTypeface(retroFont);
+                return textView;
+            }
+        });
+
+
+        imageCarousel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(AboutFragmentSelecter.this.getContext(),
+                        getResources().getString(team.get(position).titleResId),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        imageCarousel.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
+            @Override
+            public void onScrolledToPosition(int position) {
+                description.setText(getResources().getString(team.get(position).titleResId));
+            }
+
+            @Override
+            public void onScrolling() {
+                description.setText("");
+            }
+        });
     }
 
 
