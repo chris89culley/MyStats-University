@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,13 +64,13 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
         final View rowView = inflater.inflate(R.layout.search_row, parent , false);
         TextView universityname = (TextView) rowView.findViewById(R.id.universityName);
         TextView courseName = (TextView) rowView.findViewById(R.id.courseName);
-        TextView mode = (TextView) rowView.findViewById(R.id.mode);
+        final TextView mode = (TextView) rowView.findViewById(R.id.mode);
         TextView averageSalaryAfter6 = (TextView) rowView.findViewById(R.id.salaryAfter6);
         TextView percentThatGoOnToWork = (TextView) rowView.findViewById(R.id.percentThatGoToWork);
         TextView averageSatisfaction = (TextView) rowView.findViewById(R.id.overallSatisafaction);
         Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
-        Button moreStatsButton = (Button) rowView.findViewById(R.id.moreStatsButton);
+        final Button moreStatsButton = (Button) rowView.findViewById(R.id.moreStatsButton);
 
 
         //Stops an error being thrown when we get to the bottom of the list view
@@ -94,7 +95,23 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
         universityname.setTypeface(vintage);
         moreStatsButton.setTypeface(retroFont);
 
+        //A listener that makes the more stats button shake
+        View.OnClickListener listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Animation shake = AnimationUtils.loadAnimation(v.getContext(), R.anim.shake);
+                shake.setDuration(1500);
+                shake.setInterpolator(new CycleInterpolator(10));
+                moreStatsButton.startAnimation(shake);
 
+            }
+        };
+
+        //Makes the more stats icon shake when the user wrongly clicks them
+        averageSalaryAfter6.setOnClickListener(listener);
+        percentThatGoOnToWork.setOnClickListener(listener);
+        averageSatisfaction.setOnClickListener(listener);
+        mode.setOnClickListener(listener);
 
         //Sets the row text
         mode.setText("Study mode : " + course.getModeText());
@@ -115,11 +132,6 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
                activity.startActivity(intent);
             }
         });
-
-        Animation shake = AnimationUtils.loadAnimation(this.getContext(), R.anim.shake);
-        shake.setDuration(1500);
-        shake.setInterpolator(new CycleInterpolator(10));
-        moreStatsButton.setAnimation(shake);
 
         return rowView;
     }
