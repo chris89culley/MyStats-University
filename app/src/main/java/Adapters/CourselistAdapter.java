@@ -9,6 +9,9 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.CycleInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -112,6 +115,11 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
                activity.startActivity(intent);
             }
         });
+
+        Animation shake = AnimationUtils.loadAnimation(this.getContext(), R.anim.shake);
+        shake.setDuration(1500);
+        shake.setInterpolator(new CycleInterpolator(20));
+        moreStatsButton.setAnimation(shake);
 
         return rowView;
     }
