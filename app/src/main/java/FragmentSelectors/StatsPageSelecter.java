@@ -1,9 +1,14 @@
 package FragmentSelectors;
 
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +22,10 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.List;
 
 import Data.Course;
 import MPChart.UniversityStatsChartMaker;
@@ -35,6 +44,7 @@ public class StatsPageSelecter extends Fragment {
     private PieChart pChart;
     private Course course;
     private LineChart lineChart;
+    private Activity activity;
 
     /**
      * sets the position of the fragment pager and the course data
@@ -44,7 +54,9 @@ public class StatsPageSelecter extends Fragment {
     public StatsPageSelecter(int position, Course course) {
         this.pos = position;
         this.course = course;
-    }
+
+        }
+
 
     /**
      * on create view determines which fragment to inflate, pending on the position.
@@ -61,15 +73,18 @@ public class StatsPageSelecter extends Fragment {
         try {
         switch(pos) {
             case 0:
+
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);createCostStatsPage(view,retroFont);
                 return view;
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
+                activity.onRestoreInstanceState(onResume());
                 createEmploymentStatsPage(view, retroFont);
                 return view;
             case 2:
 
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
+                view.invalidate();
                 createSatisfactionStatsPage(view, retroFont);
                 return  view;
 
@@ -79,26 +94,11 @@ public class StatsPageSelecter extends Fragment {
                 return view;
             case 4:
                 //Entry_information fragment
-                    try {
-                        //set the view as the fragment_Entry_info view
-                        view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                        lineChart = (LineChart) view.findViewById(R.id.linechart);
+                // set the view as the fragment_Entry_info view
+                view = inflater.inflate(R.layout.fragment_entry_info, container, false);
 
-                        //Set the description
-                        TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
-                        pageDescription.setTypeface(retroFont);
-
-                        //Sets the Y Axis title
-                        TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
-                        yAxislabel.setTypeface(retroFont);
-
-                        //Sets the X Axis title
-                        TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
-                        xAxislabel.setTypeface(retroFont);
-                        lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
-                    }catch (Exception e){
-                        return view = inflater.inflate(R.layout.fragment_error, container, false);
-                    }
+                //Create Entry Intro page fonts
+                createEntryInfo(retroFont);
                 return view;
 
             default:
@@ -107,6 +107,29 @@ public class StatsPageSelecter extends Fragment {
         catch(Exception IO) {
             return view = inflater.inflate(R.layout.fragment_error, container, false);
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        // put your code here...
+
+    }
+    private void createEntryInfo(Typeface retroFont) {
+        lineChart = (LineChart) view.findViewById(R.id.linechart);
+
+        //Set the description
+        TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
+        pageDescription.setTypeface(retroFont);
+
+        //Sets the Y Axis title
+        TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
+        yAxislabel.setTypeface(retroFont);
+
+        //Sets the X Axis title
+        TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
+        xAxislabel.setTypeface(retroFont);
+        lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
     }
 
     /**
