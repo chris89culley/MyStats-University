@@ -143,85 +143,10 @@ public class GenericChartMaker {
      * @param chartTitle - Title of the chart
      * @return The PieData object for the data provided to be used for pie chart construction
      */
-    public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle){
-            if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
-                return new PieData(null);
-            }
+ 
+    public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle) {
+        if (!cs.hasData()) {//Checks the have data flag is false espace functioncomputer
 
-            int[] data = cs.getDataInt();
-            String[] tags = cs.getTags();
-
-            ArrayList<PieEntry> yentries = new ArrayList<>();
-
-            //populates the arraylist with pie entries from the data array
-            for (int i = 0; i < data.length; i++) {
-                yentries.add(new PieEntry((data[i]), tags[i]));
-            }
-
-            //piechart display settings
-            chart.setCenterText("%");
-            chart.setCenterTextSize(20f);
-            chart.setHoleRadius(40f);
-            chart.setHighlightPerTapEnabled(true);
-
-            //Creating a dataSet for the chart
-            PieDataSet pieDataSet = new PieDataSet(yentries, "");
-            pieDataSet.setSliceSpace(4);
-            pieDataSet.setValueTextSize(16);
-
-
-            //Colours array in the form of hex codes
-            int[]Colors =  {ColorTemplate.rgb("2c7bb5"),ColorTemplate.rgb("ff3300"),ColorTemplate.rgb("C781B8"),ColorTemplate.rgb("fef65b")};
-            //Setting the colours of the data set
-            pieDataSet.setColors(Colors);
-
-            //Changing description settings
-            Description description = new Description();
-            description.setText(chartTitle);
-            description.setPosition(0f,0f);
-            chart.setDescription(description);
-            chart.setDrawEntryLabels(true);
-
-            //Changing legend potion and settings
-            Legend l = chart.getLegend();
-            l.setTextColor(ColorTemplate.rgb("3B322C"));
-            l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-            l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
-            l.setOrientation(Legend.LegendOrientation.VERTICAL);
-            l.setDrawInside(false);
-            l.setXEntrySpace(7f);
-            l.setYEntrySpace(0f);
-            l.setYOffset(0f);
-
-            chart.setDrawSliceText(false);
-
-            //changing the dataset settings
-            PieData theData = new PieData(pieDataSet);
-            theData.setValueTextColor(Color.WHITE);
-            theData.setValueTypeface(Typeface.DEFAULT_BOLD);
-            //theData.setValueFormatter(new PercentFormatter());
-
-            return theData;
-    }
-    /**
-     *  Overloaded form of constructPieChart to be used when no data title parameter has been provided
-     * @param cs - Chart stats objects contains the data to be displayed
-     * @param chart - reference to the chart from the view
-     * @return The PieData object for the data provided to be used for pie chart construction
-     */
-    public static PieData constructPieChart(ChartStats cs, PieChart chart){
-        return constructPieChart(cs, chart,"");
-    }
-    /**
-     *  A functions which take two strings arrays and refernce to the chart and returns it as a pie data to construct a pie chart
-     * @param cs - Chart stats objects contains the data to be displayed
-     * @param chart - reference to the chart from the view
-     * @param chartTitle - Title of the chart
-     * @param Colour - colour preset selction
-     * @return The PieData object for the data provided to be used for pie chart construction
-     */
-    public static PieData constructPieChart(ChartStats cs, PieChart chart, String chartTitle,String Colour){
-        if(!cs.hasData()){//Checks the have data flag is false espace functioncomputer
             return new PieData(null);
         }
 
@@ -235,75 +160,96 @@ public class GenericChartMaker {
             yentries.add(new PieEntry((data[i]), tags[i]));
         }
 
-        //piechart display settings
-        chart.setHoleRadius(40f);
-        chart.setHighlightPerTapEnabled(true);
+        setPieChartDisplay(chart);
 
         //Creating a dataSet for the chart
         PieDataSet pieDataSet = new PieDataSet(yentries, "");
         pieDataSet.setSliceSpace(4);
         pieDataSet.setValueTextSize(16);
 
-            //Setting the colour of the chart too each preset
-            Colour = Colour.toLowerCase();
-            int[] Colors;
-            switch (Colour){
-                case "orange":
-                    Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
-                case "indigo":
-                    Colors = new int[] {ColorTemplate.rgb("093145"),ColorTemplate.rgb("0D3D56"),ColorTemplate.rgb("3C6478"),ColorTemplate.rgb("0C374D")};
-                case "blue":
-                    Colors = new int[] {ColorTemplate.rgb("107896"),ColorTemplate.rgb("1496BB"),ColorTemplate.rgb("43ABC9"),ColorTemplate.rgb("1287A8")};
-                    break;
-                default: Colors = new int[] {ColorTemplate.rgb("C2571A"),ColorTemplate.rgb("F26D21"),ColorTemplate.rgb("F58B4C"),ColorTemplate.rgb("DA621E")};
-                    break;
-            }
-            pieDataSet.setColors(Colors);
 
-        //Changing description settings
-        Description description = new Description();
-        description.setText(chartTitle);
-        description.setPosition(0f,0f);
-        chart.setDescription(description);
-        chart.setDrawEntryLabels(true);
+        //Colours array in the form of hex codes
+        int[] Colors = {ColorTemplate.rgb("2c7bb5"), ColorTemplate.rgb("ff3300"), ColorTemplate.rgb("C781B8"), ColorTemplate.rgb("fef65b")};
 
-        //Changing legend potion and settings
-        Legend l = chart.getLegend();
-        l.setTextColor(Color.WHITE);
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setXEntrySpace(7f);
-        l.setYEntrySpace(0f);
-        l.setYOffset(0f);
+        //Setting the colours of the data set
+        pieDataSet.setColors(Colors);
+
+        setPieDescription(chart,chartTitle);
+
+        setPieLegend(chart);
 
         chart.setDrawSliceText(false);
 
+
+        return setPiedata(pieDataSet);
+    }
+
+    /**
+     * Method which sets turns the data set into chart data
+     * @param chart - reference to the chart from the view
+     */
+    public static void setPieChartDisplay(PieChart chart){
+        //piechart display settings
+        chart.setCenterText("%");
+        chart.setCenterTextSize(20f);
+        chart.setHoleRadius(40f);
+        chart.setHighlightPerTapEnabled(true);
+    }
+
+    /**
+     * Method which sets turns the data set into chart data
+     * @param pieDataSet - data set to be used by the chart
+     */
+    public static PieData setPiedata(PieDataSet pieDataSet){
         //changing the dataset settings
         PieData theData = new PieData(pieDataSet);
         theData.setValueTextColor(Color.WHITE);
         theData.setValueTypeface(Typeface.DEFAULT_BOLD);
-        theData.setValueFormatter(new PercentFormatter());
-
         return theData;
-
     }
 
+    /**
+     * Method which sets the legend settings for the pie chart
+     * @param chart - reference to the chart from the view
+     */
+    public static void setPieLegend(PieChart chart){
 
+        //Changing legend potion and settings
+        Legend l = chart.getLegend();
+        l.setTextColor(ColorTemplate.rgb("3B322C"));
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
 
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+    }
 
+    /**
+     * Method which sets the description settings and content for the pie chart
+     * @param chart - reference to the chart from the view
+     * @param chartTitle - String title of the chart
+     */
+    public static void setPieDescription(PieChart chart,String chartTitle){
+        //Changing description settings
+        Description description = new Description();
+        description.setText(chartTitle);
+        description.setPosition(0f, 0f);
+        chart.setDescription(description);
+        chart.setDrawEntryLabels(true);
+    }
 
-
-
-
-
-
-
-
-
-
-
+    /**
+     *  Overloaded form of constructPieChart to be used when no data title parameter has been provided
+     * @param cs - Chart stats objects contains the data to be displayed
+     * @param chart - reference to the chart from the view
+     * @return The PieData object for the data provided to be used for pie chart construction
+     */
+    public static PieData constructPieChart(ChartStats cs, PieChart chart){
+        return constructPieChart(cs, chart,"");
+    }
 
     /**
      * Generic LineChart creater

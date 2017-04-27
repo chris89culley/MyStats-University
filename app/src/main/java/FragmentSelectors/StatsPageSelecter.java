@@ -321,9 +321,6 @@ public class StatsPageSelecter extends Fragment {
         TextView chartTitle2 = (TextView) view.findViewById(R.id.siChartTitle2);
         chartTitle2.setTypeface(font);
 
-        TextView aBitMoreStudyInfoTitle = (TextView) view.findViewById(R.id.aBitMoreStudyInfoTitle);
-        aBitMoreStudyInfoTitle.setTypeface(font);
-
 
         String[] vals = course.getPercentageInScheduled().getData();
 
