@@ -143,7 +143,7 @@ public class StatsPageSelecter extends Fragment {
                 }
                 if(pos == 4){
                     lineChart = (LineChart) view.findViewById(R.id.linechart);
-                    lineChart.animateX(1000, Easing.EasingOption.EaseInBounce);
+                    lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
                 }
             }
         }
