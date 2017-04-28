@@ -2,15 +2,8 @@ package Data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-import android.widget.BaseAdapter;
-
-import com.example.chris.mystats_univeristy.CourseStats;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Currency;
 
 
 /*
@@ -306,7 +299,7 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - The accommodation costs
      */
     public ChartStats getInstitutionalAccomDetails(){
-        ChartStats cs = new ChartStats(new String[]{INSTLOWER, INSTMED, INSTUPPER},new String[]{"Lower Quartile","Median", "Upper Quartile"},"Insititutional accomodation prices","");
+        ChartStats cs = new ChartStats(new String[]{INSTLOWER, INSTUPPER},new String[]{"Lower Quartile","Median", "Upper Quartile"},"Insititutional accomodation prices","");
         return cs;
     }
 

@@ -5,9 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import FragmentSelectors.StatsPageSelecter;
-
 import Data.Course;
+import FragmentSelectors.StatsPageSelecter;
 
 /**
  * Created by c077ing on 08/03/2017.
@@ -44,9 +43,11 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
+
         StatsPageSelecter frag = new StatsPageSelecter(position, course);
         return frag;
     }
+
 
     /**
      * returns page count.
@@ -66,4 +67,6 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int pos){
         return title[pos];
     }
+
+
 }
