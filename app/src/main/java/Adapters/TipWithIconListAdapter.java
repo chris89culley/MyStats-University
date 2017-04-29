@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,9 +61,13 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
         final View rowView = inflater.inflate(R.layout.tip_list_row, parent , false);
         TextView tipTitle = (TextView) rowView.findViewById(R.id.tip_title);
 
+        TipEntry tip = tips.get(position);
 
-        String tipTitleString = activity.getString(tips.get(position).getTipTitleId());
+        String tipTitleString = activity.getString(tip.getTipTitleId());
+        String tipDescriptionString = activity.getString(tip.getTipDescriptionId());
+
         tipTitle.setText(tipTitleString);
+        tipTitle.setCompoundDrawablesWithIntrinsicBounds(tip.getTipIconId(), 0, 0, 0);
 
         //Stops an error being thrown when we get to the bottom of the list view
         if(position > tips.size()-1){
