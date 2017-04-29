@@ -1,15 +1,25 @@
 package FragmentSelectors;
 
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 import com.example.chris.mystats_univeristy.R;
+
+import java.util.ArrayList;
+
+import Adapters.CourselistAdapter;
+import Adapters.TipWithIconListAdapter;
+import Data.Course;
+import Data.TipEntry;
 
 /**
  * Created by Terence Lawson on 18/04/2017.
@@ -17,8 +27,9 @@ import com.example.chris.mystats_univeristy.R;
 
 public class UcasTipsFragmentSelecter extends Fragment {
 
-        private View view;
+    private View view;
     private int pos;
+    private Activity activity;
     Typeface retroFont;
 
 
@@ -26,7 +37,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * sets the position of the fragment pager and the course data
      * @param position
      */
-    public UcasTipsFragmentSelecter(int position) {
+    public UcasTipsFragmentSelecter(int position, Activity activity) {
         this.pos = position;
     }
 
@@ -40,32 +51,25 @@ public class UcasTipsFragmentSelecter extends Fragment {
      */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-       retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
-   //test Comment
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
+        //test Comment
         //Cycles through the fragments choosing which one to inflate
-        try {
-            switch (pos){
-                case 0:
-                    view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
-                    editUcasTipsFragmentChoosingTheRightCourse();
-                    return view;
-                case 1:
-                    view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
-                    editUcasTipsFragmentPersonalStatement();
-                    return view;
-                case 2:
-                    view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
-                    editUcasTipsFragmentInterview();
-                    return view;
-            }
-
-        }catch(Exception IO){
-            return view = inflater.inflate(R.layout.fragment_error, container, false);
+        switch (pos) {
+            case 0:
+                view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
+                editUcasTipsFragmentChoosingTheRightCourse();
+                return view;
+            case 1:
+                view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
+                editUcasTipsFragmentPersonalStatement();
+                return view;
+            case 2:
+                view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
+                editUcasTipsFragmentInterview();
+                return view;
 
         }
-
-
         return view;
     }
 
@@ -73,30 +77,17 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * Sets the font type of the Interview Fragment
      */
     private void editUcasTipsFragmentInterview() {
-        TextView ucasTipsInterviewIntro = (TextView) view.findViewById(R.id.ucas_tips_interview_intro);
-        ucasTipsInterviewIntro.setTypeface(retroFont);
 
-        TextView ucasTipsChecking = (TextView) view.findViewById(R.id.ucas_tips_checking);
-        ucasTipsChecking.setTypeface(retroFont);
+        TipWithIconListAdapter adapter;
+        ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.tips_list);
 
-        TextView ucasTipsTimes = (TextView) view.findViewById(R.id.ucas_tips_times);
-        ucasTipsTimes.setTypeface(retroFont);
+        ArrayList<TipEntry> tips = new ArrayList<>();
+        tips.add(new TipEntry(R.string.ucas_tips_interview_checking_title, R.string.ucas_tips_checking, R.drawable.firebase_icon));
 
-        TextView ucasTipsPreparing = (TextView) view.findViewById(R.id.ucas_tips_preparing);
-        ucasTipsPreparing.setTypeface(retroFont);
-
-        TextView ucasTipsPlanYourTravel = (TextView) view.findViewById(R.id.ucas_tips_plan_your_travel);
-        ucasTipsPlanYourTravel.setTypeface(retroFont);
-
-        TextView ucasTipsDress = (TextView) view.findViewById(R.id.ucas_tips_dress);
-        ucasTipsDress.setTypeface(retroFont);
-
-        TextView ucasTipsBeYourSelf = (TextView) view.findViewById(R.id.ucas_tips_be_yourself);
-        ucasTipsBeYourSelf.setTypeface(retroFont);
-
-        TextView ucasTipsPractice = (TextView) view.findViewById(R.id.ucas_tips_practice);
-        ucasTipsPractice.setTypeface(retroFont);
-
+        if(!tips.isEmpty()){
+            adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
+            listView.setAdapter(adapter);
+        }
     }
 
     /**

@@ -1,9 +1,11 @@
 package Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 
 import com.example.chris.mystats_univeristy.UcasTips;
@@ -16,6 +18,7 @@ import FragmentSelectors.UcasTipsFragmentSelecter;
 public class UcasTipsAdapter extends FragmentPagerAdapter{
     private String[] title = new String[]{"Choosing your Course","Personal Statement", "Interview" };
     Context context;
+    private UcasTips ucasTips;
     private int pageCount = 3;
 
     public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
@@ -28,7 +31,7 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
      */
     @Override
     public Fragment getItem(int position) {
-        UcasTipsFragmentSelecter frag = new UcasTipsFragmentSelecter(position);
+        UcasTipsFragmentSelecter frag = new UcasTipsFragmentSelecter(position, ucasTips);
         return frag;    }
 
     /**

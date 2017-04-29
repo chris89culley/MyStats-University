@@ -78,6 +78,7 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
 
     <!--Interview Fragment-->
     <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Below you’ll find some tips to get you through the big day. </string>
+    <string name="ucas_tips_interview_checking_title"> Checking for emails</string>
     <string name="ucas_tips_checking">Check for interviews: A University could send you an invitation directly or it could send you one through your UCAS track. Make sure you are regularly checking whatever means you may be contacted.</string>
     <string name="ucas_tips_times">Times or dates: If and where possible keep with the time and date the university have offered you. It is not the end of the world to change an appointment but make sure you do so in good time. Make sure if you do change your interview date and time then you do it directly to the university and not through track.</string>
     <string name="ucas_tips_preparing">Start Preparing: The key here is research; the course, modules  and the university are all talking points you should know thoroughly. Make sure you have re-read over your personal statement as this is probably going to be the basis for most of their questions. They will be expecting good students to have questions for them, so have follow up questions to keep the conversation moving.</string>

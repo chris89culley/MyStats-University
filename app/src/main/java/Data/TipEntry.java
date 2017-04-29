@@ -13,13 +13,19 @@ public class TipEntry {
     private int tipIconId;
 
 
-    TipEntry(int titleId, int descriptionId, int iconId){
+    public TipEntry(int titleId, int descriptionId, int iconId){
         this.tipTitleId = titleId;
         this.tipDescriptionId = descriptionId;
         this.tipIconId = iconId;
     }
 
-    public int getTipTitleId{return tipTitleId;}
-    public int getTipDescriptionId{return tipDescriptionId;}
-    public int getTipIconId{return tipIconId;}
+    public int getTipTitleId(){
+        return tipTitleId;
+    }
+    public int getTipDescriptionId(){
+        return tipDescriptionId;
+    }
+    public int getTipIconId(){
+        return tipIconId;
+    }
 }
