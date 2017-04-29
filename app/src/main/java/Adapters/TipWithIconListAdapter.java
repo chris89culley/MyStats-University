@@ -60,6 +60,7 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
 
         final View rowView = inflater.inflate(R.layout.tip_list_row, parent , false);
         TextView tipTitle = (TextView) rowView.findViewById(R.id.tip_title);
+        TextView tipDescription = (TextView)  rowView.findViewById(R.id.tip_description);
 
         TipEntry tip = tips.get(position);
 
@@ -67,6 +68,7 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
         String tipDescriptionString = activity.getString(tip.getTipDescriptionId());
 
         tipTitle.setText(tipTitleString);
+        tipDescription.setText(tipDescriptionString);
         tipTitle.setCompoundDrawablesWithIntrinsicBounds(tip.getTipIconId(), 0, 0, 0);
 
         //Stops an error being thrown when we get to the bottom of the list view

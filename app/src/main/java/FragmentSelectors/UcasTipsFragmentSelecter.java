@@ -83,6 +83,11 @@ public class UcasTipsFragmentSelecter extends Fragment {
 
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_interview_checking_title, R.string.ucas_tips_checking, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_preparing_title, R.string.ucas_tips_preparing, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_times_title, R.string.ucas_tips_times, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_dress_title, R.string.ucas_tips_dress, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_travel_plan, R.string.ucas_tips_plan_your_travel, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tip_interview_be_yourself_title, R.string.ucas_tips_be_yourself, R.drawable.firebase_icon));
 
         if(!tips.isEmpty()){
             adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
