@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,7 @@ import com.example.chris.mystats_univeristy.R;
 
 import java.util.ArrayList;
 
-import Adapters.CourselistAdapter;
 import Adapters.TipWithIconListAdapter;
-import Data.Course;
 import Data.TipEntry;
 
 /**
@@ -87,6 +84,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
         tips.add(new TipEntry(R.string.ucas_tips_interview_times_title, R.string.ucas_tips_times, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tips_interview_dress_title, R.string.ucas_tips_dress, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tips_interview_travel_plan, R.string.ucas_tips_plan_your_travel, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_intrview_practice_title, R.string.ucas_tips_practice, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tip_interview_be_yourself_title, R.string.ucas_tips_be_yourself, R.drawable.firebase_icon));
 
         if(!tips.isEmpty()){

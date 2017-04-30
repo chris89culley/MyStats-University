@@ -14,14 +14,25 @@
         android:layout_height="match_parent">
 
 
+        <TextView
+            android:id="@+id/interview_intro_statement"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:lineSpacingExtra="8dp"
+            android:textColor="@color/oldBurgundy"
+            android:text="@string/ucas_tips_interview_intro"
+            android:layout_height="wrap_content" />
 
         <com.andexert.expandablelayout.library.ExpandableLayoutListView
             android:id="@+id/tips_list"
+            android:layout_below="@+id/interview_intro_statement"
             android:background="#839788"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
+
 
 
     <android.support.design.widget.NavigationView

@@ -40,12 +40,14 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
     private static int[] colours = {Colours.GREEN_SHEEN.getColor(),
             Colours.BACKGROUND_GREEN.getColor()
     };
+    private Typeface retroFont;
 
     public TipWithIconListAdapter(Activity activity, int textViewResourceId , int header_id , ArrayList<TipEntry> tips) {
         super(activity, textViewResourceId, header_id, tips);
         this.activity = activity;
         this.tips = tips;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
     }
 
 
@@ -68,8 +70,11 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
         String tipDescriptionString = activity.getString(tip.getTipDescriptionId());
 
         tipTitle.setText(tipTitleString);
-        tipDescription.setText(tipDescriptionString);
+        tipTitle.setTypeface(retroFont);
         tipTitle.setCompoundDrawablesWithIntrinsicBounds(tip.getTipIconId(), 0, 0, 0);
+
+        tipDescription.setText(tipDescriptionString);
+        tipDescription.setTypeface(retroFont);
 
         //Stops an error being thrown when we get to the bottom of the list view
         if(position > tips.size()-1){
@@ -80,11 +85,6 @@ public class TipWithIconListAdapter extends ArrayAdapter<TipEntry>{
         //Sets the rows colour (alternates between all the colours)
         int colour = (colours[position % colours.length]);
         rowView.findViewById(R.id.row).setBackgroundColor(colour);
-
-
-
-        //Sets the fonts of the content
-        //tipTitle.setTypeface(retroFont);
 
         return rowView;
     }
