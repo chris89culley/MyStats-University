@@ -20,7 +20,7 @@
             android:padding="15dp"
             android:lineSpacingExtra="8dp"
             android:textColor="@color/oldBurgundy"
-            android:text="@string/ucas_tips_interview_intro"
+            android:text="@string/ucas_tips_choosing_course_intro"
             android:layout_height="wrap_content" />
 
         <com.andexert.expandablelayout.library.ExpandableLayoutListView

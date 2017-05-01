@@ -125,44 +125,25 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * Sets the font type of the Choosing the Right Course Fragment
      */
     private void editUcasTipsFragmentChoosingTheRightCourse() {
-        TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.ucas_tips_choosing_course_intro);
+        TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.choosing_intro_statement);
         ucasTipsChoosingCourseIntro.setTypeface(retroFont);
 
+        TipWithIconListAdapter adapter;
+        ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.choosing_course_list);
 
+        ArrayList<TipEntry> tips = new ArrayList<>();
+        tips.add(new TipEntry(R.string.ucas_tips_hobby_title, R.string.ucas_tips_hobby,  R.drawable.bowling));
+        tips.add(new TipEntry(R.string.ucas_tips_entry_requirments_title, R.string.ucas_tips_entry_requirments, R.drawable.microscope));
+        tips.add(new TipEntry(R.string.ucas_tips_location_title, R.string.ucas_tips_location, R.drawable.house));
+        tips.add(new TipEntry(R.string.ucas_tips_location_q1, R.string.ucas_tips_location_a1, R.drawable.question_mark));
+        tips.add(new TipEntry(R.string.ucas_tips_location_q2, R.string.ucas_tips_location_a2, R.drawable.question_mark));
+        tips.add(new TipEntry(R.string.ucas_tips_location_q3, R.string.ucas_tips_location_a3, R.drawable.question_mark));
+        tips.add(new TipEntry(R.string.ucas_tips_location_q4, R.string.ucas_tips_location_a4, R.drawable.question_mark));
 
-        TextView ucasTipsHobby = (TextView) view.findViewById(R.id.ucas_tips_hobby);
-        ucasTipsHobby.setTypeface(retroFont);
-
-        TextView ucasTipsEntryRequirements = (TextView) view.findViewById(R.id.ucas_tips_entry_requirments);
-        ucasTipsEntryRequirements.setTypeface(retroFont);
-
-        TextView ucasTipsLocation = (TextView) view.findViewById(R.id.ucas_tips_location);
-        ucasTipsLocation.setTypeface(retroFont);
-
-        TextView ucasTipsLocationQ1 = (TextView) view.findViewById(R.id.ucas_tips_location_q1);
-        ucasTipsLocationQ1.setTypeface(retroFont);
-
-        TextView ucasTipsLocationA1 = (TextView) view.findViewById(R.id.ucas_tips_location_a1);
-        ucasTipsLocationA1.setTypeface(retroFont);
-
-        TextView ucasTipsLocationQ2 = (TextView) view.findViewById(R.id.ucas_tips_location_q2);
-        ucasTipsLocationQ2.setTypeface(retroFont);
-
-        TextView ucasTipsLocationA2 = (TextView) view.findViewById(R.id.ucas_tips_location_a2);
-        ucasTipsLocationA2.setTypeface(retroFont);
-
-        TextView ucasTipsLocationQ3 = (TextView) view.findViewById(R.id.ucas_tips_location_q3);
-        ucasTipsLocationQ3.setTypeface(retroFont);
-
-        TextView ucasTipsLocationA3 = (TextView) view.findViewById(R.id.ucas_tips_location_a3);
-        ucasTipsLocationA3.setTypeface(retroFont);
-
-        TextView ucasTipsLocationQ4 = (TextView) view.findViewById(R.id.ucas_tips_location_q4);
-        ucasTipsLocationQ4.setTypeface(retroFont);
-
-        TextView ucasTipsLocationA4 = (TextView) view.findViewById(R.id.ucas_tips_location_a4);
-        ucasTipsLocationA4.setTypeface(retroFont);
-
+        if(!tips.isEmpty()){
+            adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
+            listView.setAdapter(adapter);
+        }
 
     }
 

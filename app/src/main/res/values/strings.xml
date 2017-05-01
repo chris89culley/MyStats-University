@@ -39,10 +39,13 @@
     <!--Intro frament-->
     <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have put together some tips and hints to help you in your university application journey.</string>
     <!--Choosing your course fragment-->
-    <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37000 courses offered across 350 different universities just starting out can be overwhelming. Below are some tips in how to choose the course right for you, followed by ways to test this choice to determine if you have made the right decision. </string>
+    <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37,000 courses offered across 350 different universities it can be overwhelming. Below are some tips that'll help you choose the right course for you.</string>
+    <string name="ucas_tips_hobby_title">Hobbies</string>
     <string name="ucas_tips_hobby">Research shows that intrinsically motivating work makes people a lot happier than a big pay cheque so why not pursue a course in the thing you do for fun, your hobby. Whether that’s computer games, gardening, crafts or cooking its worth exploring courses that incorporate your passion rather than concentrating on earning potential alone.  </string>
     <string name="ucas_tips_entry_requirments">Entry requirements: Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
+    <string name="ucas_tips_entry_requirments_title">Entry requirements</string>
     <string name="ucas_tips_location">Location: The choice of location is as important as the course itself, this largely depends on individual circumstances so here are some questions you could ask yourself before settling on a location;</string>
+    <string name="ucas_tips_location_title">location</string>
     <string name="ucas_tips_location_q1">Is it important for you to be close to your family? If so how close?</string>
     <string name="ucas_tips_location_a1">Graduate employment research has evidenced that students who leave home develop self-sufficiency sooner and therefore have potentially better job prospects than those who stay with family which is worth bearing in mind before you settle for ironed shirts and dinners on the table.</string>
     <string name="ucas_tips_location_q2">What are the transportation times back home, is it an expensive route? </string>
