@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandable="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:drawableTop="@android:color/black"
+    android:drawableBottom="@android:color/black"
+    android:layout_height="match_parent">
+
+
+
+    <com.andexert.expandablelayout.library.ExpandableLayoutItem
+        android:id="@+id/row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/oldBurgundy"
+        expandable:el_headerLayout="@layout/tip_list_row_header"
+        expandable:el_contentLayout="@layout/tip_list_content"
+    android:background= "#8DA6B3"/>
+
+</RelativeLayout>

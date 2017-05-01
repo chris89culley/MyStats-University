@@ -26,6 +26,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
+import Data.RSDBhandler;
 
 public class MenuViewActivity extends AppCompatActivity {
     private MenuViewActivity currentActivity = this;
@@ -126,7 +127,10 @@ public class MenuViewActivity extends AppCompatActivity {
      * @param item
      */
     public void recentClick(MenuItem item) {
-        Intent intent = new Intent(this, UcasTips.class);
+        Intent intent = new Intent(this, SearchResults.class);
+        RSDBhandler dataGrabber =  new RSDBhandler(this);
+        intent.putExtra("searchedName" , "Recent Searches");
+        intent.putParcelableArrayListExtra("searchResults" , dataGrabber.readAll());
         startActivity(intent);
     }
 
