@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,8 +59,6 @@ public class MenuViewActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_menu);
         getMenuInflater().inflate(R.menu.overflow_menu, menu);
         searchButtonForOverflow = menu.findItem(R.id.searchforoverflow);
-
-
         return true;
     }
 
