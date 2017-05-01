@@ -63,7 +63,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
                 return view;
             case 2:
                 view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
-                editUcasTipsFragmentInterview();
+                createUcasTipsInterviewFragment();
                 return view;
 
         }
@@ -71,9 +71,10 @@ public class UcasTipsFragmentSelecter extends Fragment {
     }
 
     /**
-     * Sets the font type of the Interview Fragment
+     * Creates the interview page fragment by creating an array list of tips, which contain the title, content and image
+     * which is then sent to the tip icon adapter on the page
      */
-    private void editUcasTipsFragmentInterview() {
+    private void createUcasTipsInterviewFragment() {
 
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.tips_list);
