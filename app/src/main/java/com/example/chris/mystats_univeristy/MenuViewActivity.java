@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MenuViewActivity extends AppCompatActivity {
     private TextView dialogBox;
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private AVLoadingIndicatorView loadingIcon;
+    Intent prev;
 
 
     /**
@@ -146,6 +148,7 @@ public class MenuViewActivity extends AppCompatActivity {
      * opens and sets up the dialog fragment.
      */
     public void openDialog() {
+        prev = getIntent();
         dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.fragment_quick_search);
@@ -179,8 +182,8 @@ public class MenuViewActivity extends AppCompatActivity {
      * @param v
      */
     public void dialogClose(View v){
-
-        dialog.dismiss();
+        Intent intent = new Intent(prev);
+        startActivity(intent);
     }
 
 
