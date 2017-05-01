@@ -4,6 +4,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,6 +99,25 @@ public class AboutFragmentSelecter extends Fragment {
 
         TextView copyHesaDisclaimer = (TextView) view.findViewById(R.id.copu_hesa_disclaimer);
         copyHesaDisclaimer.setTypeface(retroFont);
+
+        TextView further_info = (TextView) view.findViewById(R.id.further_info);
+        further_info.setTypeface(retroFont);
+
+        TextView emailTxt = (TextView) view.findViewById(R.id.email_linked);
+        emailTxt.setMovementMethod(LinkMovementMethod.getInstance());
+        emailTxt.setTypeface(retroFont);
+
+        TextView image_info = (TextView) view.findViewById(R.id.image_info);
+        image_info.setTypeface(retroFont);
+
+        TextView freepikTxt = (TextView) view.findViewById(R.id.freepik_info);
+        freepikTxt.setMovementMethod(LinkMovementMethod.getInstance());
+        freepikTxt.setTypeface(retroFont);
+
+        TextView logomakrTxt = (TextView) view.findViewById(R.id.logomakr_info);
+        logomakrTxt.setMovementMethod(LinkMovementMethod.getInstance());
+        logomakrTxt.setTypeface(retroFont);
+
     }
 
     /**
@@ -113,6 +134,8 @@ public class AboutFragmentSelecter extends Fragment {
      * Sets the font type of the The Data Fragment
      */
     private void editTheDataFragment() {
+        TextView fire = (TextView) view.findViewById((R.id.fire));
+        fire.setTypeface(retroFont);
         TextView dataIntro = (TextView) view.findViewById((R.id.data_intro));
         dataIntro.setTypeface(retroFont);
         TextView hefa = (TextView) view.findViewById((R.id.hefa));

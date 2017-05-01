@@ -22,7 +22,7 @@
                 android:textColor="#3B322C"
                 android:padding="15dp"
                 android:background="@color/greenSheen"
-                android:text="So you want to know more about the app, great!\n\nThe application was developed with the intention to give everyone a quick and simple way to research university courses across the UK.\n\nIf you’re a prospective under/postgraduate then this app could change your life! By helping you find interesting and useful stats to help you choose the course for you."
+                android:text="So you want to know more about the app, great!\n\nThe application was developed with the intention to give everyone a quick and simple way to research university courses across the UK.\n\nIf you’re a prospective under/postgraduate then this app will help you find interesting stats to help you choose the course for you."
                 android:layout_below="@+id/aboutTitle"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
