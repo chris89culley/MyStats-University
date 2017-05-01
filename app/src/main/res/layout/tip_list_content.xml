@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/background"
+    android:drawableTop="@android:color/black"
+    android:drawableBottom="@android:color/black"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border">
+
+
+    <TextView
+        android:id="@+id/tip_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Study mode :"
+        android:textSize="15dp"
+        android:lineSpacingExtra="8dp"
+        android:gravity="center"
+        android:textColor="@color/oldBurgundy"
+        android:padding="15dp"
+        />
+
+
+    </RelativeLayout>
+</RelativeLayout>

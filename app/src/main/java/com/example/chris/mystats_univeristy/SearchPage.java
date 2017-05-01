@@ -21,6 +21,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
@@ -171,10 +172,10 @@ public class SearchPage extends MenuViewActivity  {
      * Sets up the text fields allowing the user to enter a course and location name
      */
     private void setUpSearchOptions(){
-        searchedLocationEditTextField = (EditText) findViewById(R.id.locationNameEntered);
-        searchedLocationEditTextField.setTypeface(marketDeco);
         searchedCourseEditTextField = (EditText) findViewById(R.id.courseNameEntered);
         searchedCourseEditTextField.setTypeface(marketDeco);
+        searchedLocationEditTextField = (EditText) findViewById(R.id.locationNameEntered);
+        searchedLocationEditTextField.setTypeface(marketDeco);
     }
 
     /**
@@ -403,6 +404,7 @@ public class SearchPage extends MenuViewActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         animateSearchArm();
         setUpFonts();
         setUpWidgetsOnHomePage();

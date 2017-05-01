@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:mailto="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
         android:layout_width="wrap_content"
@@ -8,22 +10,26 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/greenSheen">
-
+            android:background="@color/background">
 
             <TextView
                 android:id="@+id/copy_intro"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:padding="15dp"
+                android:drawablePadding="15dp"
+                android:drawableTop="@drawable/copyright_icon"
+                android:textAlignment="textStart"
                 android:textColor="#3B322C"
                 android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/copy_page_intro" android:background="@color/background"
-            android:gravity="center"/>
+                android:layout_height="wrap_content"
+                android:text="@string/copy_page_intro"
+                android:background="@color/background"
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/copy_unistats_disclaimer"
+                android:textAlignment="textStart"
                 android:layout_below="@+id/copy_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,6 +43,7 @@
 
             <TextView
                 android:id="@+id/copu_hesa_disclaimer"
+                android:textAlignment="textStart"
                 android:layout_below="@id/copy_unistats_disclaimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,6 +54,82 @@
                 android:textColor="#3B322C"
                 android:padding="15dp"
                 android:gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/further_info"
+                android:textAlignment="textStart"
+                android:layout_below="@id/copu_hesa_disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="If you require any further information or have any questions relating to this app feel free to contact the development team, CDJiT via email."
+                android:background="@color/greenSheen"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/email_linked"
+                android:textAlignment="textStart"
+                android:layout_below="@id/further_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/emailStr"
+                android:background="@color/greenSheen"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/image_info"
+                android:textAlignment="textStart"
+                android:layout_below="@id/email_linked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/copy_image_info"
+                android:background="@color/background"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/freepik_info"
+                android:textAlignment="textStart"
+                android:layout_below="@id/image_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/freepik_image"
+                android:background="@color/background"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/logomakr_info"
+                android:textAlignment="textStart"
+                android:layout_below="@id/freepik_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/logomakr_image"
+                android:background="@color/background"
+                android:lineSpacingExtra="8dp"
+                android:textSize="17dp"
+                android:textColor="#3B322C"
+                android:padding="15dp"
+                android:gravity="center"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/logomakr_info"
+                />
 
         </RelativeLayout>
     </ScrollView>

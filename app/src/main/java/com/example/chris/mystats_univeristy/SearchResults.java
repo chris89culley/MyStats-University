@@ -17,9 +17,8 @@ import Adapters.CourselistAdapter;
 
 public class SearchResults extends MenuViewActivity {
 
-    ListView listView;
+    private ArrayAdapter adapter;
 
-    ArrayAdapter adapter;
 
 
     @Override
