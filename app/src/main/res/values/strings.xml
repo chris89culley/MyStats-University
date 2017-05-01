@@ -80,7 +80,7 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
     <string name="ucas_tips_the_thesaurus">Don’t overuse the thesaurus:  Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language you use and not use big words that make you sound clever. </string>
 
     <!--Interview Fragment-->
-    <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Below you’ll find some tips to get you through the big day. </string>
+    <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Click the sections below to find some tips to help you through the big day. </string>
     <string name="ucas_tips_interview_checking_title"> Check for interviews</string>
     <string name="ucas_tips_checking">A University could send you an invitation directly or it could send you one through your UCAS track. Make sure you are checking both regularly so you don\'t miss an appointment by mistake.</string>
     <string name="ucas_tips_interview_times_title"> Keeping to times and dates</string>
