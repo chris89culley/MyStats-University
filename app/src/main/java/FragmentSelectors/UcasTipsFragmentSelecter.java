@@ -98,6 +98,23 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * Sets the font type of the PersonalStatement Fragment
      */
     private void editUcasTipsFragmentPersonalStatement() {
+
+        TipWithIconListAdapter adapter;
+        ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
+
+        ArrayList<TipEntry> tips = new ArrayList<>();
+        tips.add(new TipEntry(R.string.ucas_tips_interview_checking_title, R.string.ucas_tips_personal_statement_intro, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_preparing_title, R.string.ucas_tips_preparing, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_times_title, R.string.ucas_tips_times, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_dress_title, R.string.ucas_tips_dress, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_interview_travel_plan, R.string.ucas_tips_plan_your_travel, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_intrview_practice_title, R.string.ucas_tips_practice, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tip_interview_be_yourself_title, R.string.ucas_tips_be_yourself, R.drawable.firebase_icon));
+
+        if(!tips.isEmpty()){
+            adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
+            listView.setAdapter(adapter);
+        }
         TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
         ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
 
