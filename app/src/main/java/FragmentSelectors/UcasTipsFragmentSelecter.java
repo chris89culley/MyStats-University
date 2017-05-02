@@ -103,8 +103,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
 
         ArrayList<TipEntry> tips = new ArrayList<>();
-        tips.add(new TipEntry(R.string.ucas_tips_interview_checking_title, R.string.ucas_tips_personal_statement_intro, R.drawable.firebase_icon));
-        tips.add(new TipEntry(R.string.ucas_tips_interview_preparing_title, R.string.ucas_tips_preparing, R.drawable.firebase_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_opening_paragraph_title, R.string.ucas_tips_opening_paragraph, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tips_interview_times_title, R.string.ucas_tips_times, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tips_interview_dress_title, R.string.ucas_tips_dress, R.drawable.firebase_icon));
         tips.add(new TipEntry(R.string.ucas_tips_interview_travel_plan, R.string.ucas_tips_plan_your_travel, R.drawable.firebase_icon));
