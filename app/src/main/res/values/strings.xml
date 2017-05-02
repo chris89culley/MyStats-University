@@ -40,20 +40,18 @@
     <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have put together some tips and hints to help you in your university application journey.</string>
     <!--Choosing your course fragment-->
     <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37000 courses offered across 350 different universities it can be overwhelming. Below are some tips that will help you choose the right course for you.</string>
-    <string name="ucas_tips_hobby_title">Hobbies</string>
+    <string name="ucas_tips_hobby_title">Consider Your Enjoyment</string>
     <string name="ucas_tips_hobby">Research shows that intrinsically motivating work makes people a lot happier than a big pay cheque so why not pursue a course in the thing you do for fun, your hobby. Whether that’s computer games, gardening, crafts or cooking its worth exploring courses that incorporate your passion rather than concentrating on earning potential alone.  </string>
-    <string name="ucas_tips_entry_requirments">Entry requirements: Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
-    <string name="ucas_tips_entry_requirments_title">Entry requirements</string>
-    <string name="ucas_tips_location">Location: The choice of location is as important as the course itself, this largely depends on individual circumstances so here are some questions you could ask yourself before settling on a location;</string>
-    <string name="ucas_tips_location_title">location</string>
-    <string name="ucas_tips_location_q1">Is it important for you to be close to your family?</string>
-    <string name="ucas_tips_location_a1">Graduate employment research has evidenced that students who leave home develop self-sufficiency sooner and therefore have potentially better job prospects than those who stay with family which is worth bearing in mind before you settle for ironed shirts and dinners on the table.</string>
-    <string name="ucas_tips_location_q2">What is the cost of transportation back home?</string>
-    <string name="ucas_tips_location_a2">A student rail or coach card will be a very sensible long-term investment and can make a great Christmas present from your family or friends, you may even find your bank will give you one free of charge when you move to a student account.</string>
-    <string name="ucas_tips_location_q3">Are you prepared for the lifestyle change the new location will bring? </string>
-    <string name="ucas_tips_location_a3">Your time at university will be an opportunity for you to pursue your interests in a way you may never be able to again; so it is important that you’ll be able to access facilities enabling you to explore these interests. </string>
-    <string name="ucas_tips_location_q4">Can you afford the living costs at the university?</string>
-    <string name="ucas_tips_location_a4">The cost of living varies throughout the country, aside from London the more expensive areas are still given the same student loan payments, meaning it is worth considering areas in the North of the country to take advantage of cheaper rents and nights out.  </string>
+    <string name="ucas_tips_entry_requirments">Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
+    <string name="ucas_tips_entry_requirments_title">Apply To A Range</string>
+    <string name="ucas_tips_location">Entry requirements:The choice of location is as important as the course itself, this largely depends on individual circumstances.</string>
+    <string name="ucas_tips_location_title">Think About Location</string>
+    <string name="ucas_tips_goals_title">Consider Your Career Goals</string>
+    <string name="ucas_tips_goals">Choose a course which will help you achieve your long term career goal. There is no point in studying a subject which wont help you get where you want to be after graduating</string>
+    <string name="ucas_tips_research_title">Do your research</string>
+    <string name="ucas_tips_research">Save yourself unnecessary hard work by checking out what employment stats are like after graduating. Its also worth looking at the kind of careers that will be open to you when finished. </string>
+    <string name="ucas_tips_talk_title">Talk to people</string>
+    <string name="ucas_tips_talk">If the facts and figures arent enough try get in touch with some of the institutions alumni most institutions will hand over contact details if you ask. This helps build a fuller picture of what life there would be like not just the academic side of things!</string>
 
     <!--Personal Statement Fragment-->
     <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. Now this can be a daunting task and is something all University admissions officers take very seriously. This could be the difference between you getting onto the course of your dreams, or not getting onto any courses at all. Well now that you are nice and scared, here are some great tips to get you started.</string>
