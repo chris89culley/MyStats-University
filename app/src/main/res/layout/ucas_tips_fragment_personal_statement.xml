@@ -4,12 +4,20 @@
     android:layout_height="match_parent">
 
 
-
+    <TextView
+        android:id="@+id/personal_statement_intro_statement"
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:lineSpacingExtra="8dp"
+        android:textColor="@color/oldBurgundy"
+        android:text="@string/ucas_tips_personal_statement_intro"
+        android:layout_height="wrap_content" />
 
 
             <com.andexert.expandablelayout.library.ExpandableLayoutListView
                 android:id="@+id/personal_statement_tips_list"
                 android:background="#839788"
+                android:layout_below="@+id/personal_statement_intro_statement"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"/>
