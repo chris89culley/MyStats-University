@@ -96,12 +96,15 @@ public class UcasTipsFragmentSelecter extends Fragment {
     }
 
     /**
-     * Sets the font type of the PersonalStatement Fragment
+     * Creates the Personal Statement page fragment by creating an array list of tips, which contain the title, content and image
+     * which is then sent to the tip icon adapter on the page
      */
     private void editUcasTipsFragmentPersonalStatement() {
 
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
+
+        //Creates a list of tips that will be displayed in a list view
 
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_opening_paragraph_title, R.string.ucas_tips_opening_paragraph, R.drawable.opening_paragraph));
@@ -128,7 +131,8 @@ public class UcasTipsFragmentSelecter extends Fragment {
     }
 
     /**
-     * Sets the font type of the Choosing the Right Course Fragment
+     * Creates the Choosing the right course page fragment by creating an array list of tips, which contain the title, content and image
+     * which is then sent to the tip icon adapter on the page
      */
     private void editUcasTipsFragmentChoosingTheRightCourse() {
         TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.choosing_intro_statement);
