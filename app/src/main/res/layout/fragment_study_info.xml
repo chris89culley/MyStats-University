@@ -62,7 +62,7 @@
             android:background="@color/greenSheen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/lecture_icon"
+            android:drawableLeft="@drawable/lecture_icon2"
             android:layout_below="@id/sipie2"/>
 
         <TextView
@@ -75,7 +75,7 @@
             android:background="@color/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/writing_icon"
+            android:drawableLeft="@drawable/coursework_icon2"
             android:layout_below="@+id/sistat1"/>
 
         <Space
