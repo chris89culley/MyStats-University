@@ -107,6 +107,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
 
+        TextView titleText = (TextView) view.findViewById(R.id.personal_statement_intro_statement);
+        titleText.setTypeface(retroFont);
+
         //Creates a list of tips that will be displayed in a list view
 
         ArrayList<TipEntry> tips = new ArrayList<>();
