@@ -2,29 +2,17 @@ package Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.CycleInterpolator;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.chris.mystats_univeristy.CourseStats;
 import com.example.chris.mystats_univeristy.R;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
-import Data.Course;
 import Data.TipEntry;
 import Utilities.Colours;
 

@@ -114,26 +114,10 @@ public class UcasTipsFragmentSelecter extends Fragment {
             adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
             listView.setAdapter(adapter);
         }
-        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
-        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
-
-
-        TextView ucasTipsTakeYourTime = (TextView) view.findViewById(R.id.ucas_tips_take_your_time);
-        ucasTipsTakeYourTime.setTypeface(retroFont);
-
-        TextView ucasTipsBeExcited = (TextView) view.findViewById(R.id.ucas_tips_be_excited);
-        ucasTipsBeExcited.setTypeface(retroFont);
 
 
 
-        TextView ucasTipsBePrepared = (TextView) view.findViewById(R.id.personal_statement_tips);
-        ucasTipsBePrepared.setTypeface(retroFont);
 
-        TextView ucasTipsSellYourself = (TextView) view.findViewById(R.id.ucas_tips_the_thesaurus);
-        ucasTipsSellYourself.setTypeface(retroFont);
-
-        TextView ucasTipsYourGrammer = (TextView) view.findViewById(R.id.ucas_tips_your_grammer);
-        ucasTipsYourGrammer.setTypeface(retroFont);
 
     }
 
