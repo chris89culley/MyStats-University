@@ -56,6 +56,7 @@ public class CoverFlowAdapter extends BaseAdapter {
         return mData.get(pos);
     }
 
+
     @Override
     public long getItemId(int pos) {
         return pos;
