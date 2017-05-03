@@ -79,6 +79,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.tips_list);
 
+        TextView titleText = (TextView) view.findViewById(R.id.interview_intro_statement);
+        titleText.setTypeface(retroFont);
+
         //Creates a list of tips that will be displayed in a list view
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_interview_checking_title, R.string.ucas_tips_checking, R.drawable.letter_box));
