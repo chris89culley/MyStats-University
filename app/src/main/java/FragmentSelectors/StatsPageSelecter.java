@@ -342,8 +342,8 @@ public class StatsPageSelecter extends Fragment {
         taxPayment.setTypeface(font);
 
         monthlyWage.setText("Average monthly wage of: £" + salary+" (after payments)");
-        loanRepayment.setText("Student loan repayment of: £"+repayment);
-        taxPayment.setText("Paying £"+tax+" in tax" );
+        loanRepayment.setText("Student loan repayment of: £"+repayment+" per month");
+        taxPayment.setText("Paying £"+tax+" in tax per month" );
 
         }
        return v ;
