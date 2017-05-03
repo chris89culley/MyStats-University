@@ -1,8 +1,10 @@
 package com.example.chris.mystats_univeristy;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.Window;
 
 import com.example.chris.mystats_univeristy.MenuViewActivity;
 import com.example.chris.mystats_univeristy.R;
@@ -23,6 +25,8 @@ public class About extends MenuViewActivity {
 
         tb = (TabLayout) findViewById(R.id.aboutTabLayout);
         tb.setupWithViewPager(vp);
+
+        setTitle("About");
 
     }
 
