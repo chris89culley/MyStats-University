@@ -53,34 +53,25 @@
     <string name="ucas_tips_location_a4">The cost of living varies throughout the country, aside from London the more expensive areas are still given the same student loan payments, meaning it is worth considering areas in the North of the country to take advantage of cheaper rents and nights out.  </string>
 
     <!--Personal Statement Fragment-->
-
     <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. Now this can be a daunting task and is something all University admissions officers take very seriously. This could be the difference between you getting onto the course of your dreams, or not getting onto any courses at all. Well now that you are nice and scared, here are some great tips to get you started.</string>
     <string name="ucas_tips_opening_paragraph_title">Your Opening Paragraph</string>
     <string name="ucas_tips_opening_paragraph">This should be attention grabbing. Don’t use a quote, this is a very generic way to start and isn’t well received this is the first time to draw the person reading in and you want to really blow them away.</string>
-    <string name="personal_statement_tips">Content of the personal statement:
-Make a great opening Paragraph: Use the first paragraph to grab the attention of the reader. Remember these people see a lot of personal statements so they probably already know if one is good or bad from the first sentence never mind the first paragraph. Do not use a quote to start your personal statement with, it might seem original but so many students do this and it’s not well received, this space is for you to sell yourself, not to share what others have said.
-
-Reasons for wanting to study the course:
-Say makes you want to take this course further, what has inspired you in your current studies. Talk about what made you interested and anything extra you have done to prepare you in this subject area. Do you have an overall goal, if it’s reasonable then mention it.
-How are you right for the course
-Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.
-What have you done outside of the class room (and why is it relevant)
-Write about how you have chased your interests in the subject outside of your current or previous courses. Talk about extra clubs you may have joined. Any extra studying or reading you have done should be mentioned this could be from a wide range of media, then give your reflective opinions on these different sources. Don’t mention doing any extra reading that everyone else is doing. Expand on this and say why it’s relevant to the course, speak about anything else you have done which is relevant to the subject.
-What transferable skills do you have?  (expand on the most relevant ones)
-Talk about any abilities you excel at, talk about if you are a good problem solver or work well independently. Try and tailor these skills to something that will work well with the subject you want to study. Give examples where possible if it is at school on the Duke of Edinburgh Award or any projects or a position of responsibility you may have held.
-
-Give some evidence that you can work independently and analytically.
-Briefly show how one of your current or previous courses has made you use these skills and think more critically and use alternative methods as a way of solving a problem.
-
-
-
-
-Your expectations: Tell them what you hope to get from the course, talk about Career plans and your future once you have done the course. Say why you think this course best ties in with your aspirations.
-</string>
+    <string name="ucas_tips_Reasons_to_study_the_course_title">Reason to study the course</string>
+    <string name="ucas_tips_Reasons_to_study_the_course">Say makes you want to take this course further, what has inspired you in your current studies. Talk about what made you interested and anything extra you have done to prepare you in this subject area. Do you have an overall goal, if it’s reasonable then mention it.</string>
+    <string name="ucas_tips_the_course_title">The course</string>
+    <string name="ucas_tips_the_course">Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.</string>
+    <string name="ucas_tips_extra_work_title">Extra work</string>
+    <string name="ucas_tips_extra_work">Write about what you’ve done outside any current or previous courses. Talk about any clubs you have been in, any extra studying or reading that you’ve managed to do. Try and talk about using a wide range of media and then give your reflective opinion on the different sources. Don’t mention any extra reading that everyone else is doing. </string>
+    <string name="ucas_tips_current_skills_title">Current skills</string>
+    <string name="ucas_tips_current_skills">Mention any current skills that will be transferred to the course. Say anything you may excel at, talk about being a good problem solver or how you can work well in a team. Try and tailor the skills to something that would benefit the subject you want to study. </string>
+    <string name="ucas_tips_independant_and_analytical_work_title">Independent and Analytical work</string>
+    <string name="ucas_tips_independant_and_analytical_work">Briefly talk about any independent work you have done or talk about situations in which you have analytically worked through a problem.</string>
+    <string name="ucas_tips_your_expectations_title">Your Expectations</string>
+    <string name="ucas_tips_your_expectations">Say what you hope to get out of the course, talk about any future career plans or what you think the course will give you to set up for life. Talk about how the subject best ties in with your aspirations.</string>
     <string name="ucas_tips_take_your_time_title">Take your time</string>
     <string name="ucas_tips_take_your_time">Start your personal statement early, this will give you plenty of time to make amendments read it through get it checked by your peers, teachers, parents or any advisors you may see.</string>
     <string name="ucas_tips_be_excited_title">Be Excited</string>
-    <string name="ucas_tips_be_excited">Be Excited: Universities read hundreds if not thousands of different students’ personal statements. Make yours stand out by showing your enthusiasm get them to feel exactly how excited you are to go and do their course.</string>
+    <string name="ucas_tips_be_excited">Universities read hundreds if not thousands of different students’ personal statements. Make yours stand out by showing your enthusiasm get them to feel exactly how excited you are to go and do their course.</string>
     <string name="ucas_tips_your_grammer_title">Your Grammar</string>
     <string name="ucas_tips_your_grammer">This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, a lot of services are available to get your personal statement checked. Bad English could make or break any candidate.</string>
     <string name="ucas_tips_the_thesaurus_title">The Thesaurus</string>
@@ -108,6 +99,5 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
     <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
     <string name="entry_info_xaxis">Amount of UCAS Points</string>
     <string name="entry_info_yaxis">Percentage of people</string>
-    <string name="test_string">sfghh</string>
 </resources>
 
