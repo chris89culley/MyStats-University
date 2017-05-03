@@ -124,26 +124,30 @@ public class StatsPageSelecter extends Fragment {
         public void setMenuVisibility(final boolean visible) {
             super.setMenuVisibility(visible);
             if (visible) {
-                if(pos == 0){
-                    //Nothing to animate
-                }
+                try {
+                    if (pos == 0) {
+                        //Nothing to animate
+                    }
 
-                if(pos == 1){
-                    pChart = (PieChart) view.findViewById(R.id.espie1);
-                    pChart.animateXY(2000,2000);
-                }
-                if(pos == 2){
-                    //Nothing to Animate
-                }
-                if(pos == 3){
-                    pChart = (PieChart) view.findViewById(R.id.sipie1);
-                    pChart.animateXY(2000,2000);
-                    pChart =  (PieChart) view.findViewById(R.id.sipie2);
-                    pChart.animateXY(2000,2000);
-                }
-                if(pos == 4){
-                    lineChart = (LineChart) view.findViewById(R.id.linechart);
-                    lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
+                    if (pos == 1) {
+                        pChart = (PieChart) view.findViewById(R.id.espie1);
+                        pChart.animateXY(2000, 2000);
+                    }
+                    if (pos == 2) {
+                        //Nothing to Animate
+                    }
+                    if (pos == 3) {
+                        pChart = (PieChart) view.findViewById(R.id.sipie1);
+                        pChart.animateXY(2000, 2000);
+                        pChart = (PieChart) view.findViewById(R.id.sipie2);
+                        pChart.animateXY(2000, 2000);
+                    }
+                    if (pos == 4) {
+                        lineChart = (LineChart) view.findViewById(R.id.linechart);
+                        lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
                 }
             }
         }
