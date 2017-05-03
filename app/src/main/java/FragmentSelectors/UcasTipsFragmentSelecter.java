@@ -135,9 +135,9 @@ public class UcasTipsFragmentSelecter extends Fragment {
         tips.add(new TipEntry(R.string.ucas_tips_hobby_title, R.string.ucas_tips_hobby,  R.drawable.bowling));
         tips.add(new TipEntry(R.string.ucas_tips_entry_requirments_title, R.string.ucas_tips_entry_requirments, R.drawable.microscope));
         tips.add(new TipEntry(R.string.ucas_tips_location_title, R.string.ucas_tips_location, R.drawable.house));
-        tips.add(new TipEntry(R.string.ucas_tips_goals_title, R.string.ucas_tips_goals, R.drawable.targets_icon));
-        tips.add(new TipEntry(R.string.ucas_tips_research_title, R.string.ucas_tips_research,  R.drawable.goals_icon));
-        tips.add(new TipEntry(R.string.ucas_tips_talk_title, R.string.ucas_tips_talk, R.drawable.chat_icon));
+        tips.add(new TipEntry(R.string.ucas_tips_goals_title, R.string.ucas_tips_goals, R.drawable.goals_icon4));
+        tips.add(new TipEntry(R.string.ucas_tips_research_title, R.string.ucas_tips_research,  R.drawable.targets_icon2));
+        tips.add(new TipEntry(R.string.ucas_tips_talk_title, R.string.ucas_tips_talk, R.drawable.chat_icon2));
 
         if(!tips.isEmpty()){
             adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
