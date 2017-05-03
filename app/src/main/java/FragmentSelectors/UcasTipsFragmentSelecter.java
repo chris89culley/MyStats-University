@@ -99,26 +99,31 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * Sets the font type of the PersonalStatement Fragment
      */
     private void editUcasTipsFragmentPersonalStatement() {
-        TextView ucasTipsPersonalStatementIntroduction = (TextView) view.findViewById(R.id.personal_statement_introduction);
-        ucasTipsPersonalStatementIntroduction.setTypeface(retroFont);
+
+        TipWithIconListAdapter adapter;
+        ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
+
+        ArrayList<TipEntry> tips = new ArrayList<>();
+        tips.add(new TipEntry(R.string.ucas_tips_opening_paragraph_title, R.string.ucas_tips_opening_paragraph, R.drawable.opening_paragraph));
+        tips.add(new TipEntry(R.string.ucas_tips_Reasons_to_study_the_course_title, R.string.ucas_tips_Reasons_to_study_the_course, R.drawable.reason_to_study));
+        tips.add(new TipEntry(R.string.ucas_tips_the_course_title, R.string.ucas_tips_the_course, R.drawable.course));
+        tips.add(new TipEntry(R.string.ucas_tips_extra_work_title, R.string.ucas_tips_extra_work, R.drawable.extra_work));
+        tips.add(new TipEntry(R.string.ucas_tips_current_skills_title, R.string.ucas_tips_current_skills, R.drawable.skills));
+        tips.add(new TipEntry(R.string.ucas_tips_independant_and_analytical_work_title, R.string.ucas_tips_independant_and_analytical_work, R.drawable.independant_analytical));
+        tips.add(new TipEntry(R.string.ucas_tips_your_expectations_title, R.string.ucas_tips_your_expectations, R.drawable.expectations));
+        tips.add(new TipEntry(R.string.ucas_tips_take_your_time_title, R.string.ucas_tips_take_your_time, R.drawable.take_your_time));
+        tips.add(new TipEntry(R.string.ucas_tips_be_excited_title, R.string.ucas_tips_be_excited, R.drawable.be_excited));
+        tips.add(new TipEntry(R.string.ucas_tips_your_grammer_title, R.string.ucas_tips_your_grammer, R.drawable.grammer));
+        tips.add(new TipEntry(R.string.ucas_tips_the_thesaurus_title, R.string.ucas_tips_the_thesaurus, R.drawable.thesaurus));
+
+        if(!tips.isEmpty()){
+            adapter = new TipWithIconListAdapter(getActivity(), R.layout.tip_list_row, R.layout.tip_list_header, tips);
+            listView.setAdapter(adapter);
+        }
 
 
-        TextView ucasTipsTakeYourTime = (TextView) view.findViewById(R.id.ucas_tips_take_your_time);
-        ucasTipsTakeYourTime.setTypeface(retroFont);
-
-        TextView ucasTipsBeExcited = (TextView) view.findViewById(R.id.ucas_tips_be_excited);
-        ucasTipsBeExcited.setTypeface(retroFont);
 
 
-
-        TextView ucasTipsBePrepared = (TextView) view.findViewById(R.id.personal_statement_tips);
-        ucasTipsBePrepared.setTypeface(retroFont);
-
-        TextView ucasTipsSellYourself = (TextView) view.findViewById(R.id.ucas_tips_the_thesaurus);
-        ucasTipsSellYourself.setTypeface(retroFont);
-
-        TextView ucasTipsYourGrammer = (TextView) view.findViewById(R.id.ucas_tips_your_grammer);
-        ucasTipsYourGrammer.setTypeface(retroFont);
 
     }
 

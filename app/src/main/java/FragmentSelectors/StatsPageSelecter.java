@@ -258,7 +258,6 @@ public class StatsPageSelecter extends Fragment {
         pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
 
         v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
@@ -380,14 +379,12 @@ public class StatsPageSelecter extends Fragment {
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
         //Chart 2 data population and settings
         pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
         v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             //false if chart in view
