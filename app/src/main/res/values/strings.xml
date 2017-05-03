@@ -62,7 +62,7 @@
     <string name="ucas_tips_opening_paragraph_title">Your Opening Paragraph</string>
     <string name="ucas_tips_opening_paragraph">This should be attention grabbing. Don’t use a quote, this is a very generic way to start and isn’t well received this is the first time to draw the person reading in and you want to really blow them away.</string>
     <string name="ucas_tips_Reasons_to_study_the_course_title">Reason to study the course</string>
-    <string name="ucas_tips_Reasons_to_study_the_course">Say makes you want to take this course further, what has inspired you in your current studies. Talk about what made you interested and anything extra you have done to prepare you in this subject area. Do you have an overall goal, if it’s reasonable then mention it.</string>
+    <string name="ucas_tips_Reasons_to_study_the_course">Say what makes you want to take this course further, talk about how you have been inspired by your current studies and what about the subject you think you will find interesting. If it’s reasonable mention if you have an overall goal.</string>
     <string name="ucas_tips_the_course_title">The course</string>
     <string name="ucas_tips_the_course">Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.</string>
     <string name="ucas_tips_extra_work_title">Extra work</string>
@@ -80,7 +80,7 @@
     <string name="ucas_tips_your_grammer_title">Your Grammar</string>
     <string name="ucas_tips_your_grammer">This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, a lot of services are available to get your personal statement checked. Bad English could make or break any candidate.</string>
     <string name="ucas_tips_the_thesaurus_title">The Thesaurus</string>
-    <string name="ucas_tips_the_thesaurus">Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language you use and not use big words that make you sound clever. </string>
+    <string name="ucas_tips_the_thesaurus">Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language that you already know and not words that are unfamiliar to you.</string>
 
     <!--Interview Fragment-->
     <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Click the sections below to find some tips to help you through the big day. </string>
