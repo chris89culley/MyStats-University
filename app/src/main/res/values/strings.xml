@@ -44,12 +44,16 @@
     <string name="ucas_tips_hobby">Research shows that intrinsically motivating work makes people a lot happier than a big pay cheque so why not pursue a course in the thing you do for fun, your hobby. Whether that’s computer games, gardening, crafts or cooking its worth exploring courses that incorporate your passion rather than concentrating on earning potential alone.  </string>
     <string name="ucas_tips_entry_requirments">Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
     <string name="ucas_tips_entry_requirments_title">Apply To A Range</string>
-    <string name="ucas_tips_location">Entry requirements:The choice of location is as important as the course itself, this largely depends on individual circumstances.</string>
+
+    <string name="ucas_tips_location">The choice of location is as important as the course itself, this largely depends on individual circumstances.</string>
+
     <string name="ucas_tips_location_title">Think About Location</string>
     <string name="ucas_tips_goals_title">Consider Your Career Goals</string>
     <string name="ucas_tips_goals">Choose a course which will help you achieve your long term career goal. There is no point in studying a subject which wont help you get where you want to be after graduating</string>
     <string name="ucas_tips_research_title">Do your research</string>
-    <string name="ucas_tips_research">Save yourself unnecessary hard work by checking out what employment stats are like after graduating. Its also worth looking at the kind of careers that will be open to you when finished. </string>
+
+    <string name="ucas_tips_research">Save yourself unnecessary hard work by checking out what employment stats are like after graduating. It's also worth looking at the kind of careers that will be open to you when you are finished. </string>
+
     <string name="ucas_tips_talk_title">Talk to people</string>
     <string name="ucas_tips_talk">If the facts and figures arent enough try get in touch with some of the institutions alumni most institutions will hand over contact details if you ask. This helps build a fuller picture of what life there would be like not just the academic side of things!</string>
 
