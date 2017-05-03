@@ -168,7 +168,7 @@ public class GenericChartMaker {
 
 
         //Colours array in the form of hex codes
-        int[] Colors = {ColorTemplate.rgb("2c7bb5"), ColorTemplate.rgb("ff3300"), ColorTemplate.rgb("C781B8"), ColorTemplate.rgb("fef65b")};
+        int[] Colors = {ColorTemplate.rgb("2c7bb5"), ColorTemplate.rgb("ff3300"), ColorTemplate.rgb("C781B8"), ColorTemplate.rgb("fdfd96")};
 
         //Setting the colours of the data set
         pieDataSet.setColors(Colors);

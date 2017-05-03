@@ -289,13 +289,10 @@ public class StatsPageSelecter extends Fragment {
         averageSalaryTitle.setTypeface(font);
         salarySixmonthText.setTypeface(font);
 
-        salaryFourtymonthText.setTextSize(14f);
-        //salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-        salaryFourtymonthText.setText("The average salary 40 months after\n was\n" + course.getAverageSalaryAfter40MonthsText().trim());
+        salaryFourtymonthText.setText("The average salary 40 months after was " + course.getAverageSalaryAfter40MonthsText().trim());
 
-        salarySixmonthText.setTextSize(14f);
-        //salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-        salarySixmonthText.setText("The average salary 6 months after\n was\n" + course.getAverageSalaryAfter6MonthsText().trim());
+
+        salarySixmonthText.setText("The average salary 6 months after was " + course.getAverageSalaryAfter6MonthsText().trim());
         double tax = 0;
         double salary = 0;
         try{
