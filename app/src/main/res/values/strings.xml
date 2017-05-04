@@ -12,6 +12,12 @@
     <string name="course_name_pervasive">course name :</string>
     <string name="university_name_pervasive">university name : </string>
 
+    <!--Home Activity-->
+    <string name="about_button">about</string>
+    <string name="ucas_tip_button">ucas tips</string>
+    <string name="quick_search_button">search</string>
+    <string name="recent_search_button">recent \n search</string>
+
 
     <!-- The About pages -->
     <!-- the App Fragment-->
