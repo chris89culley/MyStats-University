@@ -18,6 +18,18 @@
     <string name="quick_search_button">search</string>
     <string name="recent_search_button">recent \n search</string>
 
+    <!--activity radiuschecker-->
+    <string name="radius_button">Button</string>
+
+    <!--activity_search_page-->
+    <string name="full_time">full time</string>
+    <string name="part_time">part time</string>
+    <string name="course_name_entered">Subject or Course</string>
+    <string name="radius_text">within 0 km of </string>
+    <string name="location_name_entered">Location or institution</string>
+    <string name="search_Button">Search</string>
+
+
 
     <!-- The About pages -->
     <!-- the App Fragment-->
