@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:textColor="@color/oldBurgundy"
                         android:layout_height="wrap_content"
-                        android:text="full time"
+                        android:text="@string/full_time"
                         android:checked="true" />
 
                     <RadioButton
@@ -61,14 +61,14 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/oldBurgundy"
                         android:layout_marginLeft="50dp"
-                        android:text="part time" />
+                        android:text="@string/part_time" />
                 </RadioGroup>
 
                 <EditText
                     android:id="@+id/courseNameEntered"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:hint="Subject or Course"
+                    android:hint="@string/course_name_entered"
                     android:inputType="text"
                     android:textSize="18sp"
                     android:gravity="center"
@@ -86,7 +86,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="within 0 km of "
+                    android:text="@string/radius_text"
                     android:textColor="@color/oldBurgundy"
                     android:gravity="center_horizontal"
                     android:layout_alignLeft="@+id/courseNameEntered"
@@ -115,7 +115,7 @@
                     android:gravity="center"
                     android:textColor="@color/oldBurgundy"
                     android:layout_below="@+id/radiusBar"
-                    android:hint="Location or institution"
+                    android:hint="@string/location_name_entered"
                     android:inputType="text"
                     android:textSize="18sp"
                     android:layout_centerHorizontal="true" />
@@ -143,7 +143,7 @@
                     android:layout_marginBottom="20sp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/buttonshape"
-                    android:text="Search"
+                    android:text="@string/search_Button"
                     />
 
                 <com.wang.avi.AVLoadingIndicatorView

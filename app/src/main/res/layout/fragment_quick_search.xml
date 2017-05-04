@@ -40,7 +40,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/inputbox1"
-            android:hint="Quick Search"
+            android:hint="@string/edit_text_dialog_user_input"
             android:maxLength="16"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"

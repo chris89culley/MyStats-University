@@ -1,4 +1,5 @@
 <resources>
+    <!--Home Page-->
     <string name="app_name">MyStats - University</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
@@ -7,11 +8,93 @@
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to see the percentage were satisfied with the enclosed statements</string>
 
 
+    <!--Stats framents-->
+    <!--Course Stats page-->
+    <string name="course_name_pervasive">course name :</string>
+    <string name="university_name_pervasive">university name : </string>
+
+    <!--Home Activity-->
+    <string name="about_button">about</string>
+    <string name="ucas_tip_button">ucas tips</string>
+    <string name="quick_search_button">search</string>
+    <string name="recent_search_button">recent \n search</string>
+
+    <!--activity radiuschecker-->
+    <string name="radius_button">Button</string>
+
+    <!--activity_search_page-->
+    <string name="full_time">full time</string>
+    <string name="part_time">part time</string>
+    <string name="course_name_entered">Subject or Course</string>
+    <string name="radius_text">within 0 km of </string>
+    <string name="location_name_entered">Location or institution</string>
+    <string name="search_Button">Search</string>
+
+    <!--activity_search_results-->
+    <string name="search_results_header">Search Results</string>
+
+    <!--fragment_cost_stats-->
+    <string name="cost_text_id">Money matters, especially when you\'re a student,  below you\'ll find the living cost statistics according to NUS for the average UK student and the average cost for accommodation.</string>
+    <string name="insurance_id">£42 for insurance</string>
+    <string name="personal_id">£2,074 for personal goods</string>
+    <string name="food_id">£1,956 for food</string>
+    <string name="leisure_id">£1,310 for leisure time</string>
+    <string name="travel_id">£1,524 for travel expenses</string>
+
+    <!--fragment_employ_stats-->
+    <string name="esChartTitle1">Percent employed six months after completing the course</string>
+    <string name="average_salary_title">Average salaries</string>
+    <string name="monthly_breakdown_title">Breakdown of average monthly wages</string>
+
+    <!--fragment_entry_info-->
+    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
+    <string name="entry_info_xaxis">Amount of UCAS Points</string>
+    <string name="entry_info_yaxis">Percentage of people</string>
+
+    <!--fragment_error-->
+    <string name="error_text">No Stats Found...</string>
+
+    <!--fragment_quick_search-->
+    <string name="edit_text_dialog_user_input">Quick Search</string>
+
+    <!--fragment_study_info-->
+    <string name="siChartTitle1">Degree classifications students achieved</string>
+    <string name="siChartTitle2">What students are doing a year after the course</string>
+
+    <!--item_coverflow-->
+    <string name="label">Title</string>
+    <string name="item_title">TITLE</string>
+
+    <!--no_courses_found_dialog_frag-->
+    <string name="no_course_found_title">No courses found!</string>
+
+    <!--satisfaction_header-->
+    <string name="sat_title">Satisfaction</string>
+
+    <!--satisfaction_row_header-->
+    <string name="satisfaction_name">Sat Name</string>
+
+    <!--search_content-->
+    <string name="mode">Study mode :</string>
+    <string name="overall_satisafaction">overall sat bla bla</string>
+    <string name="salary_after_6">salary after 6 months</string>
+    <string name="percent_that_go_to_work">percent that go to work</string>
+    <string name="more_stats_button">More stats</string>
+
+    <!--search_header && search_row_header-->
+    <string name="course_name">COURSE SEARCH RESULTS</string>
+    <string name="university_name">ExpandableLayout Header!</string>
+
+    <!--tip_list_content-->
+    <string name="tip_description">Study mode :</string>
+
+
+
+
+
     <!-- The About pages -->
     <!-- the App Fragment-->
-    <string name="basic_intro">The MyStats application was created to make an easy way to find different courses from specific universities within a certain area.
-    The app was created by students for students, parents and teachers to easily find out the facts about different courses and universities.
-    </string>
+    <string name="about_page_intro">So you want to know more about the app, great!\n\nThe application was developed with the intention to give everyone a quick and simple way to research university courses across the UK.\n\nIf you’re a prospective under/postgraduate then this app will help you find interesting stats to help you choose the course for you.</string>
     <!--The meet the team Fragment-->
     <string name="meet_the_team_intro">The team first met as they all attended Teesside University. This page tells everyone a little about each person who contributed to the making of this app.</string>
     <string name="chris_personal">This is Chris, a 27 year old meditating pescatarian, previously in business in the renewable sector;  Chris realised his true calling was in programming and problem solving after he built a SAP calculator making income predictions based on post code solar radiation levels.  Chris is studying Computer Science and aims to continue his education to Msc with interests in Machine Learning.</string>
@@ -24,14 +107,15 @@
     <string name="hesa">HESA - Receives information from universities across the UK and collates it into useful information about universities and their courses. For further information goto - <a href="http//www.hesa.ac.uk">HESA</a></string>
     <string name="national_student_survey">NSS - We also use data from the National Student Survey to collect satisfaction information about the different courses from the students, this is done by Ipsos MORI. This information is collected through a questionnaires. For more information please visit the NSS website at <a href="http://www.thestudentsurvey.com">Student Survey</a></string> 
     <string name="dlfh">DLFH - is used to find the information about people who have recently left university. The DLHE asks the leavers of courses what they are doing roughly 6 months after the course. For further information goto - <a href="http://www.hefce.ac.uk/pubs/year/2013/201301/">HEFCE</a></string>
+    <!--The Copyright Fragment-->
     <string name="copy_page_intro">Here you can find the legal information about the data used in the MyStats - University app</string>
     <string name="copy_unistats_disclaimer">MyStats - University is in no way affiliated with the UniStats website. The app uses and supplies informative stats that is in no way in conjunction with UniStats.</string> 
     <string name="copy_hesa_disclaimer">All the information provided has been taken from the HESA database. The data has been published under the Creative Commons Attribution 4.0 International Licence. In short, this mean the app can use and adapt content for personal and commercial use as long as appropriate credit is provided. HESA is not responsible for any the conclusions or way the data is represented on this app and is not responsible for any content on this app.</string>
+    <string name="copy_further_information">If you require any further information or have any questions relating to this app feel free to contact the development team, CDJiT via email.</string>
     <string name="copy_image_info">The images used in this app have been taken from Freepik and Logomakr which are both open source resources</string>
-<string name="freepik_image">\u2022\t\t<a href="http://www.freepik.com/">Freepik</a></string>
+    <string name="freepik_image">\u2022\t\t<a href="http://www.freepik.com/">Freepik</a></string>
     <string name="emailStr">\u2022\t\t<a href="mailto:cdjit_development@gmail.com">cdjit_development@gmail.com</a></string>
-
-<string name="logomakr_image">\u2022\t\t<a href="http://www.logomakr.com/">Logomakr</a></string>
+    <string name="logomakr_image">\u2022\t\t<a href="http://www.logomakr.com/">Logomakr</a></string>
 
 
 
@@ -99,10 +183,6 @@
     <string name="ucas_tip_interview_be_yourself_title">Be yourself</string>
     <string name="ucas_tips_be_yourself">Let your personality show, the university is not expecting the finished product with vast knowledge of the subject but are looking for students that are motivated and show potential. </string>
 
-    <!--Stats framents-->
-    <!--Entry information Fragment-->
-    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
-    <string name="entry_info_xaxis">Amount of UCAS Points</string>
-    <string name="entry_info_yaxis">Percentage of people</string>
+
 </resources>
 

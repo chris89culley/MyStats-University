@@ -32,7 +32,7 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:textSize="11dp"
-                        android:text="about"
+                        android:text="@string/about_button"
                         android:gravity="bottom|center"
                         android:paddingBottom="20dp"
                         android:textColor="#3B322C"
@@ -42,7 +42,7 @@
                     <Button
                         android:id="@+id/ucastipbutton"
                         android:textColor="#3B322C"
-                        android:text="ucas tips"
+                        android:text="@string/ucas_tip_button"
                         app:arc_angle="20"
                         android:layout_height="85dp"
                         android:layout_width="85dp"
@@ -55,7 +55,7 @@
 
                     <Button
                     android:id="@+id/quicksearchbutton"
-                    android:text="search"
+                    android:text="@string/quick_search_button"
                     android:layout_height="85dp"
                     android:layout_width="85dp"
                     app:arc_angle="-20"
@@ -75,7 +75,7 @@
                         android:background="@drawable/searchbutton"
                         app:arc_angle="-60"
                         android:textSize="11dp"
-                        android:text="recent \n search"
+                        android:text="@string/recent_search_button"
                         android:gravity="bottom|center"
                         android:paddingBottom="10dp"
                         />

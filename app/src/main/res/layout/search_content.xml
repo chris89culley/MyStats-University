@@ -16,7 +16,7 @@
         android:id="@+id/mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Study mode :"
+        android:text="@string/mode"
         android:textSize="17dp"
         android:gravity="center_vertical"
         android:layout_marginLeft="20sp"
@@ -32,7 +32,7 @@
             android:layout_alignLeft="@+id/mode"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mode"
-            android:text="overall sat bla bla"
+            android:text="@string/overall_satisafaction"
             android:textColor="@color/oldBurgundy"
             android:drawablePadding="10sp"
             android:drawableLeft="@drawable/percent"
@@ -51,7 +51,7 @@
         android:drawableLeft="@drawable/creditcard"
         android:layout_alignLeft="@+id/mode"
         android:drawablePadding="10sp"
-        android:text="salary after 6 months"
+        android:text="@string/salary_after_6"
         android:textSize="17dp"
         />
 

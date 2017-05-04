@@ -31,9 +31,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/entry_info_yaxis"
-
                 android:textColor="@color/oldBurgundy"
-
                 android:layout_below="@id/pageDescription"
                 android:background="@color/greenSheen"
                 />
