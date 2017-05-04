@@ -62,7 +62,7 @@
                 android:layout_below="@id/copu_hesa_disclaimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="If you require any further information or have any questions relating to this app feel free to contact the development team, CDJiT via email."
+                android:text="@string/copy_further_information"
                 android:background="@color/greenSheen"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
