@@ -15,7 +15,7 @@
         android:textSize="17dp"
         android:padding="15dp"
         android:textColor="@color/oldBurgundy"
-        android:text="No courses found!"
+        android:text="@string/no_course_found_title"
         android:background="@color/greenSheen"
         android:gravity="center"
         />

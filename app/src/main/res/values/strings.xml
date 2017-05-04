@@ -8,6 +8,7 @@
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to see the percentage were satisfied with the enclosed statements</string>
 
 
+    <!--Stats framents-->
     <!--Course Stats page-->
     <string name="course_name_pervasive">course name :</string>
     <string name="university_name_pervasive">university name : </string>
@@ -32,13 +33,42 @@
     <!--activity_search_results-->
     <string name="search_results_header">Search Results</string>
 
-    <!--activity_fragment_cost_stats-->
-    <string name="cost_text_id">Money matters, especially when you're a student,  below you'll find the living cost statistics according to NUS for the average UK student and the average cost for accomadation.</string>
+    <!--fragment_cost_stats-->
+    <string name="cost_text_id">Money matters, especially when you\'re a student,  below you\'ll find the living cost statistics according to NUS for the average UK student and the average cost for accommodation.</string>
     <string name="insurance_id">£42 for insurance</string>
     <string name="personal_id">£2,074 for personal goods</string>
     <string name="food_id">£1,956 for food</string>
     <string name="leisure_id">£1,310 for leisure time</string>
     <string name="travel_id">£1,524 for travel expenses</string>
+
+    <!--fragment_employ_stats-->
+    <string name="esChartTitle1">Percent employed six months after completing the course</string>
+    <string name="average_salary_title">Average salaries</string>
+    <string name="monthly_breakdown_title">Breakdown of average monthly wages</string>
+
+    <!--fragment_entry_info-->
+    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
+    <string name="entry_info_xaxis">Amount of UCAS Points</string>
+    <string name="entry_info_yaxis">Percentage of people</string>
+
+    <!--fragment_error-->
+    <string name="error_text">No Stats Found...</string>
+
+    <!--fragment_quick_search-->
+    <string name="edit_text_dialog_user_input">Quick Search</string>
+
+    <!--fragment_study_info-->
+    <string name="siChartTitle1">Degree classifications students achieved</string>
+    <string name="siChartTitle2">What students are doing a year after the course</string>
+
+    <!--item_coverflow-->
+    <string name="label">Title</string>
+    <string name="item_title">TITLE</string>
+
+    <!--no_courses_found_dialog_frag-->
+    <string name="no_course_found_title">No courses found!</string>
+
+
 
 
     <!-- The About pages -->
@@ -128,10 +158,6 @@
     <string name="ucas_tip_interview_be_yourself_title">Be yourself</string>
     <string name="ucas_tips_be_yourself">Let your personality show, the university is not expecting the finished product with vast knowledge of the subject but are looking for students that are motivated and show potential. </string>
 
-    <!--Stats framents-->
-    <!--Entry information Fragment-->
-    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
-    <string name="entry_info_xaxis">Amount of UCAS Points</string>
-    <string name="entry_info_yaxis">Percentage of people</string>
+
 </resources>
 
