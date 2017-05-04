@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="COURSE SEARCH RESULTS"
+        android:text="@string/course_name"
         android:textColor="@color/oldBurgundy"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

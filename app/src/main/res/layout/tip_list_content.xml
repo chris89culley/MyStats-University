@@ -16,7 +16,7 @@
         android:id="@+id/tip_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Study mode :"
+        android:text="@string/about_page_intro"
         android:textSize="15dp"
         android:lineSpacingExtra="8dp"
         android:gravity="center"

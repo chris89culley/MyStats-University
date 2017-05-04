@@ -68,6 +68,27 @@
     <!--no_courses_found_dialog_frag-->
     <string name="no_course_found_title">No courses found!</string>
 
+    <!--satisfaction_header-->
+    <string name="sat_title">Satisfaction</string>
+
+    <!--satisfaction_row_header-->
+    <string name="satisfaction_name">Sat Name</string>
+
+    <!--search_content-->
+    <string name="mode">Study mode :</string>
+    <string name="overall_satisafaction">overall sat bla bla</string>
+    <string name="salary_after_6">salary after 6 months</string>
+    <string name="percent_that_go_to_work">percent that go to work</string>
+    <string name="more_stats_button">More stats</string>
+
+    <!--search_header && search_row_header-->
+    <string name="course_name">COURSE SEARCH RESULTS</string>
+    <string name="university_name">ExpandableLayout Header!</string>
+
+    <!--tip_list_content-->
+    <string name="tip_description">Study mode :</string>
+
+
 
 
 
