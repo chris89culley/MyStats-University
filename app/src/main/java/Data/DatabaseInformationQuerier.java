@@ -229,6 +229,8 @@ public class DatabaseInformationQuerier {
             count++;
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
+                Course c = course.getValue(Course.class);
+                if(c.hasStatistics())
                 courseList.add(course.getValue(Course.class));
             }
 

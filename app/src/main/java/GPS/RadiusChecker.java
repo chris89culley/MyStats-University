@@ -50,16 +50,13 @@ public class RadiusChecker{
      */
         public static void getHitsAroundLocation(double radius, double lang, double lat, final String coursename, final DatabaseInformationQuerier query, final CourseTypes type) {
              keys.clear();
-
             DatabaseReference database = FirebaseDatabase.getInstance().getReference("locationlookUp");
             geoFire = new GeoFire(database);
             GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(lat , lang), radius);
             geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
                 @Override
                 public void onKeyEntered(String keyref, GeoLocation location) {
-
                     keys.add(keyref);
-                    Log.d("i should be adding one " , "adding");
                 }
 
                 @Override
