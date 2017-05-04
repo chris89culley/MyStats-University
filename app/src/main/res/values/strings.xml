@@ -8,6 +8,10 @@
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to see the percentage were satisfied with the enclosed statements</string>
 
 
+    <!--Course Stats page-->
+    <string name="course_name_pervasive">course name :</string>
+    <string name="university_name_pervasive">university name : </string>
+
 
     <!-- The About pages -->
     <!-- the App Fragment-->
