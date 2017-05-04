@@ -29,6 +29,16 @@
     <string name="location_name_entered">Location or institution</string>
     <string name="search_Button">Search</string>
 
+    <!--activity_search_results-->
+    <string name="search_results_header">Search Results</string>
+
+    <!--activity_fragment_cost_stats-->
+    <string name="cost_text_id">Money matters, especially when you're a student,  below you'll find the living cost statistics according to NUS for the average UK student and the average cost for accomadation.</string>
+    <string name="insurance_id">£42 for insurance</string>
+    <string name="personal_id">£2,074 for personal goods</string>
+    <string name="food_id">£1,956 for food</string>
+    <string name="leisure_id">£1,310 for leisure time</string>
+    <string name="travel_id">£1,524 for travel expenses</string>
 
 
     <!-- The About pages -->
