@@ -257,7 +257,7 @@ public class SearchPage extends MenuViewActivity  {
      * @return true if the location field is not empty
      */
     private boolean theLocationFieldIsntMyLocation(){
-        return !getTheLocationFieldText().equals("My Location");
+        return !getTheLocationFieldText().equals("Current Location");
     }
 
     /**
@@ -367,7 +367,7 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void onClick(View view) {
                 if (locationPermissionCheck() == true){
-                    searchedLocationEditTextField.setText("My Location");
+                    searchedLocationEditTextField.setText("Current Location");
                     shouldGetLocationFromLocationEditText = false;
                 shouldGetLocationFromUserData = true;}
             }
