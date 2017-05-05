@@ -22,7 +22,7 @@ import Data.TipEntry;
  * Created by Terence Lawson on 18/04/2017.
  */
 
-public class UcasTipsFragmentSelecter extends Fragment {
+public class UcasTipsFragmentSelector extends Fragment {
 
     private View view;
     private int pos;
@@ -34,7 +34,7 @@ public class UcasTipsFragmentSelecter extends Fragment {
      * sets the position of the fragment pager and the course data
      * @param position
      */
-    public UcasTipsFragmentSelecter(int position, Activity activity) {
+    public UcasTipsFragmentSelector(int position, Activity activity) {
         this.pos = position;
     }
 

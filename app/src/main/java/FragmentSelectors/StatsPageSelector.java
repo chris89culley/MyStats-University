@@ -36,7 +36,7 @@ import Adapters.ExpandableSatisfactionAdapter;
  * Created by c077ing on 08/03/2017.
  */
 
-public class StatsPageSelecter extends Fragment {
+public class StatsPageSelector extends Fragment {
 
     private int pos;
     private View view;
@@ -52,7 +52,7 @@ public class StatsPageSelecter extends Fragment {
      * @param position
      * @param course
      */
-    public StatsPageSelecter(int position, Course course) {
+    public StatsPageSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
 
