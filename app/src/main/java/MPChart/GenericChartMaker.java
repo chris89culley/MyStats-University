@@ -3,7 +3,6 @@ package MPChart;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -168,7 +167,7 @@ public class GenericChartMaker {
 
 
         //Colours array in the form of hex codes
-        int[] Colors = {ColorTemplate.rgb("2c7bb5"), ColorTemplate.rgb("ff3300"), ColorTemplate.rgb("C781B8"), ColorTemplate.rgb("fef65b")};
+        int[] Colors = {ColorTemplate.rgb("2c7bb5"), ColorTemplate.rgb("ff3300"), ColorTemplate.rgb("C781B8"), ColorTemplate.rgb("fdfd96")};
 
         //Setting the colours of the data set
         pieDataSet.setColors(Colors);
@@ -348,7 +347,6 @@ public class GenericChartMaker {
      * @return
      */
     private static LineChart setLineChartData(LineChart chart) {
-        chart.animateX(1000, Easing.EasingOption.EaseInCubic);
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
         chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off

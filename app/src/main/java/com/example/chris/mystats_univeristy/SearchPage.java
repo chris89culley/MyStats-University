@@ -257,7 +257,7 @@ public class SearchPage extends MenuViewActivity  {
      * @return true if the location field is not empty
      */
     private boolean theLocationFieldIsntMyLocation(){
-        return !getTheLocationFieldText().equals("My Location");
+        return !getTheLocationFieldText().equals("Current Location");
     }
 
     /**
@@ -367,7 +367,7 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void onClick(View view) {
                 if (locationPermissionCheck() == true){
-                    searchedLocationEditTextField.setText("My Location");
+                    searchedLocationEditTextField.setText("Current Location");
                     shouldGetLocationFromLocationEditText = false;
                 shouldGetLocationFromUserData = true;}
             }
@@ -404,6 +404,7 @@ public class SearchPage extends MenuViewActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
+        setTitle("Search Form");
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         animateSearchArm();
         setUpFonts();

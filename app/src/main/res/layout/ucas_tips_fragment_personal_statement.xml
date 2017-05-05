@@ -1,86 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ScrollView
+
+
+    <TextView
+        android:id="@+id/personal_statement_intro_statement"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="16dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:id="@+id/personal_statement_introduction"
-                android:text="@string/ucas_tips_personal_statement_intro"/>
-
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="16dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:id="@+id/personal_statement_tips"
-                android:background="@color/greenSheen"
-                android:layout_below="@+id/personal_statement_introduction"
-                android:text="@string/personal_statement_tips"
-                android:drawableTop="@drawable/clipboard"/>
-
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="16dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:id="@+id/ucas_tips_take_your_time"
-                android:layout_below="@+id/personal_statement_tips"
-                android:text="@string/ucas_tips_take_your_time"
-                android:drawableTop="@drawable/clock"/>
+        android:padding="15dp"
+        android:lineSpacingExtra="8dp"
+        android:textColor="@color/oldBurgundy"
+        android:text="@string/ucas_tips_personal_statement_intro"
+        android:layout_height="wrap_content" />
 
 
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="16dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:background="@color/greenSheen"
-                android:id="@+id/ucas_tips_be_excited"
-                android:layout_below="@+id/ucas_tips_take_your_time"
-                android:text="@string/ucas_tips_be_excited"
-                android:drawableTop="@drawable/bulb"/>
+            <com.andexert.expandablelayout.library.ExpandableLayoutListView
+                android:id="@+id/personal_statement_tips_list"
+                android:background="#839788"
+                android:layout_below="@+id/personal_statement_intro_statement"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"/>
 
 
 
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="17dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:id="@+id/ucas_tips_your_grammer"
-                android:layout_below="@+id/ucas_tips_be_excited"
-                android:text="@string/ucas_tips_your_grammer"
-                android:drawableTop="@drawable/art"/>
 
-            <TextView
-                style="@style/text_view_center"
-                android:lineSpacingExtra="8dp"
-                android:textSize="17dp"
-                android:padding="15dp"
-                android:textColor="@color/oldBurgundy"
-                android:id="@+id/ucas_tips_the_thesaurus"
-                android:background="@color/greenSheen"
-                android:layout_below="@+id/ucas_tips_your_grammer"
-                android:text="@string/ucas_tips_the_thesaurus"
-                android:drawableTop="@drawable/book"/>
-
-
-
-        </RelativeLayout>
-    </ScrollView>
-</LinearLayout>
+</RelativeLayout>

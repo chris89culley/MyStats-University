@@ -36,7 +36,7 @@ import Adapters.ExpandableSatisfactionAdapter;
  * Created by c077ing on 08/03/2017.
  */
 
-public class StatsPageSelecter extends Fragment {
+public class StatsPageSelector extends Fragment {
 
     private int pos;
     private View view;
@@ -52,7 +52,7 @@ public class StatsPageSelecter extends Fragment {
      * @param position
      * @param course
      */
-    public StatsPageSelecter(int position, Course course) {
+    public StatsPageSelector(int position, Course course) {
         this.pos = position;
         this.course = course;
 
@@ -124,26 +124,30 @@ public class StatsPageSelecter extends Fragment {
         public void setMenuVisibility(final boolean visible) {
             super.setMenuVisibility(visible);
             if (visible) {
-                if(pos == 0){
-                    //Nothing to animate
-                }
+                try {
+                    if (pos == 0) {
+                        //Nothing to animate
+                    }
 
-                if(pos == 1){
-                    pChart = (PieChart) view.findViewById(R.id.espie1);
-                    pChart.animateXY(2000,2000);
-                }
-                if(pos == 2){
-                    //Nothing to Animate
-                }
-                if(pos == 3){
-                    pChart = (PieChart) view.findViewById(R.id.sipie1);
-                    pChart.animateXY(2000,2000);
-                    pChart =  (PieChart) view.findViewById(R.id.sipie2);
-                    pChart.animateXY(2000,2000);
-                }
-                if(pos == 4){
-                    lineChart = (LineChart) view.findViewById(R.id.linechart);
-                    lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
+                    if (pos == 1) {
+                        pChart = (PieChart) view.findViewById(R.id.espie1);
+                        pChart.animateXY(2000, 2000);
+                    }
+                    if (pos == 2) {
+                        //Nothing to Animate
+                    }
+                    if (pos == 3) {
+                        pChart = (PieChart) view.findViewById(R.id.sipie1);
+                        pChart.animateXY(2000, 2000);
+                        pChart = (PieChart) view.findViewById(R.id.sipie2);
+                        pChart.animateXY(2000, 2000);
+                    }
+                    if (pos == 4) {
+                        lineChart = (LineChart) view.findViewById(R.id.linechart);
+                        lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
                 }
             }
         }
@@ -254,7 +258,6 @@ public class StatsPageSelecter extends Fragment {
         pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
 
         v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
@@ -285,14 +288,13 @@ public class StatsPageSelecter extends Fragment {
         averageSalaryTitle.setTypeface(font);
         salarySixmonthText.setTypeface(font);
 
-        salaryFourtymonthText.setTextSize(13f);
-        //salaryFourtymonthText.setY(salaryFourtymonthText.getY() + 10f);
-        salaryFourtymonthText.setText("The average salary 40 months after\n was\n" + course.getAverageSalaryAfter40MonthsText().trim()+" GBP");
 
-        salarySixmonthText.setTextSize(13f);
-        //salarySixmonthText.setY(salarySixmonthText.getY() + 10f);
-        salarySixmonthText.setText("The average salary 6 months after\n was\n" + course.getAverageSalaryAfter6MonthsText().trim()+" GBP");
+        salaryFourtymonthText.setText("The average salary 40 months after was " + course.getAverageSalaryAfter40MonthsText().trim());
 
+
+        salarySixmonthText.setText("The average salary 6 months after was " + course.getAverageSalaryAfter6MonthsText().trim());
+
+        double tax = 0;
         double salary = 0;
         try{
             Log.d("Salary", course.getAverageSalaryAfter6MonthsText().substring(1));
@@ -318,11 +320,16 @@ public class StatsPageSelecter extends Fragment {
         } else if(salary > 30000){
           repayment = 93;
         }
-        salary = salary * 0.8;
+        tax = ((salary - 11000) * 0.2) / 12;
+
+        salary = salary - tax;
         salary = salary / 12;
+
+
 
         salary -= repayment;
         salary = Math.round(salary);
+        tax = Math.round(tax);
 
         TextView monthlyWage = (TextView) view.findViewById(R.id.monthlyBreakdownAfterTax);
         TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
@@ -332,9 +339,9 @@ public class StatsPageSelecter extends Fragment {
         loanRepayment.setTypeface(font);
         taxPayment.setTypeface(font);
 
-        monthlyWage.setText("Average monthly wage of: " + salary+" Pounds");
-        loanRepayment.setText("Student loan repayment of: "+repayment+" Pounds");
-        taxPayment.setText("Paying 20% tax");
+        monthlyWage.setText("Average monthly wage of: £" + salary+" (after payments)");
+        loanRepayment.setText("Student loan repayment of: £"+repayment+" per month");
+        taxPayment.setText("Paying £"+tax+" in tax per month" );
 
         }
        return v ;
@@ -371,14 +378,12 @@ public class StatsPageSelecter extends Fragment {
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
         //Chart 2 data population and settings
         pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
-        pChart.animateXY(2000,2000);
 
         v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             //false if chart in view

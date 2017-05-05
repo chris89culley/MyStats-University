@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import FragmentSelectors.AboutFragmentSelecter;
+import FragmentSelectors.AboutFragmentSelector;
 
 /**
  * Created by Terence Lawson on 17/04/2017.
@@ -30,7 +30,7 @@ public class AboutPageAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        AboutFragmentSelecter frag = new AboutFragmentSelecter(position);
+        AboutFragmentSelector frag = new AboutFragmentSelector(position);
         return frag;
     }
 

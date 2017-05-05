@@ -25,8 +25,9 @@ public class SearchResults extends MenuViewActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
+        setTitle("Search Results");
         TextView searchHeader = (TextView) findViewById(R.id.searchResultsHeader);
-        searchHeader.setText("Search Results - " + this.getIntent().getStringExtra("searchedName"));
+        searchHeader.setText(this.getIntent().getStringExtra("searchedName"));
 
        ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
 

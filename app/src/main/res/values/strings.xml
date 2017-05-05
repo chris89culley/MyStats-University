@@ -1,4 +1,5 @@
 <resources>
+    <!--Home Page-->
     <string name="app_name">MyStats - University</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
@@ -7,16 +8,98 @@
     <string name="satisfaction_title">How satisfied previous students have been with the course can be a good indication of what your experience will be like on the course. Click the sections below to see the percentage were satisfied with the enclosed statements</string>
 
 
+    <!--Stats framents-->
+    <!--Course Stats page-->
+    <string name="course_name_pervasive">course name :</string>
+    <string name="university_name_pervasive">university name : </string>
+
+    <!--Home Activity-->
+    <string name="about_button">about</string>
+    <string name="ucas_tip_button">ucas tips</string>
+    <string name="quick_search_button">search</string>
+    <string name="recent_search_button">recent \n search</string>
+
+    <!--activity radiuschecker-->
+    <string name="radius_button">Button</string>
+
+    <!--activity_search_page-->
+    <string name="full_time">full time</string>
+    <string name="part_time">part time</string>
+    <string name="course_name_entered">Subject or Course</string>
+    <string name="radius_text">within 0 km of </string>
+    <string name="location_name_entered">Location or institution</string>
+    <string name="search_Button">Search</string>
+
+    <!--activity_search_results-->
+    <string name="search_results_header">Search Results</string>
+
+    <!--fragment_cost_stats-->
+    <string name="cost_text_id">Money matters, especially when you\'re a student,  below you\'ll find the living cost statistics according to NUS for the average UK student and the average cost for accommodation.</string>
+    <string name="insurance_id">£42 for insurance</string>
+    <string name="personal_id">£2,074 for personal goods</string>
+    <string name="food_id">£1,956 for food</string>
+    <string name="leisure_id">£1,310 for leisure time</string>
+    <string name="travel_id">£1,524 for travel expenses</string>
+
+    <!--fragment_employ_stats-->
+    <string name="esChartTitle1">Percent employed six months after completing the course</string>
+    <string name="average_salary_title">Average salaries</string>
+    <string name="monthly_breakdown_title">Breakdown of average monthly wages</string>
+
+    <!--fragment_entry_info-->
+    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
+    <string name="entry_info_xaxis">Amount of UCAS Points</string>
+    <string name="entry_info_yaxis">Percentage of people</string>
+
+    <!--fragment_error-->
+    <string name="error_text">No Stats Found...</string>
+
+    <!--fragment_quick_search-->
+    <string name="edit_text_dialog_user_input">Quick Search</string>
+
+    <!--fragment_study_info-->
+    <string name="siChartTitle1">Degree classifications students achieved</string>
+    <string name="siChartTitle2">What students are doing a year after the course</string>
+
+    <!--item_coverflow-->
+    <string name="label">Title</string>
+    <string name="item_title">TITLE</string>
+
+    <!--no_courses_found_dialog_frag-->
+    <string name="no_course_found_title">No courses found!</string>
+
+    <!--satisfaction_header-->
+    <string name="sat_title">Satisfaction</string>
+
+    <!--satisfaction_row_header-->
+    <string name="satisfaction_name">Sat Name</string>
+
+    <!--search_content-->
+    <string name="mode">Study mode :</string>
+    <string name="overall_satisafaction">overall sat bla bla</string>
+    <string name="salary_after_6">salary after 6 months</string>
+    <string name="percent_that_go_to_work">percent that go to work</string>
+    <string name="more_stats_button">More stats</string>
+
+    <!--search_header && search_row_header-->
+    <string name="course_name">COURSE SEARCH RESULTS</string>
+    <string name="university_name">ExpandableLayout Header!</string>
+
+    <!--tip_list_content-->
+    <string name="tip_description">Study mode :</string>
+
+
+
+
+
     <!-- The About pages -->
     <!-- the App Fragment-->
-    <string name="basic_intro">The MyStats application was created to make an easy way to find different courses from specific universities within a certain area.
-    The app was created by students for students, parents and teachers to easily find out the facts about different courses and universities.
-    </string>
+    <string name="about_page_intro">So you want to know more about the app, great!\n\nThe application was developed with the intention to give everyone a quick and simple way to research university courses across the UK.\n\nIf you’re a prospective under/postgraduate then this app will help you find interesting stats to help you choose the course for you.</string>
     <!--The meet the team Fragment-->
     <string name="meet_the_team_intro">The team first met as they all attended Teesside University. This page tells everyone a little about each person who contributed to the making of this app.</string>
     <string name="chris_personal">This is Chris, a 27 year old meditating pescatarian, previously in business in the renewable sector;  Chris realised his true calling was in programming and problem solving after he built a SAP calculator making income predictions based on post code solar radiation levels.  Chris is studying Computer Science and aims to continue his education to Msc with interests in Machine Learning.</string>
     <string name="tel_personal">This is Terry, after working in McDonalds until the age of 23 he decided it was time to pursue his dream of computer coding. In his spare time Terry enjoys playing pool. Terry is about to start a placement at Sabisu. Terry aspires to work as a software developer once he finishes his degree course.</string>
-    <string name="dan_personal">This is Daniel, he is currently 26 and is from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
+    <string name="dan_personal">This is Daniel, 26, from Stockton on Tees. Daniel is currently in his third year of a five-year degree studying BSc Computing (with foundation and placement year). Daniel is due to start a placement with Nissan this June. Daniel previously served 9 years with the Army Reserves and deployed to Afghanistan in 2012 and 2014 before deciding on a career change. Daniel aspires to become a software developer for a large organisation such as Nissan. </string>
     <string name="jack_personal">This is Jack, he is currently 21 and from Darlington. Jack is currently studying for his bachelor’s degree in computer science at Teeside university. Next year he is due to embark on a work placement at redev development in Leeds. This will be his first time working in the industry and is an exciting opportunity. This opportunity should help him reach his long-term career goal of joining the software industry as a software engineer.</string>
     <!--The Data fragment-->
     <string name="firebase">Firebase - is a Google based Cloud Storage that lets us upload and share content. By using Firebase it allows us to reduce the size of app and still have the data available when requested through the app. We will collect the apps metadata from you such as searches. For further information goto - <a href="https://firebase.google.com/docs/storage/">Firebase</a></string>
@@ -24,14 +107,15 @@
     <string name="hesa">HESA - Receives information from universities across the UK and collates it into useful information about universities and their courses. For further information goto - <a href="http//www.hesa.ac.uk">HESA</a></string>
     <string name="national_student_survey">NSS - We also use data from the National Student Survey to collect satisfaction information about the different courses from the students, this is done by Ipsos MORI. This information is collected through a questionnaires. For more information please visit the NSS website at <a href="http://www.thestudentsurvey.com">Student Survey</a></string> 
     <string name="dlfh">DLFH - is used to find the information about people who have recently left university. The DLHE asks the leavers of courses what they are doing roughly 6 months after the course. For further information goto - <a href="http://www.hefce.ac.uk/pubs/year/2013/201301/">HEFCE</a></string>
+    <!--The Copyright Fragment-->
     <string name="copy_page_intro">Here you can find the legal information about the data used in the MyStats - University app</string>
     <string name="copy_unistats_disclaimer">MyStats - University is in no way affiliated with the UniStats website. The app uses and supplies informative stats that is in no way in conjunction with UniStats.</string> 
     <string name="copy_hesa_disclaimer">All the information provided has been taken from the HESA database. The data has been published under the Creative Commons Attribution 4.0 International Licence. In short, this mean the app can use and adapt content for personal and commercial use as long as appropriate credit is provided. HESA is not responsible for any the conclusions or way the data is represented on this app and is not responsible for any content on this app.</string>
+    <string name="copy_further_information">If you require any further information or have any questions relating to this app feel free to contact the development team, CDJiT via email.</string>
     <string name="copy_image_info">The images used in this app have been taken from Freepik and Logomakr which are both open source resources</string>
-<string name="freepik_image">\u2022\t\t<a href="http://www.freepik.com/">Freepik</a></string>
+    <string name="freepik_image">\u2022\t\t<a href="http://www.freepik.com/">Freepik</a></string>
     <string name="emailStr">\u2022\t\t<a href="mailto:cdjit_development@gmail.com">cdjit_development@gmail.com</a></string>
-
-<string name="logomakr_image">\u2022\t\t<a href="http://www.logomakr.com/">Logomakr</a></string>
+    <string name="logomakr_image">\u2022\t\t<a href="http://www.logomakr.com/">Logomakr</a></string>
 
 
 
@@ -39,48 +123,51 @@
     <!--Intro frament-->
     <string name="ucas_tips_intro">Applying for University can seem a daunting task, so here at MyStats the team have put together some tips and hints to help you in your university application journey.</string>
     <!--Choosing your course fragment-->
-    <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37000 courses offered across 350 different universities just starting out can be overwhelming. Below are some tips in how to choose the course right for you, followed by ways to test this choice to determine if you have made the right decision. </string>
+    <string name="ucas_tips_choosing_course_intro">The choice of course is a key decision in anyone’s life with over 37000 courses offered across 350 different universities it can be overwhelming. Below are some tips that will help you choose the right course for you.</string>
+    <string name="ucas_tips_hobby_title">Consider Your Enjoyment</string>
     <string name="ucas_tips_hobby">Research shows that intrinsically motivating work makes people a lot happier than a big pay cheque so why not pursue a course in the thing you do for fun, your hobby. Whether that’s computer games, gardening, crafts or cooking its worth exploring courses that incorporate your passion rather than concentrating on earning potential alone.  </string>
-    <string name="ucas_tips_entry_requirments">Entry requirements: Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
-    <string name="ucas_tips_location">Location: The choice of location is as important as the course itself, this largely depends on individual circumstances so here are some questions you could ask yourself before settling on a location;</string>
-    <string name="ucas_tips_location_q1">Is it important for you to be close to your family? If so how close?</string>
-    <string name="ucas_tips_location_a1">Graduate employment research has evidenced that students who leave home develop self-sufficiency sooner and therefore have potentially better job prospects than those who stay with family which is worth bearing in mind before you settle for ironed shirts and dinners on the table.</string>
-    <string name="ucas_tips_location_q2">What are the transportation times back home, is it an expensive route? </string>
-    <string name="ucas_tips_location_a2">A student rail or coach card will be a very sensible long-term investment and can make a great Christmas present from your family or friends, you may even find your bank will give you one free of charge when you move to a student account.</string>
-    <string name="ucas_tips_location_q3">Are you prepared for the city life if you are from the country and vise versa if you are from the big city would you be happy to give that up for a rural setting? </string>
-    <string name="ucas_tips_location_a3">Your time at university will be an opportunity for you to pursue your interests in a way you may never be able to again; so it is important that you’ll be able to access facilities enabling you to explore these interests. </string>
-    <string name="ucas_tips_location_q4">What about your budget, would you need to get a job to help fund your studies at that location?</string>
-    <string name="ucas_tips_location_a4">The cost of living varies throughout the country, aside from London the more expensive areas are still given the same student loan payments, meaning it is worth considering areas in the North of the country to take advantage of cheaper rents and nights out.  </string>
+    <string name="ucas_tips_entry_requirments">Students often make the mistake of being overly pessimistic or optimistic with their grade expectations, the best way to counter this pitfall is to select courses with a range of entry requirements both high and low to negate the risk of upset come results day. </string>
+    <string name="ucas_tips_entry_requirments_title">Apply To A Range</string>
+
+    <string name="ucas_tips_location">The choice of location is as important as the course itself, this largely depends on individual circumstances.</string>
+
+    <string name="ucas_tips_location_title">Think About Location</string>
+    <string name="ucas_tips_goals_title">Consider Your Career Goals</string>
+    <string name="ucas_tips_goals">Choose a course which will help you achieve your long term career goal. There is no point in studying a subject which wont help you get where you want to be after graduating</string>
+    <string name="ucas_tips_research_title">Do your research</string>
+
+    <string name="ucas_tips_research">Save yourself unnecessary hard work by checking out what employment stats are like after graduating. It\'s also worth looking at the kind of careers that will be open to you when you are finished. </string>
+
+    <string name="ucas_tips_talk_title">Talk to people</string>
+    <string name="ucas_tips_talk">If the facts and figures arent enough try get in touch with some of the institutions alumni most institutions will hand over contact details if you ask. This helps build a fuller picture of what life there would be like not just the academic side of things!</string>
 
     <!--Personal Statement Fragment-->
-    <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. Now this can be a daunting task and is something all University admissions officers take very seriously. This could be the difference between you getting onto the course of your dreams, or not getting onto any courses at all. Well now that you are nice and scared, here are some great tips to get you started.</string>
-    <string name="personal_statement_tips">Content of the personal statement:
-Make a great opening Paragraph: Use the first paragraph to grab the attention of the reader. Remember these people see a lot of personal statements so they probably already know if one is good or bad from the first sentence never mind the first paragraph. Do not use a quote to start your personal statement with, it might seem original but so many students do this and it’s not well received, this space is for you to sell yourself, not to share what others have said.
-
-Reasons for wanting to study the course:
-Say makes you want to take this course further, what has inspired you in your current studies. Talk about what made you interested and anything extra you have done to prepare you in this subject area. Do you have an overall goal, if it’s reasonable then mention it.
-How are you right for the course
-Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.
-What have you done outside of the class room (and why is it relevant)
-Write about how you have chased your interests in the subject outside of your current or previous courses. Talk about extra clubs you may have joined. Any extra studying or reading you have done should be mentioned this could be from a wide range of media, then give your reflective opinions on these different sources. Don’t mention doing any extra reading that everyone else is doing. Expand on this and say why it’s relevant to the course, speak about anything else you have done which is relevant to the subject.
-What transferable skills do you have?  (expand on the most relevant ones)
-Talk about any abilities you excel at, talk about if you are a good problem solver or work well independently. Try and tailor these skills to something that will work well with the subject you want to study. Give examples where possible if it is at school on the Duke of Edinburgh Award or any projects or a position of responsibility you may have held.
-
-Give some evidence that you can work independently and analytically.
-Briefly show how one of your current or previous courses has made you use these skills and think more critically and use alternative methods as a way of solving a problem.
-
-
-
-
-Your expectations: Tell them what you hope to get from the course, talk about Career plans and your future once you have done the course. Say why you think this course best ties in with your aspirations.
-</string>
-    <string name="ucas_tips_take_your_time">Take your time: Start your personal statement early, this will give you plenty of time to make amendments read it through get it checked by your peers, teachers, parents or any advisors you may see.</string>
-    <string name="ucas_tips_be_excited">Be Excited: Universities read hundreds if not thousands of different students’ personal statements. Make yours stand out by showing your enthusiasm get them to feel exactly how excited you are to go and do their course.</string>
-    <string name="ucas_tips_your_grammer">Your Grammar: This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, a lot of services are available to get your personal statement checked. Bad English could make or break any candidate.</string>
-    <string name="ucas_tips_the_thesaurus">Don’t overuse the thesaurus:  Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language you use and not use big words that make you sound clever. </string>
+    <string name="ucas_tips_personal_statement_intro">If you are applying for a course through UCAS you are going to have to write a personal Statement. So, to get you started and give you guidance here is some advice to help you.</string>
+    <string name="ucas_tips_opening_paragraph_title">Your Opening Paragraph</string>
+    <string name="ucas_tips_opening_paragraph">This should be attention grabbing. Don’t use a quote, this is a very generic way to start and isn’t well received this is the first time to draw the person reading in and you want to really blow them away.</string>
+    <string name="ucas_tips_Reasons_to_study_the_course_title">Reason to study the course</string>
+    <string name="ucas_tips_Reasons_to_study_the_course">Say what makes you want to take this course further, talk about how you have been inspired by your current studies and what about the subject you think you will find interesting. If it’s reasonable mention if you have an overall goal.</string>
+    <string name="ucas_tips_the_course_title">The course</string>
+    <string name="ucas_tips_the_course">Give them a reason to choose you, have evidence to back up your reasoning. Show that you have researched the course and how studying at university level will benefit you. Make them aware that you are prepared to take on the responsibility of studying at the higher level.</string>
+    <string name="ucas_tips_extra_work_title">Extra work</string>
+    <string name="ucas_tips_extra_work">Write about what you’ve done outside any current or previous courses. Talk about any clubs you have been in, any extra studying or reading that you’ve managed to do. Try and talk about using a wide range of media and then give your reflective opinion on the different sources. Don’t mention any extra reading that everyone else is doing. </string>
+    <string name="ucas_tips_current_skills_title">Current skills</string>
+    <string name="ucas_tips_current_skills">Mention any current skills that will be transferred to the course. Say anything you may excel at, talk about being a good problem solver or how you can work well in a team. Try and tailor the skills to something that would benefit the subject you want to study. </string>
+    <string name="ucas_tips_independant_and_analytical_work_title">Independent and Analytical work</string>
+    <string name="ucas_tips_independant_and_analytical_work">Briefly talk about any independent work you have done or talk about situations in which you have analytically worked through a problem.</string>
+    <string name="ucas_tips_your_expectations_title">Your Expectations</string>
+    <string name="ucas_tips_your_expectations">Say what you hope to get out of the course, talk about any future career plans or what you think the course will give you to set up for life. Talk about how the subject best ties in with your aspirations.</string>
+    <string name="ucas_tips_take_your_time_title">Take your time</string>
+    <string name="ucas_tips_take_your_time">Start your personal statement early, this will give you plenty of time to make amendments read it through get it checked by your peers, teachers, parents or any advisors you may see.</string>
+    <string name="ucas_tips_be_excited_title">Be Excited</string>
+    <string name="ucas_tips_be_excited">Universities read hundreds if not thousands of different students’ personal statements. Make yours stand out by showing your enthusiasm get them to feel exactly how excited you are to go and do their course.</string>
+    <string name="ucas_tips_your_grammer_title">Your Grammar</string>
+    <string name="ucas_tips_your_grammer">This is a must, Universities do not like people who use slang, have bad spelling or have sentences that aren’t coherent. Make sure you read it to yourself after you finish, then read it again the next day. Get others to read it, a lot of services are available to get your personal statement checked. Bad English could make or break any candidate.</string>
+    <string name="ucas_tips_the_thesaurus_title">The Thesaurus</string>
+    <string name="ucas_tips_the_thesaurus">Students often fall into the trap of thinking the admissions staff are excited to see an overused thesaurus it’s better to express yourself with language that you already know and not words that are unfamiliar to you.</string>
 
     <!--Interview Fragment-->
-    <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Below you’ll find some tips to get you through the big day. </string>
+    <string name="ucas_tips_interview_intro">University interviews can be intimidating but they aren’t that scary. The most important thing is to be prepared ‘Boy Scout’ style. Click the sections below to find some tips to help you through the big day. </string>
     <string name="ucas_tips_interview_checking_title"> Check for interviews</string>
     <string name="ucas_tips_checking">A University could send you an invitation directly or it could send you one through your UCAS track. Make sure you are checking both regularly so you don\'t miss an appointment by mistake.</string>
     <string name="ucas_tips_interview_times_title"> Keeping to times and dates</string>
@@ -96,11 +183,6 @@ Your expectations: Tell them what you hope to get from the course, talk about Ca
     <string name="ucas_tip_interview_be_yourself_title">Be yourself</string>
     <string name="ucas_tips_be_yourself">Let your personality show, the university is not expecting the finished product with vast knowledge of the subject but are looking for students that are motivated and show potential. </string>
 
-    <!--Stats framents-->
-    <!--Entry information Fragment-->
-    <string name="entry_info_introduction">Everyone needs to know how many UCAS points they need to get into their favourite Uni, Below you will see a chart that shows the spread of what last years students had when they started this course</string>
-    <string name="entry_info_xaxis">Amount of UCAS Points</string>
-    <string name="entry_info_yaxis">Percentage of people</string>
-    <string name="test_string">sfghh</string>
+
 </resources>
 

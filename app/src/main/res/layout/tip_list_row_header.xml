@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="COURSE SEARCH RESULTS"
+        android:text="@string/course_name"
         android:fontFamily="casual"
         android:textSize="20dp"
         android:textColor="@color/oldBurgundy"

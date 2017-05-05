@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,7 @@ import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
  * Created by Terence Lawson on 17/04/2017.
  */
 
-public class AboutFragmentSelecter extends Fragment {
+public class AboutFragmentSelector extends Fragment {
 
         private View view;
         private int pos;
@@ -40,7 +39,7 @@ public class AboutFragmentSelecter extends Fragment {
          * sets the position of the fragment pager and the course data
          * @param position
          */
-        public AboutFragmentSelecter(int position) {
+        public AboutFragmentSelector(int position) {
             this.pos = position;
         }
 
@@ -189,7 +188,7 @@ public class AboutFragmentSelecter extends Fragment {
         description.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
-                LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelecter.this.getContext());
+                LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelector.this.getContext());
                 TextView textView = (TextView) inflater.inflate(R.layout.item_title, null);
                 textView.setTypeface(retroFont);
                 return textView;
@@ -201,7 +200,7 @@ public class AboutFragmentSelecter extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(AboutFragmentSelecter.this.getContext(),
+                Toast.makeText(AboutFragmentSelector.this.getContext(),
                         getResources().getString(team.get(position).titleResId),
                         Toast.LENGTH_SHORT).show();
             }

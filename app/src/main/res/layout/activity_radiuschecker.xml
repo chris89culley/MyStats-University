@@ -11,7 +11,7 @@ android:id="@+id/radiuschecker_page">
 
 
 <Button
-    android:text="Button"
+    android:text="@string/radius_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/button"

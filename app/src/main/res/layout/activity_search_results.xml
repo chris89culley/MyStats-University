@@ -24,7 +24,7 @@
             android:id="@+id/searchResultsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search Results"
+            android:text="@string/search_results_header"
             android:background="#839788"
             android:textColor="@color/greenSheen"
             android:textSize="25sp"

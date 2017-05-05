@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:padding="30dp"
             android:layout_centerHorizontal="true"
-            android:text="Percent employed six months after completing the course"
+            android:text="@string/esChartTitle1"
             android:fontFamily=""
             android:textSize="20dp"
 
@@ -42,7 +42,7 @@
             android:padding="30dp"
             android:layout_centerHorizontal="true"
             android:background="@color/background"
-            android:text="Average salaries"
+            android:text="@string/average_salary_title"
             android:fontFamily=""
             android:textSize="20dp"
             android:textAlignment="center"
@@ -59,7 +59,7 @@
             android:background="@color/greenSheen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/money_icon"
+            android:drawableLeft="@drawable/cash_icon"
             android:layout_below="@+id/averageSalaryTitle"/>
 
 
@@ -73,7 +73,7 @@
             android:background="@color/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/money_icon"
+            android:drawableLeft="@drawable/money_bag_icon"
             android:layout_below="@+id/animText1"/>
 
         <TextView android:id="@+id/monthlyBreakdownTitle"
@@ -83,7 +83,7 @@
             android:background="@color/greenSheen"
             android:padding="30dp"
             android:layout_centerHorizontal="true"
-            android:text="Breakdown of average monthly wages"
+            android:text="@string/monthly_breakdown_title"
             android:fontFamily=""
             android:textSize="20dp"
             android:textAlignment="center"
@@ -100,7 +100,7 @@
             android:textColor="@color/oldBurgundy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/wallet_icon"
+            android:drawableLeft="@drawable/wallet_icon2"
             android:layout_below="@+id/monthlyBreakdownTitle"/>
 
 
@@ -114,7 +114,7 @@
             android:textColor="@color/oldBurgundy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/credit_card_icon"
+            android:drawableLeft="@drawable/credit_card_icon2"
             android:layout_below="@+id/monthlyBreakdownAfterTax"/>
 
         <TextView
@@ -127,7 +127,7 @@
             android:background="@color/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/pay_icon"
+            android:drawableLeft="@drawable/envelope_icon"
             android:layout_below="@+id/monthlyBreakdownLoanrepay"/>
 
 

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:lineSpacingExtra="8dp"
         android:padding="8dp"
-        tools:text="Title"
+        tools:text="@string/label"
         android:background="@color/oldBurgundy"
         android:gravity="center"
         android:layout_alignParentBottom="true"

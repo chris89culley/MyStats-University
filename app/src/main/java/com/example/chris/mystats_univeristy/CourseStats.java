@@ -24,6 +24,8 @@ public class CourseStats extends MenuViewActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_stats);
 
+        setTitle("Course Statistics");
+
         //This is the course object
         Course course = getIntent().getParcelableExtra("chosenCourse");
         //Passes this selection to the

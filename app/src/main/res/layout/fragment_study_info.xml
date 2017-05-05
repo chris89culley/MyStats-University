@@ -16,7 +16,7 @@
         android:paddingTop="20dp"
         android:paddingBottom="30dp"
         android:layout_centerHorizontal="true"
-        android:text="Degree classifications students achieved"
+        android:text="@string/siChartTitle1"
         android:fontFamily=""
         android:textSize="20dp"
 
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
-        android:text="What students are doing a year after the course"
+        android:text="@string/siChartTitle2"
         android:fontFamily=""
         android:textSize="20dp"
         android:paddingBottom="30dp"
@@ -62,7 +62,7 @@
             android:background="@color/greenSheen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/lecture_icon"
+            android:drawableLeft="@drawable/lecture_icon2"
             android:layout_below="@id/sipie2"/>
 
         <TextView
@@ -75,7 +75,7 @@
             android:background="@color/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/writing_icon"
+            android:drawableLeft="@drawable/coursework_icon2"
             android:layout_below="@+id/sistat1"/>
 
         <Space

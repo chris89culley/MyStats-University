@@ -33,11 +33,17 @@ public class MyLocationListener implements LocationListener {
         }
 
 
-
+    /**
+     * Requests the longitude
+     * @return longitude as a double
+     */
     public double getLongat() {
         return longat;
     }
-
+    /**
+     * Requests the latitude
+     * @return latitude as a double
+     */
     public double getLat() {
         return lat;
     }

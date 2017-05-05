@@ -6,11 +6,16 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="52dp">
+    android:paddingTop="52dp"
+    android:onClick="dialogClose"
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="dialogClose"
+
+        >
 
         <Button
             android:layout_width="40dp"
@@ -35,12 +40,11 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/inputbox1"
-            android:hint="Quick Search"
+            android:hint="@string/edit_text_dialog_user_input"
             android:maxLength="16"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"
             android:paddingTop="17dp"
-
 
             >
 
