@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentController;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -34,14 +35,14 @@ public class MenuViewActivity extends AppCompatActivity {
     private MenuViewActivity currentActivity = this;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference(); //The database reference
     private final DatabaseInformationQuerier databaseInfomationQuerier = new DatabaseInformationQuerier(database);
-    int i = 0;
-    Dialog dialog;
-    Button searchBtn;
-    MenuItem searchButtonForOverflow;
+    private int i = 0;
+    private Dialog dialog;
+    private Button searchBtn;
+    private MenuItem searchButtonForOverflow;
     private TextView dialogBox;
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
     private AVLoadingIndicatorView loadingIcon;
-    Intent prev;
+    private Intent prev;
 
 
     /**
@@ -160,8 +161,6 @@ public class MenuViewActivity extends AppCompatActivity {
         searchBtn = (Button) dialog.findViewById(R.id.searchBtn);
         handleSearchButtonPressed(dialog.getCurrentFocus());
         searchBtn.performClick();
-//        View search = dialog.findViewById(R.id.editTextDialogUserInput);
-//        search.onTouchEvent()
     }
     /**
      * {@inheritDoc}
@@ -184,7 +183,6 @@ public class MenuViewActivity extends AppCompatActivity {
         Intent intent = new Intent(prev);
         startActivity(intent);
     }
-
 
 
     /**
@@ -230,6 +228,7 @@ public class MenuViewActivity extends AppCompatActivity {
                 searchButtonForOverflow.setVisible(true);
                 }
             });
+
     }
 
 
