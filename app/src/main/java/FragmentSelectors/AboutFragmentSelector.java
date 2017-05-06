@@ -195,17 +195,6 @@ public class AboutFragmentSelector extends Fragment {
             }
         });
 
-
-        imageCarousel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(AboutFragmentSelector.this.getContext(),
-                        getResources().getString(team.get(position).titleResId),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
         imageCarousel.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
             @Override
             public void onScrolledToPosition(int position) {

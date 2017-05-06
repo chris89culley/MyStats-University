@@ -143,7 +143,12 @@ public class SearchPage extends MenuViewActivity  {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 shouldGetLocationFromUserData = false;
-                shouldGetLocationFromLocationEditText = true;
+                if(count > 0){
+                    shouldGetLocationFromLocationEditText = true;
+                }
+                else{
+                    shouldGetLocationFromUserData = false;
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {}
@@ -300,6 +305,7 @@ public class SearchPage extends MenuViewActivity  {
     }
 
     private boolean locationEditTextIsntEmpty(){
+        Log.d("in here", getTheLocationFieldText());
         return getTheLocationFieldText().length() > 0 && getTheLocationFieldText() != "My Location";
     }
 
@@ -325,11 +331,14 @@ public class SearchPage extends MenuViewActivity  {
                 updateInfoQuerierWithIntentIntentions(intent);
                 if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
                     updateLongAndLatWithLocationGiven(getTheLocationFieldText());
-                } else if (shouldGetLocationFromUserData) {
+                } if (shouldGetLocationFromUserData) {
                     if(locationPermissionCheck() == true){
                     getUsersLocationalData();}
                 }
                 if(shouldGetLocationFromLocationEditText || shouldGetLocationFromUserData) {
+                    Log.d("editText", getTheLocationFieldText());
+                    Log.d("locdat", String.valueOf(shouldGetLocationFromLocationEditText));
+                    Log.d("datafromus", String.valueOf(shouldGetLocationFromUserData));
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius,
                             longitude,
                             latitude,
@@ -338,11 +347,6 @@ public class SearchPage extends MenuViewActivity  {
                             getTheTypeOfCourseSelected());
                 }
                 else {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     databaseInfomationQuerier.getAllCoursesByCourseName(getTheCourseToBeSearched(),
                             getTheTypeOfCourseSelected());
                 }
