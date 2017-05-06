@@ -20,6 +20,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -99,13 +100,18 @@ public class DatabaseInformationQuerier {
     private void collectCourses(DataSnapshot courses, CourseTypes coursetype){
         courseList.clear();
         int count = 0;
+        Set<String> courseunimatch = new HashSet<>();
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
         while(data.hasNext() && count < 300){
             DataSnapshot next = data.next();
-            count++;
             Course course = next.getValue(Course.class);
             if(course.hasStatistics()){
-                courseList.add(course);
+                String courseuni = course.getFullCourseName() + course.getUniversityWhereCourseIsTaught();
+                if(!courseunimatch.contains(courseuni)) {
+                    courseList.add(course);
+                    count++;
+                    courseunimatch.add(courseuni);
+                }
             }
         }
         coursesIterator = data;
@@ -168,13 +174,19 @@ public class DatabaseInformationQuerier {
     public void collectFilteredCourses(DataSnapshot datain, CourseTypes coursetype, String keyname, String valuetobematched){
         courseList.clear();
         int count = 0;
+        Set<String> courseunimatch = new HashSet<>();
         Iterator<DataSnapshot> data = datain.getChildren().iterator();
         while(data.hasNext() && count < 300){
             DataSnapshot next = data.next();
             count++;
             if(next.child(keyname).getValue().toString().startsWith(getStartAndFinishSearchIndexes(valuetobematched, 5)[0])){
                 Course course = next.getValue(Course.class);
-                courseList.add(course);
+                String courseuni = course.getFullCourseName() + course.getUniversityWhereCourseIsTaught();
+
+                if(!courseunimatch.contains(courseuni)) {
+                    courseList.add(course);
+                    courseunimatch.add(courseuni);
+                }
             }
             //This is where the method is needed to pass the course data to the view
         }
@@ -198,8 +210,7 @@ public class DatabaseInformationQuerier {
        // }
 
         if(lengthOfString > 3){
-
-          end = current.substring(0,lengthOfString-2 ) + current.charAt(lengthOfString-1)+1;
+          end = current.substring(0,lengthOfString-1 ) + (char) (current.charAt(lengthOfString-1)+1);
         }
 
         String [] startend = {starthere, end};
@@ -216,7 +227,6 @@ public class DatabaseInformationQuerier {
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
 
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
-
         return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(500);
 
     }
@@ -233,7 +243,6 @@ public class DatabaseInformationQuerier {
                 if(c.hasStatistics())
                 courseList.add(course.getValue(Course.class));
             }
-
         }
         moveToSearchResults();
     }
@@ -275,7 +284,6 @@ public class DatabaseInformationQuerier {
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
                         collectFilteredCourses(dataSnapshot,coursetype, "NAME", universityName);
                         }
                     @Override

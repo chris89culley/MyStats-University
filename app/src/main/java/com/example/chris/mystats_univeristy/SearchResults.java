@@ -27,7 +27,9 @@ public class SearchResults extends MenuViewActivity {
         setContentView(R.layout.activity_search_results);
         setTitle("Search Results");
         TextView searchHeader = (TextView) findViewById(R.id.searchResultsHeader);
-        searchHeader.setText(this.getIntent().getStringExtra("searchedName"));
+        String searchedWord = this.getIntent().getStringExtra("searchedName");
+        searchedWord = Character.toUpperCase(searchedWord.charAt(0)) + searchedWord.substring(1);
+        searchHeader.setText(searchedWord);
 
        ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
 
