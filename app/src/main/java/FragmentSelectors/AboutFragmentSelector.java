@@ -198,7 +198,7 @@ public class AboutFragmentSelector extends Fragment {
         imageCarousel.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
             @Override
             public void onScrolledToPosition(int position) {
-                description.setText(getResources().getString(team.get(position).titleResId));
+                description.setText(getResources().getString(team.get(position).getTitleResId()));
             }
 
             @Override
