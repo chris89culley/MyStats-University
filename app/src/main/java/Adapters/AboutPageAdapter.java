@@ -8,25 +8,30 @@ import android.support.v4.app.FragmentPagerAdapter;
 import FragmentSelectors.AboutFragmentSelector;
 
 /**
- * Created by Terence Lawson on 17/04/2017.
+ * This class provides an adapter for the about page
  */
 
 public class AboutPageAdapter extends FragmentPagerAdapter {
 
     private String[] title = new String[]{"The App", "Meet the Team", "The Data", "CopyRight details", };
-    Context context;
+    private Context context;
     private int pageCount = 4;
 
 
+    /**
+     * Constructor sets the context and passes the fragment manager to the super FragmentPagerAdapter
+     * @param fm - The fragment manager for the page
+     * @param context - The context of the page
+     */
     public AboutPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }
 
     /**
-     * sends  position to the fragment selector.
-     * @param position
-     * @return
+     * Sends  position to the fragment selector.
+     * @param - The position of the fragment
+     * @return - The fragment at the particular position
      */
     @Override
     public Fragment getItem(int position) {
@@ -35,7 +40,7 @@ public class AboutPageAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * Returns the amount of fragments currently available
+     * Returns the number of fragments currently available
      */
     @Override
     public int getCount() {
@@ -43,9 +48,9 @@ public class AboutPageAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * returns the name of the Fragment at the corrent position selected
-     * @param pos the position of the Fragment
-     * @return
+     * Returns the name of the Fragment at the corrent position selected
+     * @param pos -  the position of the Fragment
+     * @return The page title at the particular fragment
      */
     @Override
     public CharSequence getPageTitle(int pos){
