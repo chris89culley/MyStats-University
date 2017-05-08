@@ -261,33 +261,30 @@ public class GenericChartMaker {
         //Creates an arrayList to store the x and y axis
         float[] yAxis = stringToFloatConvertor(values);
         float[] xAxis = stringToFloatConvertor(key);
-        // ArrayList<Entry> entries = createEntryDataArray(key.length, yAxis, xAxis);
+
         ArrayList<Entry> entries = new ArrayList<Entry>();
         for (int i = 0; i < key.length; i++){
             entries.add(new Entry(xAxis[i], yAxis[i]));
         }
+
         //create a set of data to add to the Lines to create the lines
         LineDataSet dataSet = new LineDataSet(entries, null);
-        //Format the dataSet with cleaner lines and add different colours
         dataSet = setLineGraphData(dataSet);
-        //Creates the curved effect on the line graph
         dataSet = setGraphCurve(dataSet);
-        //Chart formatting
         chart = setLineChartData(chart);
-        //Format the X Axis
-        XAxis xAxis1 = chart.getXAxis();
-        xAxis1 = setxAxisfeatures(xAxis1);
-        //Format the Y Axis from the right side of the graph
-        YAxis yAxisRightSide = chart.getAxis(YAxis.AxisDependency.RIGHT);
-        yAxisRightSide = setUpYAxisRightSide(yAxisRightSide);
 
-        //Format the Y Axis from the right side of the graph
+        XAxis xAxis1 = chart.getXAxis();
+        setxAxisfeatures(xAxis1);
+
+        YAxis yAxisRightSide = chart.getAxis(YAxis.AxisDependency.RIGHT);
+        setUpYAxisRightSide(yAxisRightSide);
+
         YAxis yAxisLeftSide = chart.getAxis(YAxis.AxisDependency.LEFT);
-        yAxisLeftSide = setUpYAXaisLeft(yAxisLeftSide);
-        //Add the informaiton about the lines to the chart
+        setUpYAXaisLeft(yAxisLeftSide);
 
         Legend legend = chart.getLegend();
-        legend = setLegendFeatures(legend);
+        setLegendFeatures(legend);
+
         return new LineData(dataSet);
 }
 

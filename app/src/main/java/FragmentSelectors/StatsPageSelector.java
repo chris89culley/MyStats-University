@@ -2,9 +2,11 @@ package FragmentSelectors;
 
 import android.app.Activity;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -351,7 +353,8 @@ public class StatsPageSelector extends Fragment {
      * @param v View
      * @return
      */
-    private View createStudyInfo(View v,Typeface font){
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private View createStudyInfo(View v, Typeface font){
 
         TextView chartTitle1 = (TextView) view.findViewById(R.id.siChartTitle1);
         chartTitle1.setTypeface(font);
@@ -373,30 +376,27 @@ public class StatsPageSelector extends Fragment {
         stat2.setText(vals[0]+"% "+"Of the course is assessed by coursework");
 
 
-        //Chart 1 data population and settings
+        //Degree classification chart
         pChart =  (PieChart) view.findViewById(R.id.sipie1);
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
-        //Chart 2 data population and settings
+        //What students are doing chart
         pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
         pChart.getLegend().setTypeface(font);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
         v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            //false if chart in view
             boolean animFlag1 = false;
             boolean animFlag2 = false;
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                //chart position plus chart height
                 PieChart pie1 = (PieChart) view.findViewById(R.id.sipie1);
                 PieChart pie2 = (PieChart) view.findViewById(R.id.sipie2);
-
-                //animation position
                 float animPos = pie1.getY()+pie1.getHeight();
+
                 //using the postions of the charts to trigger animations in the scroll view
                 if(animFlag1 == true && scrollY < animPos ){
                     pie1.animateXY(2000,2000);

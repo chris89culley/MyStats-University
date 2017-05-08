@@ -1,13 +1,8 @@
 package Data;
 
 
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
-
 import com.example.chris.mystats_univeristy.MenuViewActivity;
 import com.example.chris.mystats_univeristy.NoCoursesFoundFragment;
 import com.example.chris.mystats_univeristy.R;
@@ -17,12 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.wang.avi.AVLoadingIndicatorView;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -33,33 +25,36 @@ import java.util.Set;
 
 public class DatabaseInformationQuerier {
 
-    DatabaseReference database; // The firebase database
-
-    static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
-    Intent intent;
-    MenuViewActivity current;
-    int currentPos = 0;
+    private DatabaseReference database; // The firebase database
+    private static ArrayList<Parcelable> courseList = new ArrayList<>(); //The courses found in the current query (may not be needed)
+    private Intent intent;
+    private MenuViewActivity current;
     private String searchedWord = "";
     private Iterator<DataSnapshot> coursesIterator;
+    private final int MAX_NO_COURSES_TO_BE_DISPLAYED = 300;
 
 
+    /**
+     * Constructor sets the db reference
+     * @param database - The database ref
+     */
     public DatabaseInformationQuerier(DatabaseReference database) {
         this.database = database;
     }
 
 
-
     /**
      * Sets the intent for the activity to be moved to on a successful search
-     * @param t
+     * @param t - The current intent
      */
     public void setIntent(Intent t){
         intent = t;
     }
 
+
     /**
      * Sets the current activity which is needed to move on from successful searches
-     * @param cu
+     * @param cu - The current activity
      */
     public void setCurrent(MenuViewActivity cu){
         current = cu;
@@ -74,13 +69,16 @@ public class DatabaseInformationQuerier {
         //This makes sure that we have search results, otherwise it shows a message to the user saying no search results have been found
         if(courseList.size() < 1){
             NoCoursesFoundFragment fragment = new NoCoursesFoundFragment();
-            fragment.show(current.getFragmentManager(), "test");
+            fragment.show(current.getFragmentManager(), "");
             icon.hide();
             return;
         }
+
+        //Packs up the search results (list of courses) and the searched word for the intent
         intent.putParcelableArrayListExtra("searchResults" , courseList);
         intent.putExtra("searchedName" , searchedWord);
 
+        //Hides the loading icon
         if(icon != null)
         icon.hide();
 
@@ -90,7 +88,9 @@ public class DatabaseInformationQuerier {
 
     /**
      * This method is used because firebase is Async, this method extracts the information needed from the
-     * course object creating a course object which can then be updated with the relevant details
+     * course object creating a course object which can then be updated with the relevant details.
+     * Since there was an issue with courses including year abroad causing duplicates we remove them at this point
+     * until the issue is fixed db side
      *
      * @param courses - The datasnapshot containing all the information about the courses
      * @param coursetype - The type of courses that are being searched
@@ -102,7 +102,7 @@ public class DatabaseInformationQuerier {
         int count = 0;
         Set<String> courseunimatch = new HashSet<>();
         Iterator<DataSnapshot> data = courses.getChildren().iterator();
-        while(data.hasNext() && count < 300){
+        while(data.hasNext() && count < MAX_NO_COURSES_TO_BE_DISPLAYED){
             DataSnapshot next = data.next();
             Course course = next.getValue(Course.class);
             if(course.hasStatistics()){
@@ -165,21 +165,27 @@ public class DatabaseInformationQuerier {
     }
 
     /**
-     * This method filters the passed in datasnapshot by a further keyname/value
+     *
+     * This method is used because firebase is Async, this method extracts the information needed from the
+     * course object creating a course object which can then be updated with the relevant details.
+     * Since there was an issue with courses including year abroad causing duplicates we remove them at this point
+     * until the issue is fixed db side, this method additionally filters courses to only those who's value
+     * of the key matches the value passed in
+     *
      * @param datain - The datasnapshot that is to be filtered
-     * @param coursetype - The type of course (ie full or part time)
-     * @param keyname - The key that will filter the data
-     * @param valuetobematched - The value that if matched will be allowed to be sent to the view
+     * @param courseType - The type of course (ie full or part time)
+     * @param keyName - The key that will filter the data
+     * @param valueToBeMatched - The value that if matched will be allowed to be sent to the view
      */
-    public void collectFilteredCourses(DataSnapshot datain, CourseTypes coursetype, String keyname, String valuetobematched){
+    public void collectFilteredCourses(DataSnapshot datain, CourseTypes courseType, String keyName, String valueToBeMatched){
         courseList.clear();
         int count = 0;
         Set<String> courseunimatch = new HashSet<>();
         Iterator<DataSnapshot> data = datain.getChildren().iterator();
-        while(data.hasNext() && count < 300){
+        while(data.hasNext() && count < MAX_NO_COURSES_TO_BE_DISPLAYED){
             DataSnapshot next = data.next();
             count++;
-            if(next.child(keyname).getValue().toString().startsWith(getStartAndFinishSearchIndexes(valuetobematched, 5)[0])){
+            if(next.child(keyName).getValue().toString().startsWith(getStartAndFinishSearchIndexes(valueToBeMatched)[0])){
                 Course course = next.getValue(Course.class);
                 String courseuni = course.getFullCourseName() + course.getUniversityWhereCourseIsTaught();
 
@@ -198,17 +204,12 @@ public class DatabaseInformationQuerier {
      * words which can be applied in a database search meaning that close misses (ie putting in exact starts of the word
      * but missing the tail or specialisation ) will be picked up
      * @param current - The word to be amended
-     * @param importantCharacters - The number of characters at the start which are needed to get  a match
      * @return - A two piece array with the start word indexed to 0 and the end word indexed to 1
      */
-    public String[] getStartAndFinishSearchIndexes(String current, int importantCharacters){
+    public String[] getStartAndFinishSearchIndexes(String current){
         int lengthOfString = current.length();
         String starthere = Character.toUpperCase(current.charAt(0)) + current.substring(1);
         String end = current;
-        //if(lengthOfString > importantCharacters){
-         //   starthere = current.substring(0,importantCharacters);
-       // }
-
         if(lengthOfString > 3){
           end = current.substring(0,lengthOfString-1 ) + (char) (current.charAt(lengthOfString-1)+1);
         }
@@ -226,16 +227,23 @@ public class DatabaseInformationQuerier {
      */
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
 
-        String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName, 5);
+        String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName);
         return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(500);
 
     }
 
+    /**
+     * This method collects the courses that result from a query and filters the courses so that
+     * only those with a location (prn) that matches those passed in are kept and added to the list of courses
+     * is one list
+     * @param dataSnapshot - The data snapshot of courses
+     * @param keys - The locations that are acceptable for the courses
+     */
     private void collectAndCheckLocation(DataSnapshot dataSnapshot, Set<String> keys){
         courseList.clear();
         Iterator<DataSnapshot> courses = dataSnapshot.getChildren().iterator();
         int count = 0;
-        while(courses.hasNext() && count < 300){
+        while(courses.hasNext() && count < MAX_NO_COURSES_TO_BE_DISPLAYED){
             count++;
             DataSnapshot course = courses.next();
             if(keys.contains(course.child("UKPRN").getValue())){
