@@ -1,7 +1,8 @@
 package Adapters;
 
 /**
- * Created by chris on 26/04/17.
+ *
+ * This adapter is used for the carousel of images
  *
  * This  code is largely taken from https://android-arsenal.com/details/1/1481 with slight modifications for the person datatype
  *
@@ -16,30 +17,31 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.chris.mystats_univeristy.R;
-
 import java.util.ArrayList;
-
 import Data.Person;
 
 public class CoverFlowAdapter extends BaseAdapter {
 
     private ArrayList<Person> mData = new ArrayList<>(0);
     private Context mContext;
-    Typeface retroFont;
+    private Typeface retroFont;
     public CoverFlowAdapter(Context context) {
         mContext = context;
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
     }
 
+    /**
+     * Sets the data up
+     * @param data
+     */
     public void setData(ArrayList<Person> data) {
         mData = data;
     }
 
     /**
      * Gets the number of items of data
-     * @return
+     * @return - The number of items of data
      */
     @Override
     public int getCount() {
@@ -47,7 +49,7 @@ public class CoverFlowAdapter extends BaseAdapter {
     }
 
     /**
-     * Gets a particular item at an idex
+     * Gets a particular item at an index
      * @param pos - The index of the item
      * @return - The item at the index
      */
@@ -57,6 +59,11 @@ public class CoverFlowAdapter extends BaseAdapter {
     }
 
 
+    /**
+     * Gets the position passed in
+     * @param pos - The position passed in
+     * @return - The position passed in
+     */
     @Override
     public long getItemId(int pos) {
         return pos;
@@ -79,21 +86,20 @@ public class CoverFlowAdapter extends BaseAdapter {
             rowView = inflater.inflate(R.layout.item_coverflow, null);
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.text = (TextView) rowView.findViewById(R.id.label);
-
-            viewHolder.image = (ImageView) rowView
-                    .findViewById(R.id.image);
+            viewHolder.image = (ImageView) rowView.findViewById(R.id.image);
             rowView.setTag(viewHolder);
         }
 
         ViewHolder holder = (ViewHolder) rowView.getTag();
-
         holder.text.setText(mData.get(position).titleResId);
         holder.image.setImageResource(mData.get(position).imageResId);
-
         return rowView;
     }
 
 
+    /**
+     * A static classed as a place holder for text/image combos
+     */
     static class ViewHolder {
         public TextView text;
         public ImageView image;
