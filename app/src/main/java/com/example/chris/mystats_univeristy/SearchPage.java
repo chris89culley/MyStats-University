@@ -19,15 +19,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.CycleInterpolator;
-import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -37,15 +33,11 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.github.channguyen.rsv.RangeSliderView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.wang.avi.AVLoadingIndicatorView;
-
 import java.io.IOException;
 import java.util.List;
-
 import Animations.AnimatorUtils;
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
@@ -53,7 +45,9 @@ import GPS.MyLocationListener;
 import GPS.RadiusChecker;
 
 
-//A
+/**
+ *  A search page class which holds all the functionality of the user entering a search criteria for a request to be made
+ */
 public class SearchPage extends MenuViewActivity  {
 
     private ImageButton getLocation; //Button that sets the longitude and latitude to the users current location.
@@ -257,13 +251,6 @@ public class SearchPage extends MenuViewActivity  {
         return searchedLocationEditTextField.getText().toString();
     }
 
-    /**
-     * Finds out if the location field is not empty
-     * @return true if the location field is not empty
-     */
-    private boolean theLocationFieldIsntMyLocation(){
-        return !getTheLocationFieldText().equals("Current Location");
-    }
 
     /**
      * Updates the longitude and latitude to be searched with the long and lat of the passed location name
@@ -304,9 +291,27 @@ public class SearchPage extends MenuViewActivity  {
         return searchedCourseEditTextField.getText().toString();
     }
 
+    /**
+     * Finds out whether the location edit text has anything in it
+     * @return  True if there is something in the edit text field other than 'my location'
+     */
     private boolean locationEditTextIsntEmpty(){
-        Log.d("in here", getTheLocationFieldText());
         return getTheLocationFieldText().length() > 0 && getTheLocationFieldText() != "My Location";
+    }
+
+    /**
+     * Updates the long and lat depending on the users current choices
+     */
+    private void updateLongAndLatDependingOnCurrentSelectedChoices(){
+
+        if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
+            updateLongAndLatWithLocationGiven(getTheLocationFieldText());
+        } if (shouldGetLocationFromUserData) {
+            if(locationPermissionCheck() == true){
+                getUsersLocationalData();
+            }
+        }
+
     }
 
     /**
@@ -329,16 +334,9 @@ public class SearchPage extends MenuViewActivity  {
                 loadingIcon.show();
                 Intent intent = new Intent(view.getContext(), SearchResults.class);
                 updateInfoQuerierWithIntentIntentions(intent);
-                if(shouldGetLocationFromLocationEditText && locationEditTextIsntEmpty()) {
-                    updateLongAndLatWithLocationGiven(getTheLocationFieldText());
-                } if (shouldGetLocationFromUserData) {
-                    if(locationPermissionCheck() == true){
-                    getUsersLocationalData();}
-                }
+                updateLongAndLatDependingOnCurrentSelectedChoices();
+
                 if(shouldGetLocationFromLocationEditText || shouldGetLocationFromUserData) {
-                    Log.d("editText", getTheLocationFieldText());
-                    Log.d("locdat", String.valueOf(shouldGetLocationFromLocationEditText));
-                    Log.d("datafromus", String.valueOf(shouldGetLocationFromUserData));
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius,
                             longitude,
                             latitude,
@@ -366,7 +364,7 @@ public class SearchPage extends MenuViewActivity  {
      * Handles the action listener for the location button, calls the setter to get permissions and set the lang and lat to the users current location.
      * Then places the text "My Location" in the text field to allow the user to know that we are using there own location
      */
-    public void handlelocationButtonClick(){
+    private void handlelocationButtonClick(){
         getLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -377,6 +375,9 @@ public class SearchPage extends MenuViewActivity  {
             }
         });}
 
+    /**
+     * Sets the font up
+     */
     private void setUpFonts(){
        marketDeco = Typeface.createFromAsset(this.getAssets(), "fonts/Market_Deco.ttf");
     }
@@ -417,16 +418,14 @@ public class SearchPage extends MenuViewActivity  {
         watchForLocationTextToChange();
         handlelocationButtonClick();
         handleSearchButtonPressed();
-
     }
 
     /**
-     * This Method sets the latitude and logitude variable to the latitude and longitude of the devices current location
+     * This Method sets the latitude and longitude variable to the latitude and longitude of the devices current location
      */
-    public void getUsersLocationalData() {
+    private void getUsersLocationalData() {
 
         locationManagerInitialiser(0,0);
-        //Assigns the last location got by the location listener and adds it into the location manager
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if (location != null) {
             latitude = location.getLatitude();
@@ -435,20 +434,15 @@ public class SearchPage extends MenuViewActivity  {
 
     /**
      * /**
-     * This method initilalisers the Location Manager and starts the Location listener and begins updating the current
+     * This method initialises the Location Manager and starts the Location listener and begins updating the current
      * location in conjunction to however many seconds or hte distance changed is.
      * @param mili
      * @param distance
      */
-    public void locationManagerInitialiser(int mili, int distance) {
-        //Checks if the
+    private void locationManagerInitialiser(int mili, int distance) {
+
         if (locationPermissionCheck() == true){
-
-            //Initialisees the Location manager witht he Location services.
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-            //Starts the lcoation listener to start listening to the where the location is updating every 0 miliseconds or 0 distance moved
-            //Then assigns the the location listener to the location manager
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, mili, distance, new MyLocationListener());
             return;
         }else{
@@ -458,13 +452,13 @@ public class SearchPage extends MenuViewActivity  {
     }
 
     /**
-     * Use to check if the device has allowed the app to use the locaiton software inbuilt to it
+     * Use to check if the device has allowed the app to use the location software inbuilt to it
      * Prompts the user to turn on location services if not already given permission to use
      */
-    public boolean locationPermissionCheck() {
-        //Checks if the User already has the permissions granted
-        //Asks the user to give the app permission to use locaitonal services
-        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+    private boolean locationPermissionCheck() {
+        if (Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
@@ -491,11 +485,8 @@ public class SearchPage extends MenuViewActivity  {
                 searchedLocationEditTextField.setText("");
                 shouldGetLocationFromLocationEditText = true;
                 shouldGetLocationFromUserData = false;
-
-
                 Toast toast = Toast.makeText(getApplicationContext(), "Location Services Disabled", Toast.LENGTH_SHORT);
                 toast.show();
-
                 return;
             }
         }
