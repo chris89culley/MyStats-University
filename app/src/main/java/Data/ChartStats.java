@@ -27,12 +27,12 @@ public class ChartStats {
      * @param chartTitle String containing the title of the chart
      */
 
-    public ChartStats(String[] data,String[] tags,String chartTitle,String Type){
+    public ChartStats(String[] data,String[] tags,String chartTitle,ChartType type){
         if (tags.length > 0 && data.length > 0){ //If Data exists in the passed arrays add it to the objects arrays
             this.tags  = tags;
             this.data = data;
             try{ // Try complete the data set and then create an integer arry for the Generic chart functions
-                completeDataSet(Type);
+                completeDataSet(type);
                 dataToInt();
                 hasData = true; //No problems
             } catch (Exception e){ //Catch any exceptions
@@ -90,7 +90,7 @@ public class ChartStats {
     /**
      * A method that purges the data stored by removing empty entries and their tags,
      */
-    private void completeDataSet(String type){
+    private void completeDataSet(ChartType type){
 
         ArrayList<String> dataAL = new ArrayList<String>(Arrays.asList(data));
         ArrayList<String> tagsAL = new ArrayList<String>(Arrays.asList(tags));
@@ -103,7 +103,7 @@ public class ChartStats {
                 tagsAL.remove(i);
             }
         }
-        if (Objects.equals("pie",type)) {
+        if (type == ChartType.PIE) {
             int percentage = 0;
             for (int i = 0; i < dataAL.size(); i++) { // add the values storedsee if the data is complete
                 percentage += Integer.parseInt(dataAL.get(i));
