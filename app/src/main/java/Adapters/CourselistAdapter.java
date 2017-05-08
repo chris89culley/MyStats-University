@@ -31,9 +31,11 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
     private static LayoutInflater inflater = null;
     private static int[] colours = {Colours.GREEN_SHEEN.getColor(),
             Colours.BACKGROUND_GREEN.getColor()
-    };
-    private Typeface retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
-    private Typeface vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
+                         };
+    private Typeface retroFont;
+    private Typeface vintage;
+
+
 
     /**
      * Constructor makes calls to the ArrayAdapter super class with the res id's of the layouts for the header
@@ -48,6 +50,8 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
         this.activity = activity;
         this.courses = courses;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        retroFont = Typeface.createFromAsset(activity.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
+        vintage = Typeface.createFromAsset(activity.getAssets(), "fonts/octin vintage b rg.ttf");
     }
 
 
@@ -147,7 +151,7 @@ public class CourselistAdapter extends ArrayAdapter<Course>{
      * @param moreStatsButton - The button that when clicked moves to the more stats page
      * @param course - The course selected
      */
-    private void setTheOnClickForTheMoreStatsButton(View rowView, Button moreStatsButton, Course course){
+    private void setTheOnClickForTheMoreStatsButton(final View rowView, Button moreStatsButton, final Course course){
         moreStatsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
