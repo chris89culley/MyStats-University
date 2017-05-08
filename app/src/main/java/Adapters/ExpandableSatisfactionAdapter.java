@@ -29,11 +29,10 @@ import MPChart.UniversityStatsChartMaker;
 import Utilities.Colours;
 
 /**
- * Created by c077ing on 27/03/2017.
+ * current adapter class for the satisfaction data, this class gets each element within the charts
+ * and then displays it within a expandable list
  */
 
-// current adapter class for the satisfaction data, this class gets each element within the charts
-// and then display it within a expandable list
 public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
     // the titles of each expandable row
@@ -47,12 +46,13 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
     private Typeface vintageFont;
     private float graphTextSize = 1.0f;
     private static LayoutInflater inflater = null;
-    private int i = 0;
 
     /**
-     * This method uses the course and context to set up a header content expandable view
-     * @param context
-     * @param course
+     * Constructor sets up the context, data and text size
+     * @param context - The context where the info will be shown
+     * @param course - The course for which the stats are related
+     * @param activity - The activity that the expandable view is to be show
+     * @param graphTextSize - The graphs text size
      */
     public ExpandableSatisfactionAdapter(Context context, Course course, Activity activity, Float graphTextSize) {
         retroFont = Typeface.createFromAsset(context.getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
@@ -61,7 +61,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.course = course;
         this.graphTextSize = graphTextSize;
-
     }
 
     /**
@@ -147,23 +146,22 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
 
         final View rowView = inflater.inflate(R.layout.satisfaction_row, parent , false);
 
-        TextView title = (TextView) rowView.findViewById(R.id.satisfactionTitle);
-
-
-        //Sets up alternating colours for the header
         TextView sectionName = (TextView) rowView.findViewById(R.id.satisfactionName);
-        if(groupPosition %2 == 0){
-            sectionName.setBackgroundColor(Colours.GREEN_SHEEN.getColor());
-        }
-        else{
-            sectionName.setBackgroundColor(Colours.BACKGROUND_GREEN.getColor());
-        }
-
+        sectionName.setBackgroundColor(getColourBasedOnPosition(groupPosition));
         sectionName.setText(groupItems[groupPosition]);
         sectionName.setTextColor(Colours.OLD_BURGUNDY.getColor());
         sectionName.setTypeface(retroFont);
 
         return rowView;
+    }
+
+    /**
+     * Gets a colour based on the current position
+     * @param position- The position of the current item
+     * @return - A colour based on the position
+     */
+    private int getColourBasedOnPosition(int position){
+        return (position % 2 == 0) ? Colours.GREEN_SHEEN.getColor() : Colours.BACKGROUND_GREEN.getColor();
     }
 
 
@@ -179,8 +177,8 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
 
+        View childView = inflater.inflate(R.layout.satisfaction_content, parent, false);
         BarChart chart = (BarChart) childView.findViewById(R.id.changeableBarChartOnSatisfactionDropDowns);
         chart.setData(getTheRightDataForTheGraph(groupPosition,chart));
         chart.animateY(2000);
@@ -216,8 +214,6 @@ public class ExpandableSatisfactionAdapter extends BaseExpandableListAdapter {
             default:
                 return null;
         }
-
-
     }
 
 
