@@ -1,47 +1,48 @@
 package com.example.chris.mystats_univeristy;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-
 import com.andexert.expandablelayout.library.ExpandableLayoutListView;
-
 import java.util.ArrayList;
-
 import Data.Course;
 import Adapters.CourselistAdapter;
 
 
+/**
+ * Search results holds the logic for the search results activity creation showing a list of courses
+ * and utilising an array adapter to show details of each course in a drop down
+ */
 public class SearchResults extends MenuViewActivity {
 
-    private ArrayAdapter adapter;
+    /**
+     * Sets the search word header text making sure that the first letter is a capital
+     * @param searchHeader - The search header to be manipulated
+     */
+    private void setSearchWordText(TextView searchHeader){
+        String searchedWord = this.getIntent().getStringExtra("searchedName");
+        searchedWord = Character.toUpperCase(searchedWord.charAt(0)) + searchedWord.substring(1);
+        searchHeader.setText(searchedWord);
+    }
 
-
-
+    /**
+     * On the creation of the activity this method sets up the text views and the list view of all the
+     * course search results
+     * @param savedInstanceState - the saved instance bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
         setTitle("Search Results");
         TextView searchHeader = (TextView) findViewById(R.id.searchResultsHeader);
-        String searchedWord = this.getIntent().getStringExtra("searchedName");
-        searchedWord = Character.toUpperCase(searchedWord.charAt(0)) + searchedWord.substring(1);
-        searchHeader.setText(searchedWord);
-
-       ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
-
-
-        //This is array list of matches resulting from a search, you'll need to iterate them, displaying the relevant
-        //bits. Because at the moment I haven't set a limit on successful results you might have to do so ; ie only displaying 10
-        //in the list view (presuming you use a list view)
+        setSearchWordText(searchHeader);
+        ExpandableLayoutListView listView = (ExpandableLayoutListView) findViewById(R.id.listing);
         ArrayList<Course> courses =  this.getIntent().getParcelableArrayListExtra("searchResults");
 
-
         if(!courses.isEmpty()){
-            adapter = new CourselistAdapter( this, R.layout.search_row, R.layout.search_header, courses);
+            ArrayAdapter adapter = new CourselistAdapter( this, R.layout.search_row, R.layout.search_header, courses);
             listView.setAdapter(adapter);
         }
 
