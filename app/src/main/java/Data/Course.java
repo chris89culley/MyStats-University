@@ -2,12 +2,10 @@ package Data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.io.Serializable;
 
 
 /*
- * Created by chris on 06/03/17.
  *
  * This class contains all the information of a course, to find details of the variables please look at
  * Details.pdf stored in the MyStats-University folder
@@ -40,8 +38,12 @@ public class Course  implements Parcelable,Serializable{
     }
 
 
+    /**
+     * Returns true is the course has a full set of statistics available to be shown
+     * @return
+     */
     public boolean hasStatistics(){
-        return  !Q1.isEmpty() && !COURSEWORK.isEmpty() && !PRIVATELOWER.isEmpty() && !INSTMED.isEmpty() && !Q22.isEmpty() ;
+        return  !Q1.isEmpty() && !COURSEWORK.isEmpty() && !PRIVATELOWER.isEmpty() && !INSTMED.isEmpty() && !Q22.isEmpty() && !WORKSTUDY.isEmpty();
     }
     /**
      * Gets the name of the university where the course is taught
@@ -56,7 +58,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - for percentage assessed by coursework
      */
     public ChartStats getPercentageAssesedByCourseWork(){
-        ChartStats cs = new ChartStats(new String[]{COURSEWORK},new String[]{"Assessed by coursework"},"% of course assessed by coursework","pie");
+        ChartStats cs = new ChartStats(new String[]{COURSEWORK},
+                new String[]{"Assessed by coursework"},
+                "% of course assessed by coursework",
+                ChartType.PIE);
         return cs;
     }
 
@@ -65,7 +70,10 @@ public class Course  implements Parcelable,Serializable{
      * @return Chart stats - for percentage in scheduled
      */
     public ChartStats getPercentageInScheduled(){
-        ChartStats cs = new ChartStats(new String[]{SCHEDULED},new String[]{"In lectures or practicals"},"% of time spent in lectures & practicals","");
+        ChartStats cs = new ChartStats(new String[]{SCHEDULED},
+                new String[]{"In lectures or practicals"},
+                "% of time spent in lectures & practicals"
+                ,ChartType.BAR);
         return cs;
 
     }
@@ -75,7 +83,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - average salary after 6 months
      */
     public ChartStats getAvgSalarySixMonths(){
-        ChartStats cs = new ChartStats(new String[]{INSTLQ,INSTMED,INSTUQ},new String[]{"Course Lower Quartile Salary","Course Median Salary","Course Upper Quartile Salary"},"Average salary after 6 months","");
+        ChartStats cs = new ChartStats(new String[]{INSTLQ,INSTMED,INSTUQ},
+                new String[]{"Course Lower Quartile Salary","Course Median Salary","Course Upper Quartile Salary"},
+                "Average salary after 6 months",
+                ChartType.BAR);
         return cs;
     }
 
@@ -85,7 +96,10 @@ public class Course  implements Parcelable,Serializable{
      */
     public ChartStats getAvgSalaryFoutrtyMonths(){
 
-        ChartStats cs = new ChartStats(new String[]{LDLQ,LDMED,LDUQ},new String[]{"Lower Quartile Salary","Median Salary","Upper Quartile Salary"},"Average salary after 40 months","");
+        ChartStats cs = new ChartStats(new String[]{LDLQ,LDMED,LDUQ},
+                new String[]{"Lower Quartile Salary","Median Salary","Upper Quartile Salary"},
+                "Average salary after 40 months",
+                ChartType.BAR);
         return cs;
     }
 
@@ -94,7 +108,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - for percentages of those that go on to work and study
      */
     public ChartStats getPercentageWorkAndStudy(){
-        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},"% that went on to work & study","pie");
+        ChartStats cs = new ChartStats(new String[]{STUDY,WORK,ASSUNEMP,BOTH,NOAVAIL},
+                new String[]{"Doing further study","Now working","Unemployed","Studying and working","Other"},
+                "% that went on to work & study",
+                ChartType.PIE);
         return cs;
     }
 
@@ -103,7 +120,10 @@ public class Course  implements Parcelable,Serializable{
      ** @return ChartStats - for employment after 6 months
      * */
     public ChartStats getEmploymentSixMonths(){
-        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},"% that went on to work and study","pie");
+        ChartStats cs = new ChartStats(new String[]{PROFMAN,OTHERJOB,UNKWN},
+                new String[]{"In professional or managerial job","Not in professional or managerial job","In unknown job type"},
+                "% that went on to work and study",
+                ChartType.PIE);
         return cs;
     }
 
@@ -112,20 +132,14 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Teaching on my course stats
      */
     public ChartStats getTeachingOnMyCourseStats(){
-        ChartStats cs = new ChartStats(new String[]{Q1,Q2,Q3,Q4},new String[]{"Staff are good at explaining things","Staff have made the subject interesting","Staff are enthusiastic about what they are teaching","The course is intellectually stimulating"}, "Teaching on my course (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q1,Q2,Q3,Q4},
+                new String[]{"Staff are good at explaining things",
+                        "Staff have made the subject interesting",
+                        "Staff are enthusiastic about what they are teaching",
+                        "The course is intellectually stimulating"},
+                "Teaching on my course (% agree)",
+                ChartType.BAR);
         return cs;
-    }
-
-    public String getPercentEnthusiasticAboutTeaching(){
-        return Q1;
-    }
-
-    public String getPercentThatThingStaffMadeTheSubjectInteresting(){
-        return Q2;
-    }
-
-    public String getPercentThatThinkStaffAreGoodAtExplaining(){
-        return Q3;
     }
 
 
@@ -134,12 +148,14 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Assessment and feedback stats
      */
     public ChartStats getAssesmentAndFeedbackStats(){
-        ChartStats cs = new ChartStats(new String[]{Q5,Q6,Q7,Q8,Q9},new String[]{"The criteria used in marking have been clear in advance",
-                "Assessment arrangements and marking have been fair",
-                "Feedback on my work has been prompt",
-                "I have received detailed comments on my work",
-                "Feedback helped me clarify things I did not understand"},
-                "Assessment and feedback (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q5,Q6,Q7,Q8,Q9},
+                new String[]{"The criteria used in marking have been clear in advance",
+                        "Assessment arrangements and marking have been fair",
+                        "Feedback on my work has been prompt",
+                       "I have received detailed comments on my work",
+                       "Feedback helped me clarify things I did not understand"},
+                "Assessment and feedback (% agree)",
+                ChartType.BAR);
         return cs;
     }
 
@@ -148,10 +164,12 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Academic support stats
      */
     public ChartStats getAccademicSupportStats(){
-        ChartStats cs = new ChartStats(new String[]{Q10,Q11,Q12},new String[]{"I have received sufficient advice and support with my studies",
-                "I have been able to contact staff when I needed to",
-                "Good advice was available when I needed to make study choices"},
-                "Assessment and feedback (% agree)","");
+        ChartStats cs = new ChartStats(new String[]{Q10,Q11,Q12},
+                new String[]{"I have received sufficient advice and support with my studies",
+                    "I have been able to contact staff when I needed to",
+                    "Good advice was available when I needed to make study choices"},
+                    "Assessment and feedback (% agree)",
+                ChartType.BAR);
 
         return cs;
     }
@@ -162,10 +180,12 @@ public class Course  implements Parcelable,Serializable{
      */
     public ChartStats getOrganisationAndManagementStats(){
 
-        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},new String[]{"The timetable works efficiently for my activities",
+        ChartStats cs = new ChartStats(new String[]{Q13,Q14,Q15},
+                new String[]{"The timetable works efficiently for my activities",
                 "Changes in the course/teaching have been communicated well",
                 "The course is well organised and is running smoothly"},
-                "Organisation and management (% agree)","");
+                "Organisation and management (% agree)",
+                ChartType.BAR);
         return cs;
     }
 
@@ -174,10 +194,12 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Learning resource stats
      */
     public ChartStats getLearningResourcesStats(){
-        ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},new String[]{"The library resources and services are good enough for my needs",
+        ChartStats cs = new ChartStats(new String[]{Q16,Q17,Q18},
+                new String[]{"The library resources and services are good enough for my needs",
                 "I have been able to access general IT resources when I needed to",
                 "I have had good access to equipment and rooms when needed"},
-                "Learning resources (% agree)","");
+                "Learning resources (% agree)",
+                ChartType.BAR);
         return cs;
     }
 
@@ -186,10 +208,12 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Personal development stats
      */
     public ChartStats getPersonalDevelopmentStats(){
-        ChartStats cs = new ChartStats(new String[]{Q19,Q20,Q21},new String[]{
+        ChartStats cs = new ChartStats(new String[]{Q19,Q20,Q21},
+                new String[]{
                 "The course has helped me to present myself with confidence",
                 "My communication skills have improved","The course helped me feel confident in tackling unfamiliar problems"},
-                "Personal development (% agree)","");
+                "Personal development (% agree)",
+                ChartType.BAR);
         return cs;
     }
 
@@ -198,8 +222,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - Student union stats
      */
     public ChartStats getStudentUnionStats(){
-        ChartStats cs = new ChartStats(new String[]{Q24},new String[]{"I am satisfied with the Students' Union at my institution"},
-                "Students' Union % satisfied with","");
+        ChartStats cs = new ChartStats(new String[]{Q24},
+                new String[]{"I am satisfied with the Students' Union at my institution"},
+                "Students' Union % satisfied with",
+                ChartType.BAR);
         return cs;
     }
 
@@ -290,7 +316,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - The accommodation costs
      */
     public ChartStats getPrivateAccomodationDetails(){
-        ChartStats cs = new ChartStats(new String[]{PRIVATELOWER, PRIVATEUPPER},new String[]{"Lower Quartile","Upper Quartile"},"Private accomodation prices","");
+        ChartStats cs = new ChartStats(new String[]{PRIVATELOWER, PRIVATEUPPER},
+                new String[]{"Lower Quartile","Upper Quartile"},
+                "Private accomodation prices",
+                ChartType.BAR);
         return cs;
     }
 
@@ -299,7 +328,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - The accommodation costs
      */
     public ChartStats getInstitutionalAccomDetails(){
-        ChartStats cs = new ChartStats(new String[]{INSTLOWER, INSTUPPER},new String[]{"Lower Quartile","Median", "Upper Quartile"},"Insititutional accomodation prices","");
+        ChartStats cs = new ChartStats(new String[]{INSTLOWER, INSTUPPER},
+                new String[]{"Lower Quartile","Median", "Upper Quartile"},
+                "Insititutional accomodation prices",
+                ChartType.BAR);
         return cs;
     }
 
@@ -308,7 +340,10 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - The degree class
      */
     public ChartStats getDegreeClass(){
-        ChartStats cs = new ChartStats(new String[]{UFIRST, UUPPER,UOTHER},new String[]{"First ","2:1", "Other"},"Degree classifications on graduation","pie");
+        ChartStats cs = new ChartStats(new String[]{UFIRST, UUPPER,UOTHER},
+                new String[]{"First ","2:1", "Other"},
+                "Degree classifications on graduation",
+                ChartType.PIE);
         return cs;
     }
 
@@ -317,7 +352,12 @@ public class Course  implements Parcelable,Serializable{
      * @return ChartStats - The degree class
      */
     public ChartStats getContinuationStats(){
-        ChartStats cs = new ChartStats(new String[]{UGAINED, ULEFT, UCONT,UDORMANT},new String[]{"Completed the course","Left before completing the course","Continued at the place of study", "Are taking a break from their studies"},"What students are doing a year into their studies","pie");
+        ChartStats cs = new ChartStats(new String[]{UGAINED, ULEFT, UCONT,UDORMANT},
+                new String[]{"Completed the course","Left before completing the course",
+                        "Continued at the place of study",
+                        "Are taking a break from their studies"},
+                "What students are doing a year into their studies",
+                ChartType.PIE);
 
         return cs;
     }
@@ -352,6 +392,7 @@ public class Course  implements Parcelable,Serializable{
         String foundation = getFoundationType();
         String placement = getPlacementType();
         String sandwich = getSandwichType();
+
         if(!foundation.isEmpty()){
             out += " with " + foundation;
             hasSomething = true;
@@ -411,18 +452,7 @@ public class Course  implements Parcelable,Serializable{
             return getStudyType("placement" , PLACEMENT);
         }
 
-        public boolean hasSandwichYear(){
-            return  SANDWICH.equals("1");
-        }
-
-        public  boolean hasFoundationYear(){
-            return FOUNDATION.equals("1");
-        }
-
-       public boolean hasPlacementYear(){
-           return PLACEMENT.equals("1");
-       }
-        public String getDegreeType(){
+   public String getDegreeType(){
             return courseLevelCode;
         }
 
@@ -442,7 +472,7 @@ public class Course  implements Parcelable,Serializable{
 
     /**
      * This constructor is called when unpacking a parcel back into the new object
-     * @param in
+     * @param in - The parcel coming in
      */
     public Course(Parcel in){
                 String[] test = in.createStringArray();
