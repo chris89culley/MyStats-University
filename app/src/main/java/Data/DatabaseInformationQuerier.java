@@ -1,13 +1,8 @@
 package Data;
 
 
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
-
 import com.example.chris.mystats_univeristy.MenuViewActivity;
 import com.example.chris.mystats_univeristy.NoCoursesFoundFragment;
 import com.example.chris.mystats_univeristy.R;
@@ -17,12 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.wang.avi.AVLoadingIndicatorView;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 /**
