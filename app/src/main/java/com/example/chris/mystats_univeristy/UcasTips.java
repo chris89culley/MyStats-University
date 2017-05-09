@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
-import com.example.chris.mystats_univeristy.MenuViewActivity;
-import com.example.chris.mystats_univeristy.R;
-
 import Adapters.UcasTipsAdapter;
 
 /**
@@ -23,7 +20,7 @@ public class UcasTips extends MenuViewActivity {
         setContentView(R.layout.activity_ucas_tips);
         setTitle("UCAS Tips");
         ViewPager vp = (ViewPager) findViewById(R.id.UcasTipsViewPager);
-        vp.setAdapter(new UcasTipsAdapter(getSupportFragmentManager(), this));
+        vp.setAdapter(new UcasTipsAdapter(getSupportFragmentManager()));
 
 
         tb = (TabLayout) findViewById(R.id.UcasTipsTabLayout);

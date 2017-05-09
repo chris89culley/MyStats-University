@@ -1,14 +1,12 @@
 package Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-
 
 import com.example.chris.mystats_univeristy.UcasTips;
+
 import FragmentSelectors.UcasTipsFragmentSelecter;
 
 /**
@@ -21,13 +19,17 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
     private UcasTips ucasTips;
     private int pageCount = 3;
 
-    public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
+    /**
+     * sets the field data when pager adapter is called.
+     * @param fm The current fragmentManager
+     */
+    public UcasTipsAdapter(FragmentManager fm) {
         super(fm);
     }
     /**
-     * sends  position to the fragment selector.
-     * @param position
-     * @return
+     * sends course data and position to the fragment selector.
+     * @param position The position of the string array to choose the correct fragment
+     * @return returns the fragment to be inflated
      */
     @Override
     public Fragment getItem(int position) {
@@ -35,7 +37,8 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
         return frag;    }
 
     /**
-     * Returns the amount of fragments currently available
+     * Collects the pageCount for the fragments.
+     * @return the amount of fragments currently available
      */
     @Override
     public int getCount() {
