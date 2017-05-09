@@ -10,7 +10,6 @@ import java.io.Serializable;
  * This class contains all the information of a course, to find details of the variables please look at
  * Details.pdf stored in the MyStats-University folder
  */
-
 public class Course  implements Parcelable,Serializable{
 
 

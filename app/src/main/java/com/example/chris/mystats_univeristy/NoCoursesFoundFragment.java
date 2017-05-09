@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 
 /**
- * Created by chris on 06/04/17.
  * This class creates a pop up dialog when the user searches for a course but has no search results
  */
 

@@ -17,6 +17,9 @@ import java.util.List;
 import Animations.AnimatorUtils;
 import Data.RSDBhandler;
 
+/**
+ * The home page displays all  the navigation options for the user to select
+ */
 public class Home extends AppCompatActivity {
 
 
@@ -25,7 +28,7 @@ public class Home extends AppCompatActivity {
 
 
     /**
-     * Thhis method runs through all the items of the arc layout and animates them moving from the bottom
+     * This method runs through all the items of the arc layout and animates them moving from the bottom
      * of the screen to their place with a bounce
      * @param layout
      */
