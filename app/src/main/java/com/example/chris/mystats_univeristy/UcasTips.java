@@ -26,7 +26,7 @@ public class UcasTips extends MenuViewActivity {
         setContentView(R.layout.activity_ucas_tips);
         setTitle("UCAS Tips");
         ViewPager vp = (ViewPager) findViewById(R.id.UcasTipsViewPager);
-        vp.setAdapter(new UcasTipsAdapter(getSupportFragmentManager(), this));
+        vp.setAdapter(new UcasTipsAdapter(getSupportFragmentManager()));
         tb = (TabLayout) findViewById(R.id.UcasTipsTabLayout);
         tb.setupWithViewPager(vp);
 

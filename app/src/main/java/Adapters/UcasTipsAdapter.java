@@ -19,7 +19,7 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
     private UcasTips ucasTips;
     private int pageCount = 3;
 
-    public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
+    public UcasTipsAdapter(FragmentManager fm) {
         super(fm);
     }
     /**

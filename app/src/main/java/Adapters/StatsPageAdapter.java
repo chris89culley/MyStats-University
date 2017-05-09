@@ -26,9 +26,9 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
 
     /**
      * sets the field data when pager adapter is called.
-     * @param fm
-     * @param context
-     * @param course
+     * @param fm The fragmentManager controlling the current collection of fragments that has been inflated
+     * @param context the context of the
+     * @param course The course that was selected in the stats chooser page
      */
     public StatsPageAdapter(FragmentManager fm, Context context, Course course) {
         super(fm);
@@ -38,8 +38,8 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
 
     /**
      * sends course data and position to the fragment selector.
-     * @param position
-     * @return
+     * @param position the position of the fragment being viewed
+     * @return returns the correct fragment to be inflated
      */
     @Override
     public Fragment getItem(int position) {
@@ -50,8 +50,8 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
 
 
     /**
-     * returns page count.
-     * @return
+     *  Returns the amount of fragments currently available
+     * @return the the actual number of fragments
      */
     @Override
     public int getCount() {
@@ -60,8 +60,8 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
 
     /**
      * gets the page title for the tab.
-     * @param pos
-     * @return
+     * @param pos Takes in the position you want to know the title of
+     * @returnthe fragment name of the position requested
      */
     @Override
     public CharSequence getPageTitle(int pos){
