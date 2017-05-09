@@ -63,10 +63,11 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * on create view determines which fragment to inflate, pending on the position.
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     *
+     * @param inflater           - The layout inflator
+     * @param container          - The container where the view is to be held
+     * @param savedInstanceState - The current saved instance
+     * @return The view containing the selected fragment
      */
     @Nullable
     @Override

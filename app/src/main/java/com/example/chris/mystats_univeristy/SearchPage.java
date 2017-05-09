@@ -275,7 +275,7 @@ public class SearchPage extends MenuViewActivity  {
     /**
      * Updates the database querier with the intent and current activity so that it can create
      * the search result page
-     * @param intent
+     * @param intent - The intent which it to be transitioned from
      */
     private void updateInfoQuerierWithIntentIntentions(Intent intent){
         databaseInfomationQuerier.setIntent(intent);
@@ -403,7 +403,7 @@ public class SearchPage extends MenuViewActivity  {
 
     /**
      * Creates the home page and initialises the listeners
-     * @param savedInstanceState
+     * @param savedInstanceState - The saved state of the application
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -437,7 +437,7 @@ public class SearchPage extends MenuViewActivity  {
      * This method initialises the Location Manager and starts the Location listener and begins updating the current
      * location in conjunction to however many seconds or hte distance changed is.
      * @param mili
-     * @param distance
+     * @param distance - The search radius distance
      */
     private void locationManagerInitialiser(int mili, int distance) {
 
@@ -472,9 +472,9 @@ public class SearchPage extends MenuViewActivity  {
     /**
      * This is called by the request permission and checks that it has been allowed if it has it returns and
      * allows the program to continue, else it asks the user to grant permission again.
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
+     * @param requestCode - The request code number
+     * @param permissions - The permissions string array
+     * @param grantResults -The grant results list
      */
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
