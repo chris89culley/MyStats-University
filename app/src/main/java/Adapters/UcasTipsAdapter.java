@@ -1,12 +1,9 @@
 package Adapters;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-
-import com.example.chris.mystats_univeristy.UcasTips;
 import FragmentSelectors.UcasTipsFragmentSelector;
 
 /**
@@ -15,25 +12,24 @@ import FragmentSelectors.UcasTipsFragmentSelector;
 
 public class UcasTipsAdapter extends FragmentPagerAdapter{
     private String[] title = new String[]{"Choosing your Course","Personal Statement", "Interview" };
-    Context context;
-    private UcasTips ucasTips;
     private int pageCount = 3;
 
-    public UcasTipsAdapter(FragmentManager fm, UcasTips ucasTips) {
+    public UcasTipsAdapter(FragmentManager fm) {
         super(fm);
     }
     /**
-     * sends  position to the fragment selector.
-     * @param position
-     * @return
+     * sends course data and position to the fragment selector.
+     * @param position the position of the fragment being viewed
+     * @return returns the correct fragment to be inflated
      */
     @Override
     public Fragment getItem(int position) {
-        UcasTipsFragmentSelector frag = new UcasTipsFragmentSelector(position, ucasTips);
+        UcasTipsFragmentSelector frag = new UcasTipsFragmentSelector(position);
         return frag;    }
 
     /**
      * Returns the amount of fragments currently available
+     * @return the the actual number of fragments
      */
     @Override
     public int getCount() {
@@ -41,9 +37,9 @@ public class UcasTipsAdapter extends FragmentPagerAdapter{
     }
 
     /**
-     * returns the name of the Fragment at the corrent position selected
-     * @param pos the position of the Fragment
-     * @return
+     * gets the page title for the tab.
+     * @param pos Takes in the position you want to know the title of
+     * @returnthe fragment name of the position requested
      */
     @Override
     public CharSequence getPageTitle(int pos){
