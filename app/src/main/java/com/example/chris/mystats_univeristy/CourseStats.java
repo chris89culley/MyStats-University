@@ -57,7 +57,7 @@ public class CourseStats extends MenuViewActivity  {
             Log.d("Database","Couldn't add entry");
         }
         ViewPager vp = (ViewPager) findViewById(R.id.viewPager);
-        vp.setAdapter(new StatsPageAdapter(getSupportFragmentManager(), this, course));
+        vp.setAdapter(new StatsPageAdapter(getSupportFragmentManager(), course));
         TabLayout tb = (TabLayout) findViewById(R.id.tabLayout);
         tb.setupWithViewPager(vp);
         setUpPervasiveBar(course);

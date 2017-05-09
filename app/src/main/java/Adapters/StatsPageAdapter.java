@@ -30,7 +30,7 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
      * @param context the context of the
      * @param course The course that was selected in the stats chooser page
      */
-    public StatsPageAdapter(FragmentManager fm, Context context, Course course) {
+    public StatsPageAdapter(FragmentManager fm, Course course) {
         super(fm);
         this.context = context;
         this.course = course;

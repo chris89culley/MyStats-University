@@ -30,7 +30,7 @@ public class UcasTipsFragmentSelector extends Fragment {
      * Sets the position of the fragment pager and the course data
      * @param position
      */
-    public UcasTipsFragmentSelector(int position, Activity activity) {
+    public UcasTipsFragmentSelector(int position) {
         this.pos = position;
     }
 
