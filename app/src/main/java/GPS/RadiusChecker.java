@@ -1,7 +1,5 @@
 package GPS;
 
-import android.util.Log;
-
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -9,17 +7,12 @@ import com.firebase.geofire.GeoQueryEventListener;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 
 /**
- * Created by Terence Lawson on 09/03/2017.
- *
  *  This class makes a search around a specified area for matching hits in the database
  */
 
@@ -40,7 +33,8 @@ public class RadiusChecker{
         }
 
     /**
-     * This runs through the database pulling out any matches around the location provided
+     * This runs through the database pulling out any matches around the location provided adding them to the keys,
+     *
      * @param radius - The radius of the search
      * @param lang - The longitude to be searched around
      * @param lat - The latitude to be searched around
@@ -58,25 +52,18 @@ public class RadiusChecker{
                 public void onKeyEntered(String keyref, GeoLocation location) {
                     keys.add(keyref);
                 }
-
                 @Override
                 public void onKeyExited(String key) {
-
                 }
-
                 @Override
                 public void onKeyMoved(String key, GeoLocation location) {
-
                 }
-
                 @Override
                 public void onGeoQueryReady() {
                     makeSearch(query, coursename, type);
                 }
-
                 @Override
                 public void onGeoQueryError(DatabaseError error) {
-
                 }
             });
         }
