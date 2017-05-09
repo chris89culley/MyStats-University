@@ -4,9 +4,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 
-/**
- * Created by Terence Lawson on 08/03/2017.
- */
 
 public class MyLocationListener implements LocationListener {
        private double longat;
