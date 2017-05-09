@@ -1,36 +1,31 @@
 package com.example.chris.mystats_univeristy;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentController;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.view.menu.MenuView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.wang.avi.AVLoadingIndicatorView;
-
 import Data.CourseTypes;
 import Data.DatabaseInformationQuerier;
 import Data.RSDBhandler;
 
+/**
+ * MenuViewActivity contains all the logic for the menu bar which navigates around the app and includes a quick search button which is linked
+ * to search results once a user has entered a course to search
+ */
 public class MenuViewActivity extends AppCompatActivity {
     private MenuViewActivity currentActivity = this;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference(); //The database reference
@@ -41,7 +36,6 @@ public class MenuViewActivity extends AppCompatActivity {
     private MenuItem searchButtonForOverflow;
     private TextView dialogBox;
     private EditText searchedCourseEditTextField; //The text field where the user enters the course name they wish to search
-    private AVLoadingIndicatorView loadingIcon;
     private Intent prev;
 
 
@@ -50,8 +44,8 @@ public class MenuViewActivity extends AppCompatActivity {
      * navigation.xml is the menu used for the home indicator.
      * overflow_menu.xml is the menu used for the overflow.
      * the overflow icon (three dots) has been replaced by a customer overflow icon which uses a search icon found in styles folder.
-     * @param menu
-     * @return
+     * @param menu - The menu
+     * @return - always returns true
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,10 +59,10 @@ public class MenuViewActivity extends AppCompatActivity {
 
 
     /**
-     * this overriding method handles the on click events of the drawerlayout (hamburger icon)
+     * This overriding method handles the on click events of the drawerlayout (hamburger icon)
      * shows and closes the menu
-     * @param item
-     * @return
+     * @param item - the menu item
+     * @return - always returns true
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -90,7 +84,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * on selected item from menu, start activity.
-     * @param item
+     * @param item - The item clicked
      */
     public void aboutClick(MenuItem item) {
         Intent intent = new Intent(this, About.class);
@@ -99,7 +93,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * on selected item from menu, start activity.
-     * @param item
+     * @param item - The menu item clicked
      */
     public void homeClick(MenuItem item) {
         Intent intent = new Intent(this, Home.class);
@@ -108,7 +102,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * on selected item from menu, start activity.
-     * @param item
+     * @param item - The menu item clicked
      */
     public void searchClick(MenuItem item) {
         Intent intent = new Intent(this, SearchPage.class);
@@ -117,7 +111,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * on selected item from menu, start activity.
-     * @param item
+     * @param item - The menu item clicked
      */
     public void ucasClick(MenuItem item) {
         Intent intent = new Intent(this, UcasTips.class);
@@ -138,7 +132,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * on click of the quick search icon (overflow), open the input dialog fragment.
-     * @param item
+     * @param item - The menu item clicked
      */
     public void searchQuick(MenuItem item) {
         openDialog();
@@ -177,7 +171,7 @@ public class MenuViewActivity extends AppCompatActivity {
 
     /**
      * the dialog fragment has a on click event to close the fragment and continue with the previous activity.
-     * @param v
+     * @param v - The view where the dialog is contained
      */
     public void dialogClose(View v){
         Intent intent = new Intent(prev);
@@ -188,7 +182,7 @@ public class MenuViewActivity extends AppCompatActivity {
     /**
      * Updates the database querier with the intent and current activity so that it can create
      * the search result page
-     * @param intent
+     * @param intent - The intent transitioned from
      */
     private void updateInfoQuerierWithIntentIntentions(Intent intent){
         databaseInfomationQuerier.setIntent(intent);

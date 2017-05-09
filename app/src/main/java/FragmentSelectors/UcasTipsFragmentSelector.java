@@ -9,29 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 import com.example.chris.mystats_univeristy.R;
-
 import java.util.ArrayList;
-
 import Adapters.TipWithIconListAdapter;
 import Data.TipEntry;
 
 /**
- * Created by Terence Lawson on 18/04/2017.
+ * UcasTipsFragmentSelector contains all the functionality of the fragments on the ucas tips page
  */
 
 public class UcasTipsFragmentSelector extends Fragment {
 
     private View view;
     private int pos;
-    private Activity activity;
     Typeface retroFont;
 
 
     /**
-     * sets the position of the fragment pager and the course data
+     * Sets the position of the fragment pager and the course data
      * @param position
      */
     public UcasTipsFragmentSelector(int position, Activity activity) {
@@ -41,25 +37,25 @@ public class UcasTipsFragmentSelector extends Fragment {
 
     /**
      * on create view determines which fragment to inflate, pending on the position.
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     *
+     * @param inflater           - The layout inflator
+     * @param container          - The container where the view is to be held
+     * @param savedInstanceState - The current saved instance
+     * @return The view containing the selected fragment
      */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
-        //test Comment
         //Cycles through the fragments choosing which one to inflate
         switch (pos) {
             case 0:
                 view = inflater.inflate(R.layout.ucas_tips_fragment_choosing_the_right_course, container, false);
-                editUcasTipsFragmentChoosingTheRightCourse();
+                createUcasTipsChoosingCourseFragment();
                 return view;
             case 1:
                 view = inflater.inflate(R.layout.ucas_tips_fragment_personal_statement, container, false);
-                editUcasTipsFragmentPersonalStatement();
+                createUcasTipsPersonalStatmentFragment();
                 return view;
             case 2:
                 view = inflater.inflate(R.layout.ucas_tips_fragment_interview, container, false);
@@ -102,7 +98,7 @@ public class UcasTipsFragmentSelector extends Fragment {
      * Creates the Personal Statement page fragment by creating an array list of tips, which contain the title, content and image
      * which is then sent to the tip icon adapter on the page
      */
-    private void editUcasTipsFragmentPersonalStatement() {
+    private void createUcasTipsPersonalStatmentFragment() {
 
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.personal_statement_tips_list);
@@ -111,7 +107,6 @@ public class UcasTipsFragmentSelector extends Fragment {
         titleText.setTypeface(retroFont);
 
         //Creates a list of tips that will be displayed in a list view
-
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_opening_paragraph_title, R.string.ucas_tips_opening_paragraph, R.drawable.opening_paragraph));
         tips.add(new TipEntry(R.string.ucas_tips_Reasons_to_study_the_course_title, R.string.ucas_tips_Reasons_to_study_the_course, R.drawable.reason_to_study));
@@ -140,13 +135,14 @@ public class UcasTipsFragmentSelector extends Fragment {
      * Creates the Choosing the right course page fragment by creating an array list of tips, which contain the title, content and image
      * which is then sent to the tip icon adapter on the page
      */
-    private void editUcasTipsFragmentChoosingTheRightCourse() {
+    private void createUcasTipsChoosingCourseFragment() {
         TextView ucasTipsChoosingCourseIntro = (TextView) view.findViewById(R.id.choosing_intro_statement);
         ucasTipsChoosingCourseIntro.setTypeface(retroFont);
 
         TipWithIconListAdapter adapter;
         ExpandableLayoutListView listView = (ExpandableLayoutListView) view.findViewById(R.id.choosing_course_list);
 
+        //Creates a list of tips that will be displayed in a list view
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_hobby_title, R.string.ucas_tips_hobby,  R.drawable.bowling));
         tips.add(new TipEntry(R.string.ucas_tips_entry_requirments_title, R.string.ucas_tips_entry_requirments, R.drawable.microscope));
