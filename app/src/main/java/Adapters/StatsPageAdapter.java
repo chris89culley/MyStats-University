@@ -1,6 +1,5 @@
 package Adapters;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -20,19 +19,16 @@ public class StatsPageAdapter extends FragmentPagerAdapter {
 
     private String[] title = new String[]{"Cost Statistics","Employment Stats","Satisfaction Stats","Study Info",
             "Entry Info"};
-    Context context;
     private int pageCount = 5;
     private Course course;
 
     /**
      * sets the field data when pager adapter is called.
      * @param fm The fragmentManager controlling the current collection of fragments that has been inflated
-     * @param context the context of the
      * @param course The course that was selected in the stats chooser page
      */
     public StatsPageAdapter(FragmentManager fm, Course course) {
         super(fm);
-        this.context = context;
         this.course = course;
     }
 
