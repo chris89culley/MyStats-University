@@ -3,7 +3,7 @@ package Utilities;
 import android.graphics.Color;
 
 /**
- * Created by chris on 22/03/17.
+ * Enum of colours used in the application
  */
 
 public enum Colours {
