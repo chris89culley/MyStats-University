@@ -91,7 +91,7 @@ public class Home extends AppCompatActivity {
         Button ucasTipsButton = (Button) findViewById(R.id.ucastipbutton);
         Button aboutButton = (Button) findViewById(R.id.aboutbutton);
         setUpHomeFonts(quickSearchButton,recentSearchButton,ucasTipsButton,aboutButton);
-        setUpButtonListnersOnHomePage(quickSearchButton,recentSearchButton,ucasTipsButton,aboutButton);
+        setUpButtonListenersOnHomePage(quickSearchButton,recentSearchButton,ucasTipsButton,aboutButton);
     }
 
     /**
@@ -102,7 +102,7 @@ public class Home extends AppCompatActivity {
      * @param ucasTipsButton - The button which navigates to the ucas tips page
      * @param aboutButton - The button which navigates to the about page
      */
-    private void setUpButtonListnersOnHomePage(Button quickSearchButton, Button recentSearchButton, Button ucasTipsButton, Button aboutButton) {
+    private void setUpButtonListenersOnHomePage(Button quickSearchButton, Button recentSearchButton, Button ucasTipsButton, Button aboutButton) {
 
         quickSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
