@@ -145,13 +145,17 @@ public class StatsPageSelector extends Fragment {
             }
         }
 
-
+    /**
+     * Animates the pie chart on the EmployStats page when called
+     */
     private void animatePieChartEmployStats(){
         pChart = (PieChart) view.findViewById(R.id.espie1);
         pChart.animateXY(2000, 2000);
     }
 
-
+    /**
+     * Animates the pieCharts on the Case Study info page
+     */
     private void animatePieChartCaseStudyInfo()
     {
         pChart = (PieChart) view.findViewById(R.id.sipie1);
@@ -160,6 +164,9 @@ public class StatsPageSelector extends Fragment {
         pChart.animateXY(2000, 2000);
     }
 
+    /**
+     * Animates the line graph on the Entry Info page when called
+     */
     private void animateLineGraphsEntryInfo(){
         lineChart = (LineChart) view.findViewById(R.id.linechart);
         lineChart.animateX(2000, Easing.EasingOption.EaseInCubic);
