@@ -249,6 +249,11 @@ public class GenericChartMaker {
         return constructPieChart(cs, chart,"");
     }
 
+
+
+
+
+
     /**
      * Generic LineChart creater
      * @param key Current X axis values
@@ -289,9 +294,9 @@ public class GenericChartMaker {
 }
 
     /**
-     * Method to change the details of the legend (currently turns it off
-     * @param legend
-     * @return
+     * Method to turn the legend off
+     * @param legend The legend that you want turning off
+     * @return the modified legend information
      */
     private static Legend setLegendFeatures(Legend legend) {
         legend.setEnabled(false);
@@ -300,8 +305,8 @@ public class GenericChartMaker {
 
     /**
      * Sets up the parameters for the Graphs right side yAXis
-     * @param yAxisRightSide
-     * @return
+     * @param yAxisRightSide The right hand Y axis you want modifying
+     * @return The modified yAxis
      */
     private static YAxis setUpYAxisRightSide(YAxis yAxisRightSide) {
         yAxisRightSide.setEnabled(false);
@@ -311,8 +316,8 @@ public class GenericChartMaker {
 
     /**
      * Sets up the Y Axis left side
-     * @param yAxisLeftSide
-     * @return
+     * @param yAxisLeftSide The yAxis you want Modifying
+     * @return the modified yAxis
      */
     private static YAxis setUpYAXaisLeft(YAxis yAxisLeftSide) {
         yAxisLeftSide.setDrawGridLines(false);
@@ -324,8 +329,8 @@ public class GenericChartMaker {
 
     /**
      * Sets up the details on the X Axis
-     * @param xAxis1
-     * @return
+     * @param xAxis1 The xXaxis of the graph you want to modify
+     * @return The modified xAxis
      */
     private static XAxis setxAxisfeatures(XAxis xAxis1) {
         xAxis1.setDrawAxisLine(true);
@@ -340,9 +345,9 @@ public class GenericChartMaker {
 
 
     /**
-     * Sets the Chart to have zoom and other properties.
-     * @param chart takes in th
-     * @return
+     * Sets the Line Chart to have zoom and other properties.
+     * @param chart takes in the LineChart data that you want to be modified
+     * @return the modified LineCahrt properties
      */
     private static LineChart setLineChartData(LineChart chart) {
         chart.setDescription(null);
@@ -355,7 +360,8 @@ public class GenericChartMaker {
 
     /**
      * Set the LineGraph to have a curved graph instead of straight lines
-     * @param dataSet
+     * @param dataSet The lineDataSet
+     *@return the line modified properties of the dataSet
      */
     private static LineDataSet setGraphCurve(LineDataSet dataSet) {
         dataSet.setCubicIntensity(0.2f); //Set the amount the graph curves
@@ -385,8 +391,8 @@ public class GenericChartMaker {
 
     /**
      * Sets the Lingraph chart colours and
-     * @param dataSet
-     * @return
+     * @param dataSet The LineDataSet that you want to modify
+     * @return the modified LineData to put into the chart
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
@@ -399,6 +405,4 @@ public class GenericChartMaker {
         dataSet.setDrawValues(false); //Takes the Values off the graph
         return dataSet;
     }
-
-
 }
