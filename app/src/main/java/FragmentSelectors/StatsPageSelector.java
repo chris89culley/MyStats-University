@@ -256,6 +256,8 @@ public class StatsPageSelector extends Fragment {
         final TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
         chartTitle1.setTypeface(retroFont);
 
+
+
         pChart = (PieChart) view.findViewById(R.id.espie1);
         pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
         pChart.getLegend().setTypeface(retroFont);
@@ -346,6 +348,7 @@ public class StatsPageSelector extends Fragment {
         taxPayment.setText("Paying £"+tax+" in tax per month" );
         }
     }
+
 
     /**
      * used to create the study info fragments
