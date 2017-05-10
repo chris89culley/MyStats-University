@@ -42,12 +42,9 @@ public class StatsPageSelector extends Fragment {
 
     private int pos;
     private View view;
-    private BarChart chart;
-    private HorizontalBarChart hbchart;
     private PieChart pChart;
     private Course course;
     private LineChart lineChart;
-    private Activity activity;
     Typeface retroFont;
 
     /**
@@ -74,12 +71,10 @@ public class StatsPageSelector extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
-        Typeface vintage = Typeface.createFromAsset(getActivity().getAssets(), "fonts/octin vintage b rg.ttf");
         try {
         switch(pos) {
             case 0:
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
-
                 createCostStatsPage();
                 return view;
             case 1:
