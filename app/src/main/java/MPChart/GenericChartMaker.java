@@ -249,6 +249,11 @@ public class GenericChartMaker {
         return constructPieChart(cs, chart,"");
     }
 
+
+
+
+
+
     /**
      * Generic LineChart creater
      * @param key Current X axis values
@@ -289,9 +294,9 @@ public class GenericChartMaker {
 }
 
     /**
-     * Method to change the details of the legend (currently turns it off
-     * @param legend
-     * @return
+     * Method to turn the legend off
+     * @param legend The legend that you want turning off
+     * @return the modified legend information
      */
     private static Legend setLegendFeatures(Legend legend) {
         legend.setEnabled(false);
@@ -300,8 +305,8 @@ public class GenericChartMaker {
 
     /**
      * Sets up the parameters for the Graphs right side yAXis
-     * @param yAxisRightSide
-     * @return
+     * @param yAxisRightSide The right hand Y axis you want modifying
+     * @return The modified yAxis
      */
     private static YAxis setUpYAxisRightSide(YAxis yAxisRightSide) {
         yAxisRightSide.setEnabled(false);
@@ -311,8 +316,8 @@ public class GenericChartMaker {
 
     /**
      * Sets up the Y Axis left side
-     * @param yAxisLeftSide
-     * @return
+     * @param yAxisLeftSide The yAxis you want Modifying
+     * @return the modified yAxis
      */
     private static YAxis setUpYAXaisLeft(YAxis yAxisLeftSide) {
         yAxisLeftSide.setDrawGridLines(false);
@@ -324,12 +329,13 @@ public class GenericChartMaker {
 
     /**
      * Sets up the details on the X Axis
-     * @param xAxis1
-     * @return
+     * @param xAxis1 The xXaxis of the graph you want to modify
+     * @return The modified xAxis
      */
     private static XAxis setxAxisfeatures(XAxis xAxis1) {
         xAxis1.setDrawAxisLine(true);
         xAxis1.setDrawGridLines(false);
+        xAxis1.disableAxisLineDashedLine();
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis1.setAxisMinimum(48); //Sets the minimun amount of the xAxis to 48 as this is the lowest that the informaition gives
         xAxis1.setAxisMaximum(240);//Sets the Graphs max to 240 as it is the highest that we recieve.
@@ -339,26 +345,29 @@ public class GenericChartMaker {
 
 
     /**
-     * Sets the Chart to have zoom and other properties.
-     * @param chart
-     * @return
+     * Sets the Line Chart to have zoom and other properties.
+     * @param chart takes in the LineChart data that you want to be modified
+     * @return the modified LineCahrt properties
      */
     private static LineChart setLineChartData(LineChart chart) {
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
-        chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
-        chart.setPinchZoom(false);//turns the graph zoom features off
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setPinchZoom(false);
         chart.setScaleEnabled(false);
         return chart;
     }
 
     /**
      * Set the LineGraph to have a curved graph instead of straight lines
-     * @param dataSet
+     * @param dataSet The lineDataSet
+     *@return the line modified properties of the dataSet
      */
     private static LineDataSet setGraphCurve(LineDataSet dataSet) {
         dataSet.setCubicIntensity(0.2f); //Set the amount the graph curves
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        dataSet.setDrawHorizontalHighlightIndicator(false);
+        dataSet.setDrawVerticalHighlightIndicator(false);
         return dataSet;
     }
 
@@ -369,7 +378,6 @@ public class GenericChartMaker {
      */
     private static float[] stringToFloatConvertor(String[] info){
         float[] data;
-        //Convert the array of strings into an array of floats
         if (info.length > 0 ){
             data = new float[info.length];
         }  else{
@@ -383,21 +391,18 @@ public class GenericChartMaker {
 
     /**
      * Sets the Lingraph chart colours and
-     * @param dataSet
-     * @return
+     * @param dataSet The LineDataSet that you want to modify
+     * @return the modified LineData to put into the chart
      */
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
         dataSet.setColor(ColorTemplate.rgb("F26D21"));
-        dataSet.setDrawFilled(true); //Set the Graph to fill the
-        dataSet.setFillAlpha(240); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("F26D21")); //The colour under the graph
+        dataSet.setDrawFilled(true);
+        dataSet.setFillAlpha(240);
+        dataSet.setFillColor(ColorTemplate.rgb("F26D21"));
         dataSet.setValueTextSize(18);
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
-
         return dataSet;
     }
-
-
 }

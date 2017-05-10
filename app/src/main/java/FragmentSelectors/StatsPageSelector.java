@@ -77,14 +77,11 @@ public class StatsPageSelector extends Fragment {
         try {
         switch(pos) {
             case 0:
-                //Cost Stats Fragment
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
 
-                //Sets the Fonts and pieces for the Cost Stats Fragment
                 createCostStatsPage(view,retroFont);
                 return view;
             case 1:
-                //Employ Stats Fragment
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
 
                 //Sets details for the EmploymentStatsPage
@@ -101,10 +98,7 @@ public class StatsPageSelector extends Fragment {
                 createStudyInfo(view,retroFont);
                 return view;
             case 4:
-                //Entry_information fragment
-                // set the view as the fragment_Entry_info view
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-
                 //Create Entry Intro page fonts
                 createEntryInfo(retroFont);
                 return view;
@@ -155,19 +149,20 @@ public class StatsPageSelector extends Fragment {
             }
         }
 
+    /**
+     * Sets the fonts of each textView up and then sets the data for the lineChart
+     * @param retroFont The font that is used on the fragment
+     */
 
     private void createEntryInfo(Typeface retroFont) {
         lineChart = (LineChart) view.findViewById(R.id.linechart);
 
-        //Set the description
         TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
         pageDescription.setTypeface(retroFont);
 
-        //Sets the Y Axis title
         TextView yAxislabel = (TextView) view.findViewById(R.id.esYAxis);
         yAxislabel.setTypeface(retroFont);
 
-        //Sets the X Axis title
         TextView xAxislabel = (TextView) view.findViewById(R.id.esXAxis);
         xAxislabel.setTypeface(retroFont);
         lineChart.setData(UniversityStatsChartMaker.getChartPreviousEntries(course, lineChart));
