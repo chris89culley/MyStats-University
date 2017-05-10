@@ -146,7 +146,6 @@ public class UcasTipsFragmentSelector extends Fragment {
         ArrayList<TipEntry> tips = new ArrayList<>();
         tips.add(new TipEntry(R.string.ucas_tips_hobby_title, R.string.ucas_tips_hobby,  R.drawable.bowling));
         tips.add(new TipEntry(R.string.ucas_tips_entry_requirments_title, R.string.ucas_tips_entry_requirments, R.drawable.microscope));
-        tips.add(new TipEntry(R.string.ucas_tips_location_title, R.string.ucas_tips_location, R.drawable.house));
         tips.add(new TipEntry(R.string.ucas_tips_goals_title, R.string.ucas_tips_goals, R.drawable.goals_icon4));
         tips.add(new TipEntry(R.string.ucas_tips_research_title, R.string.ucas_tips_research,  R.drawable.targets_icon2));
         tips.add(new TipEntry(R.string.ucas_tips_talk_title, R.string.ucas_tips_talk, R.drawable.chat_icon2));

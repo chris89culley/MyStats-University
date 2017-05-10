@@ -50,7 +50,6 @@ public class ChartStats {
         this.chartTitle = chartTitle;
     }
 
-
     /**
      * Accessor method for the title of the chart
      * @return  String ChartTitle
@@ -91,11 +90,28 @@ public class ChartStats {
      * A method that purges the data stored by removing empty entries and their tags,
      */
     private void completeDataSet(ChartType type){
-
         ArrayList<String> dataAL = new ArrayList<String>(Arrays.asList(data));
         ArrayList<String> tagsAL = new ArrayList<String>(Arrays.asList(tags));
         String str;
 
+        emptyZeroEntries(dataAL,tagsAL);
+
+        fillEntries(type,dataAL,tagsAL);
+
+        //Set the arrylists into the arrays
+        data = new String[dataAL.size()];
+        data = dataAL.toArray(data);
+
+        tags = new String[tagsAL.size()];
+        tags = tagsAL.toArray(tags);
+    }
+
+    /**
+     * Removes all the zero entries from the data set
+     * @param dataAL an arraylist that contains the data points
+     * @param tagsAL an arrayList that contains the tags for the data points
+     */
+    private void emptyZeroEntries(ArrayList<String> dataAL,ArrayList<String> tagsAL){
         for(int i = 0; i < dataAL.size() ;i++ ){ // removes any empty entries
 
             if (Objects.equals(dataAL.get(i),"")|| Objects.equals(dataAL.get(i),"0") || Objects.equals(dataAL.get(i)," " )) {
@@ -103,9 +119,18 @@ public class ChartStats {
                 tagsAL.remove(i);
             }
         }
+    }
+
+    /**
+     * adds dummy entries to incomplete data sets
+     * @param type  the type of chart
+     * @param dataAL an arraylist that contains the data points
+     * @param tagsAL an arrayList that contains the tags for the data points
+     */
+    private void fillEntries(ChartType type,ArrayList<String> dataAL,ArrayList<String> tagsAL){
         if (type == ChartType.PIE) {
             int percentage = 0;
-            for (int i = 0; i < dataAL.size(); i++) { // add the values storedsee if the data is complete
+            for (int i = 0; i < dataAL.size(); i++) { // add the values stored see if the data is complete
                 percentage += Integer.parseInt(dataAL.get(i));
             }
             if (percentage < 100) { // if the data isnt complete add an other entry
@@ -113,12 +138,6 @@ public class ChartStats {
                 tagsAL.add("Other");
             }
         }
-        //Set the arrylists into the arrays
-        data = new String[dataAL.size()];
-        data = dataAL.toArray(data);
-
-        tags = new String[tagsAL.size()];
-        tags = tagsAL.toArray(tags);
     }
 
     /**

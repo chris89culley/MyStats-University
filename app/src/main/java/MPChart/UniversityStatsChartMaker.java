@@ -42,10 +42,8 @@ public class UniversityStatsChartMaker {
      * @return PieData for pie chart - AssesedByCourseWork
      */
     public static PieData getChartDegreeClass(Course course, PieChart chart){
-        return GenericChartMaker.constructPieChart(course.getDegreeClass(), chart, "Degree classifications");}
-
-
-
+        return GenericChartMaker.constructPieChart(course.getDegreeClass(), chart, "Degree classifications");
+    }
 
     /**
      * A method which gets the percentage of time spent in lectures and practicals and returns the bar data for it
