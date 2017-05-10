@@ -80,7 +80,6 @@ public class StatsPageSelector extends Fragment {
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
                 createEmploymentStatsPage();
-                animatePieChartEmployStats();
                 return view;
             case 2:
 
@@ -91,12 +90,12 @@ public class StatsPageSelector extends Fragment {
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
                 createStudyInfo();
-                animatePieChartCaseStudyInfo();
+
                 return view;
             case 4:
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
                 createEntryInfo();
-                animateLineGraphsEntryInfo();
+
                 return view;
 
             default:
@@ -107,7 +106,32 @@ public class StatsPageSelector extends Fragment {
         }
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
 
+            try {
+                if (pos == 0) {
+                    //Nothing to animate
+                }
+
+                if (pos == 1) {
+                    animatePieChartEmployStats();
+                }
+                if (pos == 2) {
+                    //Nothing to Animate
+                }
+                if (pos == 3) {
+                    animatePieChartCaseStudyInfo();
+                }
+                if (pos == 4) {
+                    animateLineGraphsEntryInfo();
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+    }
 
     /**
      * This method is used to restart the animation when going onto the right fragment
