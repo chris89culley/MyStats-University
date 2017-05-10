@@ -330,6 +330,7 @@ public class GenericChartMaker {
     private static XAxis setxAxisfeatures(XAxis xAxis1) {
         xAxis1.setDrawAxisLine(true);
         xAxis1.setDrawGridLines(false);
+        xAxis1.disableAxisLineDashedLine();
         xAxis1.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis1.setAxisMinimum(48); //Sets the minimun amount of the xAxis to 48 as this is the lowest that the informaition gives
         xAxis1.setAxisMaximum(240);//Sets the Graphs max to 240 as it is the highest that we recieve.
@@ -340,14 +341,14 @@ public class GenericChartMaker {
 
     /**
      * Sets the Chart to have zoom and other properties.
-     * @param chart
+     * @param chart takes in th
      * @return
      */
     private static LineChart setLineChartData(LineChart chart) {
         chart.setDescription(null);
         chart.invalidate(); // Calls the graph to refresh when viewed
-        chart.setDoubleTapToZoomEnabled(false); //Turns the Zoom features off
-        chart.setPinchZoom(false);//turns the graph zoom features off
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setPinchZoom(false);
         chart.setScaleEnabled(false);
         return chart;
     }
@@ -359,6 +360,8 @@ public class GenericChartMaker {
     private static LineDataSet setGraphCurve(LineDataSet dataSet) {
         dataSet.setCubicIntensity(0.2f); //Set the amount the graph curves
         dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        dataSet.setDrawHorizontalHighlightIndicator(false);
+        dataSet.setDrawVerticalHighlightIndicator(false);
         return dataSet;
     }
 
@@ -369,7 +372,6 @@ public class GenericChartMaker {
      */
     private static float[] stringToFloatConvertor(String[] info){
         float[] data;
-        //Convert the array of strings into an array of floats
         if (info.length > 0 ){
             data = new float[info.length];
         }  else{
@@ -389,13 +391,12 @@ public class GenericChartMaker {
     private static LineDataSet setLineGraphData(LineDataSet dataSet)
     {
         dataSet.setColor(ColorTemplate.rgb("F26D21"));
-        dataSet.setDrawFilled(true); //Set the Graph to fill the
-        dataSet.setFillAlpha(240); //Graph transparaty
-        dataSet.setFillColor(ColorTemplate.rgb("F26D21")); //The colour under the graph
+        dataSet.setDrawFilled(true);
+        dataSet.setFillAlpha(240);
+        dataSet.setFillColor(ColorTemplate.rgb("F26D21"));
         dataSet.setValueTextSize(18);
         dataSet.setDrawCircles(false); //Takes the points off th graph
         dataSet.setDrawValues(false); //Takes the Values off the graph
-
         return dataSet;
     }
 
