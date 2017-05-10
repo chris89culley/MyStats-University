@@ -38,12 +38,8 @@ public class RSDBhandler extends SQLiteOpenHelper {
 
     private Gson gson = new Gson();
 
-    ByteArrayOutputStream bo = null;
-    ByteArrayInputStream bi = null;
-
     SQLiteDatabase db;
-    ObjectOutputStream out = null;
-    ObjectInputStream in = null;
+
     /**
      * Deafult constructor uses the context and calls the super class
      * @param context context of the page
@@ -54,7 +50,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
 
     /**
      * Called when the database is created creates a create query from the handler class constants and executes them
-     * @param db the db referneced
+     * @param db the db referenced
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -95,23 +91,17 @@ public class RSDBhandler extends SQLiteOpenHelper {
     public void addEntry(Course course){
         //count entries - returns num in the db
         int count = countEntries();
-
-        Log.d("ia m " , course.getCourseName());
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //if the db has over 10 entries remove the first one and add one at the end
-
         String json = gson.toJson(course);
         if(count > 9) {
             deleteFirst();
         }
         try {
             if (checkIfExists(json) == false){
-                Log.d("Database","JSON before "+ json);
-
                 values.put(COL_NAME, json);
                 db.insert(TABLE_NAME, null, values);
-                Log.d("Database","Inserted "+course.getCourseName());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,31 +115,35 @@ public class RSDBhandler extends SQLiteOpenHelper {
      */
     public ArrayList<Course> readAll() {
         ArrayList<Course> list = new ArrayList<Course>();
-
         SQLiteDatabase db = this.getReadableDatabase();
-
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
-
         Cursor cursor = db.rawQuery(selectQuery, null);
 
+        readEntries(cursor,list);
+
+        printList(list);
+        return list;
+    }
+
+    /**
+     * Read the entries one at a time using the cursor and return them as course objects
+     * @param cursor cursor used to traverse the
+     * @param list course object list
+     */
+    private void readEntries( Cursor cursor,ArrayList<Course> list){
         if (cursor.moveToFirst()) { // If data (records) available
             int nameIdx = cursor.getColumnIndex(COL_NAME);
-
             do {
                 try {
                     String json = cursor.getString(nameIdx);
                     Course object = gson.fromJson(json, Course.class);
-
                     list.add(object);
                     Log.d("Database",Integer.toString(cursor.getPosition()));
-
                 }catch(Exception e){
                     e.printStackTrace();
                 }
             }while (cursor.moveToNext()); // repeat until there are no more records
         }
-        printList(list);
-        return list;
     }
 
     /**
@@ -219,6 +213,7 @@ public class RSDBhandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String Query = "Select * from " + TABLE_NAME + " where " + COL_NAME + " = '" + fieldValue+"'";
         Cursor cursor = db.rawQuery(Query, null);
+
         if(cursor.getCount() > 0){
             cursor.close();
             ret = true;
