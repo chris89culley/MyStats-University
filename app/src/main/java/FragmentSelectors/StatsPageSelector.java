@@ -115,7 +115,7 @@ public class StatsPageSelector extends Fragment {
      * @param visible Sets to true if the fragment is on the screen
      */
     @Override
-        public void setMenuVisibility(final boolean visible) {
+    public void setMenuVisibility(final boolean visible) {
             super.setMenuVisibility(visible);
             if (visible) {
                 try {
@@ -170,7 +170,6 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * Sets the fonts of each textView up and then sets the data for the lineChart
-     * @param retroFont The font that is used on the fragment
      */
     private void createEntryInfo() {
         lineChart = (LineChart) view.findViewById(R.id.linechart);
@@ -188,9 +187,6 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * This creates the satisfaction stats  page with list view with bar charts giving the students satisfaction levels with the course
-     * @param v - The ivew
-     * @param fontUsed - The font used on the page
-     * @return - The page with the satisfaction stats
      */
     private void createSatisfactionStatsPage(){
 
@@ -215,9 +211,6 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * used to create the costs stats fragments
-     * @param v View
-     * @param font The font being used
-     * @return the view that you want to use
      */
     private void createCostStatsPage() {
         TextView costIntro = (TextView) view.findViewById(R.id.cost_text_id);
@@ -256,9 +249,6 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * used to create the employment stats fragments
-     * @param v View
-     * @param font The font being used
-     * @return
      */
     private void createEmploymentStatsPage(){
 
@@ -272,7 +262,7 @@ public class StatsPageSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
 
-        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             //false if chart in view
             boolean animFlag = false;
             @Override
@@ -359,8 +349,6 @@ public class StatsPageSelector extends Fragment {
 
     /**
      * used to create the study info fragments
-     * @param v View
-     * @return
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void createStudyInfo(){
