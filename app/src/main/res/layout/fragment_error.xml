@@ -15,7 +15,7 @@
         android:textStyle="bold"
         android:textColor="@color/oldBurgundy"
         android:paddingLeft="30dp"
-        android:text="@string/edit_text_dialog_user_input"
+        android:text="@string/error_text"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         tools:targetApi="lollipop"

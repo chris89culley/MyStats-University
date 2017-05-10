@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:padding="15dp"
             android:lineSpacingExtra="8dp"
+            android:textSize="17dp"
             android:textColor="@color/oldBurgundy"
             android:text="@string/ucas_tips_choosing_course_intro"
             android:layout_height="wrap_content" />

@@ -72,6 +72,7 @@
 
             <TextView
                 android:id="@+id/email_linked"
+                android:textColorLink="#3B322C"
                 android:textAlignment="textStart"
                 android:layout_below="@id/further_info"
                 android:layout_width="match_parent"
@@ -100,6 +101,7 @@
 
             <TextView
                 android:id="@+id/freepik_info"
+                android:textColorLink="#3B322C"
                 android:textAlignment="textStart"
                 android:layout_below="@id/image_info"
                 android:layout_width="match_parent"
@@ -113,6 +115,7 @@
                 android:gravity="center"/>
             <TextView
                 android:id="@+id/logomakr_info"
+                android:textColorLink="#3B322C"
                 android:textAlignment="textStart"
                 android:layout_below="@id/freepik_info"
                 android:layout_width="match_parent"
