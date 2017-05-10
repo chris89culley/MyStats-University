@@ -48,6 +48,7 @@ public class StatsPageSelector extends Fragment {
     private Course course;
     private LineChart lineChart;
     private Activity activity;
+    Typeface retroFont;
 
     /**
      * sets the position of the fragment pager and the course data
@@ -72,14 +73,14 @@ public class StatsPageSelector extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Typeface retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
+        retroFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Josefin_Sans/JosefinSans-SemiBold.ttf");
         Typeface vintage = Typeface.createFromAsset(getActivity().getAssets(), "fonts/octin vintage b rg.ttf");
         try {
         switch(pos) {
             case 0:
                 view = inflater.inflate(R.layout.fragment_cost_stats, container, false);
 
-                createCostStatsPage(view,retroFont);
+                createCostStatsPage();
                 return view;
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
@@ -116,7 +117,7 @@ public class StatsPageSelector extends Fragment {
     /**
      * This method is used to restart the animation when going onto the right fragment
      * used to get over the problem with fragments caching ahead of being opened and doing the animation before the view was seen
-     * @param visible
+     * @param visible Sets to true if the fragment is on the screen
      */
     @Override
         public void setMenuVisibility(final boolean visible) {
@@ -169,7 +170,7 @@ public class StatsPageSelector extends Fragment {
      */
     private void animateLineGraphsEntryInfo(){
         lineChart = (LineChart) view.findViewById(R.id.linechart);
-        lineChart.animateX(2000, Easing.EasingOption.EaseInCubic);
+        lineChart.animateX(800, Easing.EasingOption.EaseInCubic);
     }
 
     /**
@@ -223,26 +224,26 @@ public class StatsPageSelector extends Fragment {
      * used to create the costs stats fragments
      * @param v View
      * @param font The font being used
-     * @return
+     * @return the view that you want to use
      */
-    private View createCostStatsPage(View v,Typeface font) {
-        TextView costIntro = (TextView) v.findViewById(R.id.cost_text_id);
-        TextView accomPvt = (TextView) v.findViewById(R.id.private_id);
-        TextView accomHalls = (TextView) v.findViewById(R.id.halls_id);
-        TextView insuanceCost = (TextView) v.findViewById(R.id.insurance_id);
-        TextView personalCost = (TextView) v.findViewById(R.id.personal_id);
-        TextView foodCost = (TextView) v.findViewById(R.id.food_id);
-        TextView leisureCost = (TextView) v.findViewById(R.id.leisure_id);
-        TextView travelCost = (TextView) v.findViewById(R.id.travel_id);
+    private void createCostStatsPage() {
+        TextView costIntro = (TextView) view.findViewById(R.id.cost_text_id);
+        TextView accomPvt = (TextView) view.findViewById(R.id.private_id);
+        TextView accomHalls = (TextView) view.findViewById(R.id.halls_id);
+        TextView insuanceCost = (TextView) view.findViewById(R.id.insurance_id);
+        TextView personalCost = (TextView) view.findViewById(R.id.personal_id);
+        TextView foodCost = (TextView) view.findViewById(R.id.food_id);
+        TextView leisureCost = (TextView) view.findViewById(R.id.leisure_id);
+        TextView travelCost = (TextView) view.findViewById(R.id.travel_id);
 
-        costIntro.setTypeface(font);
-        accomPvt.setTypeface(font);
-        accomHalls.setTypeface(font);
-        insuanceCost.setTypeface(font);
-        personalCost.setTypeface(font);
-        foodCost.setTypeface(font);
-        leisureCost.setTypeface(font);
-        travelCost.setTypeface(font);
+        costIntro.setTypeface(retroFont);
+        accomPvt.setTypeface(retroFont);
+        accomHalls.setTypeface(retroFont);
+        insuanceCost.setTypeface(retroFont);
+        personalCost.setTypeface(retroFont);
+        foodCost.setTypeface(retroFont);
+        leisureCost.setTypeface(retroFont);
+        travelCost.setTypeface(retroFont);
 
         int low, high;
 
@@ -250,15 +251,14 @@ public class StatsPageSelector extends Fragment {
         low = Integer.parseInt(pte[0]);
         high = Integer.parseInt(pte[1]);
         accomPvt.setText("Private: £" + low + " - £" + high);
-        accomPvt.setTypeface(font);
+        accomPvt.setTypeface(retroFont);
 
         String[] inst = course.getInstitutionalAccomDetails().getData();
         low = Integer.parseInt(inst[0]);
         high = Integer.parseInt(inst[1]);
         accomHalls.setText("Student Halls: £" + low + " - £" + high);
-        accomHalls.setTypeface(font);
+        accomHalls.setTypeface(retroFont);
 
-        return v;
     }
 
     /**
@@ -267,17 +267,15 @@ public class StatsPageSelector extends Fragment {
      * @param font The font being used
      * @return
      */
-    private View createEmploymentStatsPage(View v,Typeface font){
+    private void createEmploymentStatsPage(){
 
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(null,android.R.layout.simple_list_item_1,arr);
-        //ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.esExpandableListView);
 
         final TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
-        chartTitle1.setTypeface(font);
+        chartTitle1.setTypeface(retroFont);
 
         pChart = (PieChart) view.findViewById(R.id.espie1);
         pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
-        pChart.getLegend().setTypeface(font);
+        pChart.getLegend().setTypeface(retroFont);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
 
@@ -304,10 +302,10 @@ public class StatsPageSelector extends Fragment {
         final TextView monthlyBreakdownTitle = (TextView) view.findViewById(R.id.monthlyBreakdownTitle);
         final TextView averageSalaryTitle = (TextView) view.findViewById(R.id.averageSalaryTitle);
 
-        monthlyBreakdownTitle.setTypeface(font);
-        salaryFourtymonthText.setTypeface(font);
-        averageSalaryTitle.setTypeface(font);
-        salarySixmonthText.setTypeface(font);
+        monthlyBreakdownTitle.setTypeface(retroFont);
+        salaryFourtymonthText.setTypeface(retroFont);
+        averageSalaryTitle.setTypeface(retroFont);
+        salarySixmonthText.setTypeface(retroFont);
 
 
         salaryFourtymonthText.setText("The average salary 40 months after was " + course.getAverageSalaryAfter40MonthsText().trim());
@@ -356,58 +354,57 @@ public class StatsPageSelector extends Fragment {
         TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
         TextView taxPayment = (TextView) view.findViewById(R.id.monthlyBreakdownTax);
 
-        monthlyWage.setTypeface(font);
-        loanRepayment.setTypeface(font);
-        taxPayment.setTypeface(font);
+        monthlyWage.setTypeface(retroFont);
+        loanRepayment.setTypeface(retroFont);
+        taxPayment.setTypeface(retroFont);
 
         monthlyWage.setText("Average monthly wage of: £" + salary+" (after payments)");
         loanRepayment.setText("Student loan repayment of: £"+repayment+" per month");
         taxPayment.setText("Paying £"+tax+" in tax per month" );
-
         }
-       return v ;
     }
+
     /**
      * used to create the study info fragments
      * @param v View
      * @return
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private View createStudyInfo(View v, Typeface font){
+    private void createStudyInfo(){
 
         TextView chartTitle1 = (TextView) view.findViewById(R.id.siChartTitle1);
-        chartTitle1.setTypeface(font);
+        chartTitle1.setTypeface(retroFont);
 
         TextView chartTitle2 = (TextView) view.findViewById(R.id.siChartTitle2);
-        chartTitle2.setTypeface(font);
+        chartTitle2.setTypeface(retroFont);
 
 
         String[] vals = course.getPercentageInScheduled().getData();
 
         TextView stat1 = (TextView) view.findViewById(R.id.sistat1);
-        stat1.setTypeface(font);
+        stat1.setTypeface(retroFont);
         stat1.setText(vals[0]+"% "+"Of time spent in supervised learning (lectures and seminars)");
 
         vals = course.getPercentageAssesedByCourseWork().getData();
 
         TextView stat2 = (TextView) view.findViewById(R.id.sistat2);
-        stat2.setTypeface(font);
+        stat2.setTypeface(retroFont);
         stat2.setText(vals[0]+"% "+"Of the course is assessed by coursework");
 
 
         //Degree classification chart
         pChart =  (PieChart) view.findViewById(R.id.sipie1);
         pChart.setData(UniversityStatsChartMaker.getChartDegreeClass(course, pChart));
-        pChart.getLegend().setTypeface(font);
+        pChart.getLegend().setTypeface(retroFont);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
         //What students are doing chart
         pChart =  (PieChart) view.findViewById(R.id.sipie2);
         pChart.setData(UniversityStatsChartMaker.getChartContinuationStats(course, pChart));
-        pChart.getLegend().setTypeface(font);
+        pChart.getLegend().setTypeface(retroFont);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
-        v.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             boolean animFlag1 = false;
             boolean animFlag2 = false;
             @Override
@@ -431,16 +428,7 @@ public class StatsPageSelector extends Fragment {
             }
         });
 
-        return v;
+
     }
 
-    /**
-     * used to create the user rating fragments
-     * @param v View
-     * @return
-     */
-    private View createUserRating(View v){
-
-        return v;
-    }
 }
