@@ -84,23 +84,23 @@ public class StatsPageSelector extends Fragment {
                 return view;
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-                createEmploymentStatsPage(view, retroFont);
+                createEmploymentStatsPage();
                 animatePieChartEmployStats();
                 return view;
             case 2:
 
                 view =  inflater.inflate(R.layout.fragment_satisfaction_stats, container, false);
-                createSatisfactionStatsPage(view, retroFont);
+                createSatisfactionStatsPage();
                 return  view;
 
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
-                createStudyInfo(view,retroFont);
+                createStudyInfo();
                 animatePieChartCaseStudyInfo();
                 return view;
             case 4:
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                createEntryInfo(retroFont);
+                createEntryInfo();
                 animateLineGraphsEntryInfo();
                 return view;
 
@@ -177,8 +177,7 @@ public class StatsPageSelector extends Fragment {
      * Sets the fonts of each textView up and then sets the data for the lineChart
      * @param retroFont The font that is used on the fragment
      */
-
-    private void createEntryInfo(Typeface retroFont) {
+    private void createEntryInfo() {
         lineChart = (LineChart) view.findViewById(R.id.linechart);
 
         TextView pageDescription = (TextView) view.findViewById(R.id.pageDescription);
@@ -198,10 +197,10 @@ public class StatsPageSelector extends Fragment {
      * @param fontUsed - The font used on the page
      * @return - The page with the satisfaction stats
      */
-    private View createSatisfactionStatsPage(View v, Typeface fontUsed){
+    private void createSatisfactionStatsPage(){
 
         TextView satisfactionTitle = (TextView) view.findViewById(R.id.satisfactionTitle);
-        satisfactionTitle.setTypeface(fontUsed);
+        satisfactionTitle.setTypeface(retroFont);
         final ExpandableListView expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView1);
         ExpandableSatisfactionAdapter adapter = new ExpandableSatisfactionAdapter(getContext(), course, getActivity(), (satisfactionTitle.getTextSize()*0.30f));
 
@@ -217,7 +216,6 @@ public class StatsPageSelector extends Fragment {
         });
 
         expandableListView.setAdapter(adapter);
-        return v;
     }
 
     /**
