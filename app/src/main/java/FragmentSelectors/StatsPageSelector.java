@@ -106,25 +106,24 @@ public class StatsPageSelector extends Fragment {
         }
     }
 
+    /**
+     * Loads the next fragment up, used to get smoother animations in the charts
+     */
     @Override
     public void onResume(){
         super.onResume();
 
             try {
-                if (pos == 0) {
+                switch (pos){
+                    case 0:
                     //Nothing to animate
-                }
-
-                if (pos == 1) {
+                    case 1:
                     animatePieChartEmployStats();
-                }
-                if (pos == 2) {
+                    case 2:
                     //Nothing to Animate
-                }
-                if (pos == 3) {
+                    case 3:
                     animatePieChartCaseStudyInfo();
-                }
-                if (pos == 4) {
+                    case 4:
                     animateLineGraphsEntryInfo();
                 }
             }catch(Exception e){
@@ -143,27 +142,22 @@ public class StatsPageSelector extends Fragment {
             super.setMenuVisibility(visible);
             if (visible) {
                 try {
-                    if (pos == 0) {
-                        //Nothing to animate
-                    }
-
-                    if (pos == 1) {
-                        animatePieChartEmployStats();
-                    }
-                    if (pos == 2) {
-                        //Nothing to Animate
-                    }
-                    if (pos == 3) {
-                        animatePieChartCaseStudyInfo();
-                    }
-                    if (pos == 4) {
-                        animateLineGraphsEntryInfo();
+                    switch (pos){
+                        case 0:
+                            //Nothing to animate
+                        case 1:
+                            animatePieChartEmployStats();
+                        case 2:
+                            //Nothing to Animate
+                        case 3:
+                            animatePieChartCaseStudyInfo();
+                        case 4:
+                            animateLineGraphsEntryInfo();
                     }
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-            }
-        }
+        }}
 
     /**
      * Animates the pie chart on the EmployStats page when called
