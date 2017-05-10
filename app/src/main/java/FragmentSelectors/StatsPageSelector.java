@@ -83,9 +83,8 @@ public class StatsPageSelector extends Fragment {
                 return view;
             case 1:
                 view =  inflater.inflate(R.layout.fragment_employ_stats, container, false);
-
-                //Sets details for the EmploymentStatsPage
                 createEmploymentStatsPage(view, retroFont);
+                animatePieChartEmployStats();
                 return view;
             case 2:
 
@@ -96,11 +95,12 @@ public class StatsPageSelector extends Fragment {
             case 3:
                 view = inflater.inflate(R.layout.fragment_study_info, container, false);
                 createStudyInfo(view,retroFont);
+                animatePieChartCaseStudyInfo();
                 return view;
             case 4:
                 view = inflater.inflate(R.layout.fragment_entry_info, container, false);
-                //Create Entry Intro page fonts
                 createEntryInfo(retroFont);
+                animateLineGraphsEntryInfo();
                 return view;
 
             default:
@@ -110,6 +110,7 @@ public class StatsPageSelector extends Fragment {
             return view = inflater.inflate(R.layout.fragment_error, container, false);
         }
     }
+
 
 
     /**
@@ -127,27 +128,42 @@ public class StatsPageSelector extends Fragment {
                     }
 
                     if (pos == 1) {
-                        pChart = (PieChart) view.findViewById(R.id.espie1);
-                        pChart.animateXY(2000, 2000);
+                        animatePieChartEmployStats();
                     }
                     if (pos == 2) {
                         //Nothing to Animate
                     }
                     if (pos == 3) {
-                        pChart = (PieChart) view.findViewById(R.id.sipie1);
-                        pChart.animateXY(2000, 2000);
-                        pChart = (PieChart) view.findViewById(R.id.sipie2);
-                        pChart.animateXY(2000, 2000);
+                        animatePieChartCaseStudyInfo();
                     }
                     if (pos == 4) {
-                        lineChart = (LineChart) view.findViewById(R.id.linechart);
-                        lineChart.animateX(1000, Easing.EasingOption.EaseInCubic);
+                        animateLineGraphsEntryInfo();
                     }
                 }catch(Exception e){
                     e.printStackTrace();
                 }
             }
         }
+
+
+    private void animatePieChartEmployStats(){
+        pChart = (PieChart) view.findViewById(R.id.espie1);
+        pChart.animateXY(2000, 2000);
+    }
+
+
+    private void animatePieChartCaseStudyInfo()
+    {
+        pChart = (PieChart) view.findViewById(R.id.sipie1);
+        pChart.animateXY(2000, 2000);
+        pChart = (PieChart) view.findViewById(R.id.sipie2);
+        pChart.animateXY(2000, 2000);
+    }
+
+    private void animateLineGraphsEntryInfo(){
+        lineChart = (LineChart) view.findViewById(R.id.linechart);
+        lineChart.animateX(2000, Easing.EasingOption.EaseInCubic);
+    }
 
     /**
      * Sets the fonts of each textView up and then sets the data for the lineChart
