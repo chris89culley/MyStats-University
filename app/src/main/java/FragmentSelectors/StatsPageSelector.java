@@ -106,31 +106,7 @@ public class StatsPageSelector extends Fragment {
         }
     }
 
-    /**
-     * Loads the next fragment up, used to get smoother animations in the charts
-     */
-    @Override
-    public void onResume(){
-        super.onResume();
 
-            try {
-                switch (pos){
-                    case 0:
-                    //Nothing to animate
-                    case 1:
-                    animatePieChartEmployStats();
-                    case 2:
-                    //Nothing to Animate
-                    case 3:
-                    animatePieChartCaseStudyInfo();
-                    case 4:
-                    animateLineGraphsEntryInfo();
-                }
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-
-    }
 
     /**
      * This method is used to restart the animation when going onto the right fragment
@@ -287,6 +263,7 @@ public class StatsPageSelector extends Fragment {
             boolean animFlag = false;
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                try{
                 //chart position plus chart height
                 float animPos = pChart.getY()+pChart.getHeight();
                 if(animFlag == true && scrollY < animPos ){
@@ -295,8 +272,11 @@ public class StatsPageSelector extends Fragment {
                 } else if(scrollY > animPos ){
                     animFlag = true;
                 }
-            }
-        });
+            }catch (Exception e){
+                    System.out.println(e);
+                }}
+        }) ;
+
 
 
 
