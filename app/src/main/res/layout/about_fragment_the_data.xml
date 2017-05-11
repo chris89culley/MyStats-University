@@ -22,6 +22,7 @@
 
             <TextView
                 style="@style/text_view_center"
+                android:textColorLink="#3B322C"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:textColor="#3B322C"
@@ -35,6 +36,7 @@
 
             <TextView
                 style="@style/text_view_right"
+                android:textColorLink="#3B322C"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:padding="15dp"
@@ -48,6 +50,7 @@
 
             <TextView
                 style="@style/text_view_left"
+                android:textColorLink="#3B322C"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:padding="15dp"
@@ -62,6 +65,7 @@
 
             <TextView
                 style="@style/text_view_right"
+                android:textColorLink="#3B322C"
                 android:lineSpacingExtra="8dp"
                 android:textSize="17dp"
                 android:padding="15dp"
