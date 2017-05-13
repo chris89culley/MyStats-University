@@ -228,7 +228,7 @@ public class DatabaseInformationQuerier {
     private  Query courseNameQuery(String courseName, CourseTypes coursetype){
 
         String [] searchWordCritera = getStartAndFinishSearchIndexes(courseName);
-        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(1500);
+        return database.child(coursetype.getDatabaseRef()).orderByChild("TITLE").startAt(searchWordCritera[0]).endAt(searchWordCritera[1]).limitToFirst(500);
 
     }
 
