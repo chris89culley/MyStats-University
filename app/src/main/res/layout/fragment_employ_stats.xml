@@ -79,7 +79,7 @@
         <TextView android:id="@+id/monthlyBreakdownTitle"
             android:textColor="@color/oldBurgundy"
             android:layout_below="@id/animText2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:background="@color/greenSheen"
             android:padding="30dp"
             android:layout_centerHorizontal="true"

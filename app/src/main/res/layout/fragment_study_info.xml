@@ -34,7 +34,7 @@
         android:layout_below="@id/sipie1"
         android:textColor="@color/oldBurgundy"
         android:background="@color/greenSheen"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         android:text="@string/siChartTitle2"
