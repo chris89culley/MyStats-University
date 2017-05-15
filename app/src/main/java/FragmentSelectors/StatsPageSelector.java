@@ -1,5 +1,6 @@
 package FragmentSelectors;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -245,12 +246,8 @@ public class StatsPageSelector extends Fragment {
      * used to create the employment stats fragments
      */
     private void createEmploymentStatsPage(){
-
-
         final TextView chartTitle1 = (TextView) view.findViewById(R.id.esChartTitle1);
         chartTitle1.setTypeface(retroFont);
-
-
 
         pChart = (PieChart) view.findViewById(R.id.espie1);
         pChart.setData(UniversityStatsChartMaker.getChartEploymentSixMonths(course, pChart));
@@ -258,27 +255,23 @@ public class StatsPageSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
 
-        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        // view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             //false if chart in view
-            boolean animFlag = false;
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                try{
+        //    boolean animFlag = false;
+        //   public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        //       try{
                 //chart position plus chart height
-                float animPos = pChart.getY()+pChart.getHeight();
-                if(animFlag == true && scrollY < animPos ){
-                    pChart.animateXY(2000,2000);
-                    animFlag = false;
-                } else if(scrollY > animPos ){
-                    animFlag = true;
-                }
-            }catch (Exception e){
-                    System.out.println(e);
-                }}
-        }) ;
-
-
-
+        //         float animPos = pChart.getY()+pChart.getHeight();
+        //        if(animFlag == true && scrollY < animPos ){
+        //             pChart.animateXY(2000,2000);
+        //            animFlag = false;
+        //        } else if(scrollY > animPos ){
+        //            animFlag = true;
+        //       }
+        //   }catch (Exception e){
+        //         System.out.println(e);
+        //      }}
+        //  }) ;
 
         final TextView salarySixmonthText = (TextView) view.findViewById(R.id.animText1);
         final TextView salaryFourtymonthText = (TextView) view.findViewById(R.id.animText2);
@@ -293,9 +286,26 @@ public class StatsPageSelector extends Fragment {
 
         salaryFourtymonthText.setText("The average salary 40 months after was " + course.getAverageSalaryAfter40MonthsText().trim());
 
-
         salarySixmonthText.setText("The average salary 6 months after was " + course.getAverageSalaryAfter6MonthsText().trim());
 
+         double[] ret = calcIncome(course);
+
+
+        TextView monthlyWage = (TextView) view.findViewById(R.id.monthlyBreakdownAfterTax);
+        TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
+        TextView taxPayment = (TextView) view.findViewById(R.id.monthlyBreakdownTax);
+
+        monthlyWage.setTypeface(retroFont);
+        loanRepayment.setTypeface(retroFont);
+        taxPayment.setTypeface(retroFont);
+
+        monthlyWage.setText("Average monthly wage of: £" + ret[0]+" (after payments)");
+        loanRepayment.setText("Student loan repayment of: £"+ret[2]+" per month");
+        taxPayment.setText("Paying £"+ret[1]+" in tax per month" );
+        }
+    
+
+    private static double[] calcIncome(Course course ){
         double tax = 0;
         double salary = 0;
         try{
@@ -307,45 +317,38 @@ public class StatsPageSelector extends Fragment {
 
             e.printStackTrace();
         }
+
         if (salary != 0 ){
-          int repayment = 0;
-        if (salary > 174950 && salary <= 18500 ){
-           repayment = 7;
-        } else if(salary > 18500 && salary <= 21000 ){
-        repayment = 26;
-        } else if(salary > 21000 && salary <= 24000 ){
-          repayment = 48;
-        } else if(salary > 24000 && salary <= 27000) {
-        repayment = 71;
-        } else if(salary > 27000 && salary <= 30000 ) {
-          repayment = 71;
-        } else if(salary > 30000){
-          repayment = 93;
-        }
-        tax = ((salary - 11000) * 0.2) / 12;
+            int repayment = 0;
+            if (salary > 174950 && salary <= 18500 ){
+                repayment = 7;
+            } else if(salary > 18500 && salary <= 21000 ){
+                repayment = 26;
+            } else if(salary > 21000 && salary <= 24000 ){
+                repayment = 48;
+            } else if(salary > 24000 && salary <= 27000) {
+                repayment = 71;
+            } else if(salary > 27000 && salary <= 30000 ) {
+                repayment = 71;
+            } else if(salary > 30000){
+                repayment = 93;
+            }
+            tax = ((salary - 11000) * 0.2) / 12;
 
-        salary = salary - tax;
-        salary = salary / 12;
+            salary = salary - tax;
+            salary = salary / 12;
 
+            salary -= repayment;
+            salary = Math.round(salary);
+            tax = Math.round(tax);
 
-
-        salary -= repayment;
-        salary = Math.round(salary);
-        tax = Math.round(tax);
-
-        TextView monthlyWage = (TextView) view.findViewById(R.id.monthlyBreakdownAfterTax);
-        TextView loanRepayment = (TextView) view.findViewById(R.id.monthlyBreakdownLoanrepay);
-        TextView taxPayment = (TextView) view.findViewById(R.id.monthlyBreakdownTax);
-
-        monthlyWage.setTypeface(retroFont);
-        loanRepayment.setTypeface(retroFont);
-        taxPayment.setTypeface(retroFont);
-
-        monthlyWage.setText("Average monthly wage of: £" + salary+" (after payments)");
-        loanRepayment.setText("Student loan repayment of: £"+repayment+" per month");
-        taxPayment.setText("Paying £"+tax+" in tax per month" );
-        }
+            double[] ret = {salary,tax, ((double) repayment)};
+            return ret;
     }
+        double[] ret = {0,0,0};
+        return ret;
+    }
+
 
 
     /**
@@ -386,31 +389,30 @@ public class StatsPageSelector extends Fragment {
         pChart.getLegend().setTypeface(retroFont);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
-        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            boolean animFlag1 = false;
-            boolean animFlag2 = false;
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                PieChart pie1 = (PieChart) view.findViewById(R.id.sipie1);
-                PieChart pie2 = (PieChart) view.findViewById(R.id.sipie2);
-                float animPos = pie1.getY()+pie1.getHeight();
+        //view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        //    boolean animFlag1 = false;
+        //    boolean animFlag2 = false;
+        //    @Override
+            //   public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        //        PieChart pie1 = (PieChart) view.findViewById(R.id.sipie1);
+        //        PieChart pie2 = (PieChart) view.findViewById(R.id.sipie2);
+        //        float animPos = pie1.getY()+pie1.getHeight();
 
                 //using the postions of the charts to trigger animations in the scroll view
-                if(animFlag1 == true && scrollY < animPos ){
-                    pie1.animateXY(2000,2000);
-                    animFlag1 = false;
-                } else if(scrollY > animPos ){
-                    animFlag1 = true;
-                }else if(animFlag2 == true && scrollY+view.getHeight() > pie2.getY()){
-                    pie2.animateXY(2000,2000);
-                    animFlag2 = false;
-                } else if (scrollY+view.getHeight() < pie2.getY() && animFlag2 == false ){
-                    animFlag2 = true;
-                }
-            }
-        });
-
-
+        //        if(animFlag1 == true && scrollY < animPos ){
+        //            pie1.animateXY(2000,2000);
+        //            animFlag1 = false;
+        //       } else if(scrollY > animPos ){
+        //            animFlag1 = true;
+        //        }else if(animFlag2 == true && scrollY+view.getHeight() > pie2.getY()){
+        //            pie2.animateXY(2000,2000);
+        //            animFlag2 = false;
+        //        } else if (scrollY+view.getHeight() < pie2.getY() && animFlag2 == false ){
+        //            animFlag2 = true;
+        //        }
+        //    }
+        //});
     }
 
 }
+

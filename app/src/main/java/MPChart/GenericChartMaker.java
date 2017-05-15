@@ -93,17 +93,41 @@ public class GenericChartMaker {
         });
 
             chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));//Setting the X axis labels
+        barChartXaxisSettings(chart,labels);
+        barChartStyleSettigs(chart);
+        BarData theData = new BarData(barDataSet);
+        theData.setBarWidth(0.4f);
+        return theData;
+    }
+    /**
+     * method that changes the X axis style settings of the bar chart
+     * @param chart having its settings modified
+     * @param labels Arraylist contains the labels for the bar chart data
+     */
+    private static void barChartXaxisSettings(BarChart chart,ArrayList<String> labels){
 
         XAxis xaxis = chart.getXAxis(); // gets the X axis of the chart
         xaxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);//Moves the labels to the top of the x axis
 
 
-       xaxis.setCenterAxisLabels(true);
+        xaxis.setCenterAxisLabels(true);
+        xaxis.setDrawGridLines(false);
+
+        xaxis.setDrawGridLines(false);
+        xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
+        xaxis.setDrawAxisLine(false);
+
+    }
+
+    /**
+     * method that changes the style settings of the bar chart
+     * @param chart having its settings modified
+     */
+    private static void barChartStyleSettigs(BarChart chart){
         //axis chart and data display settings being altered
         chart.setDrawGridBackground(false);
         chart.setDrawMarkers(false);
         chart.setFitBars(false);
-        xaxis.setDrawGridLines(false);
         chart.setDrawValueAboveBar(false);
         chart.getAxisLeft().setDrawGridLines(false);
         chart.getXAxis().setDrawGridLines(false);
@@ -112,18 +136,15 @@ public class GenericChartMaker {
         Description emptyDescription = new Description();
         emptyDescription.setText("");
         chart.setDescription(emptyDescription);
-        xaxis.setDrawGridLines(false);
-        xaxis.setLabelCount(labels.size()); //sets the labels amounts to the to the number of labels in the arraylist -so none are cut off
-        BarData theData = new BarData(barDataSet);
         chart.getAxisLeft().setEnabled(false);
         chart.getAxisRight().setEnabled(false);
-        xaxis.setDrawAxisLine(false);
+
         chart.getLegend().setEnabled(false);
-        theData.setBarWidth(0.4f);
 
-
-        return theData;
     }
+
+
+
     /**
      *  Overloaded form of constructBarChart to be used when no data title parameter has been provided
      * @param cs- Chart stats objects contains the data to be displayed
