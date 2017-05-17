@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnScrollChangeListener;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -244,6 +245,7 @@ public class StatsPageSelector extends Fragment {
     /**
      * used to create the employment stats fragments
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void createEmploymentStatsPage(){
 
 
@@ -258,25 +260,32 @@ public class StatsPageSelector extends Fragment {
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
 
-        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            //false if chart in view
-            boolean animFlag = false;
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                try{
-                //chart position plus chart height
-                float animPos = pChart.getY()+pChart.getHeight();
-                if(animFlag == true && scrollY < animPos ){
-                    pChart.animateXY(2000,2000);
-                    animFlag = false;
-                } else if(scrollY > animPos ){
-                    animFlag = true;
-                }
-            }catch (Exception e){
-                    System.out.println(e);
-                }}
-        }) ;
+        /**
+        try {
+            view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                //false if chart in view
+                boolean animFlag = false;
 
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    try {
+                        //chart position plus chart height
+                        float animPos = pChart.getY() + pChart.getHeight();
+                        if (animFlag == true && scrollY < animPos) {
+                            pChart.animateXY(2000, 2000);
+                            animFlag = false;
+                        } else if (scrollY > animPos) {
+                            animFlag = true;
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+        }catch (Exception e){
+        }
+
+                */
 
 
 
@@ -386,7 +395,7 @@ public class StatsPageSelector extends Fragment {
         pChart.getLegend().setTypeface(retroFont);
         pChart.getLegend().setTextColor(ColorTemplate.rgb("#3C6478"));
 
-        view.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        view.setOnScrollChangeListener(new OnScrollChangeListener() {
             boolean animFlag1 = false;
             boolean animFlag2 = false;
             @Override
