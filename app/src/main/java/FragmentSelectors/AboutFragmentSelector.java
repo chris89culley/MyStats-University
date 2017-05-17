@@ -215,6 +215,7 @@ public class AboutFragmentSelector extends Fragment {
     }
 
     /**
+     *
      * Sets up the carousel text switcher which will be able to change the displayed text
      * depending on which person is displayed
      *
