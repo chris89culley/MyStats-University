@@ -215,6 +215,7 @@ public class AboutFragmentSelector extends Fragment {
     }
 
     /**
+     *
      * Sets up the carousel text switcher which will be able to change the displayed text
      * depending on which person is displayed
      *
@@ -222,6 +223,7 @@ public class AboutFragmentSelector extends Fragment {
      */
     private void setUpCarouselTextSwitcher(TextSwitcher description) {
 
+        description.setVerticalScrollBarEnabled(true);
         setAnimationsForDescription(description);
 
         description.setFactory(new ViewSwitcher.ViewFactory() {
@@ -229,6 +231,7 @@ public class AboutFragmentSelector extends Fragment {
             public View makeView() {
                 LayoutInflater inflater = LayoutInflater.from(AboutFragmentSelector.this.getContext());
                 TextView textView = (TextView) inflater.inflate(R.layout.item_title, null);
+                textView.setTextSize(11.0f);
                 textView.setTypeface(retroFont);
                 return textView;
             }

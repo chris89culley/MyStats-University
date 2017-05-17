@@ -19,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -337,6 +338,7 @@ public class SearchPage extends MenuViewActivity  {
                 updateLongAndLatDependingOnCurrentSelectedChoices();
 
                 if(shouldGetLocationFromLocationEditText || shouldGetLocationFromUserData) {
+                    Log.d(String.valueOf(shouldGetLocationFromUserData), String.valueOf(shouldGetLocationFromUserData));
                     RadiusChecker.getHitsAroundLocation(sizeOfRadius,
                             longitude,
                             latitude,
