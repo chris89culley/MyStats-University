@@ -1,0 +1,5 @@
+<application>
+  <component name="PathMacrosImpl">
+    <macro name="SDK" value="~/.bash_profile" />
+  </component>
+</application>
